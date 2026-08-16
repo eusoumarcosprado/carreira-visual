@@ -1,0 +1,8 @@
+Coloque aqui a landing page do curso "O Que Fica — Fotografia da Vida".
+
+1. Renomeie o arquivo HTML da landing page para  index.html
+2. Substitua o index.html que está nesta pasta por ele
+3. Se a landing page tiver uma pasta images/, coloque ela aqui dentro também
+4. Apague este arquivo de aviso
+
+Endereço final: carreiravisual.com.br/o-que-fica

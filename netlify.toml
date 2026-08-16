@@ -1,0 +1,22 @@
+# ============================================================
+# CARREIRA VISUAL — configuração para Netlify / Cloudflare Pages
+# (o .htaccess ao lado serve para hospedagem Apache/cPanel;
+#  cada serviço lê só o arquivo dele, não há conflito)
+# ============================================================
+
+[build]
+  publish = "."
+
+# Capas e fotos ficam guardadas no navegador por 1 ano
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# O HTML sempre busca a versão nova
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

@@ -1,0 +1,25 @@
+# Sistema
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Empacotamento e temporários
+*.zip
+*.tar
+*.tar.gz
+node_modules/
+.cache/
+.tmp/
+
+# Originais pesados — guarde fora do repositório (Drive, HD)
+originais/
+*.psd
+*.ai
+*.mp4
+*.mov

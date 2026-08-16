@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carreira Visual — Fotografia, Filmmaking e Carreira | Marcos Prado</title>
+<meta name="description" content="A plataforma de fotografia, filmmaking, criatividade e carreira de Marcos Prado. Cursos, mentorias, treinamentos e conteúdos gratuitos em um só lugar.">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://carreiravisual.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Carreira Visual">
+<meta property="og:title" content="Carreira Visual">
+<meta property="og:description" content="Fotografia. Filme. Criatividade. Carreira. Vida. Tudo o que aprendi vivendo de imagem, agora em um só lugar.">
+<meta property="og:url" content="https://carreiravisual.com.br/">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"EducationalOrganization","name":"Carreira Visual","url":"https://carreiravisual.com.br","founder":{"@type":"Person","name":"Marcos Prado","jobTitle":"Fotógrafo e Filmmaker","sameAs":["https://instagram.com/eusoumarcosprado"]},"description":"Plataforma de cursos, mentorias e conteúdos de fotografia, filmmaking e carreira audiovisual."}
+</script>
+<style>
+/* ============================================================
+   CARREIRA VISUAL — design tokens
+   ============================================================ */
+:root{
+  --black:#000000;
+  --surface:#161316;
+  --surface-2:#1d181a;
+  --line:rgba(255,255,255,.10);
+  --orange:#FF6D29;
+  --orange-deep:#E85002;
+  --ember:#C10801;
+  --brown:#453027;
+  --white:#FFFFFF;
+  --gray:#BABABA;
+  --gray-2:#8a8386;
+  --gray-dark:#333333;
+  --font:'Neue Montreal','PP Neue Montreal','General Sans','Switzer','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --mono:'DM Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --gutter:clamp(18px,5vw,72px);
+  --header-h:72px;
+  --radius:14px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--black);color:var(--white);
+  font-family:var(--font);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:4px}
+::selection{background:var(--orange);color:#000}
+
+/* atmosfera / luz ambiente ------------------------------------ */
+.ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.ambient i{position:absolute;display:block;border-radius:50%;filter:blur(90px);opacity:.55;
+  transition:opacity 1.2s var(--ease), transform 1.2s var(--ease)}
+.ambient .a1{width:70vw;height:70vw;left:-25vw;top:-15vw;
+  background:radial-gradient(circle at 50% 50%, rgba(255,109,41,.42), rgba(193,8,1,.16) 45%, transparent 70%)}
+.ambient .a2{width:55vw;height:55vw;right:-18vw;top:22vh;
+  background:radial-gradient(circle at 50% 50%, rgba(69,48,39,.75), rgba(232,80,2,.14) 50%, transparent 72%)}
+.ambient .a3{width:60vw;height:40vw;left:20vw;bottom:-18vw;
+  background:radial-gradient(circle at 50% 50%, rgba(232,80,2,.20), transparent 68%)}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* tipografia utilitária --------------------------------------- */
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray-2)}
+.eyebrow .dot{color:var(--orange)}
+h1,h2,h3,h4{margin:0;font-weight:600;letter-spacing:-.025em;line-height:1.02}
+p{margin:0}
+
+/* header ------------------------------------------------------- */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:60;height:var(--header-h);
+  display:flex;align-items:center;gap:24px;padding:0 var(--gutter);
+  transition:background .4s var(--ease),backdrop-filter .4s var(--ease),border-color .4s var(--ease);
+  border-bottom:1px solid transparent}
+.hdr::before{content:"";position:absolute;inset:0;z-index:-1;opacity:1;transition:opacity .4s var(--ease);
+  background:linear-gradient(to bottom,rgba(0,0,0,.85),rgba(0,0,0,0))}
+.hdr.scrolled{background:rgba(8,6,7,.72);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);border-bottom-color:var(--line)}
+.hdr.scrolled::before{opacity:0}
+.brand{display:flex;flex-direction:column;line-height:1;flex:0 0 auto}
+.brand b{font-size:19px;font-weight:600;letter-spacing:.16em}
+.brand span{font-family:var(--mono);font-size:9.5px;letter-spacing:.30em;color:var(--gray-2);text-transform:uppercase;margin-top:4px}
+.nav{display:flex;gap:26px;margin-left:14px;flex:1 1 auto}
+.nav a{font-size:14.5px;color:var(--gray);padding:6px 0;position:relative;transition:color .25s}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--orange);transition:right .35s var(--ease)}
+.nav a:hover{color:#fff}
+.nav a.active{color:#fff}
+.nav a.active::after{right:0}
+.hdr-actions{display:flex;align-items:center;gap:6px}
+.icon-btn{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;color:var(--gray);
+  transition:background .25s,color .25s,transform .25s}
+.icon-btn:hover{background:rgba(255,255,255,.08);color:#fff;transform:translateY(-1px)}
+.icon-btn svg{width:19px;height:19px}
+.avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:600;
+  background:linear-gradient(140deg,var(--orange),var(--ember));color:#fff;letter-spacing:.02em}
+@media(max-width:960px){.nav{display:none}.hdr{height:64px;gap:12px}.brand b{font-size:17px}}
+
+/* botões -------------------------------------------------------- */
+.btn{display:inline-flex;align-items:center;gap:9px;height:48px;padding:0 26px;border-radius:999px;
+  font-size:15px;font-weight:500;letter-spacing:-.01em;white-space:nowrap;
+  transition:transform .3s var(--ease),background .3s,box-shadow .3s,color .3s}
+.btn svg{width:16px;height:16px}
+.btn-primary{background:var(--white);color:#000}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(255,255,255,.16)}
+.btn-orange{background:var(--orange);color:#0b0708;font-weight:600}
+.btn-orange:hover{transform:translateY(-2px);background:#ff8347;box-shadow:0 14px 40px rgba(255,109,41,.36)}
+.btn-glass{background:rgba(255,255,255,.10);color:#fff;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.16)}
+.btn-glass:hover{background:rgba(255,255,255,.18);transform:translateY(-2px)}
+.btn-sm{height:40px;padding:0 20px;font-size:14px}
+
+/* estrutura ------------------------------------------------------ */
+main{position:relative;z-index:2}
+.section{padding:0 0 clamp(40px,7vw,86px)}
+.wrap{padding-inline:var(--gutter)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============================ HERO ============================= */
+.hero{position:relative;min-height:min(100svh,860px);display:flex;align-items:flex-end;isolation:isolate;overflow:hidden}
+.hero-media{position:absolute;inset:0;z-index:-2}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s var(--ease)}
+.hero-slide.on{opacity:1}
+.hero-slide picture{display:block;position:absolute;inset:0}
+.hero-slide img{width:100%;height:100%;object-fit:cover;object-position:center 32%;
+  transform:scale(1.06);transition:transform 9s linear}
+.hero-slide.on img{transform:scale(1.13)}
+.hero-media::after{content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(to top,#000 0%,rgba(0,0,0,.70) 13%,rgba(0,0,0,.16) 36%,transparent 58%),
+    linear-gradient(to right,rgba(0,0,0,.52) 0%,rgba(0,0,0,.10) 30%,transparent 56%)}
+.hero.light .hero-media::after{
+  background:
+    linear-gradient(to top,#000 0%,rgba(0,0,0,.80) 16%,rgba(0,0,0,.30) 42%,transparent 64%),
+    linear-gradient(to right,rgba(0,0,0,.70) 0%,rgba(0,0,0,.26) 34%,transparent 60%)}
+.hero-media::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(55% 60% at 6% 82%, rgba(255,109,41,.12), transparent 62%)}
+.hero-inner{position:relative;width:100%;padding:0 var(--gutter) clamp(46px,7vh,88px);
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:end}
+.hero-copy{max-width:720px}
+.hero-kicker{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.hero-kicker .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  padding:6px 12px;border:1px solid rgba(255,255,255,.22);border-radius:999px;color:#fff;background:rgba(0,0,0,.25);
+  backdrop-filter:blur(8px)}
+.hero-kicker .tag.hot{border-color:rgba(255,109,41,.5);color:var(--orange);background:rgba(255,109,41,.10)}
+.hero-title{font-size:clamp(38px,7.4vw,88px);font-weight:600;letter-spacing:-.04em;line-height:.95;
+  text-wrap:balance;text-shadow:0 10px 60px rgba(0,0,0,.55)}
+.hero-title.brand{letter-spacing:-.02em}
+.hero-sub{margin-top:20px;font-size:clamp(15px,1.6vw,19px);color:rgba(255,255,255,.86);max-width:46ch;line-height:1.45;
+  text-shadow:0 2px 22px rgba(0,0,0,.85)}
+.hero-meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--gray-2)}
+.hero-meta span{display:flex;align-items:center;gap:8px;text-shadow:0 2px 16px rgba(0,0,0,.9)}
+.hero-meta span+span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--orange);opacity:.8;margin-right:2px}
+.hero-cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.hero-poster{position:relative;width:190px;flex:0 0 auto;border-radius:12px;overflow:hidden;
+  box-shadow:0 30px 70px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.10);
+  transform:translateY(0) rotate(0);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.hero-poster:hover{transform:translateY(-8px);box-shadow:0 40px 90px rgba(0,0,0,.8),0 0 0 1px rgba(255,109,41,.45)}
+.hero-poster img{aspect-ratio:2/3;object-fit:cover;width:100%}
+.hero-poster figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.85);
+  background:linear-gradient(to top,rgba(0,0,0,.85),transparent)}
+
+/* film ticker — elemento assinatura ----------------------------- */
+.ticker{position:absolute;left:0;top:0;bottom:0;width:34px;z-index:3;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px;border-right:1px solid rgba(255,255,255,.07);
+  background:linear-gradient(to right,rgba(0,0,0,.55),transparent)}
+.ticker .sprocket{width:7px;height:11px;border-radius:2px;background:rgba(255,255,255,.14);flex:0 0 auto}
+.ticker .sprocket.lit{background:var(--orange);box-shadow:0 0 14px rgba(255,109,41,.8)}
+.ticker .label{position:absolute;bottom:26px;left:50%;transform:translateX(-50%) rotate(180deg);writing-mode:vertical-rl;
+  font-family:var(--mono);font-size:9px;letter-spacing:.34em;text-transform:uppercase;color:var(--gray-2);white-space:nowrap}
+@media(max-width:900px){.ticker{display:none}}
+
+/* progresso dos slides */
+.hero-bars{position:absolute;right:var(--gutter);bottom:clamp(46px,7vh,88px);display:flex;gap:8px;z-index:4}
+.hero-bars button{width:34px;height:3px;border-radius:2px;background:rgba(255,255,255,.22);overflow:hidden;position:relative}
+.hero-bars button i{position:absolute;inset:0;width:0;background:var(--orange);display:block}
+.hero-bars button.on i{width:100%;transition:width var(--hero-dur,8s) linear}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;padding-bottom:calc(56px + env(safe-area-inset-bottom))}
+  .hero-poster{display:none}
+  .hero-bars{left:var(--gutter);right:auto;bottom:22px}
+  .hero{min-height:84svh}
+  .hero-slide img{object-position:center center}
+  .hero-sub,.hero-meta{display:none}
+  .hero-title{font-size:clamp(30px,7.6vw,44px)}
+  .hero-cta{margin-top:22px}
+  .hero-cta .btn{height:44px;padding:0 20px;font-size:14px}
+}
+
+/* ============================ FILEIRAS ========================= */
+.row{margin-top:clamp(30px,4.5vw,54px)}
+.row-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding-inline:var(--gutter);margin-bottom:16px}
+.row-head h2{font-size:clamp(17px,2vw,23px);font-weight:600;letter-spacing:-.02em;display:flex;align-items:center;gap:12px}
+.row-head h2::before{content:"";width:3px;height:16px;border-radius:2px;background:var(--orange);opacity:.9}
+.row-head .more{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray-2);
+  display:flex;align-items:center;gap:7px;transition:color .25s,gap .25s;flex:0 0 auto}
+.row-head .more:hover{color:var(--orange);gap:11px}
+.rail-wrap{position:relative}
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;
+  padding:10px var(--gutter) 34px;scrollbar-width:none;-ms-overflow-style:none}
+.rail::-webkit-scrollbar{display:none}
+.rail-btn{position:absolute;top:0;bottom:34px;width:64px;z-index:5;display:none;place-items:center;
+  background:linear-gradient(to right,rgba(0,0,0,.9),rgba(0,0,0,0));opacity:0;transition:opacity .3s;color:#fff}
+.rail-btn.next{right:0;background:linear-gradient(to left,rgba(0,0,0,.9),rgba(0,0,0,0))}
+.rail-btn svg{width:26px;height:26px}
+.rail-wrap:hover .rail-btn{opacity:1}
+@media(hover:hover) and (min-width:1000px){.rail-btn{display:grid}}
+
+/* card vertical 2:3 */
+.card{--cw:clamp(140px,42vw,172px);flex:0 0 auto;width:var(--cw);height:calc(var(--cw)*1.5);
+  scroll-snap-align:start;position:relative;border-radius:12px;
+  overflow:hidden;background:var(--surface);cursor:pointer;
+  transition:width .55s var(--ease),transform .45s var(--ease),box-shadow .45s var(--ease);
+  box-shadow:0 0 0 1px rgba(255,255,255,.06)}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:var(--surface-2);
+  transition:opacity .5s var(--ease)}
+.card .art-h{opacity:0}
+.card-veil{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:14px 13px;
+  background:linear-gradient(to top,rgba(0,0,0,.94) 0%,rgba(0,0,0,.55) 32%,transparent 62%);
+  opacity:0;transform:translateY(10px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.card-veil .cat{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:7px}
+.card-veil .ttl{font-size:14px;font-weight:600;letter-spacing:-.02em;line-height:1.15}
+.card-veil .go{margin-top:11px;display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:500;
+  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);
+  padding:7px 12px;border-radius:999px;align-self:flex-start}
+.card-badge{position:absolute;top:9px;left:9px;font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;
+  text-transform:uppercase;padding:5px 8px;border-radius:5px;background:rgba(255,109,41,.92);color:#160b04;font-weight:500}
+.card-badge.ghost{background:rgba(0,0,0,.62);color:#fff;border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px)}
+@media(hover:hover){
+  .card:hover{transform:translateY(-8px);z-index:6;
+    box-shadow:0 26px 54px rgba(0,0,0,.72),0 0 0 1px rgba(255,109,41,.5),0 0 44px rgba(255,109,41,.16)}
+  .card:hover .card-veil{opacity:1;transform:none}
+  /* Netflix TV: a miniatura vertical vira a capa horizontal ao selecionar */
+  .rail .card.wide:hover{width:calc(var(--cw)*8/3);transition-delay:.16s,0s,0s}
+  .rail .card.wide:hover .art-v{opacity:0;transition-delay:.16s}
+  .rail .card.wide:hover .art-h{opacity:1;transition-delay:.16s}
+  .rail .card.wide:hover .card-veil{background:linear-gradient(to top,rgba(0,0,0,.80) 0%,rgba(0,0,0,.20) 34%,transparent 58%)}
+  .rail .card.wide:hover .cat,.rail .card.wide:hover .ttl{opacity:0;transition:opacity .3s}
+  .rail .card.wide:hover .go{margin-top:0}
+}
+.card:active{transform:scale(.985)}
+@media(hover:none){.card-veil{opacity:1;transform:none;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.35) 38%,transparent 60%)}
+  .card-veil .go{display:none}.card-veil .ttl{font-size:13px}}
+@media(min-width:1400px){.card{--cw:196px}}
+.grid .card{height:auto;aspect-ratio:2/3}
+.grid .card img{position:absolute}
+
+/* card horizontal (vídeos) */
+.vcard{flex:0 0 auto;width:clamp(240px,72vw,340px);scroll-snap-align:start;cursor:pointer;position:relative;
+  transition:transform .45s var(--ease)}
+.vcard .thumb{position:relative;border-radius:11px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.07)}
+.vcard img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.vcard .play{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .35s;
+  background:rgba(0,0,0,.35)}
+.vcard .play i{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:rgba(255,109,41,.95);
+  box-shadow:0 8px 30px rgba(255,109,41,.5)}
+.vcard .play svg{width:18px;height:18px;color:#120704;margin-left:2px}
+.vcard h3{font-size:14px;font-weight:500;margin-top:11px;letter-spacing:-.01em;line-height:1.3}
+.vcard .meta{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-2);margin-top:6px}
+@media(hover:hover){.vcard:hover{transform:translateY(-6px)}.vcard:hover .play{opacity:1}
+  .vcard:hover .thumb{box-shadow:0 20px 46px rgba(0,0,0,.6),0 0 0 1px rgba(255,109,41,.45)}}
+
+/* ==================== BLOCO EDITORIAL / MARCOS ================= */
+.editorial{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,70px);align-items:center;
+  padding:clamp(46px,7vw,96px) var(--gutter);position:relative}
+.editorial::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(to right,transparent,rgba(255,109,41,.45),transparent)}
+.editorial h2{font-size:clamp(34px,6vw,74px);letter-spacing:-.045em;line-height:.94;text-wrap:balance}
+.editorial h2 em{font-style:normal;color:var(--orange)}
+.editorial p{margin-top:22px;color:rgba(255,255,255,.72);font-size:clamp(15px,1.5vw,18px);max-width:44ch;line-height:1.55}
+.editorial .figure{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.65)}
+.editorial .figure img{width:100%;height:auto;display:block}
+.editorial .figure::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.55),transparent 45%),
+             radial-gradient(70% 60% at 80% 10%,rgba(255,109,41,.22),transparent 60%)}
+.stats{display:flex;flex-wrap:wrap;gap:26px 40px;margin-top:34px}
+.stats div b{display:block;font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-.03em}
+.stats div span{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray-2)}
+@media(max-width:860px){.editorial{grid-template-columns:1fr}.editorial .figure{order:-1}}
+
+/* ==================== INSTAGRAM / PORTFOLIO ==================== */
+.gallery{columns:3;column-gap:12px;padding-inline:var(--gutter)}
+.gallery figure{margin:0 0 12px;break-inside:avoid;position:relative;overflow:hidden;border-radius:10px;
+  background:var(--surface);cursor:zoom-in}
+.gallery img{width:100%;height:auto;display:block;transition:transform 1.1s var(--ease)}
+.gallery figure::after{content:"";position:absolute;inset:0;opacity:0;transition:opacity .45s;
+  background:linear-gradient(to top,rgba(0,0,0,.45),transparent 50%),
+             radial-gradient(80% 60% at 50% 100%,rgba(255,109,41,.18),transparent 70%)}
+@media(hover:hover){.gallery figure:hover img{transform:scale(1.04)}.gallery figure:hover::after{opacity:1}}
+.feature{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(20px,4vw,60px);align-items:end;
+  padding:0 var(--gutter) clamp(26px,3.4vw,40px)}
+.feature h2{font-size:clamp(32px,5.6vw,68px);letter-spacing:-.045em;line-height:.94;margin-top:16px;text-wrap:balance}
+.feature h2 em{font-style:normal;color:var(--orange)}
+.feature p{color:rgba(255,255,255,.72);font-size:clamp(15px,1.5vw,17px);max-width:42ch;line-height:1.55}
+.feature-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+@media(max-width:860px){.feature{grid-template-columns:1fr;align-items:start}}
+
+/* seção títulos grandes (páginas internas) */
+.page-head{padding:calc(var(--header-h) + clamp(40px,8vw,90px)) var(--gutter) clamp(24px,4vw,44px)}
+.page-head h1{font-size:clamp(40px,9vw,104px);letter-spacing:-.05em;line-height:.9}
+.page-head p{margin-top:18px;color:var(--gray);max-width:56ch;font-size:clamp(15px,1.6vw,18px)}
+.chips{display:flex;gap:9px;overflow-x:auto;padding:22px var(--gutter) 4px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;padding:9px 17px;border-radius:999px;border:1px solid var(--line);font-size:13.5px;color:var(--gray);
+  transition:all .3s var(--ease);background:rgba(255,255,255,.02)}
+.chip:hover{color:#fff;border-color:rgba(255,255,255,.3)}
+.chip.on{background:var(--orange);border-color:var(--orange);color:#150a04;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:clamp(12px,1.6vw,20px);
+  padding:26px var(--gutter) 40px}
+.grid .card{width:100%}
+.grid-v{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.grid-v .vcard{width:100%}
+.empty{padding:60px var(--gutter);color:var(--gray-2);font-size:15px}
+
+/* ============================ MODAL ============================ */
+.modal{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:24px}
+.modal.open{display:flex}
+.modal-bd{position:absolute;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  animation:fade .4s var(--ease)}
+.modal-box{position:relative;width:min(920px,100%);max-height:min(90svh,900px);overflow:auto;border-radius:18px;
+  background:linear-gradient(to bottom,#191416,#0c0a0b);box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.09);
+  animation:pop .5s var(--ease);scrollbar-width:thin}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:translateY(30px) scale(.97)}to{opacity:1;transform:none}}
+.modal-hero{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000}
+.modal-hero picture{display:contents}
+.modal-hero img{width:100%;height:100%;object-fit:cover}
+@media(max-width:720px){.modal-hero{aspect-ratio:2/3}.modal-hero.poster{aspect-ratio:2/3}}
+.modal-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#191416 3%,rgba(25,20,22,.35) 45%,transparent 75%)}
+.modal-hero.poster img{object-fit:contain;background:#0b0809}
+.modal-box.photo{width:auto;max-width:min(1200px,100%);background:none;box-shadow:none;overflow:visible}
+.modal-box.photo img{max-width:100%;max-height:86svh;width:auto;height:auto;border-radius:12px;
+  box-shadow:0 40px 120px rgba(0,0,0,.8)}
+.modal-box.photo figcaption{margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gray-2);max-width:70ch}
+.modal-close{position:absolute;top:14px;right:14px;z-index:3;width:38px;height:38px;border-radius:50%;
+  background:rgba(0,0,0,.6);backdrop-filter:blur(10px);display:grid;place-items:center;border:1px solid rgba(255,255,255,.16)}
+.modal-close svg{width:16px;height:16px}
+.modal-body{padding:0 clamp(20px,3.4vw,40px) clamp(26px,3.4vw,38px);margin-top:-52px;position:relative;z-index:2}
+.modal-body h2{font-size:clamp(26px,4.2vw,44px);letter-spacing:-.035em;line-height:1}
+.modal-tags{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.modal-tags span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);
+  border:1px solid var(--line);padding:6px 11px;border-radius:6px}
+.modal-body>p{margin-top:20px;color:rgba(255,255,255,.76);font-size:16px;line-height:1.6;max-width:62ch}
+.modal-cols{display:grid;grid-template-columns:1.4fr 1fr;gap:30px;margin-top:26px}
+.modal-cols h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray-2);
+  font-weight:400;margin-bottom:12px}
+.modal-cols ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.modal-cols li{display:flex;gap:11px;font-size:14.5px;color:rgba(255,255,255,.82);line-height:1.4}
+.modal-cols li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--orange);margin-top:8px;flex:0 0 auto}
+.modal-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
+@media(max-width:720px){.modal{padding:0}.modal-box{max-height:100svh;height:100svh;border-radius:0;width:100%}
+  .modal-cols{grid-template-columns:1fr;gap:22px}
+  .modal-cta{position:sticky;bottom:0;background:linear-gradient(to top,#0c0a0b 70%,transparent);
+    padding-bottom:calc(18px + env(safe-area-inset-bottom))}}
+
+/* ============================ BUSCA ============================ */
+.search{position:fixed;inset:0;z-index:130;display:none;flex-direction:column;background:rgba(6,4,5,.94);
+  backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+.search.open{display:flex;animation:fade .3s var(--ease)}
+.search-top{padding:clamp(28px,6vw,70px) var(--gutter) 0;display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.search-top h2{font-size:clamp(26px,4.6vw,44px);letter-spacing:-.035em}
+.search-field{padding:26px var(--gutter) 0;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--line);
+  margin:0 var(--gutter);padding-inline:0;padding-bottom:14px}
+.search-field svg{width:22px;height:22px;color:var(--orange);flex:0 0 auto}
+.search-field input{flex:1;background:none;border:0;outline:none;color:#fff;font-family:var(--font);
+  font-size:clamp(20px,3.4vw,32px);letter-spacing:-.02em}
+.search-field input::placeholder{color:#4d4749}
+.search-hints{display:flex;flex-wrap:wrap;gap:8px;padding:20px var(--gutter) 0}
+.search-hints button{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-2);
+  border:1px solid var(--line);padding:7px 13px;border-radius:999px;transition:all .25s}
+.search-hints button:hover{color:var(--orange);border-color:rgba(255,109,41,.45)}
+.search-results{flex:1;overflow:auto;padding-bottom:40px}
+
+/* ============================ FOOTER =========================== */
+footer{position:relative;z-index:2;border-top:1px solid var(--line);margin-top:40px;
+  padding:clamp(44px,6vw,80px) var(--gutter) calc(46px + env(safe-area-inset-bottom));
+  background:linear-gradient(to bottom,rgba(22,19,22,.6),rgba(0,0,0,1))}
+.foot-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px}
+.foot-mark b{font-size:clamp(28px,4.6vw,46px);font-weight:600;letter-spacing:-.03em;display:block;line-height:1}
+.foot-mark span{font-family:var(--mono);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gray-2);
+  display:block;margin-top:10px}
+.foot-col h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray-2);
+  font-weight:400;margin-bottom:16px}
+.foot-col a{display:block;color:var(--gray);font-size:14.5px;padding:5px 0;transition:color .25s,transform .25s}
+.foot-col a:hover{color:var(--orange);transform:translateX(3px)}
+.foot-bottom{margin-top:clamp(34px,5vw,60px);padding-top:22px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:12px 26px;justify-content:space-between;align-items:center;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#5d5658}
+.foot-bottom a:hover{color:var(--orange)}
+@media(max-width:760px){.foot-top{grid-template-columns:1fr 1fr}.foot-mark{grid-column:span 2}}
+
+/* ========================= TABBAR MOBILE ======================= */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:100;display:none;
+  padding:9px 6px calc(9px + env(safe-area-inset-bottom));
+  background:rgba(10,8,9,.78);backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%);
+  border-top:1px solid rgba(255,255,255,.09)}
+.tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;color:#6f696b;
+  font-size:10px;letter-spacing:.02em;padding:4px 0;transition:color .25s;position:relative}
+.tabbar a svg{width:21px;height:21px}
+.tabbar a.on{color:#fff}
+.tabbar a.on::before{content:"";position:absolute;top:-9px;width:22px;height:2px;border-radius:2px;background:var(--orange);
+  box-shadow:0 0 12px rgba(255,109,41,.9)}
+@media(max-width:960px){.tabbar{display:flex}body{padding-bottom:70px}main{padding-bottom:10px}}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .hero-slide img{transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="ambient" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="hdr" id="hdr">
+  <a class="brand" href="#/" aria-label="Carreira Visual — início">
+    <b>CARREIRA</b><span>visual</span>
+  </a>
+  <nav class="nav" id="nav" aria-label="Navegação principal"></nav>
+  <div class="hdr-actions">
+    <button class="icon-btn" id="openSearch" aria-label="Buscar na plataforma">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    </button>
+    <a class="icon-btn" data-social="instagram" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a class="icon-btn" data-social="youtube" target="_blank" rel="noopener" aria-label="YouTube">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5" width="19" height="14" rx="4.5"/><path d="M10.5 9.2v5.6l4.6-2.8z" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a class="avatar" href="#/sobre" aria-label="Sobre Marcos Prado">MP</a>
+  </div>
+</header>
+
+<main id="view"></main>
+
+<footer>
+  <div class="foot-top">
+    <div class="foot-mark">
+      <b>CARREIRA<br>VISUAL</b>
+      <span>Rio de Janeiro — Brasil</span>
+    </div>
+    <div class="foot-col">
+      <h4>Plataforma</h4>
+      <a href="#/cursos">Cursos</a>
+      <a href="#/mentorias">Mentorias</a>
+      <a href="#/assistir">Assistir</a>
+      <a href="#/explorar">Explorar</a>
+    </div>
+    <div class="foot-col">
+      <h4>Marcos Prado</h4>
+      <a href="#/portfolio">Portfolio</a>
+      <a href="#/sobre">Sobre</a>
+      <a href="#/contato">Contato</a>
+      <a data-social="instagram" target="_blank" rel="noopener">Instagram ↗</a>
+      <a data-social="youtube" target="_blank" rel="noopener">YouTube ↗</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>CarreiraVisual.com.br</span>
+    <span>© <span id="yr"></span> Carreira Visual — Todos os direitos reservados</span>
+  </div>
+</footer>
+
+<nav class="tabbar" id="tabbar" aria-label="Navegação mobile"></nav>
+
+<!-- BUSCA -->
+<div class="search" id="search" role="dialog" aria-modal="true" aria-label="Buscar">
+  <div class="search-top">
+    <h2>O que você quer aprender hoje?</h2>
+    <button class="icon-btn" id="closeSearch" aria-label="Fechar busca">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="search-field">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="searchInput" type="search" placeholder="fotografia, iluminação, corrida, Fuji, mentoria…" autocomplete="off">
+  </div>
+  <div class="search-hints" id="searchHints"></div>
+  <div class="search-results" id="searchResults"></div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="modal-bd" data-close></div>
+  <div class="modal-box" id="modalBox"></div>
+</div>
+
+<script>
+/* ==================================================================
+   CONFIG — edite aqui. Nada de mexer no resto do código.
+   ================================================================== */
+const CONFIG = {
+  brand: 'Carreira Visual',
+  domain: 'CarreiraVisual.com.br',
+  instagram: 'https://instagram.com/eusoumarcosprado',
+  youtube:   'https://youtube.com/@eusoumarcosprado',
+  email:     'marcosprado011@hotmail.com',
+  whatsapp:  'https://wa.me/5521000000000',      // <- trocar número
+  heroInterval: 7000,                            // tempo de cada slide do hero (ms)
+
+  /* Endereço da landing page de cada produto.
+     Cada um corresponde a uma PASTA dentro do site. Ex.: a pasta /lap/ com um
+     index.html dentro vira carreiravisual.com.br/lap
+     Para apontar para um link externo (Hotmart, Kiwify), basta colar a URL completa. */
+  links: {
+    oquefica:    '/o-que-fica',
+    lap:         '/lap',
+    correycria:  '/corre-y-cria',
+    fuji:        '/domine-sua-fuji',
+    quadros:     '/quadros-lucrativos',
+    masterclass: '/masterclass-documentario-esportivo',
+    direcao:     '/mentoria-direcao',
+    vintagefilm: '/vintagefilm',
+    presets:     '/presets-fuji'
+  },
+
+  /* IDs dos vídeos do YouTube — trocar pelos reais (ex.: 'dQw4w9WgXcQ') */
+  videoIds: { ironman:'F5TyemRbqDs', tulio:'n5Rb8m6buSw', hyrox:'zvkgnexbPBc' }
+};
+
+/* ==================================================================
+   CONTEÚDO — adicionar um curso novo = adicionar um objeto aqui.
+   ================================================================== */
+const PRODUCTS = [
+  {
+    id:'oquefica', title:'O Que Fica', sub:'Fotografia da Vida',
+    cat:'Fotografia autoral', level:'Todos os níveis', format:'Curso online',
+    tags:['fotografia','autoral','rua','memória','olhar','vida'],
+    cover:'images/oquefica.webp', wide:'images/oquefica_h.webp', url:CONFIG.links.oquefica, badge:'Novo',
+    tagline:'Fotografe a vida enquanto ela acontece.',
+    desc:'Um curso autoral em cinco atos sobre presença, olhar e tempo. Menos técnica decorada, mais fotografia que sobrevive ao dia seguinte. Para quem quer parar de produzir imagem bonita e começar a produzir imagem que fica.',
+    points:['Construir olhar próprio em vez de copiar referência','Fotografar rua, pessoas e cotidiano sem invadir','Editar por narrativa, não por curtida','Montar um corpo de trabalho autoral'],
+    rows:['destaque']
+  },
+  {
+    id:'lap', title:'LAP', sub:'Luz Automotiva Publicitária',
+    cat:'Iluminação • Automotivo', level:'Intermediário', format:'Curso online',
+    tags:['iluminação','automotivo','publicidade','carro','estúdio','pós-produção'],
+    cover:'images/lap.webp', wide:'images/lap_h.webp', url:CONFIG.links.lap, badge:'',
+    tagline:'Domine a construção da imagem automotiva publicitária.',
+    desc:'Exposição, composição, iluminação e pós-produção aplicadas ao carro. O caminho completo da leitura da forma até a imagem final que vai pra campanha.',
+    points:['Ler o volume do carro antes de acender qualquer luz','Light painting e composição por camadas','Set de estúdio e locação noturna','Pós-produção: montagem, limpeza e acabamento'],
+    rows:['destaque']
+  },
+  {
+    id:'correycria', title:'Corre y Cria', sub:'Fotografia e filmmaking na indústria da corrida',
+    cat:'Esporte • Carreira', level:'Todos os níveis', format:'Curso completo',
+    tags:['esporte','corrida','carreira','fotografia','filmmaking','mercado','evento'],
+    cover:'images/correycria.webp', wide:'images/correycria_h.webp', url:CONFIG.links.correycria, badge:'Mais assistido',
+    tagline:'A corrida virou indústria. E ela precisa de imagem.',
+    desc:'O mercado esportivo é hoje um dos que mais contrata imagem no Brasil. Aqui você aprende a fotografar e filmar corrida de verdade, entender o ecossistema, se posicionar e viver disso.',
+    points:['Fotografia esportiva em prova e em treino','Filmmaking com narrativa de atleta','Como entrar em assessorias, marcas e eventos','Precificação e relacionamento no mercado da corrida'],
+    rows:['destaque']
+  },
+  {
+    id:'fuji', title:'Domine Sua Fuji', sub:'Sua Fuji pode muito mais',
+    cat:'Equipamento • Fujifilm', level:'Iniciante ao avançado', format:'Curso online',
+    tags:['fuji','fujifilm','câmera','film simulation','recipes','equipamento','vídeo'],
+    cover:'images/fuji.webp', wide:'images/fuji_h.webp', url:CONFIG.links.fuji, badge:'',
+    tagline:'Entenda, configure e explore sua Fujifilm de verdade.',
+    desc:'Do menu ao workflow: fotografia, vídeo, lentes, cores, Film Simulations e Recipes. Com Marcos Prado, embaixador global Fujifilm X-Series.',
+    points:['Configuração real da câmera para foto e vídeo','Film Simulations e Recipes na prática','Escolha de lentes X Series e GFX','Workflow do cartão à entrega'],
+    rows:['destaque']
+  },
+  {
+    id:'quadros', title:'Quadros Lucrativos', sub:'Sua fotografia pode valer muito mais que um post',
+    cat:'Fine Art • Negócio', level:'Todos os níveis', format:'Curso online',
+    tags:['fine art','quadros','venda','negócio','renda','impressão','precificação'],
+    cover:'images/quadros.webp', wide:'images/quadros_h.webp', url:CONFIG.links.quadros, badge:'',
+    tagline:'Transforme suas fotos em arte e renda.',
+    desc:'Fotografia é arte. Precificação é estratégia. O caminho para transformar o seu acervo em quadro impresso, cliente atendido e dinheiro no fim do mês.',
+    points:['Selecionar imagens que vendem como arte','Impressão, papel, moldura e fornecedores','Precificar sem se sabotar','Vender para pessoas, escritórios e interiores'],
+    rows:['destaque']
+  },
+  {
+    id:'masterclass', title:'Masterclass Documentário Esportivo', sub:'Da história ao filme',
+    cat:'Filmmaking • Documentário', level:'Intermediário ao avançado', format:'Masterclass',
+    tags:['documentário','filmmaking','esporte','narrativa','direção','edição','triathlon'],
+    cover:'images/masterclass.webp', wide:'images/masterclass_h.webp', url:CONFIG.links.masterclass, badge:'Original',
+    tagline:'Todo atleta é uma história esperando um diretor.',
+    desc:'O processo completo de um documentário esportivo: encontrar a história, dirigir o personagem, filmar a prova e montar o filme. Da apuração à entrega.',
+    points:['Achar e estruturar a história antes da câmera','Entrevista e direção de atleta','Cobertura de prova sem perder o filme','Montagem, ritmo e som'],
+    rows:['destaque']
+  },
+  {
+    id:'direcao', title:'Mentoria Direção', sub:'Para fotógrafos e filmmakers',
+    cat:'Mentoria 1:1', level:'Profissional', format:'Acompanhamento individual',
+    tags:['mentoria','carreira','posicionamento','portfólio','business','direção','1:1'],
+    cover:'images/direcao.webp', wide:'images/direcao_h.webp', url:CONFIG.links.direcao, badge:'Premium',
+    tagline:'Alavanque sua carreira no audiovisual.',
+    desc:'Estratégia, posicionamento, portfólio e direção para quem quer crescer com clareza. Encontros individuais, análise real do seu trabalho e um plano que cabe na sua realidade.',
+    points:['Diagnóstico de portfólio e posicionamento','Precificação e proposta comercial','Direção criativa dos seus projetos','Plano de crescimento com metas reais'],
+    rows:['destaque']
+  },
+  {
+    id:'vintagefilm', title:'VintageFilm', sub:'Pack de LUTs para vídeos',
+    cat:'Ferramentas • Cor', level:'Todos os níveis', format:'Pack digital',
+    tags:['lut','cor','color grading','vídeo','vintage','film look','edição'],
+    cover:'images/vintagefilm.webp', wide:'images/vintagefilm_h.webp', url:CONFIG.links.vintagefilm, badge:'',
+    tagline:'Cores cinematográficas com personalidade vintage.',
+    desc:'LUTs prontas para dar textura e caráter de filme aos seus vídeos, com guia de aplicação para não estourar pele nem quebrar o material.',
+    points:['LUTs para material log e padrão','Guia de aplicação e intensidade','Ajuste de pele e contraste','Consistência entre cenas'],
+    rows:['ferramentas']
+  },
+  {
+    id:'presets', title:'Presets Fuji', sub:'Pack de presets para Lightroom',
+    cat:'Ferramentas • Cor', level:'Todos os níveis', format:'Pack digital',
+    tags:['preset','lightroom','cor','fuji','fujifilm','edição','celular'],
+    cover:'images/presets.webp', wide:'images/presets_h.webp', url:CONFIG.links.presets, badge:'',
+    tagline:'Cores da Fujifilm em qualquer câmera — e também no celular.',
+    desc:'Presets de Lightroom construídos a partir das cores Fujifilm, para desktop e mobile, com instalação passo a passo.',
+    points:['Presets para desktop e celular','Base de cor Fujifilm','Instalação passo a passo','Ajuste fino por tipo de luz'],
+    rows:['ferramentas']
+  }
+];
+
+const VIDEOS = [
+  { id:'ironman', title:'Ironman 70.3 Rio de Janeiro', meta:'Documentário • Esporte',
+    thumb:'images/ironman_h.webp', tags:['esporte','triathlon','rio','documentário'],
+    desc:'Um dia inteiro dentro do Ironman 70.3 do Rio de Janeiro: largada no mar, bike na orla e a corrida que decide tudo. Filmado entre atletas, sem trilha de herói.' },
+  { id:'tulio', title:'Tulio Coutto no Rio de Janeiro', meta:'Bastidores • Fotografia',
+    thumb:'images/tulio_h.webp', tags:['fotografia','bastidores','rio','retrato'],
+    desc:'Sol, praia, pessoas e boas histórias. Dois dias fotografando o Rio ao lado de Tulio Coutto — e uma aula de aproximação que não cabe em manual.' },
+  { id:'hyrox', title:'Minha primeira vez no Hyrox', meta:'Vlog • Treino',
+    thumb:'images/hyrox_h.webp', tags:['esporte','treino','vlog','hyrox'],
+    desc:'Entrei num Hyrox sem saber direito onde estava me metendo. O que ficou: dor, ritmo e material bom pra caramba.' }
+];
+
+const HERO = [
+  { kind:'product', pid:'masterclass',  tag:'Original',        hot:true  },
+  { kind:'product', pid:'correycria',   tag:'Curso',           hot:false },
+  { kind:'product', pid:'oquefica',     tag:'Curso autoral',   hot:true  },
+  { kind:'product', pid:'lap',          tag:'Curso',           hot:false },
+  { kind:'product', pid:'fuji',         tag:'Curso online',    hot:false },
+  { kind:'product', pid:'quadros',      tag:'Curso',           hot:false, light:true },
+  { kind:'product', pid:'direcao',      tag:'Mentoria 1:1',    hot:true,  light:true },
+  { kind:'product', pid:'vintagefilm',  tag:'Pack de LUTs',    hot:false },
+  { kind:'product', pid:'presets',      tag:'Pack de presets', hot:false }
+];
+
+const ROWS = [
+  { key:'destaque',    title:'Cursos e Mentorias',    more:'#/explorar' },
+  { key:'ferramentas', title:'Ferramentas & Presets', more:'#/explorar' }
+];
+
+const FILTERS = [
+  ['todos','Todos'],['fotografia','Fotografia'],['filmmaking','Filme'],['carreira','Negócios & Carreira'],
+  ['esporte','Esporte'],['equipamento','Equipamentos'],['fineart','Fine Art'],['mentorias','Mentorias'],['gratuitos','Gratuitos']
+];
+const FILTER_MAP = {
+  fotografia:['oquefica','lap','correycria','fuji','presets'],
+  filmmaking:['masterclass','correycria','vintagefilm','lap'],
+  carreira:['quadros','correycria','direcao'],
+  esporte:['correycria','masterclass'],
+  equipamento:['fuji','presets','vintagefilm'],
+  fineart:['quadros','oquefica'],
+  mentorias:['direcao']
+};
+
+const NAV = [['#/','Início'],['#/cursos','Cursos'],['#/mentorias','Mentorias'],['#/assistir','Assistir'],
+             ['#/portfolio','Portfolio'],['#/sobre','Sobre'],['#/explorar','Explorar']];
+
+const PHOTOS = [
+  {src:'images/g01.webp', alt:'Pescadores empurrando o barco ao amanhecer em Copacabana, com o Pão de Açúcar ao fundo'},
+  {src:'images/g12.webp', alt:'Trompetista tocando no fim de tarde do Arpoador, Rio de Janeiro'},
+  {src:'images/g08.webp', alt:'Helicóptero sobrevoando o Corcovado visto do mirante, Rio de Janeiro'},
+  {src:'images/g02.webp', alt:'Praia de Copacabana lotada em preto e branco, vista do alto'},
+  {src:'images/g03.webp', alt:'Meninos observando o mar do alto das pedras do Arpoador'},
+  {src:'images/g10.webp', alt:'Cristo Redentor entre as nuvens, em preto e branco'},
+  {src:'images/g04.webp', alt:'Meninos molhados rindo depois do banho de mar, em preto e branco'},
+  {src:'images/g05.webp', alt:'Passista de escola de samba com fantasia roxa durante o carnaval'},
+  {src:'images/g13.webp', alt:'Homem carregando caixa na cabeça em movimento, luzes borradas ao fundo'},
+  {src:'images/g06.webp', alt:'Barraca de hortaliças na feira, Rio de Janeiro'},
+  {src:'images/g14.webp', alt:'Menino de mãos na cintura observando a praia, em preto e branco'},
+  {src:'images/g11.webp', alt:'Pimentas e conservas dispostas em pratos de papel numa banca de feira'},
+  {src:'images/g07.webp', alt:'Interior do Oculus em Nova York, em preto e branco'},
+  {src:'images/g09.webp', alt:'Pessoas sentadas na borda do Top of the Rock diante do Central Park, Nova York'}
+];
+
+/* ==================================================================
+   MOTOR
+   ================================================================== */
+const $  = (s,c=document)=>c.querySelector(s);
+const $$ = (s,c=document)=>[...c.querySelectorAll(s)];
+const P  = id => PRODUCTS.find(p=>p.id===id);
+const V  = id => VIDEOS.find(v=>v.id===id);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+const ICONS = {
+  play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>',
+  grid:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2"/></svg>',
+  info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.1"/></svg>',
+  arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h13M13 6l6 6-6 6"/></svg>',
+  home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg>',
+  watch:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10.5 9.3v5.4l4.5-2.7z" fill="currentColor" stroke="none"/></svg>',
+  search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
+  cap:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 4 2.5 9 12 14l9.5-5z"/><path d="M6.5 11.5V16c0 1.4 2.5 2.6 5.5 2.6s5.5-1.2 5.5-2.6v-4.5"/></svg>',
+  user:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.7 4-5.6 7.5-5.6s6.3 1.9 7.5 5.6"/></svg>'
+};
+
+/* ---------- componentes ---------- */
+function cardV(p){
+  return `<article class="card${p.wide?' wide':''}" data-open="${p.id}" tabindex="0" role="button" aria-label="${esc(p.title)}">
+    ${p.badge?`<span class="card-badge ${p.badge==='Original'||p.badge==='Premium'?'ghost':''}">${esc(p.badge)}</span>`:''}
+    <img class="art-v" src="${p.cover}" alt="Capa do curso ${esc(p.title)}" loading="lazy" decoding="async">
+    ${p.wide?`<img class="art-h" data-src="${p.wide}" alt="" aria-hidden="true" decoding="async">`:''}
+    <div class="card-veil">
+      <span class="cat">${esc(p.cat)}</span>
+      <span class="ttl">${esc(p.title)}</span>
+      <span class="go">${ICONS.play} Conhecer</span>
+    </div>
+  </article>`;
+}
+function cardVid(v){
+  return `<article class="vcard" data-video="${v.id}" tabindex="0" role="button" aria-label="${esc(v.title)}">
+    <div class="thumb"><img src="${v.thumb}" alt="${esc(v.title)}" loading="lazy" decoding="async">
+      <span class="play"><i>${ICONS.play}</i></span></div>
+    <h3>${esc(v.title)}</h3><div class="meta">${esc(v.meta)}</div>
+  </article>`;
+}
+function rail(items, render){
+  return `<div class="rail-wrap">
+    <button class="rail-btn prev" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <div class="rail">${items.map(render).join('')}</div>
+    <button class="rail-btn next" aria-label="Avançar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>`;
+}
+function rowBlock(r){
+  const items = PRODUCTS.filter(p=>p.rows.includes(r.key));
+  if(!items.length) return '';
+  return `<section class="row reveal">
+    <div class="row-head"><h2>${esc(r.title)}</h2><a class="more" href="${r.more}">Ver tudo ${ICONS.arrow}</a></div>
+    ${rail(items, cardV)}
+  </section>`;
+}
+
+/* ---------- HERO ---------- */
+function heroSlideData(h){
+  if(h.kind==='product'){ const p=P(h.pid); return {
+    img: p.wide||p.cover, tag:h.tag, hot:h.hot, title:esc(p.title), sub:p.tagline,
+    meta:[p.cat,p.level], poster:p.cover, posterCap:'Capa oficial', light:h.light,
+    ctas:[{label:'Conhecer treinamento',href:'#',cls:'btn-orange',icon:'play',open:p.id},
+          {label:'Mais informações',href:'#',cls:'btn-glass',icon:'info',open:p.id}] };
+  }
+  if(h.kind==='video'){ const v=V(h.vid); return {
+    img:v.thumb, tag:h.tag, hot:h.hot, title:esc(v.title), sub:v.desc,
+    meta:[v.meta,'Gratuito'], poster:null, light:h.light,
+    ctas:[{label:'Assistir agora',href:'#',cls:'btn-orange',icon:'play',video:v.id},
+          {label:'Ver todos os vídeos',href:'#/assistir',cls:'btn-glass',icon:'grid'}] };
+  }
+  return { img:h.img, tag:h.tag, hot:h.hot, title:h.title, sub:h.sub, meta:h.meta, poster:null, ctas:h.ctas, brand:true, light:h.light };
+}
+function heroHTML(){
+  const slides = HERO.map(heroSlideData);
+  return `<section class="hero" id="hero">
+    <div class="hero-media">
+      ${slides.map((s,i)=>`<div class="hero-slide${i===0?' on':''}" data-i="${i}">
+        <picture>
+          ${s.poster?`<source media="(max-width:900px)" srcset="${s.poster}">`:''}
+          <img src="${s.img}" alt="Capa de ${esc(s.title.replace(/<br>/g,' '))}" ${i===0?'fetchpriority="high"':'loading="lazy"'} decoding="async">
+        </picture>
+      </div>`).join('')}
+    </div>
+    <div class="ticker" aria-hidden="true">
+      ${slides.map((_,i)=>`<i class="sprocket${i===0?' lit':''}" data-s="${i}"></i>`).join('')}
+      <span class="label">Carreira Visual — 001</span>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-copy" id="heroCopy"></div>
+      <figure class="hero-poster" id="heroPoster" hidden><img alt=""><figcaption></figcaption></figure>
+    </div>
+    <div class="hero-bars" id="heroBars">
+      ${slides.map((_,i)=>`<button data-go="${i}" aria-label="Destaque ${i+1}"><i></i></button>`).join('')}
+    </div>
+  </section>`;
+}
+let heroTimer=null, heroIndex=0;
+function paintHero(i){
+  const s = heroSlideData(HERO[i]);
+  const copy = $('#heroCopy'); if(!copy) return;
+  copy.innerHTML = `
+    <div class="hero-kicker"><span class="tag${s.hot?' hot':''}">${esc(s.tag)}</span></div>
+    <h1 class="hero-title${s.brand?' brand':''}">${s.title}</h1>
+    <p class="hero-sub">${esc(s.sub)}</p>
+    <div class="hero-meta">${s.meta.map(m=>`<span>${esc(m)}</span>`).join('')}</div>
+    <div class="hero-cta">${s.ctas.map(c=>`<a class="btn ${c.cls}" href="${c.href}"${c.open?` data-open="${c.open}"`:''}${c.video?` data-video="${c.video}"`:''}>${ICONS[c.icon]||''}${esc(c.label)}</a>`).join('')}</div>`;
+  copy.style.animation='none'; void copy.offsetWidth; copy.style.animation='pop .8s var(--ease)';
+  const poster = $('#heroPoster');
+  if(s.poster){ poster.hidden=false; poster.querySelector('img').src=s.poster;
+    poster.querySelector('img').alt='Capa de '+s.title.replace(/<[^>]+>/g,'');
+    poster.querySelector('figcaption').textContent=s.posterCap||''; }
+  else poster.hidden=true;
+  $$('.hero-slide').forEach(el=>el.classList.toggle('on', +el.dataset.i===i));
+  $('#hero')?.classList.toggle('light', !!s.light);
+  $$('.ticker .sprocket').forEach(el=>el.classList.toggle('lit', +el.dataset.s===i));
+  $$('#heroBars button').forEach((b,bi)=>{ const bar=b.querySelector('i');
+    b.classList.remove('on'); bar.style.transition='none'; bar.style.width='0'; void bar.offsetWidth;
+    if(bi<i){ bar.style.width='100%' }
+    else if(bi===i){ bar.style.transition=''; bar.style.width=''; b.classList.add('on') } });
+  heroIndex=i;
+}
+function startHero(){
+  clearInterval(heroTimer);
+  document.documentElement.style.setProperty('--hero-dur',(CONFIG.heroInterval/1000)+'s');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  heroTimer=setInterval(()=>paintHero((heroIndex+1)%HERO.length), CONFIG.heroInterval);
+}
+
+/* ---------- VIEWS ---------- */
+function viewHome(){
+  return heroHTML()
+  + `<div class="section">${ROWS.map(rowBlock).join('')}
+      <section class="row reveal">
+        <div class="row-head"><h2>Assista gratuitamente</h2><a class="more" href="#/assistir">Ver tudo ${ICONS.arrow}</a></div>
+        ${rail(VIDEOS, cardVid)}
+      </section>
+    </div>`
+  + sobreBlock()
+  + galleryBlock();
+}
+function galleryBlock(){
+  return `<section class="section reveal">
+      <div class="feature">
+        <div>
+          <span class="eyebrow"><span class="dot">●</span> Curso autoral — O Que Fica</span>
+          <h2>Fotografe a vida<br>enquanto ela <em>acontece</em>.</h2>
+        </div>
+        <div>
+          <p>Rio, rua, praia, feira, carnaval, gente. Um recorte do arquivo que deu origem ao curso — e a mesma forma de olhar que você aprende dentro dele.</p>
+          <div class="feature-cta">
+            <a class="btn btn-orange" href="#" data-open="oquefica">${ICONS.play} Conhecer O Que Fica</a>
+            <a class="btn btn-glass" data-social="instagram" target="_blank" rel="noopener">A vida também acontece no Instagram ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="gallery">${PHOTOS.map((f,i)=>`<figure data-photo="${i}"><img src="${f.src}" alt="${esc(f.alt)}" loading="lazy" decoding="async"></figure>`).join('')}</div>
+    </section>`;
+}
+function sobreBlock(){
+  return `<section class="editorial reveal">
+    <div>
+      <span class="eyebrow"><span class="dot">●</span> Por trás das imagens</span>
+      <h2 style="margin-top:18px">Fotógrafo,<br>filmmaker<br>e <em>criador</em>.</h2>
+      <p>Doze anos vivendo de imagem entre Rio, Estados Unidos e Dubai. Publicidade, esporte, documentário e projetos autorais — agora transformados em conhecimento que cabe na sua rotina.</p>
+      <div class="stats">
+        <div><b>12+</b><span>anos de audiovisual</span></div>
+        <div><b>X-Series</b><span>embaixador global Fujifilm</span></div>
+        <div><b>2022</b><span>Unsplash Awards — People</span></div>
+      </div>
+      <div style="margin-top:32px"><a class="btn btn-primary" href="#/sobre">Conheça minha história ${ICONS.arrow}</a></div>
+    </div>
+    <div class="figure"><img src="images/marcos_tux.webp" alt="Retrato de Marcos Prado" loading="lazy" decoding="async"></div>
+  </section>`;
+}
+function pageHead(title, sub){
+  return `<div class="page-head reveal"><h1>${title}</h1>${sub?`<p>${sub}</p>`:''}</div>`;
+}
+function viewCursos(){
+  const cursos = PRODUCTS.filter(p=>p.id!=='direcao');
+  return pageHead('Cursos','Treinamentos completos de fotografia, filmmaking, cor e mercado. Cada um resolve um problema específico da sua carreira.')
+   + `<div class="grid">${cursos.map(cardV).join('')}</div>`;
+}
+function viewMentorias(){
+  const m = PRODUCTS.filter(p=>p.rows.includes('mentorias'));
+  return pageHead('Mentorias','Acompanhamento individual. Poucas vagas, contato direto e decisões tomadas junto com você.')
+   + `<div class="grid">${m.map(cardV).join('')}</div>`
+   + `<section class="editorial reveal" style="padding-top:20px">
+        <div><span class="eyebrow"><span class="dot">●</span> Como funciona</span>
+          <h2 style="margin-top:18px">Menos conteúdo.<br>Mais <em>direção</em>.</h2>
+          <p>Encontros individuais, análise real do seu portfólio, posicionamento, precificação e um plano de crescimento com metas que cabem na sua realidade.</p>
+          <div style="margin-top:30px"><a class="btn btn-orange" href="#/contato">Falar sobre a mentoria</a></div>
+        </div>
+        <div class="figure"><img src="images/direcao.webp" alt="Mentoria Direção com Marcos Prado" loading="lazy"></div>
+      </section>`;
+}
+function viewAssistir(){
+  return pageHead('Assistir','Documentários, bastidores, vlogs e projetos autorais. Conteúdo aberto, sem cadastro.')
+   + `<div class="grid grid-v">${VIDEOS.map(cardVid).join('')}</div>
+      <div class="wrap" style="padding-bottom:60px"><a class="btn btn-glass" data-social="youtube" target="_blank" rel="noopener">Ver canal completo ↗</a></div>`;
+}
+function viewExplorar(){
+  return pageHead('Explorar','Todo o catálogo em um lugar só. Filtre pelo que você precisa resolver agora.')
+   + `<div class="chips" id="chips">${FILTERS.map(([k,l],i)=>`<button class="chip${i===0?' on':''}" data-f="${k}">${l}</button>`).join('')}</div>
+      <div id="catalog"></div>`;
+}
+function paintCatalog(f='todos'){
+  const box=$('#catalog'); if(!box) return;
+  if(f==='gratuitos'){ box.innerHTML=`<div class="grid grid-v">${VIDEOS.map(cardVid).join('')}</div>`; return }
+  const ids = f==='todos' ? PRODUCTS.map(p=>p.id) : (FILTER_MAP[f]||[]);
+  const items = ids.map(P).filter(Boolean);
+  box.innerHTML = items.length
+    ? `<div class="grid">${items.map(cardV).join('')}</div>`
+    : `<p class="empty">Nada nessa categoria ainda. Tente outro filtro ou use a busca.</p>`;
+}
+function viewPortfolio(){
+  return pageHead('Portfolio','Publicidade, esporte, documentário e projetos autorais. Um recorte do que sai da câmera antes de virar aula.')
+   + `<section class="section reveal"><div class="gallery">${PHOTOS.map((f,i)=>`<figure data-photo="${i}"><img src="${f.src}" alt="${esc(f.alt)}" loading="lazy"></figure>`).join('')}</div></section>`
+   + `<section class="row reveal"><div class="row-head"><h2>Filmes & projetos</h2><a class="more" href="#/assistir">Assistir ${ICONS.arrow}</a></div>${rail(VIDEOS,cardVid)}</section>`;
+}
+function viewSobre(){
+  return pageHead('Marcos Prado','Fotógrafo, filmmaker e diretor. Fundador da Karma / Okra Studios. Embaixador global Fujifilm X-Series.')
+  + `<section class="editorial reveal" style="padding-top:6px">
+      <div class="figure"><img src="images/marcos_bw.webp" alt="Retrato de Marcos Prado no mar do Rio de Janeiro" loading="lazy"></div>
+      <div>
+        <p style="margin-top:0">Comecei no mar, como oficial da Marinha Mercante. Troquei a rota por uma câmera e nunca mais desci do barco — hoje são mais de doze anos vivendo de imagem entre Rio de Janeiro, Estados Unidos e Dubai.</p>
+        <p>Dirijo campanhas, documentários esportivos e projetos autorais. Fotografo corrida, cidade, gente e o que acontece entre uma coisa e outra. Fui premiado no Unsplash Awards 2022 na categoria People e sou embaixador global da linha X-Series da Fujifilm.</p>
+        <p>A Carreira Visual nasceu de uma pergunta simples que recebo todo dia: como é que se vive disso? Tudo o que aprendi na prática está aqui — sem teoria decorada e sem promessa fácil.</p>
+        <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-orange" href="#/explorar">Ver a plataforma</a>
+          <a class="btn btn-glass" href="#/contato">Falar comigo</a>
+        </div>
+      </div>
+    </section>`;
+}
+function viewContato(){
+  return pageHead('Contato','Projetos comerciais, mentorias, parcerias e palestras.')
+  + `<section class="section wrap reveal">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;max-width:900px">
+        <a class="btn btn-orange" id="mailBtn" style="justify-content:center">Enviar e-mail</a>
+        <a class="btn btn-glass" data-social="instagram" target="_blank" rel="noopener" style="justify-content:center">Instagram ↗</a>
+        <a class="btn btn-glass" data-social="youtube" target="_blank" rel="noopener" style="justify-content:center">YouTube ↗</a>
+      </div>
+      <p style="margin-top:28px;color:var(--gray);max-width:52ch">Rio de Janeiro — atendendo Brasil, Estados Unidos e Emirados Árabes. Resposta em até dois dias úteis.</p>
+    </section>`;
+}
+
+/* ---------- roteador ---------- */
+const ROUTES = {'/':viewHome,'/cursos':viewCursos,'/mentorias':viewMentorias,'/assistir':viewAssistir,
+  '/explorar':viewExplorar,'/portfolio':viewPortfolio,'/sobre':viewSobre,'/contato':viewContato};
+
+function route(){
+  const path = (location.hash.replace('#','')||'/');
+  const render = ROUTES[path]||viewHome;
+  const view = $('#view');
+  view.style.opacity='0';
+  requestAnimationFrame(()=>{
+    view.innerHTML = render();
+    view.style.transition='opacity .45s var(--ease)';
+    view.style.opacity='1';
+    window.scrollTo(0,0);
+    clearInterval(heroTimer);
+    if(path==='/'){ paintHero(0); startHero() }
+    if(path==='/explorar'){ paintCatalog('todos') }
+    hydrate();
+    $$('#nav a,#tabbar a').forEach(a=>a.classList.toggle(a.closest('#tabbar')?'on':'active', a.getAttribute('href')===('#'+path)));
+  });
+}
+
+/* ---------- modais ---------- */
+function openProduct(id){
+  const p=P(id); if(!p) return;
+  $('#modalBox').classList.remove('photo');
+  const img = p.wide||p.cover;
+  $('#modalBox').innerHTML = `
+    <button class="modal-close" data-close aria-label="Fechar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="modal-hero${p.wide?'':' poster'}"><picture>
+      <source media="(max-width:720px)" srcset="${p.cover}">
+      <img src="${img}" alt="Capa de ${esc(p.title)}"></picture></div>
+    <div class="modal-body">
+      <span class="eyebrow"><span class="dot">●</span> ${esc(p.format)}</span>
+      <h2 style="margin-top:12px">${esc(p.title)}</h2>
+      <div class="modal-tags"><span>${esc(p.cat)}</span><span>${esc(p.level)}</span><span>Marcos Prado</span></div>
+      <p>${esc(p.desc)}</p>
+      <div class="modal-cols">
+        <div><h4>O que você sai sabendo</h4><ul>${p.points.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+        <div><h4>Assunto</h4><ul>${p.tags.slice(0,5).map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div>
+      </div>
+      <div class="modal-cta">
+        <a class="btn btn-orange" href="${p.url}" ${/^https?:/.test(p.url)?'target="_blank" rel="noopener"':''}>${ICONS.play} Conhecer treinamento</a>
+        <button class="btn btn-glass" data-close>Voltar para a plataforma</button>
+      </div>
+    </div>`;
+  showModal();
+}
+function openVideo(id){
+  const v=V(id); if(!v) return;
+  $('#modalBox').classList.remove('photo');
+  const yid = CONFIG.videoIds[id];
+  const media = yid
+    ? `<iframe src="https://www.youtube.com/embed/${yid}?autoplay=1&rel=0" title="${esc(v.title)}" allow="accelerometer;autoplay;encrypted-media;picture-in-picture" allowfullscreen style="width:100%;height:100%;border:0;position:absolute;inset:0"></iframe>`
+    : `<img src="${v.thumb}" alt="${esc(v.title)}">`;
+  $('#modalBox').innerHTML = `
+    <button class="modal-close" data-close aria-label="Fechar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="modal-hero">${media}</div>
+    <div class="modal-body">
+      <span class="eyebrow"><span class="dot">●</span> Gratuito</span>
+      <h2 style="margin-top:12px">${esc(v.title)}</h2>
+      <div class="modal-tags"><span>${esc(v.meta)}</span><span>YouTube</span></div>
+      <p>${esc(v.desc)}</p>
+      <div class="modal-cta">
+        <a class="btn btn-orange" href="${CONFIG.youtube}" target="_blank" rel="noopener">${ICONS.play} Assistir no YouTube</a>
+        <button class="btn btn-glass" data-close>Voltar</button>
+      </div>
+    </div>`;
+  showModal();
+}
+function openPhoto(i){
+  const f=PHOTOS[i]; if(!f) return;
+  $('#modalBox').classList.add('photo');
+  $('#modalBox').innerHTML = `
+    <button class="modal-close" data-close aria-label="Fechar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <img src="${f.src}" alt="${esc(f.alt)}">
+    <figcaption>${esc(f.alt)} — Marcos Prado</figcaption>`;
+  showModal();
+}
+function showModal(){ $('#modal').classList.add('open'); document.body.style.overflow='hidden'; $('.modal-close')?.focus() }
+function closeModal(){ $('#modal').classList.remove('open'); $('#modalBox').innerHTML='';
+  $('#modalBox').classList.remove('photo'); document.body.style.overflow='' }
+
+/* ---------- busca ---------- */
+const HINTS=['fotografia','iluminação','corrida','Fuji','documentário','mercado','fine art','mentoria','cor'];
+function searchAll(q){
+  q=q.trim().toLowerCase();
+  if(!q) return {p:[],v:[]};
+  const hit=(s)=>String(s).toLowerCase().includes(q);
+  return {
+    p: PRODUCTS.filter(p=>hit(p.title)||hit(p.sub)||hit(p.cat)||hit(p.desc)||p.tags.some(hit)),
+    v: VIDEOS.filter(v=>hit(v.title)||hit(v.meta)||v.tags.some(hit))
+  };
+}
+function paintSearch(q){
+  const {p,v}=searchAll(q), box=$('#searchResults');
+  if(!q.trim()){ box.innerHTML=`<div class="grid">${PRODUCTS.slice(0,9).map(cardV).join('')}</div>`; hydrate(box); return }
+  if(!p.length&&!v.length){ box.innerHTML=`<p class="empty">Nada encontrado para “${esc(q)}”. Tente “fotografia”, “corrida” ou “cor”.</p>`; return }
+  box.innerHTML = (p.length?`<div class="grid">${p.map(cardV).join('')}</div>`:'')
+                + (v.length?`<div class="grid grid-v">${v.map(cardVid).join('')}</div>`:'');
+  hydrate(box);
+}
+function openSearch(){ $('#search').classList.add('open'); document.body.style.overflow='hidden'; paintSearch(''); setTimeout(()=>$('#searchInput').focus(),80) }
+function closeSearch(){ $('#search').classList.remove('open'); document.body.style.overflow=''; $('#searchInput').value='' }
+
+/* ---------- hidratação (delegação + observers) ---------- */
+let io=null;
+function hydrate(scope=document){
+  $$('[data-social]',scope).forEach(a=>{ const k=a.dataset.social; if(CONFIG[k]) a.href=CONFIG[k] });
+  $$('.rail-wrap',scope).forEach(w=>{
+    const r=$('.rail',w);
+    w.querySelector('.prev')?.addEventListener('click',()=>r.scrollBy({left:-r.clientWidth*.8,behavior:'smooth'}));
+    w.querySelector('.next')?.addEventListener('click',()=>r.scrollBy({left:r.clientWidth*.8,behavior:'smooth'}));
+  });
+  $$('.rail .card.wide',scope).forEach(c=>c.addEventListener('pointerenter',()=>{
+    const im=c.querySelector('.art-h'); if(im && !im.getAttribute('src')) im.src=im.dataset.src;
+  },{once:true}));
+  if(!io) io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target)} }),{rootMargin:'0px 0px -8% 0px'});
+  $$('.reveal',scope).forEach(el=>io.observe(el));
+  const mail=$('#mailBtn',scope); if(mail) mail.href='mailto:'+CONFIG.email;
+}
+
+/* ---------- boot ---------- */
+document.addEventListener('click',e=>{
+  const open=e.target.closest('[data-open]');
+  if(open){ e.preventDefault(); openProduct(open.dataset.open); return }
+  const ph=e.target.closest('[data-photo]');
+  if(ph){ openPhoto(+ph.dataset.photo); return }
+  const vid=e.target.closest('[data-video]');
+  if(vid){ e.preventDefault(); openVideo(vid.dataset.video); return }
+  if(e.target.closest('[data-close]')) { closeModal(); return }
+  const chip=e.target.closest('.chip');
+  if(chip){ $$('.chip').forEach(c=>c.classList.remove('on')); chip.classList.add('on'); paintCatalog(chip.dataset.f) }
+  const hint=e.target.closest('#searchHints button');
+  if(hint){ $('#searchInput').value=hint.textContent; paintSearch(hint.textContent) }
+  const go=e.target.closest('[data-go]');
+  if(go){ paintHero(+go.dataset.go); startHero() }
+  if(e.target.closest('a[href^="#/"]')) closeSearch();
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){ closeModal(); closeSearch() }
+  if(e.key==='Enter'||e.key===' '){
+    const c=e.target.closest?.('.card,.vcard');
+    if(c){ e.preventDefault(); c.dataset.open?openProduct(c.dataset.open):openVideo(c.dataset.video) }
+  }
+  if(e.key==='/'&&!/input|textarea/i.test(document.activeElement.tagName)){ e.preventDefault(); openSearch() }
+});
+$('#openSearch').addEventListener('click',openSearch);
+$('#closeSearch').addEventListener('click',closeSearch);
+$('#searchInput').addEventListener('input',e=>paintSearch(e.target.value));
+addEventListener('scroll',()=>$('#hdr').classList.toggle('scrolled',scrollY>24),{passive:true});
+addEventListener('hashchange',route);
+
+$('#nav').innerHTML = NAV.map(([h,l])=>`<a href="${h}">${l}</a>`).join('');
+$('#tabbar').innerHTML = [['#/','Início','home'],['#/assistir','Assistir','watch'],['#/explorar','Explorar','search'],
+  ['#/cursos','Cursos','cap'],['#/sobre','Marcos','user']].map(([h,l,i])=>`<a href="${h}">${ICONS[i]}<span>${l}</span></a>`).join('');
+$('#searchHints').innerHTML = HINTS.map(h=>`<button>${h}</button>`).join('');
+$('#yr').textContent = new Date().getFullYear();
+route();
+</script>
+</body>
+</html>
