@@ -3,29 +3,1396 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>O Que Fica — Fotografia da Vida — Carreira Visual</title>
-<meta name="robots" content="noindex">
+<title>O QUE FICA — Fotografia da Vida | Um curso autoral de Marcos Prado</title>
+<meta name="description" content="Um curso autoral sobre fotografia, memória, pessoas e tempo. Fotografe a vida enquanto ela acontece. Com Marcos Prado, embaixador Fujifilm e vencedor do Unsplash Awards 2022.">
+<meta name="theme-color" content="#F6F5F2">
+<link rel="canonical" href="https://marcosprado.co/o-que-fica">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="O QUE FICA — Fotografia da Vida">
+<meta property="og:description" content="Fotografe a vida enquanto ela acontece. Um curso autoral de Marcos Prado sobre fotografia, memória, pessoas e tempo.">
+<meta property="og:image" content="https://marcosprado.co/o-que-fica/imagens/altinha-ipanema-premiada.webp">
+<meta property="og:locale" content="pt_BR">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Inter+Tight:ital,wght@0,300..600;1,400&family=Newsreader:ital,opsz,wght@1,6..72,300..500&display=swap" rel="stylesheet">
+
 <style>
-  *{box-sizing:border-box}
-  body{margin:0;min-height:100svh;display:grid;place-items:center;text-align:center;padding:32px;
-    background:#000;color:#fff;font-family:'General Sans','Inter',-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
-  body::before{content:"";position:fixed;inset:0;z-index:0;
-    background:radial-gradient(60% 60% at 20% 30%,rgba(255,109,41,.28),transparent 65%),
-               radial-gradient(50% 50% at 80% 70%,rgba(69,48,39,.7),transparent 70%);filter:blur(70px)}
-  .box{position:relative;z-index:1;max-width:520px}
-  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#8a8386;font-family:ui-monospace,monospace}
-  h1{font-size:clamp(28px,6vw,46px);letter-spacing:-.035em;line-height:1.02;margin:16px 0 0;font-weight:600}
-  p{color:rgba(255,255,255,.66);margin:18px 0 0;line-height:1.55}
-  a{display:inline-flex;align-items:center;gap:9px;margin-top:30px;height:48px;padding:0 26px;border-radius:999px;
-    background:#FF6D29;color:#150a04;font-weight:600;text-decoration:none}
+/* ============================================================
+   O QUE FICA — Fotografia da Vida
+   Papel branco, tipografia preta, fotografia grande.
+   Densidade editorial: cabeçalho numerado, colunas, marginália.
+   ============================================================ */
+
+:root{
+  --papel:   #F6F5F2;
+  --tinta:   #0C0C0C;
+  --tinta-2: #45443F;
+  --tinta-3: #6C6B64;
+  --fio:     #D8D7D0;
+
+  --display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --texto:   'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
+  --serifa:  'Newsreader', Georgia, serif;
+
+  --mega: clamp(3rem, 11.4vw, 10.5rem);
+  --xl:   clamp(2rem, 5.6vw, 4.6rem);
+  --l:    clamp(1.5rem, 3vw, 2.5rem);
+  --m:    clamp(1.12rem, 1.8vw, 1.5rem);
+  --corpo:clamp(1.02rem, 1.08vw, 1.16rem);
+  --cap:  0.66rem;
+
+  --margem: clamp(20px, 4vw, 68px);
+  --gap: clamp(16px, 1.8vw, 26px);
+  --ar: cubic-bezier(.16,.84,.44,1);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body{
+  margin:0; background:var(--papel); color:var(--tinta);
+  font-family:var(--texto); font-size:var(--corpo); font-weight:350;
+  line-height:1.56; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+img{ display:block; max-width:100%; height:auto; }
+a{ color:inherit; }
+::selection{ background:var(--tinta); color:var(--papel); }
+:focus-visible{ outline:2px solid var(--tinta); outline-offset:4px; }
+
+/* ---------- tipografia ---------- */
+.disp{
+  font-family:var(--display); font-weight:700; font-variation-settings:'wdth' 112;
+  text-transform:uppercase; line-height:0.86; letter-spacing:-0.032em; margin:0;
+}
+.mega{ font-size:var(--mega); }
+.tit{  font-size:var(--xl); }
+.sub{  font-size:var(--l); }
+.reta{ font-variation-settings:'wdth' 100; text-transform:none; font-weight:600; letter-spacing:-0.025em; }
+
+.olho{
+  font-family:var(--display); font-size:var(--cap); font-weight:500;
+  text-transform:uppercase; letter-spacing:0.24em; color:var(--tinta-3); margin:0 0 14px;
+}
+.legenda{
+  font-family:var(--display); font-size:var(--cap); font-weight:500;
+  text-transform:uppercase; letter-spacing:0.18em; color:var(--tinta-3); margin:10px 0 0;
+}
+.texto{ max-width:52ch; color:var(--tinta-2); margin:0 0 1em; }
+.texto:last-child{ margin-bottom:0; }
+.texto strong{ color:var(--tinta); font-weight:500; }
+.serif{ font-family:var(--serifa); font-style:italic; font-weight:300; letter-spacing:-0.01em; line-height:1.24; color:var(--tinta); }
+.duas{ column-gap:clamp(26px,3vw,52px); }
+@media (min-width:1000px){ .duas{ column-count:2; } .duas .texto{ max-width:none; } }
+
+/* ---------- estrutura ---------- */
+.wrap{ width:100%; max-width:1600px; margin:0 auto; padding-inline:var(--margem); }
+.sec{ padding-block:clamp(52px,6.4vw,96px); position:relative; }
+
+/* cabeçalho numerado de seção */
+.cab{
+  display:flex; align-items:baseline; gap:14px; border-top:1px solid var(--tinta);
+  padding-top:10px; margin-bottom:clamp(26px,3vw,44px);
+  font-family:var(--display); font-size:var(--cap); font-weight:500;
+  text-transform:uppercase; letter-spacing:0.2em;
+}
+.cab__n{ min-width:2.6em; }
+.cab__t{ flex:1; }
+.cab__m{ color:var(--tinta-3); display:none; }
+@media (min-width:760px){ .cab__m{ display:block; } }
+
+/* ---------- reveal ---------- */
+.rv{ opacity:0; transform:translateY(22px); transition:opacity .9s var(--ar), transform .9s var(--ar); transition-delay:var(--d,0ms); }
+.rv.on{ opacity:1; transform:none; }
+.quadro{ overflow:hidden; margin:0; }
+.quadro img{ transform:scale(1.04); transition:transform 1.6s var(--ar), filter 1.4s ease; will-change:transform; }
+.quadro.on img, .rv.on .quadro img{ transform:scale(1); }
+.pb img{ filter:grayscale(1) contrast(1.02); }
+.pb.on img, .rv.on .pb img{ filter:grayscale(0) contrast(1); }
+[id]{ scroll-margin-top:clamp(40px,8vh,90px); }
+
+/* ---------- trilho / barra ---------- */
+.trilho{
+  position:fixed; top:0; left:0; width:44px; height:100vh; z-index:40;
+  display:none; flex-direction:column; align-items:center; justify-content:space-between;
+  padding:20px 0; pointer-events:none; mix-blend-mode:difference; color:#fff;
+}
+.trilho span{ font-family:var(--display); font-size:.56rem; font-weight:500; text-transform:uppercase; letter-spacing:0.3em; writing-mode:vertical-rl; }
+.trilho .furos{ flex:1; width:9px; margin:14px 0; background:repeating-linear-gradient(to bottom,#fff 0 7px,transparent 7px 20px); opacity:.35; }
+.trilho .frame{ writing-mode:horizontal-tb; letter-spacing:.12em; font-size:.58rem; }
+@media (min-width:1240px){ .trilho{ display:flex; } }
+
+.barra{ position:fixed; z-index:50; opacity:0; transform:translateY(14px); pointer-events:none;
+  transition:opacity .6s var(--ar), transform .6s var(--ar); }
+.barra.on{ opacity:1; transform:none; pointer-events:auto; }
+@media (min-width:900px){ .barra{ right:clamp(18px,2.4vw,34px); bottom:clamp(18px,2.4vw,34px); } }
+@media (max-width:899px){
+  .barra{ left:0; right:0; bottom:0; background:rgba(246,245,242,.95); backdrop-filter:blur(10px);
+    border-top:1px solid var(--fio); padding:10px 14px calc(10px + env(safe-area-inset-bottom)); }
+  .barra .btn{ width:100%; justify-content:center; }
+}
+
+/* ---------- botões ---------- */
+.btn{ display:inline-flex; align-items:center; gap:.9em; text-decoration:none;
+  font-family:var(--display); font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.16em;
+  padding:1.1em 1.6em; background:var(--tinta); color:var(--papel); border:1px solid var(--tinta);
+  transition:background .4s var(--ar), color .4s var(--ar); }
+.btn:hover{ background:transparent; color:var(--tinta); }
+.btn .seta{ transition:transform .4s var(--ar); }
+.btn:hover .seta{ transform:translateX(4px); }
+.link{ font-family:var(--display); font-size:.72rem; font-weight:500; letter-spacing:.16em;
+  text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--fio); padding-bottom:4px; }
+.link:hover{ border-color:var(--tinta); }
+
+/* ---------- listas editoriais ---------- */
+.dados{ list-style:none; margin:0; padding:0; border-top:1px solid var(--fio); }
+.dados li{ border-bottom:1px solid var(--fio); padding-block:9px; display:flex; gap:14px; align-items:baseline;
+  font-family:var(--display); font-size:.74rem; letter-spacing:.09em; text-transform:uppercase; color:var(--tinta-2); }
+.dados li b{ color:var(--tinta-3); font-weight:500; min-width:1.6em; }
+
+/* ============ 01 · HERO ============ */
+.hero{ padding-top:clamp(58px,6vw,86px); padding-bottom:clamp(34px,4vw,58px); }
+.hero__topo{ display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap;
+  border-bottom:1px solid var(--fio); padding-bottom:12px; margin-bottom:clamp(26px,3.4vw,48px); }
+.hero__topo p{ margin:0; }
+.hero__grade{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); align-items:start; }
+.hero__tit{ grid-column:1/13; position:relative; z-index:2; animation:entra 1s var(--ar) both; }
+.hero__foto{ grid-column:1/13; margin-top:16px; z-index:1; animation:entra 1s .12s var(--ar) both; }
+.hero__frase{ grid-column:1/13; font-size:var(--m); line-height:1.26; max-width:22ch; margin:22px 0 0;
+  font-weight:400; letter-spacing:-.015em; }
+.hero__desc{ grid-column:1/13; margin-top:18px; }
+.hero__ctas{ grid-column:1/13; display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin-top:22px; }
+.hero__ficha{ grid-column:1/13; margin-top:26px; }
+@keyframes entra{ from{opacity:0} to{opacity:1} }
+@media (min-width:900px){
+  .hero__tit{ grid-column:1/7; grid-row:1; padding-top:clamp(10px,2vw,40px); }
+  .hero__foto{ grid-column:6/13; grid-row:1/3; margin-top:0; }
+  .hero__frase{ grid-column:1/5; grid-row:2; margin-top:clamp(24px,3vw,44px); }
+  .hero__desc{ grid-column:1/5; grid-row:3; margin-top:16px; }
+  .hero__ctas{ grid-column:1/5; grid-row:4; flex-direction:column; align-items:flex-start; margin-top:22px; }
+  .hero__ficha{ grid-column:6/13; grid-row:3/5; margin-top:24px; align-self:start; }
+  .hero__ficha .dados{ columns:2; column-gap:var(--gap); border-top:0; }
+  .hero__ficha .dados li{ break-inside:avoid; border-top:1px solid var(--fio); border-bottom:0; }
+}
+.hero__sublinha{ margin-top:clamp(10px,1.2vw,16px); }
+
+/* ============ 02 · FILME ============ */
+.filme__grade{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); align-items:end;
+  margin-bottom:clamp(22px,2.6vw,36px); }
+.filme__grade > div:first-child{ grid-column:1/13; }
+.filme__grade > p{ grid-column:1/13; margin:0; }
+@media (min-width:900px){
+  .filme__grade > div:first-child{ grid-column:1/8; }
+  .filme__grade > p{ grid-column:9/13; }
+}
+.player{ position:relative; width:100%; aspect-ratio:16/9; background:#000; overflow:hidden; cursor:pointer; border:0; padding:0; display:block; }
+.player img{ width:100%; height:100%; object-fit:cover; opacity:.82; transition:opacity .6s var(--ar), transform 1.6s var(--ar); }
+.player:hover img{ opacity:.66; transform:scale(1.02); }
+.player__play{ position:absolute; inset:0; display:grid; place-items:center; }
+.player__play span{ width:clamp(58px,6vw,86px); aspect-ratio:1; border:1px solid rgba(255,255,255,.7); border-radius:50%;
+  display:grid; place-items:center; transition:background .45s var(--ar), border-color .45s var(--ar); }
+.player__play svg{ width:17px; height:17px; fill:#fff; margin-left:3px; transition:fill .45s var(--ar); }
+.player:hover .player__play span{ background:#fff; border-color:#fff; }
+.player:hover .player__play svg{ fill:#0C0C0C; }
+.player__sel{ position:absolute; left:0; bottom:0; padding:12px 16px; color:#fff; opacity:.85;
+  font-family:var(--display); font-size:var(--cap); letter-spacing:.2em; text-transform:uppercase; }
+.player iframe, .player video{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+.filme__pe{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); margin-top:clamp(18px,2.2vw,30px); }
+.filme__pe p:first-child{ grid-column:1/13; font-size:var(--m); line-height:1.3; letter-spacing:-.012em; color:var(--tinta); margin:0; }
+.filme__pe p:last-child{ grid-column:1/13; margin:14px 0 0; }
+@media (min-width:900px){
+  .filme__pe p:first-child{ grid-column:1/7; }
+  .filme__pe p:last-child{ grid-column:7/13; margin:0; }
+}
+
+/* ============ 03 · ORIGEM ============ */
+.origem{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); }
+.origem__tit{ grid-column:1/13; margin-bottom:clamp(20px,2.6vw,34px); }
+.origem__a{ grid-column:1/13; }
+.origem__txt{ grid-column:1/13; margin-top:22px; }
+.origem__b{ grid-column:1/13; margin-top:22px; }
+.origem__frase{ grid-column:1/13; margin-top:26px; }
+.origem__frase p{ margin:0; font-size:var(--xl); line-height:1.04; letter-spacing:-.03em; max-width:15ch; }
+.origem__nota{ grid-column:1/13; margin-top:18px; }
+@media (min-width:900px){
+  .origem__tit{ grid-column:1/9; }
+  .origem__a{ grid-column:1/5; }
+  .origem__txt{ grid-column:5/9; margin-top:0; }
+  .origem__b{ grid-column:9/13; margin-top:0; }
+  .origem__frase{ grid-column:1/6; margin-top:clamp(30px,4vw,58px); align-self:end; }
+  .origem__nota{ grid-column:6/13; margin-top:clamp(30px,4vw,58px); align-self:end; }
+}
+
+/* ============ 04 · ALTINHA ============ */
+.altinha__grade{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); }
+.altinha__foto{ grid-column:1/13; }
+.altinha__lado{ grid-column:1/13; margin-top:20px; }
+.altinha__pe{ grid-column:1/13; margin-top:24px; }
+.altinha__extra{ grid-column:1/13; margin-top:var(--gap); }
+@media (min-width:900px){
+  .altinha__foto{ grid-column:1/6; }
+  .altinha__lado{ grid-column:6/9; margin-top:0; }
+  .altinha__pe{ grid-column:9/13; margin-top:0; }
+  .altinha__extra{ grid-column:1/13; margin-top:clamp(20px,2.4vw,34px); }
+}
+.altinha__premio{ font-family:var(--display); font-size:var(--m); font-weight:600; letter-spacing:-.02em; margin:0 0 .6em; }
+
+/* ============ 05 · MANIFESTO ============ */
+.manif{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); }
+.manif__linhas{ grid-column:1/13; }
+.manif__linhas p{ font-size:clamp(1.34rem,3vw,2.6rem); line-height:1.14; letter-spacing:-.028em;
+  margin:0 0 .36em; max-width:24ch; font-weight:350; }
+.manif__lado{ grid-column:1/13; margin-top:24px; }
+.manif__fim{ grid-column:1/13; margin-top:clamp(40px,5.6vw,96px); }
+@media (min-width:900px){
+  .manif__linhas{ grid-column:1/8; }
+  .manif__lado{ grid-column:9/13; margin-top:0; align-self:end; }
+}
+
+/* ============ 06 · CONTACT SHEET ============ */
+.folha{ column-count:2; column-gap:clamp(8px,1vw,14px); }
+@media (min-width:700px){ .folha{ column-count:3; } }
+@media (min-width:1100px){ .folha{ column-count:4; } }
+@media (min-width:1440px){ .folha{ column-count:5; } }
+.folha__item{ position:relative; margin:0 0 clamp(8px,1vw,14px); overflow:hidden; break-inside:avoid; background:#e9e8e3; }
+.folha__item img{ width:100%; height:auto; filter:grayscale(1) contrast(1.04);
+  transition:filter 1s var(--ar), transform 1.6s var(--ar); }
+.folha__item:hover img, .folha__item:focus-within img{ filter:grayscale(0); transform:scale(1.03); }
+.folha__cap{ position:absolute; left:0; right:0; bottom:0; padding:10px 10px 12px;
+  background:linear-gradient(to top,rgba(0,0,0,.66),transparent); color:#fff;
+  font-family:var(--display); font-size:.56rem; letter-spacing:.18em; text-transform:uppercase;
+  opacity:0; transform:translateY(8px); transition:opacity .5s var(--ar), transform .5s var(--ar); }
+.folha__item:hover .folha__cap, .folha__item:focus-within .folha__cap{ opacity:1; transform:none; }
+@media (hover:none){ .folha__item img{ filter:grayscale(0); } .folha__cap{ opacity:1; transform:none; } }
+.folha__cab{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); margin-bottom:clamp(20px,2.4vw,32px); }
+.folha__cab h2{ grid-column:1/13; }
+.folha__cab p{ grid-column:1/13; margin:14px 0 0; }
+@media (min-width:900px){ .folha__cab h2{ grid-column:1/7; } .folha__cab p{ grid-column:8/13; margin:0; align-self:end; } }
+.folha__palavras{ display:flex; flex-wrap:wrap; gap:.35em 1.1em; margin:clamp(20px,2.4vw,32px) 0 0;
+  font-family:var(--display); font-size:clamp(1.05rem,1.9vw,1.6rem); font-weight:600; letter-spacing:-.02em; }
+.folha__palavras span:nth-child(n+7){ color:var(--tinta-3); }
+
+/* ============ 07 · ATOS ============ */
+.ato{ border-top:1px solid var(--fio); padding-block:clamp(30px,3.6vw,54px); }
+.ato:last-of-type{ border-bottom:1px solid var(--fio); }
+.ato__grade{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); align-items:start; }
+.ato__num{ grid-column:1/13; font-family:var(--display); font-weight:700; font-variation-settings:'wdth' 100;
+  font-size:clamp(2.8rem,7vw,6.4rem); line-height:.8; letter-spacing:-.04em; margin:0 0 12px; }
+.ato__txt{ grid-column:1/13; }
+.ato__itens{ grid-column:1/13; margin-top:18px; }
+.ato__foto{ grid-column:1/13; margin-top:20px; }
+.ato__nome{ font-size:var(--l); margin:0 0 .45em; }
+@media (min-width:900px){
+  .ato__num{ grid-column:1/3; margin:0; }
+  .ato__txt{ grid-column:3/7; }
+  .ato__itens{ grid-column:7/9; margin:0; }
+  .ato__foto{ grid-column:9/13; margin:0; }
+}
+
+/* ============ 08 · SAÍDAS ============ */
+.saidas__cab{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); }
+.saidas__cab > div:first-child{ grid-column:1/13; }
+.saidas__cab > div:last-child{ grid-column:1/13; margin-top:20px; }
+@media (min-width:900px){
+  .saidas__cab > div:first-child{ grid-column:1/8; }
+  .saidas__cab > div:last-child{ grid-column:8/13; margin-top:0; }
+}
+.tira{ display:flex; gap:clamp(8px,1vw,14px); overflow-x:auto; scroll-snap-type:x mandatory;
+  padding-bottom:14px; margin-top:clamp(22px,2.6vw,36px); }
+.tira::-webkit-scrollbar{ height:2px; }
+.tira::-webkit-scrollbar-thumb{ background:var(--fio); }
+.tira figure{ margin:0; flex:0 0 auto; width:min(72vw,380px); scroll-snap-align:start; }
+.tira img{ width:100%; aspect-ratio:3/2; object-fit:cover; }
+
+/* ============ 09 · FUJIFILM ============ */
+.fuji{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); align-items:start; }
+.fuji__tit{ grid-column:1/13; margin-bottom:clamp(20px,2.4vw,32px); }
+.fuji__a{ grid-column:1/13; }
+.fuji__b{ grid-column:1/13; margin-top:var(--gap); }
+.fuji__txt{ grid-column:1/13; margin-top:20px; }
+.fuji__frase{ grid-column:1/13; margin-top:clamp(26px,3.4vw,50px); font-size:var(--l); line-height:1.16; letter-spacing:-.026em; max-width:26ch; }
+.fuji__lead{ grid-column:1/13; margin:0 0 clamp(20px,2.6vw,38px); }
+.fuji__lead .legenda{ font-size:.58rem; letter-spacing:.16em; color:var(--tinta-3); }
+@media (min-width:900px){
+  .fuji__tit{ grid-column:1/8; }
+  .fuji__a{ grid-column:1/5; }
+  .fuji__b{ grid-column:5/8; margin-top:0; }
+  .fuji__txt{ grid-column:8/13; margin-top:0; }
+  .fuji__frase{ grid-column:8/13; margin-top:clamp(20px,2.4vw,34px); }
+}
+
+/* ============ 10 · REFERÊNCIAS ============ */
+.refs{ border-top:1px solid var(--fio); margin-top:clamp(24px,2.8vw,40px); }
+.ref{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap);
+  border-bottom:1px solid var(--fio); padding-block:clamp(13px,1.6vw,20px); align-items:baseline; }
+.ref__nome{ grid-column:1/13; font-family:var(--display); font-size:clamp(1.2rem,2.2vw,1.85rem);
+  font-weight:600; letter-spacing:-.025em; margin:0; }
+.ref__anos{ grid-column:1/13; font-family:var(--display); font-size:var(--cap); letter-spacing:.18em;
+  text-transform:uppercase; color:var(--tinta-3); margin:3px 0 0; }
+.ref__nota{ grid-column:1/13; margin:6px 0 0; color:var(--tinta-2); }
+@media (min-width:900px){
+  .ref__nome{ grid-column:1/5; } .ref__anos{ grid-column:5/7; margin:0; } .ref__nota{ grid-column:7/13; margin:0; }
+}
+.refs__cab{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); }
+.refs__cab h2{ grid-column:1/13; }
+.refs__cab p{ grid-column:1/13; margin:14px 0 0; }
+@media (min-width:900px){ .refs__cab h2{ grid-column:1/7; } .refs__cab p{ grid-column:8/13; margin:0; align-self:end; } }
+
+/* ============ 11 · OS SEUS ============ */
+.seus{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); align-items:start; }
+.seus__foto{ grid-column:1/13; }
+.seus__txt{ grid-column:1/13; margin-top:24px; }
+.seus__lista{ list-style:none; padding:0; margin:0 0 1.3em; columns:2; column-gap:var(--gap);
+  font-size:var(--corpo); line-height:1.85; }
+.seus__lista li{ color:var(--tinta-2); }
+.seus__lista li:nth-child(-n+4){ color:var(--tinta); }
+@media (min-width:900px){
+  .seus__foto{ grid-column:1/8; } .seus__txt{ grid-column:8/13; margin-top:0; }
+  .seus__lista{ columns:1; }
+}
+
+/* ============ 12 · IMPRESSÃO ============ */
+.impr{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); align-items:start; }
+.impr__txt{ grid-column:1/13; }
+.impr__mesa{ grid-column:1/13; display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); margin-top:24px; }
+@media (min-width:900px){
+  .impr__txt{ grid-column:1/4; } .impr__mesa{ grid-column:4/13; margin-top:0; }
+}
+.copia{ margin:0; background:#fff; padding:9px 9px 30px; box-shadow:0 18px 40px -30px rgba(0,0,0,.55); grid-column:span 12; }
+.copia img{ width:100%; }
+@media (min-width:700px){
+  .copia{ grid-column:span 4; }
+  .copia:nth-child(1){ transform:rotate(-1.4deg); }
+  .copia:nth-child(2){ transform:rotate(.8deg) translateY(18px); }
+  .copia:nth-child(3){ transform:rotate(-.4deg) translateY(-8px); }
+}
+
+/* ============ 13 · CONTE SUA HISTÓRIA ============ */
+.conte{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); align-items:start; }
+.conte__foto{ grid-column:1/13; }
+.conte__txt{ grid-column:1/13; margin-top:24px; }
+@media (min-width:900px){ .conte__foto{ grid-column:1/6; } .conte__txt{ grid-column:6/13; margin-top:0; } }
+
+/* ============ 14 · EXERCÍCIO ============ */
+.exerc{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); align-items:start; }
+.exerc__tit{ grid-column:1/13; }
+.exerc__txt{ grid-column:1/13; margin-top:20px; }
+.exerc__lista{ grid-column:1/13; margin-top:clamp(26px,3vw,44px); list-style:none; padding:0;
+  columns:1; column-gap:clamp(24px,3vw,48px); }
+@media (min-width:600px){ .exerc__lista{ columns:2; } }
+@media (min-width:1000px){ .exerc__lista{ columns:4; } }
+.exerc__lista li{ break-inside:avoid; display:grid; grid-template-columns:2.6em 1fr;
+  border-top:1px solid var(--fio); padding-block:9px; color:var(--tinta-2); font-size:.96rem; line-height:1.35; }
+.exerc__lista li b{ font-family:var(--display); font-weight:500; font-size:.7rem; letter-spacing:.1em; color:var(--tinta-3); padding-top:.28em; }
+@media (min-width:900px){ .exerc__tit{ grid-column:1/7; } .exerc__txt{ grid-column:8/13; margin-top:0; } }
+
+/* ============ 15 · PARA QUEM ============ */
+.quem{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); align-items:start; }
+.quem__a{ grid-column:1/13; }
+.quem__b{ grid-column:1/13; margin-top:30px; }
+@media (min-width:900px){ .quem__a{ grid-column:1/8; } .quem__b{ grid-column:8/13; margin-top:0; } }
+.quem__lista{ list-style:none; margin:clamp(18px,2.2vw,28px) 0 0; padding:0; border-top:1px solid var(--fio); }
+.quem__lista li{ border-bottom:1px solid var(--fio); padding-block:clamp(11px,1.4vw,16px);
+  line-height:1.4; color:var(--tinta-2); display:grid; grid-template-columns:2em 1fr; }
+.quem__lista li::before{ content:'—'; color:var(--tinta-3); }
+.quem__lista--nao li::before{ content:'×'; }
+.quem__fecho{ margin-top:clamp(24px,3vw,44px); font-size:var(--l); line-height:1.16; letter-spacing:-.026em; max-width:22ch; }
+
+/* ============ 16 · MARCOS ============ */
+.marcos{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); align-items:start; }
+.marcos__foto{ grid-column:1/13; }
+.marcos__txt{ grid-column:1/13; margin-top:24px; }
+.marcos__creds{ grid-column:1/13; margin-top:24px; }
+@media (min-width:900px){
+  .marcos__foto{ grid-column:1/6; } .marcos__txt{ grid-column:6/10; margin-top:0; }
+  .marcos__creds{ grid-column:10/13; margin-top:0; }
+}
+
+/* ============ 17 · DEPOIMENTOS ============ */
+.depos{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); margin-top:clamp(24px,3vw,42px); }
+.depo{ grid-column:span 12; border-top:1px solid var(--fio); padding-top:18px; }
+@media (min-width:700px){ .depo{ grid-column:span 6; } }
+@media (min-width:1100px){ .depo{ grid-column:span 4; } }
+.depo__aspas{ font-family:var(--serifa); font-style:italic; font-size:2.6rem; line-height:.6; color:var(--tinta-3); display:block; margin-bottom:.2em; }
+.depo__txt{ font-size:1.02rem; line-height:1.48; margin:0 0 16px; }
+.depo__quem{ display:flex; align-items:center; gap:12px; }
+.depo__quem img{ width:38px; height:38px; border-radius:50%; object-fit:cover; }
+.depo__nome{ font-family:var(--display); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; margin:0; }
+.depo__prof{ font-size:.8rem; color:var(--tinta-3); margin:0; }
+
+/* ============ 18 · OFERTA ============ */
+.oferta{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); align-items:start; }
+.oferta__cab{ grid-column:1/13; margin-bottom:clamp(22px,2.6vw,36px); }
+.oferta__inclui{ grid-column:1/13; list-style:none; padding:0; margin:0; border-top:1px solid var(--fio); }
+.oferta__inclui li{ border-bottom:1px solid var(--fio); padding-block:11px; display:grid;
+  grid-template-columns:2em 1fr; color:var(--tinta-2); }
+.oferta__inclui li::before{ content:'+'; font-family:var(--display); color:var(--tinta-3); }
+.oferta__caixa{ grid-column:1/13; margin-top:28px; }
+.oferta__preco{ font-family:var(--display); font-weight:700; font-variation-settings:'wdth' 100;
+  font-size:clamp(2.4rem,5.4vw,4rem); line-height:.94; letter-spacing:-.04em; margin:.1em 0; }
+.oferta__parc{ color:var(--tinta-2); margin:0 0 clamp(18px,2.2vw,28px); }
+.oferta__micro{ margin-top:18px; font-family:var(--display); font-size:var(--cap); letter-spacing:.2em;
+  text-transform:uppercase; color:var(--tinta-3); line-height:2; }
+@media (min-width:900px){
+  .oferta__cab{ grid-column:1/9; }
+  .oferta__inclui{ grid-column:1/8; }
+  .oferta__caixa{ grid-column:9/13; margin-top:0; }
+}
+
+/* ============ 19 · FAQ ============ */
+.faqgrade{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); align-items:start; }
+.faqgrade > div:first-child{ grid-column:1/13; }
+.faq{ grid-column:1/13; margin-top:20px; border-top:1px solid var(--fio); }
+@media (min-width:900px){ .faqgrade > div:first-child{ grid-column:1/4; } .faq{ grid-column:4/13; margin-top:0; } }
+.faq details{ border-bottom:1px solid var(--fio); }
+.faq summary{ cursor:pointer; list-style:none; padding-block:clamp(13px,1.6vw,20px);
+  font-family:var(--display); font-size:clamp(1rem,1.5vw,1.24rem); font-weight:500; letter-spacing:-.018em;
+  display:flex; justify-content:space-between; gap:20px; align-items:center; }
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary::after{ content:'+'; color:var(--tinta-3); font-weight:400; transition:transform .35s var(--ar); }
+.faq details[open] summary::after{ transform:rotate(45deg); }
+.faq p{ margin:0 0 clamp(14px,1.8vw,22px); max-width:64ch; color:var(--tinta-2); }
+
+/* ============ 20 · FINAL ============ */
+.final__foto{ margin:0 0 clamp(26px,3.4vw,52px); }
+.final .mega{ font-size:clamp(2.3rem,8.4vw,7.6rem); }
+.final__pe{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); margin-top:clamp(28px,3.4vw,52px); align-items:center; }
+.final__pe > div{ grid-column:1/13; }
+.final__pe > p{ grid-column:1/13; margin:16px 0 0; }
+@media (min-width:900px){ .final__pe > div{ grid-column:1/5; } .final__pe > p{ grid-column:5/10; margin:0; } }
+
+/* ============ RODAPÉ ============ */
+.rodape{ border-top:1px solid var(--tinta); padding-block:clamp(30px,3.6vw,52px); }
+.rodape__grade{ display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gap); }
+.rodape__marca{ grid-column:1/13; }
+.rodape__marca .disp{ font-size:clamp(1.3rem,2.2vw,1.9rem); }
+.rodape__marca p{ margin:6px 0 0; color:var(--tinta-3); font-size:.9rem; }
+.rodape__col{ grid-column:1/13; margin-top:22px; }
+@media (min-width:760px){
+  .rodape__marca{ grid-column:1/5; }
+  .rodape__col{ grid-column:span 3; margin-top:0; }
+}
+.rodape__col h3{ font-family:var(--display); font-size:var(--cap); letter-spacing:.2em; text-transform:uppercase;
+  color:var(--tinta-3); margin:0 0 10px; font-weight:500; }
+.rodape__col a, .rodape__col p{ display:block; text-decoration:none; color:var(--tinta-2); font-size:.92rem; margin:0 0 6px; }
+.rodape__col a:hover{ color:var(--tinta); }
+.rodape__fim{ margin-top:clamp(24px,3vw,40px); font-size:.78rem; color:var(--tinta-3); }
+
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
+  .rv{ opacity:1; transform:none; } .quadro img{ transform:none; }
+}
+.pular{ position:absolute; left:-9999px; }
+.pular:focus{ left:12px; top:12px; background:var(--tinta); color:var(--papel); padding:10px 16px; z-index:99; }
 </style>
+<noscript><style>.rv{opacity:1;transform:none}.pb img{filter:none}.quadro img{transform:none}</style></noscript>
 </head>
+
 <body>
-  <div class="box">
-    <span class="kicker">● Carreira Visual</span>
-    <h1>O Que Fica — Fotografia da Vida</h1>
-    <p>A página deste treinamento está sendo preparada. Enquanto isso, explore o restante da plataforma.</p>
-    <a href="/">Voltar para a plataforma</a>
+<a class="pular" href="#filme">Pular para o conteúdo</a>
+
+<div class="trilho" aria-hidden="true">
+  <span>O QUE FICA</span>
+  <div class="furos"></div>
+  <span class="frame" id="frame">01</span>
+</div>
+
+<div class="barra" id="barra">
+  <a class="btn" data-cta href="#oferta">Quero fotografar minha história <span class="seta">→</span></a>
+</div>
+
+<main>
+
+<!-- ============ 01 · HERO ============ -->
+<header class="hero wrap" data-sec data-frame="01">
+  <div class="hero__topo olho">
+    <p>Um curso autoral de Marcos Prado</p>
+    <p>Rio de Janeiro — 2026</p>
   </div>
+
+  <div class="hero__grade">
+    <div class="hero__tit">
+      <h1 class="disp mega">O que<br>fica</h1>
+      <p class="disp sub reta hero__sublinha">Fotografia da Vida</p>
+    </div>
+
+    <figure class="hero__foto quadro on">
+      <img src="images/foto-01.webp"
+           sizes="(min-width:900px) 58vw, 100vw" width="2048" height="1365"
+           fetchpriority="high" decoding="async"
+           alt="Garotos sorrindo, molhados, depois do banho de mar nas pedras do Rio de Janeiro, em preto e branco.">
+      <figcaption class="legenda">Arquivo / Marcos Prado — Rio de Janeiro</figcaption>
+    </figure>
+
+    <p class="hero__frase">Fotografe a vida enquanto ela acontece.</p>
+
+    <p class="hero__desc texto">Um curso sobre fotografia, memória, pessoas e tempo para quem quer voltar a enxergar aquilo que acontece todos os dias diante dos próprios olhos.</p>
+
+    <div class="hero__ctas">
+      <a class="btn" data-cta href="#oferta">Quero fotografar minha história <span class="seta">→</span></a>
+      <a class="link" href="#filme">Conhecer o curso ↓</a>
+    </div>
+
+    <div class="hero__ficha">
+      <ul class="dados">
+        <li><b>I</b> O tempo</li>
+        <li><b>II</b> O olhar</li>
+        <li><b>III</b> Saia de casa</li>
+        <li><b>IV</b> A câmera entre você e a vida</li>
+        <li><b>V</b> O que fica</li>
+        <li><b>+</b> Saídas fotográficas na rua</li>
+        <li><b>+</b> Conte sua história e ganhe fotos</li>
+        <li><b>+</b> Acesso imediato, no seu ritmo</li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 02 · FILME ============ -->
+<section class="sec wrap" id="filme" data-sec data-frame="02">
+  <div class="cab"><span class="cab__n">02</span><span class="cab__t">Antes de continuar</span><span class="cab__m">Filme manifesto — 2026</span></div>
+
+  <div class="filme__grade">
+    <div>
+      <h2 class="disp tit">Assista a isso.</h2>
+    </div>
+    <p class="texto">Três minutos que explicam melhor do que qualquer página de vendas por que este curso existe. Se depois disso você continuar aqui, é porque a gente pensa parecido sobre fotografia.</p>
+  </div>
+
+  <div class="rv">
+    <button class="player" id="player" aria-label="Assistir ao filme manifesto de O QUE FICA">
+      <img id="playerCapa" src="images/foto-02.webp"
+           sizes="100vw" width="2048" height="1365" loading="lazy" decoding="async"
+           alt="Capa do filme: surfistas na areia de Ipanema com uma nuvem cobrindo o Morro Dois Irmãos.">
+      <span class="player__play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9V3z"/></svg></span></span>
+      <span class="player__sel">O que fica — filme</span>
+    </button>
+  </div>
+
+  <div class="filme__pe rv" style="--d:120ms">
+    <p>Este não é um curso sobre fotografar mais.<br>É sobre voltar a perceber aquilo que já estava diante de você.</p>
+    <p class="texto">Nenhuma das fotografias desta página foi feita para um cliente. Todas nasceram de saídas comuns, em dias comuns, com a câmera que estava na mochila.</p>
+  </div>
+</section>
+
+<!-- ============ 03 · ORIGEM ============ -->
+<section class="sec wrap" data-sec data-frame="03">
+  <div class="cab"><span class="cab__n">03</span><span class="cab__t">A origem</span><span class="cab__m">Copacabana, 2021</span></div>
+
+  <div class="origem">
+    <div class="origem__tit rv">
+      <h2 class="disp tit">Um livro mudou a forma como eu enxergava minha própria cidade.</h2>
+    </div>
+
+    <figure class="origem__a quadro rv pb">
+      <img src="images/foto-03.webp"
+           sizes="(min-width:900px) 33vw, 100vw" width="1365" height="2048" loading="lazy" decoding="async"
+           alt="Senhor de terno observa livros na entrada de uma livraria, em preto e branco.">
+      <figcaption class="legenda">Livraria da Travessa / Rio de Janeiro</figcaption>
+    </figure>
+
+    <div class="origem__txt rv" style="--d:80ms">
+      <p class="texto">Em 2021 eu encontrei um livro com fotografias de Copacabana feitas décadas atrás. Pessoas, roupas, carros, produtos, ruas, costumes. Nada ali tinha sido feito para virar documento: era só o dia comum de alguém.</p>
+      <p class="texto">Quarenta anos depois, aquele dia comum tinha virado história.</p>
+      <p class="texto">Naquela época eu já era fotógrafo profissional. Mas percebi uma coisa incômoda: <strong>minha câmera só saía da mochila quando existia trabalho.</strong> Fotografar tinha virado entrega. Deixou de ser vontade.</p>
+      <p class="texto">Comecei a sair de casa sem cliente, sem briefing e sem prazo. Só para fotografar a vida.</p>
+    </div>
+
+    <figure class="origem__b quadro rv" style="--d:140ms">
+      <img src="images/foto-04.webp"
+           sizes="(min-width:900px) 33vw, 100vw" width="2048" height="1365" loading="lazy" decoding="async"
+           alt="Barraca de feira com legumes e frutas; um homem e uma senhora passam pela banca.">
+      <figcaption class="legenda">Feira / Rio de Janeiro — 2022</figcaption>
+    </figure>
+
+    <div class="origem__frase rv">
+      <p class="disp">O cotidiano de hoje será a memória de amanhã.</p>
+    </div>
+
+    <div class="origem__nota rv duas" style="--d:80ms">
+      <p class="texto">Repare no que aquelas fotos guardaram sem querer: a marca do refrigerante, o modelo do ônibus, o corte de cabelo, o jeito de sentar na areia, a placa da loja que não existe mais. Ninguém fotografou aquilo pensando em documento histórico. Fotografaram porque era sábado.</p>
+      <p class="texto">É exatamente isso que está acontecendo com você agora. A sua rua, o seu bairro, a roupa do seu filho, o carro do seu vizinho, o celular na sua mão. Tudo isso é material de arquivo — só que ainda não parece.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 · ALTINHA ============ -->
+<section class="sec wrap" data-sec data-frame="04">
+  <div class="cab"><span class="cab__n">04</span><span class="cab__t">A foto que mudou tudo</span><span class="cab__m">Altinha — Rio de Janeiro — 2022</span></div>
+
+  <div class="altinha__grade">
+    <figure class="altinha__foto quadro rv">
+      <img src="images/foto-05.webp"
+           sizes="(min-width:900px) 40vw, 100vw" width="853" height="1280" loading="lazy" decoding="async"
+           alt="Silhuetas de pessoas jogando altinha na beira d'água ao pôr do sol, com o Morro Dois Irmãos ao fundo, refletidas na areia molhada.">
+      <figcaption class="legenda">Altinha — Ipanema, Rio de Janeiro — 2022</figcaption>
+    </figure>
+
+    <div class="altinha__lado rv" style="--d:80ms">
+      <p class="altinha__premio">Unsplash Awards 2022<br>Categoria People.</p>
+      <ul class="dados">
+        <li><b>—</b> Sem cliente</li>
+        <li><b>—</b> Sem briefing</li>
+        <li><b>—</b> Sem produção</li>
+        <li><b>—</b> Fim de tarde comum</li>
+      </ul>
+    </div>
+
+    <div class="altinha__pe rv" style="--d:120ms">
+      <p class="texto">Essa fotografia nasceu em uma das saídas que eu passei a fazer depois daquele livro. Eu não estava procurando prêmio nenhum. Estava andando, esperando, olhando os garotos jogarem altinha até a luz acabar.</p>
+      <p class="texto"><strong>Quando você presta atenção na vida, às vezes encontra fotografias que nenhum briefing conseguiria pedir.</strong> Nenhum cliente ia me pedir aquela cena. Ela aconteceu porque eu estava lá.</p>
+    </div>
+
+    <figure class="altinha__extra quadro rv" style="--d:160ms">
+      <img src="images/foto-06.webp"
+           sizes="100vw" width="2048" height="1365" loading="lazy" decoding="async"
+           alt="Garotos com mochilas enfileirados contra o sol baixo, à beira do mar, no Rio de Janeiro.">
+      <figcaption class="legenda">Mesma praia, outro fim de tarde — Rio de Janeiro</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 05 · MANIFESTO ============ -->
+<section class="sec wrap" data-sec data-frame="05">
+  <div class="cab"><span class="cab__n">05</span><span class="cab__t">Manifesto</span><span class="cab__m">O que fica — Fotografia da Vida</span></div>
+
+  <div class="manif">
+    <div class="manif__linhas">
+      <p class="rv">A vida não acontece apenas em viagens.</p>
+      <p class="rv" style="--d:140ms">Não acontece apenas no pôr do sol.</p>
+      <p class="rv" style="--d:280ms">Não acontece apenas quando a luz está bonita.</p>
+      <p class="rv" style="--d:420ms">Não acontece apenas quando alguém contrata você.</p>
+      <p class="rv" style="--d:560ms">Ela está acontecendo agora, do outro lado da porta.</p>
+    </div>
+
+    <div class="manif__lado rv" style="--d:200ms">
+      <p class="texto">A gente aprendeu a esperar o momento extraordinário para levantar a câmera. Espera a viagem, espera o casamento, espera o cenário bonito, espera ter equipamento melhor.</p>
+      <p class="texto">Enquanto isso, o extraordinário vai passando disfarçado de terça-feira.</p>
+    </div>
+
+    <div class="manif__fim rv">
+      <h2 class="disp mega">Você já está<br>vivendo dentro<br>da história.</h2>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 · O QUE VOCÊ VAI ENXERGAR ============ -->
+<section class="sec wrap" data-sec data-frame="06">
+  <div class="cab"><span class="cab__n">06</span><span class="cab__t">O que você vai começar a enxergar</span><span class="cab__m">Arquivo pessoal / 2021 — 2026</span></div>
+
+  <div class="folha__cab rv">
+    <h2 class="disp tit">Tudo aquilo que parece comum demais para ser fotografado.</h2>
+    <p class="texto">Passe o mouse nas imagens: cada uma tem lugar e ano. Nenhuma delas foi planejada. Todas apareceram no caminho de casa, do trabalho, da praia, da viagem.</p>
+  </div>
+
+  <div class="folha rv" style="--d:80ms">
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-07.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Homens sentados em cadeiras na calçada, na porta de uma barbearia.">
+      <figcaption class="folha__cap">Barbearia / Rio de Janeiro — 2022</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-08.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Dois senhores e uma mulher na janela conversam na varanda de uma casa em um bairro alto.">
+      <figcaption class="folha__cap">Vizinhos / Arquivo pessoal</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-09.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Silhueta de um pescador sob uma árvore, no fim de tarde, à beira da baía.">
+      <figcaption class="folha__cap">Baía de Guanabara / 2023</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-10.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Garotos molhados nas pedras diante do mar azul-esverdeado.">
+      <figcaption class="folha__cap">Arpoador / 2022</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-11.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Fachadas com letreiros de neon e lanternas acesas em uma rua à noite.">
+      <figcaption class="folha__cap">Noite / Viagem</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-12.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Barraca de feira com legumes; pessoas passam pela banca.">
+      <figcaption class="folha__cap">Feira / Rio de Janeiro — 2022</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-13.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Reflexos de luz formando ondas sobre uma superfície metálica escura.">
+      <figcaption class="folha__cap">Luz / Estudo</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-14.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Pescadores empurram um barco na arrebentação durante o amanhecer, com o Pão de Açúcar ao fundo.">
+      <figcaption class="folha__cap">Copacabana / 2022</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-15.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Praça larga em frente ao Museu do Amanhã com pessoas caminhando.">
+      <figcaption class="folha__cap">Centro / Rio de Janeiro</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-16.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Senhor observa livros na porta de uma livraria, em preto e branco.">
+      <figcaption class="folha__cap">Ipanema / 2021</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-17.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Marquise iluminada de um teatro à noite, cheia de pessoas na calçada.">
+      <figcaption class="folha__cap">Nova York / Dezembro</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-18.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Dois senhores jogando xadrez em uma mesa na praça.">
+      <figcaption class="folha__cap">Xadrez na praça / Fim de tarde</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-19.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Menino saltando na beira do mar sob um céu rosa.">
+      <figcaption class="folha__cap">Praia / Fim de tarde</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-20.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Pratos de pimentas coloridas vistos de cima em uma barraca de feira.">
+      <figcaption class="folha__cap">Feira / Pimentas</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-21.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Vendedor sorrindo e fazendo sinal com a mão em frente aos prédios de Copacabana, em preto e branco.">
+      <figcaption class="folha__cap">Copacabana / Trabalho</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-22.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Vendedor de algodão doce caminhando na areia contra a luz dourada do fim de tarde.">
+      <figcaption class="folha__cap">Ipanema / Algodão doce</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-23.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Parede amarela de um bar coberta de divinos e um quadro com uma oração.">
+      <figcaption class="folha__cap">Bar de estrada / Interior</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-24.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Senhor de boina enrolando uma mangueira diante de um muro pintado com flores.">
+      <figcaption class="folha__cap">Retrato / Rua</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-25.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Duas pessoas atravessando um facho de luz de poste à noite, em preto e branco.">
+      <figcaption class="folha__cap">Centro / Noite</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-26.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Mototaxista parado diante de um muro azul pintado com coqueiro e placas de bar.">
+      <figcaption class="folha__cap">Litoral / Mototáxi</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-27.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Rapaz remando na prancha de bodyboard dentro do mar, quase todo branco, em preto e branco.">
+      <figcaption class="folha__cap">Mar / Estudo</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-28.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Galhos de um ipê rosa florido contra o céu azul.">
+      <figcaption class="folha__cap">Ipê / Agosto</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-29.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Mãos puxando um cabo de amarração no convés de uma embarcação.">
+      <figcaption class="folha__cap">Convés / Trabalho</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-30.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Cristo Redentor entre as nuvens, em preto e branco.">
+      <figcaption class="folha__cap">Corcovado / Nuvem</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-31.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Homem de costas observa um grande saguão branco cheio de pessoas, em preto e branco.">
+      <figcaption class="folha__cap">Nova York / 2019</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-32.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Bolsas de crochê penduradas em um varal na rua.">
+      <figcaption class="folha__cap">Santa Teresa / 2023</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-33.webp" width="1402" height="2048" loading="lazy" decoding="async" alt="Mulher vista de cima, parada no centro de um piso formado por círculos concêntricos.">
+      <figcaption class="folha__cap">De cima / Toronto</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-34.webp" width="3648" height="5472" loading="lazy" decoding="async" alt="Avião cruzando o pedaço de céu visto de dentro do poço de luz de um prédio.">
+      <figcaption class="folha__cap">Olhar para cima / Rio</figcaption>
+    </figure>
+    <figure class="folha__item" tabindex="0">
+      <img src="images/foto-35.webp" width="3648" height="5472" loading="lazy" decoding="async" alt="Garotos brincando na espuma da onda em uma praia de pedras, com a água em movimento arrastado.">
+      <figcaption class="folha__cap">Praia brava / Verão</figcaption>
+    </figure>
+  </div>
+
+  <p class="folha__palavras rv" style="--d:120ms">
+    <span>Pessoas.</span><span>Gestos.</span><span>Família.</span><span>Ruas.</span><span>Objetos.</span><span>Luz.</span><span>Costumes.</span><span>Silêncios.</span><span>Vizinhos.</span><span>Trabalho.</span><span>Domingos.</span><span>Despedidas.</span>
+  </p>
+</section>
+
+<!-- ============ 07 · ATOS ============ -->
+<section class="sec wrap" data-sec data-frame="07">
+  <div class="cab"><span class="cab__n">07</span><span class="cab__t">O conteúdo</span><span class="cab__m">Cinco atos</span></div>
+
+  <div class="folha__cab rv">
+    <h2 class="disp tit">Uma história em cinco atos</h2>
+    <p class="texto">Não são módulos. É uma narrativa: começa no porquê, passa pelo olhar, vai para a rua, resolve a câmera e termina no que você deixa para trás.</p>
+  </div>
+
+  <article class="ato">
+    <div class="ato__grade">
+      <p class="ato__num disp rv">I</p>
+      <div class="ato__txt rv" style="--d:60ms">
+        <h3 class="disp ato__nome reta">O tempo</h3>
+        <p class="texto">Por que fotografamos. Memória, cotidiano e a percepção de que já estamos vivendo dentro da história.</p>
+      </div>
+      <ul class="dados ato__itens rv" style="--d:100ms">
+        <li><b>—</b> Por que a gente fotografa</li>
+        <li><b>—</b> O que vira documento sem querer</li>
+        <li><b>—</b> Ler fotografias antigas</li>
+        <li><b>—</b> Encontrar o seu assunto</li>
+      </ul>
+      <figure class="ato__foto quadro rv pb" style="--d:140ms">
+        <img src="images/foto-36.webp" sizes="(min-width:900px) 33vw, 100vw" width="1365" height="2048" loading="lazy" decoding="async" alt="O Cristo Redentor aparecendo entre as nuvens, em preto e branco.">
+      </figure>
+    </div>
+  </article>
+
+  <article class="ato">
+    <div class="ato__grade">
+      <p class="ato__num disp rv">II</p>
+      <div class="ato__txt rv" style="--d:60ms">
+        <h3 class="disp ato__nome reta">O olhar</h3>
+        <p class="texto">Como perceber pessoas, gestos, objetos, relações e aquilo que normalmente passa despercebido.</p>
+      </div>
+      <ul class="dados ato__itens rv" style="--d:100ms">
+        <li><b>—</b> Ver pessoas sem invadir</li>
+        <li><b>—</b> Gesto, luz e distância</li>
+        <li><b>—</b> Esperar a cena acontecer</li>
+        <li><b>—</b> Fotografar quem você não conhece</li>
+      </ul>
+      <figure class="ato__foto quadro rv pb" style="--d:140ms">
+        <img src="images/foto-37.webp" sizes="(min-width:900px) 33vw, 100vw" width="3648" height="5472" loading="lazy" decoding="async" alt="Avião cruzando o pedaço de céu visto de dentro do poço de luz de um prédio.">
+      </figure>
+    </div>
+  </article>
+
+  <article class="ato">
+    <div class="ato__grade">
+      <p class="ato__num disp rv">III</p>
+      <div class="ato__txt rv" style="--d:60ms">
+        <h3 class="disp ato__nome reta">Saia de casa</h3>
+        <p class="texto">Saídas fotográficas acompanhando meu processo pela cidade, em diferentes horários, situações e lugares.</p>
+      </div>
+      <ul class="dados ato__itens rv" style="--d:100ms">
+        <li><b>—</b> Amanhecer em Copacabana</li>
+        <li><b>—</b> Um dia comum no Centro</li>
+        <li><b>—</b> Fim de tarde na praia</li>
+        <li><b>—</b> Noite e pouca luz</li>
+        <li><b>—</b> A cidade quando você viaja</li>
+      </ul>
+      <figure class="ato__foto quadro rv" style="--d:140ms">
+        <img src="images/foto-38.webp" sizes="(min-width:900px) 33vw, 100vw" width="1365" height="2048" loading="lazy" decoding="async" alt="Bolsas de crochê coloridas em um varal na rua, com escadaria pintada de verde e amarelo ao fundo.">
+      </figure>
+    </div>
+  </article>
+
+  <article class="ato">
+    <div class="ato__grade">
+      <p class="ato__num disp rv">IV</p>
+      <div class="ato__txt rv" style="--d:60ms">
+        <h3 class="disp ato__nome reta">A câmera entre você e a vida</h3>
+        <p class="texto">Equipamento, Fujifilm, configurações e simplicidade. O processo necessário para que a câmera não atrapalhe o momento.</p>
+      </div>
+      <ul class="dados ato__itens rv" style="--d:100ms">
+        <li><b>—</b> Configuração que não atrapalha</li>
+        <li><b>—</b> JPEG e simulações de filme</li>
+        <li><b>—</b> Uma lente só</li>
+        <li><b>—</b> Edição rápida e honesta</li>
+      </ul>
+      <figure class="ato__foto quadro rv pb" style="--d:140ms">
+        <img src="images/foto-39.webp" sizes="(min-width:900px) 33vw, 100vw" width="1365" height="2048" loading="lazy" decoding="async" alt="Ondas de luz refletidas em uma superfície metálica escura.">
+      </figure>
+    </div>
+  </article>
+
+  <article class="ato">
+    <div class="ato__grade">
+      <p class="ato__num disp rv">V</p>
+      <div class="ato__txt rv" style="--d:60ms">
+        <h3 class="disp ato__nome reta">O que fica</h3>
+        <p class="texto">Família, arquivo, fotografia impressa, projetos, exposições, livros e aquilo que escolhemos deixar para o futuro.</p>
+      </div>
+      <ul class="dados ato__itens rv" style="--d:100ms">
+        <li><b>—</b> Organizar o arquivo</li>
+        <li><b>—</b> Imprimir e montar um álbum</li>
+        <li><b>—</b> Fotografar a própria família</li>
+        <li><b>—</b> Transformar assunto em projeto</li>
+        <li><b>—</b> Livro, exposição, legado</li>
+      </ul>
+      <figure class="ato__foto quadro rv" style="--d:140ms">
+        <img src="images/foto-40.webp" sizes="(min-width:900px) 33vw, 100vw" width="1365" height="2048" loading="lazy" decoding="async" alt="Dois senhores jogando xadrez em uma mesa na praça, no fim da tarde.">
+      </figure>
+    </div>
+  </article>
+</section>
+
+<!-- ============ 08 · SAÍDAS ============ -->
+<section class="sec wrap" data-sec data-frame="08">
+  <div class="cab"><span class="cab__n">08</span><span class="cab__t">Saídas fotográficas</span><span class="cab__m">Rua, praia, centro, noite, viagem</span></div>
+
+  <div class="saidas__cab">
+    <div class="rv">
+      <h2 class="disp tit">Não é só uma aula.<br>Você vai para a rua comigo.</h2>
+    </div>
+    <div class="rv" style="--d:80ms">
+      <p class="texto">Você acompanha meu processo enquanto eu caminho, observo, espero, erro, fotografo e explico aquilo que chamou minha atenção. Sem PowerPoint, sem estúdio, sem cena montada. A rua acontecendo — inclusive quando não acontece nada.</p>
+    </div>
+  </div>
+
+  <div class="tira rv" style="--d:100ms">
+    <figure><img src="images/foto-41.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Pescadores empurrando o barco no amanhecer em Copacabana."><figcaption class="legenda">Amanhecer / Copacabana</figcaption></figure>
+    <figure><img src="images/foto-42.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Garotos nas pedras diante do mar."><figcaption class="legenda">Dia comum / Arpoador</figcaption></figure>
+    <figure><img src="images/foto-43.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Praça larga em frente ao Museu do Amanhã, com pessoas caminhando."><figcaption class="legenda">Centro / Rio de Janeiro</figcaption></figure>
+    <figure><img src="images/foto-44.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Homens sentados na calçada de uma barbearia."><figcaption class="legenda">Bairro / Tarde</figcaption></figure>
+    <figure><img src="images/foto-45.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Pescador em silhueta no fim de tarde."><figcaption class="legenda">Fim de tarde / Baía</figcaption></figure>
+    <figure><img src="images/foto-46.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Rua à noite com letreiros de neon acesos."><figcaption class="legenda">Noite / Pouca luz</figcaption></figure>
+    <figure><img src="images/foto-47.webp" width="7728" height="5152" loading="lazy" decoding="async" alt="Ciclistas passando sob a ponte do Brooklyn com o skyline de Manhattan ao fundo."><figcaption class="legenda">Outra cidade / Nova York</figcaption></figure>
+    <figure><img src="images/foto-48.webp" width="7728" height="5152" loading="lazy" decoding="async" alt="Torcedores assistindo a um jogo da arquibancada alta de um estádio."><figcaption class="legenda">Arquibancada / Viagem</figcaption></figure>
+    <figure><img src="images/foto-49.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Marquise iluminada de um teatro à noite, cheia de pessoas na calçada."><figcaption class="legenda">Dezembro / Nova York</figcaption></figure>
+    <figure><img src="images/foto-50.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Surfistas na areia de Ipanema com uma nuvem cobrindo o Morro Dois Irmãos."><figcaption class="legenda">Ipanema / Antes da chuva</figcaption></figure>
+    <figure><img src="images/foto-51.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Vendedor de algodão doce caminhando na areia contra a luz dourada."><figcaption class="legenda">Ipanema / Fim de tarde</figcaption></figure>
+    <figure><img src="images/foto-52.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Mototaxista parado diante de um muro azul pintado com coqueiro."><figcaption class="legenda">Litoral / Estrada</figcaption></figure>
+    <figure><img src="images/foto-53.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Pratos de pimentas coloridas em uma barraca de feira."><figcaption class="legenda">Feira / Manhã</figcaption></figure>
+    <figure><img src="images/foto-54.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Montanhas cobertas de mata com nuvens baixas ao amanhecer."><figcaption class="legenda">Serra / Viagem curta</figcaption></figure>
+    <figure><img src="images/foto-55.webp" width="2048" height="1365" loading="lazy" decoding="async" alt="Duas mulheres caminhando por uma calçada iluminada pelo último sol, entre prédios escuros."><figcaption class="legenda">Outra cidade / Última luz</figcaption></figure>
+    <figure><img src="images/foto-56.webp" width="3648" height="5472" loading="lazy" decoding="async" alt="Rapaz saltando de uma pedra em direção ao mar."><figcaption class="legenda">Pedra / Salto</figcaption></figure>
+    <figure><img src="images/foto-57.webp" width="3648" height="5472" loading="lazy" decoding="async" alt="Garotos brincando na espuma da onda, com a água em movimento arrastado."><figcaption class="legenda">Praia brava / Espuma</figcaption></figure>
+    <figure><img src="images/foto-58.webp" width="1402" height="2048" loading="lazy" decoding="async" alt="Mulher vista de cima no centro de círculos concêntricos no chão."><figcaption class="legenda">De cima / Viagem</figcaption></figure>
+  </div>
+</section>
+
+<!-- ============ 09 · FUJIFILM ============ -->
+<section class="sec wrap" data-sec data-frame="09">
+  <div class="cab"><span class="cab__n">09</span><span class="cab__t">A câmera</span><span class="cab__m">Embaixador Fujifilm X-Series</span></div>
+
+  <div class="fuji">
+    <div class="fuji__tit rv">
+      <h2 class="disp tit">A câmera que me fez querer carregar uma câmera novamente.</h2>
+    </div>
+
+    <figure class="fuji__lead quadro rv">
+      <img src="images/foto-59.webp"
+           sizes="100vw" width="2048" height="1365" loading="lazy" decoding="async"
+           alt="Marcos Prado fotografando na rua com uma Fujifilm X-T5 junto ao rosto, no fim de tarde.">
+      <figcaption class="legenda">Primeiro dia fotografando com minha primeira câmera Fuji, a X-T5</figcaption>
+    </figure>
+
+    <figure class="fuji__a quadro rv">
+      <img src="images/foto-60.webp" sizes="(min-width:900px) 33vw, 100vw" width="1365" height="2048" loading="lazy" decoding="async" alt="Letreiros de neon e lanternas de papel em uma rua à noite, fotografados com pouca luz.">
+      <figcaption class="legenda">JPEG direto da câmera</figcaption>
+    </figure>
+
+    <figure class="fuji__b quadro rv pb" style="--d:80ms">
+      <img src="images/foto-61.webp" sizes="(min-width:900px) 25vw, 100vw" width="1365" height="2048" loading="lazy" decoding="async" alt="Grande saguão branco visto do alto, com pessoas caminhando, em preto e branco.">
+      <figcaption class="legenda">Simulação de filme / Acros</figcaption>
+    </figure>
+
+    <div class="fuji__txt rv" style="--d:140ms">
+      <p class="texto">Eu sou embaixador Fujifilm, e preciso ser honesto com você: <strong>O QUE FICA não é um curso sobre Fujifilm.</strong></p>
+      <p class="texto">A Fuji entra na história por um motivo simples. Câmeras pequenas, bonitas de segurar, JPEG que já sai pronto, simulações de filme, praticidade. Uma câmera que eu queria levar comigo — e câmera que fica em casa não fotografa nada.</p>
+      <p class="texto">No Ato IV eu mostro exatamente como configuro a minha para não perder tempo com menu no meio da rua. Se você usa outra marca, o raciocínio é o mesmo: menos decisão na hora, mais atenção na cena.</p>
+      <p class="fuji__frase disp reta">A melhor câmera não é necessariamente a mais poderosa. É aquela que faz você querer levá-la com você.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 · REFERÊNCIAS ============ -->
+<section class="sec wrap" data-sec data-frame="10">
+  <div class="cab"><span class="cab__n">10</span><span class="cab__t">Referências</span><span class="cab__m">Quem prestou atenção antes</span></div>
+
+  <div class="refs__cab rv">
+    <h2 class="disp tit">Antes de nós, outras pessoas decidiram prestar atenção.</h2>
+    <p class="texto">O curso atravessa o trabalho de fotógrafos que transformaram pessoas comuns, cidades, famílias, trabalhadores e acontecimentos cotidianos na memória de uma época. Não é aula de história da fotografia. É companhia.</p>
+  </div>
+
+  <div class="refs">
+    <div class="ref rv"><h3 class="ref__nome">Chichico Alkmim</h3><p class="ref__anos">1886 — 1978</p><p class="ref__nota">Retratou por décadas os moradores de Diamantina em seu estúdio. Um inventário involuntário de um Brasil inteiro.</p></div>
+    <div class="ref rv"><h3 class="ref__nome">Vivian Maier</h3><p class="ref__anos">1926 — 2009</p><p class="ref__nota">Fotografou a rua a vida toda sem mostrar quase nada a ninguém. O olhar existia antes de qualquer plateia.</p></div>
+    <div class="ref rv"><h3 class="ref__nome">Walter Firmo</h3><p class="ref__anos">1937</p><p class="ref__nota">Cor, dignidade e afeto na construção da imagem do povo brasileiro.</p></div>
+    <div class="ref rv"><h3 class="ref__nome">Luiz Braga</h3><p class="ref__anos">1956</p><p class="ref__nota">A luz da Amazônia como matéria-prima: barracas, neons, festas, ribeirinhos.</p></div>
+    <div class="ref rv"><h3 class="ref__nome">José Medeiros</h3><p class="ref__anos">1921 — 1990</p><p class="ref__nota">O Rio de Janeiro do meio do século, fotografado por dentro e no calor da hora.</p></div>
+    <div class="ref rv"><h3 class="ref__nome">Sebastião Salgado</h3><p class="ref__anos">1944 — 2025</p><p class="ref__nota">Trabalho, migração e território tratados como projeto de vida, não como pauta.</p></div>
+  </div>
+</section>
+
+<!-- ============ 11 · OS SEUS ============ -->
+<section class="sec wrap" data-sec data-frame="11">
+  <div class="cab"><span class="cab__n">11</span><span class="cab__t">Fotografando os seus</span><span class="cab__m">Arquivo pessoal</span></div>
+
+  <div class="seus">
+    <figure class="seus__foto quadro rv">
+      <img src="images/foto-62.webp" sizes="(min-width:900px) 56vw, 100vw" width="2048" height="1365" loading="lazy" decoding="async" alt="Família reunida na varanda de casa no fim da tarde.">
+      <figcaption class="legenda">Um fim de tarde qualquer / Arquivo pessoal</figcaption>
+    </figure>
+    <div class="seus__txt rv" style="--d:80ms">
+      <h2 class="disp sub" style="margin-bottom:clamp(16px,2vw,26px)">Talvez suas fotos mais importantes nunca entrem no seu portfólio.</h2>
+      <ul class="seus__lista">
+        <li>Sua mãe.</li><li>Seu pai.</li><li>Seus filhos.</li><li>Seus amigos.</li>
+        <li>Seu cachorro.</li><li>Um almoço qualquer.</li><li>Uma viagem.</li><li>Um aniversário.</li>
+        <li>O sofá da casa onde você cresceu.</li>
+      </ul>
+      <p class="texto">Um dia essas imagens podem importar mais do que qualquer trabalho comercial que você já produziu. E, diferente do trabalho, elas não têm prazo de entrega — têm prazo de validade.</p>
+      <p class="texto">A gente costuma descobrir isso tarde demais, procurando no celular uma foto que nunca foi feita.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12 · IMPRESSÃO ============ -->
+<section class="sec wrap" data-sec data-frame="12">
+  <div class="cab"><span class="cab__n">12</span><span class="cab__t">A fotografia precisa existir</span><span class="cab__m">Papel, álbum, caixa, parede</span></div>
+
+  <div class="impr">
+    <div class="impr__txt rv">
+      <h2 class="disp sub" style="margin-bottom:clamp(14px,1.8vw,24px)">Uma fotografia muda quando você consegue segurá-la.</h2>
+      <p class="texto">Papel, álbum, caixa de sapato, Instax na geladeira, quadro na parede, livro na estante.</p>
+      <p class="texto">O arquivo digital é onde as fotos esperam. O papel é onde elas acontecem de novo — e onde alguém, daqui a muito tempo, vai encontrá-las sem precisar de senha.</p>
+    </div>
+
+    <div class="impr__mesa">
+      <figure class="copia rv"><img src="images/foto-63.webp" width="853" height="1280" loading="lazy" decoding="async" alt="Cópia impressa da fotografia da altinha em Ipanema ao pôr do sol."></figure>
+      <figure class="copia rv" style="--d:100ms"><img src="images/foto-64.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Cópia impressa de um menino saltando na beira do mar no fim de tarde."></figure>
+      <figure class="copia rv" style="--d:200ms"><img src="images/foto-65.webp" width="1365" height="2048" loading="lazy" decoding="async" alt="Cópia impressa de dois senhores jogando xadrez em uma praça."></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 13 · CONTE SUA HISTÓRIA ============ -->
+<section class="sec wrap" data-sec data-frame="13">
+  <div class="cab"><span class="cab__n">13</span><span class="cab__t">Conte sua história e ganhe fotos</span><span class="cab__m">Projeto autoral / conteúdo extra</span></div>
+
+  <div class="conte">
+    <figure class="conte__foto quadro rv">
+      <img src="images/foto-66.webp" sizes="(min-width:900px) 40vw, 100vw" width="2048" height="1365" loading="lazy" decoding="async" alt="Senhor de boina enrolando uma mangueira na calçada, diante de um muro pintado com flores.">
+      <figcaption class="legenda">Retrato / Conte Sua História</figcaption>
+    </figure>
+    <div class="conte__txt rv" style="--d:80ms">
+      <h2 class="disp sub" style="max-width:16ch">Conte sua história e ganhe fotos.</h2>
+      <p class="texto" style="margin-top:clamp(16px,2vw,26px)">Um projeto que eu levo comigo há anos: chegar até alguém, ouvir a história daquela pessoa e devolver a ela um retrato. A fotografia como desculpa para conversar — e como forma de preservar não só um rosto, mas um pouco de quem aquela pessoa era.</p>
+      <p class="texto">Dentro do curso eu mostro como faço a aproximação, o que digo, como lido com o não, e como entrego a foto depois. É a parte que mais assusta quem está começando e a que mais muda a relação da pessoa com a rua.</p>
+      <p class="serif" style="font-size:var(--l); margin-top:clamp(20px,2.6vw,34px)">Antes de existir um retrato, existe alguém.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 14 · EXERCÍCIO ============ -->
+<section class="sec wrap" data-sec data-frame="14">
+  <div class="cab"><span class="cab__n">14</span><span class="cab__t">O exercício final</span><span class="cab__m">A missão de O QUE FICA</span></div>
+
+  <div class="exerc">
+    <div class="exerc__tit rv">
+      <h2 class="disp mega">20 fotografias.</h2>
+    </div>
+    <div class="exerc__txt rv" style="--d:80ms">
+      <p class="texto">Fotografe 20 coisas da sua vida que talvez não existam da mesma maneira daqui a 20 anos. Pessoas, lugares, objetos, costumes, relações.</p>
+      <p class="texto">Uma lista para você começar hoje — sem esperar o curso, sem esperar viagem, sem esperar nada.</p>
+    </div>
+
+    <ul class="exerc__lista rv" style="--d:120ms">
+      <li><b>01</b> A casa onde você mora agora</li>
+      <li><b>02</b> O rosto da sua mãe</li>
+      <li><b>03</b> O rosto do seu pai</li>
+      <li><b>04</b> A rua da sua infância</li>
+      <li><b>05</b> O carro da família</li>
+      <li><b>06</b> Seu bairro num dia comum</li>
+      <li><b>07</b> A cozinha depois do almoço</li>
+      <li><b>08</b> Alguém trabalhando perto de você</li>
+      <li><b>09</b> Seu cachorro dormindo</li>
+      <li><b>10</b> A vitrine da loja da esquina</li>
+      <li><b>11</b> O ônibus que você pega</li>
+      <li><b>12</b> Seus amigos rindo de nada</li>
+      <li><b>13</b> A sua estante</li>
+      <li><b>14</b> O celular que você usa hoje</li>
+      <li><b>15</b> A mesa de domingo</li>
+      <li><b>16</b> As mãos de alguém mais velho</li>
+      <li><b>17</b> A roupa do seu trabalho</li>
+      <li><b>18</b> A praia ou a praça do seu fim de tarde</li>
+      <li><b>19</b> Uma criança brincando</li>
+      <li><b>20</b> Você mesmo</li>
+    </ul>
+
+    <p class="legenda rv" style="--d:160ms; grid-column:1/13">O curso termina exatamente quando você começa a fotografar.</p>
+  </div>
+</section>
+
+<!-- ============ 15 · PARA QUEM É ============ -->
+<section class="sec wrap" data-sec data-frame="15">
+  <div class="cab"><span class="cab__n">15</span><span class="cab__t">Para quem é</span><span class="cab__m">Profissional ou amador</span></div>
+
+  <div class="quem">
+    <div class="quem__a rv">
+      <h2 class="disp tit">O QUE FICA é para você se…</h2>
+      <ul class="quem__lista">
+        <li><span>você é fotógrafo e sente que sua câmera só aparece quando existe trabalho;</span></li>
+        <li><span>você comprou uma câmera e quer encontrar um motivo para fotografar;</span></li>
+        <li><span>você ama fotografia, mas perdeu um pouco do prazer de fotografar;</span></li>
+        <li><span>você quer registrar sua família e sua vida de maneira mais consciente;</span></li>
+        <li><span>você quer desenvolver um olhar mais sensível sobre pessoas e cotidiano;</span></li>
+        <li><span>você quer criar fotografias que tenham significado além das redes sociais.</span></li>
+      </ul>
+      <p class="quem__fecho disp reta">Profissional ou amador não importa. Importa querer prestar atenção.</p>
+    </div>
+
+    <div class="quem__b rv" style="--d:80ms">
+      <p class="olho">Provavelmente não é para você se…</p>
+      <ul class="quem__lista quem__lista--nao">
+        <li><span>você procura um manual técnico de configuração de câmera;</span></li>
+        <li><span>você quer fórmula de crescimento e viralização nas redes;</span></li>
+        <li><span>você busca estúdio, iluminação artificial e produção de moda;</span></li>
+        <li><span>você não pretende sair de casa com a câmera.</span></li>
+      </ul>
+      <p class="texto" style="margin-top:20px">Prefiro dizer isso agora do que depois. O curso funciona para quem topa andar, olhar e voltar sem nenhuma foto às vezes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 16 · MARCOS ============ -->
+<section class="sec wrap" data-sec data-frame="16">
+  <div class="cab"><span class="cab__n">16</span><span class="cab__t">Quem assina</span><span class="cab__m">Marcos Prado — Rio de Janeiro</span></div>
+
+  <div class="marcos">
+    <figure class="marcos__foto quadro rv">
+      <img src="images/foto-67.webp" sizes="(min-width:900px) 40vw, 100vw" width="1363" height="2048" loading="lazy" decoding="async" alt="Marcos Prado saindo da água, rindo, com a camiseta no ombro e barcos ao fundo.">
+      <figcaption class="legenda">Marcos Prado — quem dá as aulas</figcaption>
+    </figure>
+    <div class="marcos__txt rv" style="--d:80ms">
+      <h2 class="disp sub reta" style="margin-bottom:clamp(14px,1.8vw,24px)">Marcos Prado</h2>
+      <p class="texto">Fotógrafo, filmmaker e diretor. Embaixador Fujifilm. Mais de uma década fotografando no Brasil e fora dele, entre trabalhos comerciais, projetos autorais e exposições.</p>
+      <p class="texto">Antes da câmera, fui oficial da Marinha Mercante. Passei anos vendo cidades pela janela de um navio e voltei para o Rio com a mania de olhar lugar como quem chega pela primeira vez.</p>
+      <p class="texto"><strong>Depois de anos fotografando para clientes, comecei a perceber que algumas das imagens mais importantes da minha vida nasceram quando ninguém havia me contratado para fotografar.</strong></p>
+      <p class="texto">O QUE FICA é o curso que eu queria ter feito naquela época.</p>
+    </div>
+    <div class="marcos__creds rv" style="--d:120ms">
+      <ul class="dados">
+        <li><b>—</b> Embaixador Global Fujifilm X-Series</li>
+        <li><b>—</b> Unsplash Awards 2022 — People</li>
+        <li><b>—</b> Brasil, EUA e Oriente Médio</li>
+        <li><b>—</b> Exposições e projetos autorais</li>
+        <li><b>—</b> Centenas de milhões de visualizações</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 17 · DEPOIMENTOS ============ -->
+<section class="sec wrap" id="depoimentos" data-sec data-frame="17" hidden>
+  <div class="cab"><span class="cab__n">17</span><span class="cab__t">Quem já fez</span><span class="cab__m">Depoimentos</span></div>
+  <h2 class="disp tit rv">O que ficou para eles.</h2>
+  <div class="depos" id="deposLista"></div>
+</section>
+
+<!-- ============ 18 · OFERTA ============ -->
+<section class="sec wrap" id="oferta" data-sec data-frame="18">
+  <div class="cab"><span class="cab__n">18</span><span class="cab__t">O curso</span><span class="cab__m">Acesso imediato</span></div>
+
+  <div class="oferta">
+    <div class="oferta__cab rv">
+      <h2 class="disp tit">O que fica</h2>
+      <p class="disp sub reta" style="margin-top:.15em">Fotografia da Vida</p>
+    </div>
+
+    <ul class="oferta__inclui rv" style="--d:60ms">
+      <li><span>Acesso completo ao curso, do primeiro ao último ato</span></li>
+      <li><span>Ato I — O Tempo: por que fotografamos e como encontrar seu assunto</span></li>
+      <li><span>Ato II — O Olhar: pessoas, gestos, espera e aproximação</span></li>
+      <li><span>Ato III — Saia de Casa: saídas fotográficas comigo pela cidade</span></li>
+      <li><span>Ato IV — A Câmera: configuração, JPEG, simulações e edição</span></li>
+      <li><span>Ato V — O Que Fica: arquivo, impressão, família e projeto</span></li>
+      <li><span>Referências e indicações de livros e fotógrafos</span></li>
+      <li><span>Conteúdo extra: Conte Sua História e Ganhe Fotos</span></li>
+      <li><span>O exercício das 20 fotografias, para fazer durante o curso</span></li>
+      <li><span>Acesso imediato após a compra, no seu ritmo</span></li>
+      <li><span id="of-acesso">Acesso por 12 meses</span></li>
+    </ul>
+
+    <div class="oferta__caixa rv" style="--d:120ms">
+      <p class="legenda" style="margin:0">Investimento</p>
+      <p class="oferta__preco" id="of-preco">R$ 497</p>
+      <p class="oferta__parc" id="of-parc">ou 12x de R$ 49,70</p>
+      <a class="btn" data-cta href="#" id="of-btn" style="width:100%; justify-content:center">Quero começar a fotografar <span class="seta">→</span></a>
+      <p class="oferta__micro">O curso termina.<br>O seu arquivo começa.</p>
+      <ul class="dados" style="margin-top:20px">
+        <li><b>—</b> Compra segura</li>
+        <li><b>—</b> Assista quando quiser</li>
+        <li><b>—</b> Celular, tablet ou computador</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 19 · FAQ ============ -->
+<section class="sec wrap" data-sec data-frame="19">
+  <div class="cab"><span class="cab__n">19</span><span class="cab__t">Perguntas</span><span class="cab__m">Antes de decidir</span></div>
+
+  <div class="faqgrade">
+    <div class="rv">
+      <h2 class="disp sub">Antes de decidir.</h2>
+      <p class="texto" style="margin-top:14px">Se ficar alguma dúvida, me chame no Instagram ou no suporte. Respondo.</p>
+    </div>
+    <div class="faq rv" style="--d:80ms">
+      <details><summary>Preciso ser fotógrafo?</summary><p>Não. O curso foi pensado tanto para profissionais quanto para pessoas que simplesmente querem fotografar mais e melhor a própria vida.</p></details>
+      <details><summary>Preciso ter uma Fujifilm?</summary><p>Não. Eu uso Fujifilm e falo da minha experiência com o sistema, mas os conceitos do curso podem ser aplicados com qualquer câmera — inclusive celular.</p></details>
+      <details><summary>É um curso de fotografia de rua?</summary><p>Não. Fotografia de rua aparece dentro do curso, mas O QUE FICA é sobre fotografia da vida: família, pessoas, lugares, cotidiano, viagens, objetos e memória.</p></details>
+      <details><summary>O curso é técnico?</summary><p>Existe técnica quando ela é necessária, mas o foco não é ensinar dezenas de configurações. O objetivo principal é desenvolver olhar, intenção e vontade de fotografar.</p></details>
+      <details><summary>Preciso ter experiência com fotografia?</summary><p>Não.</p></details>
+      <details><summary>Em quanto tempo eu consigo assistir?</summary><p>No seu ritmo. As aulas são curtas e diretas, feitas para você assistir e sair de casa no mesmo dia.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 20 · CTA FINAL ============ -->
+<section class="sec wrap final" data-sec data-frame="20">
+  <div class="cab"><span class="cab__n">20</span><span class="cab__t">Comece agora</span><span class="cab__m">Fotografe a vida enquanto ela acontece</span></div>
+
+  <figure class="final__foto quadro rv">
+    <img src="images/foto-68.webp" sizes="100vw" width="2048" height="1365" loading="lazy" decoding="async" alt="Homem de braços abertos diante do mar, contra o sol nascendo entre as nuvens.">
+  </figure>
+  <h2 class="disp mega rv">Daqui a 20 anos,<br>você vai desejar<br>ter fotografado mais.</h2>
+  <div class="final__pe rv" style="--d:120ms">
+    <div><a class="btn" data-cta href="#">Quero fazer O QUE FICA <span class="seta">→</span></a></div>
+    <p class="texto">A câmera que você já tem, a cidade onde você já mora, as pessoas que já estão do seu lado. Só falta sair.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ RODAPÉ ============ -->
+<footer class="rodape wrap">
+  <div class="rodape__grade">
+    <div class="rodape__marca">
+      <p class="disp">O que fica</p>
+      <p>Fotografia da Vida — Marcos Prado</p>
+    </div>
+    <div class="rodape__col">
+      <h3>O curso</h3>
+      <a href="#filme">O filme</a>
+      <a href="#oferta">Os cinco atos</a>
+      <a href="#oferta">Investimento</a>
+    </div>
+    <div class="rodape__col">
+      <h3>Contato</h3>
+      <a href="#" data-link="instagram" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" data-link="suporte">Suporte</a>
+    </div>
+    <div class="rodape__col">
+      <h3>Legal</h3>
+      <a href="#" data-link="termos">Termos</a>
+      <a href="#" data-link="privacidade">Privacidade</a>
+    </div>
+  </div>
+  <p class="rodape__fim">© <span id="ano">2026</span> Marcos Prado. Todas as fotografias são de autoria de Marcos Prado.</p>
+</footer>
+
+<script>
+/* ============================================================
+   CONFIG — tudo que você edita fica aqui.
+   ============================================================ */
+const CONFIG = {
+
+  checkout: "https://pay.hotmart.com/SEU-LINK-AQUI",
+
+  preco: {
+    valor:    "R$ 497",
+    parcelas: "ou 12x de R$ 49,70",
+    acesso:   "Acesso por 12 meses"
+  },
+
+  // tipo: "youtube" | "vimeo" | "mp4"
+  video: {
+    tipo: "youtube",
+    id:   "",                        // ex.: "dQw4w9WgXcQ"
+    mp4:  "",                        // ex.: "videos/o-que-fica.mp4"
+    capa: ""
+  },
+
+  links: {
+    instagram:   "https://instagram.com/eusoumarcosprado",
+    suporte:     "mailto:marcosprado011@hotmail.com",
+    termos:      "#",
+    privacidade: "#"
+  },
+
+  // { texto:"...", nome:"Nome", profissao:"Fotógrafa", foto:"imagens/pessoa.webp" }
+  depoimentos: []
+};
+
+/* ---------- aplicação ---------- */
+(function(){
+  document.querySelectorAll('[data-cta]').forEach(a=>{
+    if(a.getAttribute('href') === '#oferta') return;
+    a.href = CONFIG.checkout; a.target = "_blank"; a.rel = "noopener";
+  });
+  document.getElementById('of-btn').href = CONFIG.checkout;
+  document.getElementById('of-preco').textContent  = CONFIG.preco.valor;
+  document.getElementById('of-parc').textContent   = CONFIG.preco.parcelas;
+  document.getElementById('of-acesso').textContent = CONFIG.preco.acesso;
+  document.getElementById('ano').textContent = new Date().getFullYear();
+
+  document.querySelectorAll('[data-link]').forEach(a=>{
+    const k = a.dataset.link; if(CONFIG.links[k]) a.href = CONFIG.links[k];
+  });
+
+  const capa = document.getElementById('playerCapa');
+  if(CONFIG.video.capa){ capa.src = CONFIG.video.capa; capa.removeAttribute('srcset'); }
+
+  const sec = document.getElementById('depoimentos');
+  if(CONFIG.depoimentos.length){
+    sec.hidden = false;
+    document.getElementById('deposLista').innerHTML = CONFIG.depoimentos.map(d=>`
+      <figure class="depo rv">
+        <span class="depo__aspas" aria-hidden="true">“</span>
+        <blockquote class="depo__txt">${d.texto}</blockquote>
+        <figcaption class="depo__quem">
+          ${d.foto ? `<img src="${d.foto}" alt="" loading="lazy">` : ''}
+          <span><p class="depo__nome">${d.nome}</p><p class="depo__prof">${d.profissao||''}</p></span>
+        </figcaption>
+      </figure>`).join('');
+  }
+})();
+
+/* ---------- player: carrega só no clique ---------- */
+document.getElementById('player').addEventListener('click', function(){
+  const v = CONFIG.video; let el;
+  if(v.tipo === 'mp4' && v.mp4){
+    el = document.createElement('video');
+    el.src = v.mp4; el.controls = true; el.autoplay = true; el.playsInline = true;
+  } else if(v.id){
+    el = document.createElement('iframe');
+    el.src = v.tipo === 'vimeo'
+      ? `https://player.vimeo.com/video/${v.id}?autoplay=1&title=0&byline=0&portrait=0`
+      : `https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0&modestbranding=1`;
+    el.allow = "autoplay; fullscreen; picture-in-picture";
+    el.allowFullscreen = true; el.title = "Filme manifesto — O QUE FICA";
+  } else { return; }
+  this.innerHTML = ''; this.appendChild(el); this.style.cursor = 'default';
+});
+
+/* ---------- reveal, trilho e barra ---------- */
+const reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if(!reduz && 'IntersectionObserver' in window){
+  const io = new IntersectionObserver(ents=>{
+    ents.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { rootMargin:'0px 0px -10% 0px', threshold:0.06 });
+  document.querySelectorAll('.rv').forEach(el=>{ if(!el.classList.contains('on')) io.observe(el); });
+} else {
+  document.querySelectorAll('.rv').forEach(el=>el.classList.add('on'));
+}
+
+const frame = document.getElementById('frame');
+const ioSec = new IntersectionObserver(ents=>{
+  ents.forEach(e=>{ if(e.isIntersecting) frame.textContent = e.target.dataset.frame; });
+}, { rootMargin:'-45% 0px -45% 0px' });
+document.querySelectorAll('[data-sec]').forEach(s=>ioSec.observe(s));
+
+const barra = document.getElementById('barra');
+new IntersectionObserver(([e])=>{ barra.classList.toggle('on', !e.isIntersecting); }, {threshold:0})
+  .observe(document.querySelector('.hero'));
+
+if(!reduz && window.matchMedia('(min-width:900px)').matches){
+  const foto = document.querySelector('.hero__foto');
+  const tit  = document.querySelector('.hero__tit');
+  let tick = false;
+  addEventListener('scroll', ()=>{
+    if(tick) return; tick = true;
+    requestAnimationFrame(()=>{
+      const y = Math.min(scrollY, 800);
+      foto.style.transform = `translate3d(0,${y*0.04}px,0)`;
+      tit.style.transform  = `translate3d(0,${y*-0.025}px,0)`;
+      tick = false;
+    });
+  }, {passive:true});
+}
+</script>
 </body>
 </html>

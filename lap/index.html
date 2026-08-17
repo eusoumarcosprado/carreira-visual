@@ -1,31 +1,1205 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LAP — Luz Automotiva Publicitária — Carreira Visual</title>
-<meta name="robots" content="noindex">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ====================== SEO ====================== -->
+<title>LAP — Curso de Luz Automotiva Publicitária | Marcos Prado</title>
+<meta name="description" content="Aprenda fotografia automotiva publicitária com flashes, múltiplas exposições, tethering, composição, inteligência artificial, portfólio e prospecção." />
+<link rel="canonical" href="https://SEU-DOMINIO.com/" />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="LAP — Curso de Luz Automotiva Publicitária | Marcos Prado" />
+<meta property="og:description" content="Fotografia automotiva da captura à campanha. Iluminação, tethering, composição, IA, portfólio e mercado." />
+<meta property="og:image" content="/images/lap-og.jpg" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="LAP — Luz Automotiva Publicitária" />
+<meta name="twitter:description" content="Domine a construção da imagem automotiva publicitária." />
+<meta name="twitter:image" content="/images/lap-og.jpg" />
+<!-- Favicon provisório LAP -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2307080A'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='15' fill='%23FF3347' text-anchor='middle'%3ELAP%3C/text%3E%3C/svg%3E" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Structured data: Course + Person -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "LAP — Luz Automotiva Publicitária",
+  "description": "Curso avançado de fotografia automotiva publicitária: iluminação, múltiplas exposições, tethering, composição, inteligência artificial, portfólio e prospecção.",
+  "provider": { "@type": "Person", "name": "Marcos Prado" }
+}
+</script>
+
 <style>
-  *{box-sizing:border-box}
-  body{margin:0;min-height:100svh;display:grid;place-items:center;text-align:center;padding:32px;
-    background:#000;color:#fff;font-family:'General Sans','Inter',-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
-  body::before{content:"";position:fixed;inset:0;z-index:0;
-    background:radial-gradient(60% 60% at 20% 30%,rgba(255,109,41,.28),transparent 65%),
-               radial-gradient(50% 50% at 80% 70%,rgba(69,48,39,.7),transparent 70%);filter:blur(70px)}
-  .box{position:relative;z-index:1;max-width:520px}
-  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#8a8386;font-family:ui-monospace,monospace}
-  h1{font-size:clamp(28px,6vw,46px);letter-spacing:-.035em;line-height:1.02;margin:16px 0 0;font-weight:600}
-  p{color:rgba(255,255,255,.66);margin:18px 0 0;line-height:1.55}
-  a{display:inline-flex;align-items:center;gap:9px;margin-top:30px;height:48px;padding:0 26px;border-radius:999px;
-    background:#FF6D29;color:#150a04;font-weight:600;text-decoration:none}
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --black:#07080A; --graphite:#101216; --metal:#1B1F25; --metal-2:#23272F;
+  --white:#F4F6F8; --gray:#989FA9; --red:#FF3347; --orange:#FF6A1A; --cyan:#26D9FF;
+  --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--black); color:var(--white);
+  font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased;
+  overflow-x:hidden; position:relative; line-height:1.6;
+}
+::selection{background:var(--red);color:#fff}
+.disp{font-family:'Space Grotesk','Inter',sans-serif;letter-spacing:-.02em;line-height:1.02}
+.mono{font-family:'IBM Plex Mono',monospace;letter-spacing:.04em}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+svg{display:block}
+
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.sec{padding:104px 0;position:relative}
+@media(max-width:768px){.sec{padding:72px 0}}
+
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--gray);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--red);display:inline-block}
+.eyebrow .num{color:var(--red)}
+
+.h2{font-size:clamp(28px,4.4vw,52px);font-weight:700;line-height:1.04;margin:20px 0}
+.lede{color:var(--gray);font-size:clamp(15px,1.6vw,18px);max-width:640px}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:2px;
+  font-weight:600;font-size:15px;transition:.25s;position:relative;overflow:hidden;
+  min-height:48px;justify-content:center;cursor:pointer}
+.btn-primary{background:linear-gradient(105deg,var(--red),var(--orange));color:#0a0a0a}
+.btn-primary::after{content:"";position:absolute;inset:0;background:#fff;opacity:0;transition:.25s}
+.btn-primary:hover::after{opacity:.14}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 34px -12px rgba(255,51,71,.6)}
+.btn-ghost{border:1px solid var(--line-2);color:var(--white);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--red);background:rgba(255,51,71,.06)}
+.btn svg{width:18px;height:18px}
+
+.lap-progress{position:fixed;top:0;left:0;height:3px;z-index:120;width:0;
+  background:linear-gradient(90deg,var(--red),var(--orange));transition:width .05s linear;
+  box-shadow:0 0 14px rgba(255,51,71,.7)}
+.hdr{position:fixed;top:0;left:0;right:0;z-index:110;transition:.35s;border-bottom:1px solid transparent}
+.hdr.solid{background:rgba(16,18,22,.86);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;height:74px}
+.nav{display:flex;gap:30px;align-items:center}
+.nav a{font-size:14px;color:var(--gray);transition:.2s;position:relative;padding:4px 0;cursor:pointer}
+.nav a:hover{color:var(--white)}
+.nav a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--red);transition:.25s}
+.nav a:hover::after{width:100%}
+.burger{display:none}
+@media(max-width:1024px){.nav{display:none}.burger{display:flex;align-items:center;justify-content:center;width:44px;height:44px}}
+.mobile-menu{position:fixed;inset:0;z-index:130;background:rgba(7,8,10,.98);backdrop-filter:blur(8px);
+  display:flex;flex-direction:column;padding:28px 24px;gap:6px;transform:translateX(100%);transition:.4s}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu a{font-size:20px;padding:16px 0;border-bottom:1px solid var(--line);font-weight:500;cursor:pointer}
+
+.wordmark{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-.04em;
+  display:inline-flex;align-items:baseline;gap:0;position:relative}
+.wordmark .lap{position:relative;padding-right:2px}
+.wordmark .lap::after{content:"";position:absolute;right:-9px;top:12%;bottom:12%;width:3px;
+  background:linear-gradient(var(--red),var(--orange));transform:skewX(-16deg)}
+
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;padding-top:90px;padding-bottom:40px}
+.hero-bg{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-bg{background-size:cover;background-position:60% center}
+.hero-bg::before{content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(90% 70% at 8% 92%,rgba(255,51,71,.12),transparent 55%),
+    linear-gradient(90deg,rgba(7,8,10,.94) 0%,rgba(7,8,10,.72) 38%,rgba(7,8,10,.28) 70%,rgba(7,8,10,.12) 100%),
+    linear-gradient(180deg,rgba(7,8,10,.35) 0%,rgba(7,8,10,0) 40%,rgba(7,8,10,.72) 100%)}
+.grid-lines{position:absolute;inset:0;opacity:.18;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;-webkit-mask-image:radial-gradient(100% 90% at 60% 30%,#000,transparent 80%);
+  mask-image:radial-gradient(100% 90% at 60% 30%,#000,transparent 80%)}
+.hero-inner{position:relative;z-index:2;width:100%}
+.hero-wordmark{font-family:'Anton','Arial Narrow',sans-serif;font-weight:400;
+  font-size:clamp(88px,19vw,248px);line-height:.9;letter-spacing:.005em;text-transform:uppercase;
+  position:relative;display:inline-block;padding-right:.14em;
+  text-shadow:0 8px 40px rgba(0,0,0,.55)}
+.hero-wordmark .slash{color:var(--red)}
+.hero-sub{font-family:'IBM Plex Mono',monospace;letter-spacing:.4em;color:var(--gray);
+  font-size:clamp(11px,1.6vw,15px);margin-top:8px}
+.hero-h{font-size:clamp(24px,3.4vw,42px);font-weight:700;max-width:820px;margin-top:34px;line-height:1.08}
+.hero-p{color:var(--gray);max-width:640px;margin-top:20px;font-size:clamp(15px,1.6vw,18px)}
+.hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:38px}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gray);border:1px solid var(--line);padding:8px 12px;border-radius:2px;display:flex;align-items:center;gap:7px}
+.chip i{width:5px;height:5px;border-radius:50%;background:var(--red);display:inline-block}
+.lap-counter{position:absolute;right:24px;bottom:34px;font-family:'IBM Plex Mono',monospace;
+  font-size:12px;color:var(--gray);letter-spacing:.16em;display:flex;align-items:center;gap:10px;z-index:3}
+.lap-counter b{color:var(--red)}
+@media(max-width:640px){.lap-counter{display:none}}
+
+.rv{opacity:0;transform:translateY(28px);transition:.9s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+.ph{position:relative;background:linear-gradient(135deg,var(--metal),var(--graphite));
+  border:1px solid var(--line);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;
+  justify-content:flex-end;min-height:180px}
+.ph::before{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:34px 34px;opacity:.4}
+.ph .ph-tag{position:absolute;top:12px;left:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;
+  letter-spacing:.14em;color:var(--gray);border:1px solid var(--line-2);padding:4px 8px;border-radius:2px;
+  background:rgba(7,8,10,.5);z-index:2}
+.ph .ph-meta{position:relative;z-index:2;padding:16px;background:linear-gradient(transparent,rgba(7,8,10,.85))}
+.ph .ph-file{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--orange);word-break:break-all}
+.ph .ph-desc{font-size:12px;color:var(--gray);margin-top:4px}
+.ph .ph-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);color:var(--line-2);z-index:1}
+.ph .ph-icon svg{width:40px;height:40px}
+
+.sec-num{position:absolute;top:104px;right:24px;font-family:'IBM Plex Mono',monospace;
+  font-size:12px;color:var(--gray);letter-spacing:.12em}
+@media(max-width:768px){.sec-num{top:72px}}
+
+.flow-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+@media(max-width:900px){.flow-grid{grid-template-columns:1fr;gap:36px}}
+.exposures{position:relative;height:320px;display:flex;align-items:center;justify-content:center}
+.exp-layer{position:absolute;width:70%;height:44px;border:1px solid var(--line-2);border-radius:3px;
+  background:linear-gradient(105deg,rgba(255,51,71,.06),rgba(255,106,26,.04))}
+.exp-final{position:relative;z-index:5;width:78%;height:150px;border:1px solid var(--red);border-radius:3px;
+  background:linear-gradient(135deg,rgba(255,51,71,.14),rgba(255,106,26,.08),transparent);
+  display:flex;align-items:center;justify-content:center}
+
+.flow-item{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.flow-item .fn{font-family:'IBM Plex Mono',monospace;color:var(--red);font-size:13px;min-width:28px;padding-top:2px}
+.flow-item p{color:var(--white);font-size:15px}
+.layers-stack{display:flex;flex-direction:column;gap:8px}
+.layer-row{display:flex;align-items:center;gap:14px;padding:12px 16px;border:1px solid var(--line);
+  border-radius:2px;background:var(--graphite);transition:.3s}
+.layer-row:hover{border-color:var(--red);transform:translateX(6px)}
+.layer-row .li{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gray);min-width:28px}
+.layer-row .lb{flex:1;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--red),var(--orange))}
+.layer-row .ln{font-size:13px;font-weight:500}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+.cards.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.cards.four{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cards.four{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:3px;padding:28px;background:var(--graphite);
+  transition:.3s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;height:2px;width:0;
+  background:linear-gradient(90deg,var(--red),var(--orange));transition:.4s}
+.card:hover{transform:translateY(-6px);border-color:var(--line-2);background:var(--metal)}
+.card:hover::before{width:100%}
+.card .ci{width:44px;height:44px;border-radius:2px;display:flex;align-items:center;justify-content:center;
+  background:rgba(255,51,71,.1);color:var(--red);margin-bottom:18px}
+.card .ci.cyan{background:rgba(38,217,255,.1);color:var(--cyan)}
+.card .ci svg{width:22px;height:22px}
+.card h3{font-size:18px;font-weight:600;margin-bottom:10px}
+.card p{color:var(--gray);font-size:14px}
+
+.curr{border-top:1px solid var(--line)}
+.mod{border-bottom:1px solid var(--line)}
+.mod-head{display:flex;align-items:center;gap:22px;padding:26px 4px;cursor:pointer;transition:.3s;text-align:left;width:100%}
+.mod-head:hover{padding-left:12px}
+.mod-code{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--red);min-width:64px}
+.mod-title{flex:1;font-size:clamp(17px,2.2vw,24px);font-weight:600}
+.mod-toggle{width:38px;height:38px;border:1px solid var(--line-2);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;transition:.3s;flex-shrink:0}
+.mod.open .mod-toggle{background:var(--red);border-color:var(--red);transform:rotate(180deg);color:#0a0a0a}
+.mod-body{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.mod-body-in{padding:0 4px 30px 90px;columns:2;column-gap:36px}
+@media(max-width:700px){.mod-body-in{columns:1;padding-left:64px}}
+.mod-body-in li{list-style:none;color:var(--gray);font-size:14px;padding:6px 0;break-inside:avoid;display:flex;gap:10px}
+.mod-body-in li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--orange);margin-top:8px;flex-shrink:0}
+
+.ba{position:relative;width:100%;aspect-ratio:16/9;border-radius:3px;overflow:hidden;
+  border:1px solid var(--line-2);cursor:ew-resize;user-select:none;touch-action:none}
+.ba-panel{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.ba-before{background:linear-gradient(135deg,#14161b,#0b0c0f);filter:grayscale(.5) brightness(.6)}
+.ba-after{background:
+  radial-gradient(90% 120% at 30% 20%,rgba(255,106,26,.28),transparent 55%),
+  radial-gradient(80% 100% at 80% 90%,rgba(255,51,71,.24),transparent 55%),
+  linear-gradient(135deg,#20242c,#0d0f13)}
+.ba-line{position:absolute;top:0;bottom:0;width:2px;background:var(--white);z-index:6}
+.ba-handle{position:absolute;top:50%;transform:translate(-50%,-50%);z-index:7;
+  width:44px;height:44px;border-radius:50%;background:var(--white);color:var(--black);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,.5)}
+.ba-tag{position:absolute;top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;
+  padding:5px 10px;border-radius:2px;background:rgba(7,8,10,.6);border:1px solid var(--line-2);z-index:5}
+.ba-tag.l{left:14px}.ba-tag.r{right:14px;color:var(--orange)}
+
+.ai-flow{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;align-items:center}
+.ai-flow .step{font-family:'IBM Plex Mono',monospace;font-size:12px;padding:9px 14px;border:1px solid var(--line);
+  border-radius:2px;color:var(--gray)}
+.ai-flow .step.hot{border-color:var(--cyan);color:var(--cyan)}
+.ai-flow .arw{color:var(--gray);opacity:.6}
+.principles{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.principles span{font-size:13px;color:var(--gray);border:1px solid var(--line);padding:7px 13px;border-radius:2px;
+  display:flex;align-items:center;gap:8px}
+.principles span svg{width:14px;height:14px;color:var(--red)}
+
+.jn{display:grid;grid-template-columns:280px 1fr;gap:40px}
+@media(max-width:820px){.jn{grid-template-columns:1fr}}
+.jn-nav{display:flex;flex-direction:column;gap:2px;border-left:1px solid var(--line)}
+@media(max-width:820px){.jn-nav{flex-direction:row;overflow-x:auto;border-left:none;border-bottom:1px solid var(--line);padding-bottom:2px}}
+.jn-tab{display:flex;gap:14px;align-items:center;padding:15px 18px;text-align:left;transition:.25s;
+  border-left:2px solid transparent;margin-left:-1px;white-space:nowrap;cursor:pointer}
+.jn-tab .js{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gray)}
+.jn-tab .jt{font-size:15px;color:var(--gray);font-weight:500}
+.jn-tab.active{border-left-color:var(--red)}
+.jn-tab.active .jt{color:var(--white)}
+.jn-tab.active .js{color:var(--red)}
+.jn-tab:hover .jt{color:var(--white)}
+.jn-panel{border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.jn-panel .jn-txt{padding:26px 28px}
+.jn-panel .jn-step{font-family:'IBM Plex Mono',monospace;color:var(--red);font-size:13px}
+.jn-panel h3{font-size:clamp(22px,3vw,32px);font-weight:700;margin:8px 0 12px}
+.jn-panel p{color:var(--gray)}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+.tcol{border:1px solid var(--line);border-radius:3px;padding:30px;background:var(--graphite)}
+.tcol.yes{border-top:2px solid var(--red)}
+.tcol.no{border-top:2px solid var(--metal-2)}
+.tcol h3{font-size:17px;font-weight:600;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.tcol h3 svg{width:18px;height:18px}
+.tcol ul{list-style:none}
+.tcol li{display:flex;gap:12px;padding:10px 0;color:var(--gray);font-size:14px;border-bottom:1px solid var(--line)}
+.tcol li:last-child{border-bottom:none}
+.tcol li svg{width:17px;height:17px;flex-shrink:0}
+.tcol.yes li svg{color:var(--red)}
+.tcol.no li svg{color:var(--gray)}
+
+.out-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px 40px;list-style:none}
+@media(max-width:640px){.out-grid{grid-template-columns:1fr}}
+.out-grid li{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);align-items:center;color:var(--white);font-size:15px}
+.out-grid li svg{width:18px;height:18px;color:var(--red);flex-shrink:0}
+
+.bonus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:640px){.bonus-grid{grid-template-columns:1fr}}
+.bonus{display:flex;gap:14px;align-items:center;padding:16px 18px;border:1px solid var(--line);
+  border-radius:2px;background:var(--graphite);transition:.25s}
+.bonus:hover{border-color:var(--line-2);transform:translateX(4px)}
+.bonus .bi{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--orange);min-width:26px}
+
+.inst{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
+@media(max-width:860px){.inst{grid-template-columns:1fr}}
+.inst-imgs{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:auto auto;gap:12px}
+.inst-imgs .big{grid-row:1/3}
+
+.gal-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.gal-tab{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;padding:9px 16px;
+  border:1px solid var(--line);border-radius:2px;color:var(--gray);transition:.25s;cursor:pointer}
+.gal-tab.active{border-color:var(--red);color:var(--white);background:rgba(255,51,71,.08)}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:820px){.gal-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.gal-grid{grid-template-columns:1fr}}
+.gal-item{cursor:zoom-in;transition:.3s}
+.gal-item:hover{transform:scale(1.01)}
+.lightbox{position:fixed;inset:0;z-index:200;background:rgba(7,8,10,.94);backdrop-filter:blur(6px);
+  display:none;align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lightbox .lb-close{position:absolute;top:20px;right:20px;width:44px;height:44px;border:1px solid var(--line-2);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.lightbox .lb-inner{max-width:900px;width:100%}
+
+.offer{border:1px solid var(--line-2);border-radius:4px;overflow:hidden;background:linear-gradient(160deg,var(--graphite),var(--black))}
+.offer-grid{display:grid;grid-template-columns:1.1fr .9fr}
+@media(max-width:820px){.offer-grid{grid-template-columns:1fr}}
+.offer-left{padding:44px;border-right:1px solid var(--line)}
+@media(max-width:820px){.offer-left{border-right:none;border-bottom:1px solid var(--line);padding:32px}}
+.offer-right{padding:44px;display:flex;flex-direction:column;justify-content:center}
+@media(max-width:820px){.offer-right{padding:32px}}
+.offer-spec{list-style:none}
+.offer-spec li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14px}
+.offer-spec li span:first-child{color:var(--gray)}
+.offer-spec li span:last-child{font-weight:500;font-family:'IBM Plex Mono',monospace;color:var(--white)}
+.price{font-family:'Space Grotesk',sans-serif;font-size:clamp(34px,6vw,54px);font-weight:700;line-height:1}
+.price-sub{color:var(--gray);font-size:14px;margin-top:8px}
+.offer-note{font-size:12px;color:var(--gray);margin-top:14px;text-align:center}
+
+.form-field{margin-bottom:14px}
+.form-field label{display:block;font-size:12px;color:var(--gray);margin-bottom:7px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em}
+.form-field input,.form-field select{width:100%;padding:13px 14px;background:var(--black);
+  border:1px solid var(--line-2);border-radius:2px;color:var(--white);font-size:14px;font-family:inherit;transition:.2s;min-height:48px}
+.form-field input:focus,.form-field select:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(255,51,71,.12)}
+.form-field .err{color:var(--red);font-size:12px;margin-top:6px;display:none}
+.form-field.invalid .err{display:block}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:12px;color:var(--gray);margin:6px 0 16px}
+.consent input{width:18px;height:18px;margin-top:2px;accent-color:var(--red);flex-shrink:0}
+#consentErr{color:var(--red);font-size:12px;margin-top:-10px;margin-bottom:12px;display:none}
+.form-success{border:1px solid var(--red);border-radius:3px;padding:26px;text-align:center;background:rgba(255,51,71,.05)}
+.form-success .fs-ic{width:52px;height:52px;border-radius:50%;background:var(--red);color:#0a0a0a;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:22px 4px;
+  cursor:pointer;width:100%;text-align:left;font-size:16px;font-weight:500;transition:.2s}
+.faq-q:hover{color:var(--red)}
+.faq-q .fi{flex-shrink:0;transition:.3s;color:var(--red)}
+.faq-item.open .fi{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-a-in{padding:0 4px 22px;color:var(--gray);font-size:15px;max-width:760px}
+
+.final{position:relative;text-align:center;overflow:hidden}
+.final-track{height:2px;width:60%;max-width:420px;margin:34px auto 0;position:relative;background:var(--line-2);border-radius:2px}
+.final-track::before{content:"";position:absolute;left:0;top:0;height:100%;width:100%;
+  background:linear-gradient(90deg,transparent,var(--red),var(--orange));border-radius:2px}
+.final-track .dot{position:absolute;right:-4px;top:50%;transform:translateY(-50%);width:12px;height:12px;
+  border-radius:50%;background:var(--orange);box-shadow:0 0 16px var(--orange)}
+
+.footer{border-top:1px solid var(--line);padding:56px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+@media(max-width:700px){.foot-grid{grid-template-columns:1fr;gap:26px}}
+.foot-links a{display:block;color:var(--gray);font-size:14px;padding:6px 0;transition:.2s}
+.foot-links a:hover{color:var(--white)}
+.foot-h{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);margin-bottom:14px}
+.foot-bottom{margin-top:40px;padding-top:24px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--gray)}
+
+.light-sweep{position:relative;overflow:hidden}
+.light-sweep::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-50%;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.06),transparent);
+  animation:sweep 6s ease-in-out infinite;pointer-events:none}
+@keyframes sweep{0%,100%{left:-50%}50%{left:110%}}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1!important;transform:none!important;transition:none!important}
+  .light-sweep::after{animation:none;display:none}
+}
+
+.hero-shot{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#000}
+.hero-shot img{width:100%;height:auto;display:block}
+.hero-cap{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gray);margin-top:10px}
+.shot{border:1px solid var(--line);border-radius:3px;overflow:hidden;background:#000}
+.shot img{width:100%;height:auto;display:block}
+.gal-masonry{columns:3;column-gap:14px}
+@media(max-width:820px){.gal-masonry{columns:2}}
+@media(max-width:520px){.gal-masonry{columns:1}}
+.gal-cell{break-inside:avoid;margin:0 0 14px;border:1px solid var(--line);border-radius:3px;overflow:hidden;background:#000;cursor:zoom-in;position:relative;transition:.3s}
+.gal-cell:hover{border-color:var(--red);transform:translateY(-3px)}
+.gal-cell img{width:100%;height:auto;display:block}
+.gal-cell .cap{position:absolute;left:10px;bottom:10px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#fff;background:rgba(7,8,10,.55);border:1px solid var(--line-2);padding:4px 8px;border-radius:2px;text-transform:uppercase}
+.lb-inner img{width:100%;height:auto;max-height:86vh;object-fit:contain;display:block;margin:0 auto;border-radius:3px}
+.ba-panel{background-color:#000;background-position:center;background-repeat:no-repeat;background-size:contain}
+.inst-stack{display:block!important}
+.inst-shot{border:1px solid var(--line);border-radius:3px;overflow:hidden;background:#000}
+.inst-shot img{width:100%;height:auto;display:block}
+.inst-cap{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--gray);padding:6px 8px}
+
+#curso{position:relative;overflow:hidden;min-height:540px;display:flex;align-items:center}
+#curso .wrap{position:relative;z-index:2;width:100%}
+#curso .manifesto-copy{max-width:600px}
+.manifesto-bg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center right}
+.manifesto-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(7,8,10,.96) 0%,rgba(7,8,10,.84) 28%,rgba(7,8,10,.5) 52%,rgba(7,8,10,.15) 78%,rgba(7,8,10,0) 100%),
+             linear-gradient(180deg,rgba(7,8,10,.28),rgba(7,8,10,.22))}
+@media(max-width:760px){
+  #curso{min-height:0}
+  .manifesto-bg{background-position:center}
+  .manifesto-bg::after{background:linear-gradient(180deg,rgba(7,8,10,.72),rgba(7,8,10,.92))}
+}
+
+#vsl .vsl-wrap{margin-top:34px}
+.vsl-player{position:relative;width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--line-2);border-radius:4px;overflow:hidden}
+.vsl-player video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.vsl-big-play{position:absolute;inset:0;margin:auto;width:88px;height:88px;border-radius:50%;
+  background:linear-gradient(105deg,var(--red),var(--orange));color:#0a0a0a;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 40px -8px rgba(255,51,71,.6);transition:.3s;z-index:6;cursor:pointer}
+.vsl-big-play:hover{transform:scale(1.06)}
+.vsl-big-play svg{width:34px;height:34px;margin-left:5px}
+.vsl-player.playing .vsl-big-play{opacity:0;pointer-events:none}
+.vsl-controls{position:absolute;left:0;right:0;bottom:0;z-index:7;display:flex;align-items:center;gap:12px;
+  padding:14px 16px;background:linear-gradient(transparent,rgba(7,8,10,.9));opacity:0;transition:.3s;transform:translateY(8px)}
+.vsl-player:hover .vsl-controls,.vsl-player.playing .vsl-controls{opacity:1;transform:none}
+.vsl-btn{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:2px;color:var(--white);transition:.2s;flex-shrink:0}
+.vsl-btn:hover{color:var(--red)}
+.vsl-btn svg{width:20px;height:20px}
+.vsl-seek{flex:1;height:6px;background:rgba(255,255,255,.16);border-radius:6px;cursor:pointer;position:relative;overflow:hidden}
+.vsl-seek-fill{position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--orange));border-radius:6px}
+.vsl-time{font-size:12px;color:var(--gray);min-width:40px;text-align:center}
+.vsl-note{font-size:11px;color:var(--gray);letter-spacing:.1em;margin-top:12px}
+@media(max-width:560px){.vsl-time{display:none}.vsl-big-play{width:70px;height:70px}}
 </style>
 </head>
-<body>
-  <div class="box">
-    <span class="kicker">● Carreira Visual</span>
-    <h1>LAP — Luz Automotiva Publicitária</h1>
-    <p>A página deste treinamento está sendo preparada. Enquanto isso, explore o restante da plataforma.</p>
-    <a href="/">Voltar para a plataforma</a>
+<body id="top">
+
+<div class="lap-progress" id="progress"></div>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <button class="wordmark" style="font-size:24px" data-scroll="#top" aria-label="LAP - início"><span class="lap">LAP</span></button>
+    <nav class="nav" id="navDesktop"></nav>
+    <button class="burger" id="burger" aria-label="Abrir menu"></button>
   </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+    <span class="wordmark" style="font-size:22px"><span class="lap">LAP</span></span>
+    <button id="closeMenu" aria-label="Fechar menu" style="width:44px;height:44px"></button>
+  </div>
+  <div id="navMobile"></div>
+  <button class="btn btn-primary" style="margin-top:20px;width:100%" data-scroll="#oferta">Quero entrar no grid <span data-ic="arrow-right"></span></button>
+</div>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"><div class="grid-lines"></div></div>
+    <div class="wrap hero-inner">
+      <div class="rv"><span class="eyebrow"><span class="num">LAP 01</span>Your next level</span></div>
+      <div class="rv" style="margin-top:14px;display:inline-block;overflow:visible">
+        <h1 class="hero-wordmark">LA<span class="slash">P</span></h1>
+      </div>
+      <div class="rv"><div class="hero-sub">LUZ AUTOMOTIVA PUBLICITÁRIA</div></div>
+      <div class="rv"><h2 class="hero-h disp">Domine a construção da imagem automotiva publicitária.</h2></div>
+      <div class="rv"><p class="hero-p">Aprenda a planejar, iluminar, fotografar, compor e finalizar imagens de carros e motos com padrão de campanha — combinando flashes, múltiplas exposições, edição avançada e inteligência artificial.</p></div>
+      <div class="rv"><div class="hero-cta">
+        <button class="btn btn-primary" data-scroll="#oferta">Quero dominar a Técnica LAP <span data-ic="arrow-right"></span></button>
+        <button class="btn btn-ghost" data-scroll="#programa">Conhecer o programa</button>
+      </div></div>
+      <div class="rv"><div class="chips" id="heroChips"></div></div>
+    </div>
+    <div class="lap-counter mono">LAP <b>01</b> / YOUR NEXT LEVEL</div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="sec" id="curso">
+    <div class="manifesto-bg" id="manifestoBg"></div>
+    <span class="sec-num mono">// 01</span>
+    <div class="wrap"><div class="manifesto-copy">
+      <div class="rv"><span class="eyebrow"><span class="num">01</span>Manifesto</span></div>
+      <div class="rv"><h2 class="h2 disp">Uma imagem publicitária não é encontrada. Ela é construída.</h2></div>
+      <div class="rv"><p class="lede" style="margin-bottom:18px">Na fotografia automotiva, cada linha da carroceria, cada reflexo e cada ponto de luz precisa ser controlado. A Técnica LAP transforma uma série de exposições individuais em uma única imagem de alto impacto, revelando formas, volumes e detalhes que dificilmente poderiam ser capturados em um único disparo.</p></div>
+      <div class="rv"><p class="lede">O curso acompanha todo o processo: do planejamento e posicionamento da câmera à composição, finalização, inteligência artificial, portfólio e prospecção comercial.</p></div>
+    </div></div>
+  </section>
+
+  <!-- TECHNIQUE FLOW -->
+  <section class="sec" id="tecnica" style="background:var(--graphite)">
+    <span class="sec-num mono">// 02</span>
+    <div class="wrap">
+      <div class="rv"><span class="eyebrow"><span class="num">02</span>O que é a Técnica LAP</span></div>
+      <div class="rv"><h2 class="h2 disp">Luz. Controle. Composição.</h2></div>
+      <div class="flow-grid" style="margin-top:30px">
+        <div class="rv" id="flowList"></div>
+        <div>
+          <div class="rv"><div class="shot" id="techShot" style="max-width:400px"></div></div>
+          <div class="rv"><p class="disp" style="font-size:20px;font-weight:600;margin-top:26px;line-height:1.3">Não é sobre disparar mais. <span style="color:var(--red)">É sobre controlar melhor.</span></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIALS -->
+  <section class="sec">
+    <span class="sec-num mono">// 03</span>
+    <div class="wrap">
+      <div class="rv"><span class="eyebrow"><span class="num">03</span>Diferenciais</span></div>
+      <div class="rv"><h2 class="h2 disp">Muito além da iluminação.</h2></div>
+      <div class="cards" id="diffCards" style="margin-top:34px"></div>
+    </div>
+  </section>
+
+  <!-- VSL VIDEO -->
+  <section class="sec" id="vsl">
+    <span class="sec-num mono">// VSL</span>
+    <div class="wrap">
+      <div class="rv"><span class="eyebrow"><span class="num">▶</span>Apresentação</span></div>
+      <div class="rv"><h2 class="h2 disp">Assista à apresentação do curso.</h2></div>
+      <div class="rv"><p class="lede">Em poucos minutos, entenda a Técnica LAP e o que você vai construir da captura à campanha.</p></div>
+      <div class="rv vsl-wrap">
+        <div class="vsl-player" id="vslPlayer">
+          <video id="vslVideo" preload="none" playsinline></video>
+          <button class="vsl-big-play" id="vslBigPlay" aria-label="Reproduzir apresentação"></button>
+          <div class="vsl-controls" id="vslControls">
+            <button class="vsl-btn" id="vslPlay" aria-label="Reproduzir / pausar"></button>
+            <div class="vsl-time mono" id="vslCur">0:00</div>
+            <div class="vsl-seek" id="vslSeek"><div class="vsl-seek-fill" id="vslFill"></div></div>
+            <div class="vsl-time mono" id="vslDur">0:00</div>
+            <button class="vsl-btn" id="vslMute" aria-label="Mudo"></button>
+            <button class="vsl-btn" id="vslFs" aria-label="Tela cheia"></button>
+          </div>
+        </div>
+        <p class="vsl-note mono" id="vslNote"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section class="sec" id="programa" style="background:var(--graphite)">
+    <span class="sec-num mono">// 04</span>
+    <div class="wrap">
+      <div class="rv"><span class="eyebrow"><span class="num">04</span>Programa do curso</span></div>
+      <div class="rv"><h2 class="h2 disp">Seis voltas. Uma formação completa.</h2></div>
+      <div class="rv"><p class="lede" style="margin-bottom:30px">Da leitura das linhas do veículo à entrega comercial. Cada etapa constrói a próxima.</p></div>
+      <div class="rv"><div class="curr" id="curriculum"></div></div>
+    </div>
+  </section>
+
+  <!-- AI SECTION -->
+  <section class="sec" id="ia">
+    <span class="sec-num mono">// 05</span>
+    <div class="wrap">
+      <div class="rv"><span class="eyebrow"><span class="num">05</span>Inteligência artificial</span></div>
+      <div class="rv"><h2 class="h2 disp">IA como ferramenta. Fotografia como fundamento.</h2></div>
+      <div class="rv"><p class="lede">A inteligência artificial não substitui a técnica, a iluminação ou a direção fotográfica. Ela amplia as possibilidades da imagem quando é utilizada com intenção, controle e conhecimento.</p></div>
+      <div class="rv"><div class="ai-flow" id="aiFlow"></div></div>
+      <div class="cards four" id="aiCards" style="margin-top:34px"></div>
+      <div class="rv" style="margin-top:40px">
+        <div style="margin-bottom:18px;display:flex;align-items:center;gap:10px">
+          <span class="mono" style="font-size:12px;color:var(--gray);letter-spacing:.14em">ARRASTE PARA COMPARAR · TROCA DE CENÁRIO COM IA</span>
+        </div>
+        <div class="ba" id="beforeAfter" style="--split:52%;aspect-ratio:2200/1237">
+          <div class="ba-panel" id="baBefore"></div>
+          <div class="ba-panel" id="baAfter"></div>
+          <span class="ba-tag l mono">FOTO-BASE</span>
+          <span class="ba-tag r mono">IMAGEM FINAL</span>
+          <div class="ba-line" id="baLine"></div>
+          <div class="ba-handle" id="baHandle"><span data-ic="maximize-2"></span></div>
+        </div>
+      </div>
+      <div class="rv"><div class="principles" id="aiPrinciples"></div></div>
+    </div>
+  </section>
+
+  <!-- PRODUCTION JOURNEY -->
+  <section class="sec" id="producao" style="background:var(--graphite)">
+    <span class="sec-num mono">// 06</span>
+    <div class="wrap">
+      <div class="rv"><span class="eyebrow"><span class="num">06</span>Uma produção real</span></div>
+      <div class="rv"><h2 class="h2 disp">Do set à imagem final.</h2></div>
+      <div class="rv"><p class="lede" style="margin-bottom:34px">Você não verá apenas o resultado. Verá cada decisão que construiu o resultado.</p></div>
+      <div class="rv"><div class="jn">
+        <div class="jn-nav" id="journeyNav"></div>
+        <div class="jn-panel" id="journeyPanel"></div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- AUDIENCE -->
+  <section class="sec" id="para-quem">
+    <span class="sec-num mono">// 07</span>
+    <div class="wrap">
+      <div class="rv"><span class="eyebrow"><span class="num">07</span>Para quem é</span></div>
+      <div class="rv"><h2 class="h2 disp">Feito para quem quer construir, não só disparar.</h2></div>
+      <div class="two" style="margin-top:30px">
+        <div class="rv tcol yes">
+          <h3><span data-ic="flag" style="color:var(--red)"></span> O LAP é para</h3>
+          <ul id="audienceFor"></ul>
+        </div>
+        <div class="rv tcol no">
+          <h3><span data-ic="x" style="color:var(--gray)"></span> O LAP não é para</h3>
+          <ul id="audienceNot"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOMES -->
+  <section class="sec" style="background:var(--graphite)">
+    <span class="sec-num mono">// 08</span>
+    <div class="wrap">
+      <div class="rv"><span class="eyebrow"><span class="num">08</span>Resultados esperados</span></div>
+      <div class="rv"><h2 class="h2 disp">Ao completar sua volta, você estará preparado para:</h2></div>
+      <div class="rv"><ul class="out-grid" id="outcomes" style="margin-top:24px"></ul></div>
+    </div>
+  </section>
+
+  <!-- BONUSES -->
+  <section class="sec" id="bonuses">
+    <span class="sec-num mono">// 09</span>
+    <div class="wrap">
+      <div class="rv"><span class="eyebrow"><span class="num">09</span>Materiais complementares</span></div>
+      <div class="rv"><h2 class="h2 disp">Seu kit de pista.</h2></div>
+      <div class="rv"><div class="bonus-grid" id="bonuses-grid" style="margin-top:28px"></div></div>
+    </div>
+  </section>
+
+  <!-- INSTRUCTOR -->
+  <section class="sec" id="professor" style="background:var(--graphite)">
+    <span class="sec-num mono">// 10</span>
+    <div class="wrap"><div class="inst">
+      <div class="rv inst-imgs" id="instImgs"></div>
+      <div>
+        <div class="rv"><span class="eyebrow"><span class="num">10</span>Seu instrutor</span></div>
+        <div class="rv"><h2 class="h2 disp" style="margin-bottom:20px">Marcos Prado</h2></div>
+        <div class="rv"><p class="lede" style="margin-bottom:16px">Marcos Prado é fotógrafo, filmmaker e diretor, com mais de uma década de experiência no mercado audiovisual. Embaixador Fujifilm X-Series, desenvolveu uma linguagem visual marcada pelo controle de luz, sensibilidade artística e acabamento publicitário.</p></div>
+        <div class="rv"><p class="lede" style="margin-bottom:16px">Ao longo de sua trajetória, trabalhou com grandes marcas nacionais e internacionais, além de desenvolver projetos autorais, campanhas, filmes e experiências educacionais.</p></div>
+        <div class="rv"><p class="lede" style="margin-bottom:24px">No LAP, Marcos apresenta seu processo completo de fotografia automotiva — incluindo decisões, erros, soluções, edição e aplicação comercial.</p></div>
+        <div class="rv"><div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-ghost" id="instIg" target="_blank" rel="noreferrer"><span data-ic="instagram"></span> Instagram</a>
+          <a class="btn btn-ghost" id="instPort" target="_blank" rel="noreferrer">Portfólio <span data-ic="arrow-right"></span></a>
+        </div>
+        <!-- Logos de clientes entram aqui quando os arquivos forem fornecidos: /images/lap-client-logos/ --></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="sec" id="galeria">
+    <span class="sec-num mono">// 11</span>
+    <div class="wrap">
+      <div class="rv"><span class="eyebrow"><span class="num">11</span>Galeria</span></div>
+      <div class="rv"><h2 class="h2 disp">O padrão que você vai construir.</h2></div>
+      <div class="rv"><div class="gal-tabs" id="galTabs"></div></div>
+      <div class="rv"><div class="gal-grid" id="galGrid"></div></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS (oculto até haver depoimentos reais) -->
+  <section class="sec" id="depoimentos" style="display:none">
+    <div class="wrap">
+      <span class="eyebrow"><span class="num">12</span>Depoimentos</span>
+      <h2 class="h2 disp">Quem já correu a volta.</h2>
+      <div class="cards" id="testimonials" style="margin-top:30px"></div>
+    </div>
+  </section>
+
+  <!-- OFFER -->
+  <section class="sec" id="oferta">
+    <span class="sec-num mono">// 13</span>
+    <div class="wrap">
+      <div class="rv" style="text-align:center">
+        <span class="eyebrow" id="offerEyebrow" style="justify-content:center"><span class="num">13</span>Lista de espera</span>
+        <h2 class="h2 disp">Entre para o grid.</h2>
+      </div>
+      <div class="rv"><div class="offer" style="margin-top:30px"><div class="offer-grid">
+        <div class="offer-left">
+          <h3 class="disp" style="font-size:24px;font-weight:700;margin-bottom:6px">LAP — Luz Automotiva Publicitária</h3>
+          <p style="color:var(--gray);font-size:14px;margin-bottom:22px">Formação completa em fotografia automotiva publicitária, da captura à campanha.</p>
+          <ul class="offer-spec" id="offerSpec"></ul>
+        </div>
+        <div class="offer-right" id="offerRight"></div>
+      </div></div></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec" id="faq" style="background:var(--graphite)">
+    <span class="sec-num mono">// 14</span>
+    <div class="wrap">
+      <div class="rv"><span class="eyebrow"><span class="num">14</span>Perguntas frequentes</span></div>
+      <div class="rv"><h2 class="h2 disp" style="margin-bottom:20px">Antes da largada.</h2></div>
+      <div class="rv"><div id="faqList" style="border-top:1px solid var(--line)"></div></div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="sec final">
+    <div class="hero-bg" style="opacity:.6"><div class="grid-lines"></div></div>
+    <div class="wrap" style="position:relative;z-index:2">
+      <div class="rv"><h2 class="disp" style="font-size:clamp(26px,4.6vw,50px);font-weight:700;line-height:1.08;max-width:900px;margin:0 auto">A próxima imagem da sua carreira não precisa ser apenas fotografada.</h2></div>
+      <div class="rv"><p class="lede" style="margin:18px auto 0;text-align:center">Ela pode ser planejada, iluminada e construída por você.</p></div>
+      <div class="rv"><div class="final-track"><span class="dot"></span></div></div>
+      <div class="rv" style="margin-top:30px"><button class="btn btn-primary" data-scroll="#oferta">Entrar para o LAP <span data-ic="arrow-right"></span></button></div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="wordmark" style="font-size:30px"><span class="lap">LAP</span></span>
+        <div class="mono" style="color:var(--gray);font-size:12px;letter-spacing:.18em;margin-top:10px">LUZ AUTOMOTIVA PUBLICITÁRIA</div>
+        <p style="color:var(--gray);font-size:13px;margin-top:14px;max-width:320px">Fotografia automotiva da captura à campanha. Um curso de Marcos Prado.</p>
+      </div>
+      <div>
+        <div class="foot-h">Navegação</div>
+        <div class="foot-links" id="footNav"></div>
+      </div>
+      <div>
+        <div class="foot-h">Contato & Legal</div>
+        <div class="foot-links" id="footLegal"></div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span id="copyright"></span>
+      <span style="max-width:460px">Marcas e veículos eventualmente exibidos pertencem aos seus respectivos proprietários.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" aria-label="Fechar"><span data-ic="x"></span></button>
+  <div class="lb-inner" id="lbInner"></div>
+</div>
+
+<script>
+/* ============================================================================
+   LAP — CONFIGURAÇÕES E CONTEÚDO  (edite tudo aqui)
+   Modo de venda: CONFIG.salesMode = "waitlist" | "checkout"
+============================================================================ */
+window.IMAGES = {
+  "ducati": "images/ducati.jpg",
+  "camaro": "images/camaro.jpg",
+  "amg_engine": "images/amg_engine.jpg",
+  "amg_grille": "images/amg_grille.jpg",
+  "porsche_crest": "images/porsche_crest.jpg",
+  "merc_model": "images/merc_model.jpg",
+  "wheel_omote": "images/wheel_omote.jpg",
+  "versa_front_red": "images/versa_front_red.jpg",
+  "versa_side": "images/versa_side.jpg",
+  "versa_white": "images/versa_white.jpg",
+  "interior_iki": "images/interior_iki.jpg",
+  "farol": "images/farol.jpg",
+  "dakota_side": "images/dakota_side.jpg",
+  "dakota_badge": "images/dakota_badge.jpg",
+  "ram_tailgate": "images/ram_tailgate.jpg",
+  "ram_extra": "images/ram_extra.jpg",
+  "ram_grille": "images/ram_grille.jpg",
+  "dakota_interior": "images/dakota_interior.jpg",
+  "dakota_milkyway": "images/dakota_milkyway.jpg",
+  "dakota_night": "images/dakota_night.jpg",
+  "dakota_dusk": "images/dakota_dusk.jpg",
+  "dakota_sunset": "images/dakota_sunset.jpg",
+  "ram_turbo": "images/ram_turbo.jpg",
+  "dakota_console": "images/dakota_console.jpg",
+  "versa_sr_interior": "images/versa_sr_interior.jpg",
+  "porsche_base": "images/porsche_base.jpg",
+  "porsche_final": "images/porsche_final.jpg",
+  "marcos_portrait": "images/marcos_portrait.jpg",
+  "hero_bg": "images/hero_bg.jpg",
+  "camaro_base": "images/camaro_base.jpg",
+  "manifesto_bg": "images/manifesto_bg.jpg",
+  "vsl_cover": "images/vsl_cover.jpg",
+};
+function img(k,alt){var s=(window.IMAGES&&window.IMAGES[k])?window.IMAGES[k]:"";return '<img src="'+s+'" alt="'+((alt||"").replace(/"/g,"&quot;"))+'" loading="lazy">';}
+const CONFIG = {
+  salesMode: "waitlist",          // "waitlist" | "checkout"
+  checkoutUrl: "#",               // URL do checkout (Hotmart/Kiwify)
+  vslUrl: "",                     // URL do vídeo VSL (mp4). Deixe "" para exibir só a capa.
+  price: "[VALOR]",               // ex: "R$ 1.997"
+  installments: "[CONDIÇÕES]",    // ex: "12x de R$ 197"
+  accessPeriod: "[PERÍODO DE ACESSO]",
+  guarantee: "[PRAZO E CONDIÇÕES]",
+  startDate: "[DATA]",
+  certificate: "[CONFIRMAR]",
+  updates: "[CONFIRMAR]",
+  community: "[CONFIRMAR]",
+  showTestimonials: false,
+  showBonuses: true,
+  instagram: "https://instagram.com/",
+  portfolio: "#",
+  support: "mailto:contato@example.com"
+};
+
+const CONTENT = {
+  indicators: ["Iluminação","Tethering","Composição","Inteligência Artificial","Mercado"],
+  differentials: [
+    ["aperture","Técnica avançada","Aprenda a controlar reflexos, volumes e superfícies por meio de diferentes passes de luz."],
+    ["camera","Produção real","Acompanhe uma sessão automotiva completa, incluindo preparação, erros, ajustes e decisões."],
+    ["layers","Edição sem atalhos","Veja a construção da imagem desde os arquivos RAW até a composição final."],
+    ["cpu","Inteligência artificial","Utilize IA para limpeza, reconstrução, expansão e criação de cenários sem destruir a identidade do veículo."],
+    ["target","Mercado publicitário","Aprenda a transformar a técnica em portfólio, serviço e oportunidade comercial."],
+    ["maximize-2","Aplicação ampla","Utilize o método em carros, motos, barcos, aviões, helicópteros e produtos de grande porte."]
+  ],
+  techniqueFlow: [
+    "O veículo é posicionado e a câmera permanece fixa.",
+    "Diferentes áreas são iluminadas separadamente com flash e difusores.",
+    "Cada passe de luz é avaliado por meio do tethering.",
+    "As exposições são alinhadas e combinadas.",
+    "A imagem recebe tratamento publicitário.",
+    "A inteligência artificial auxilia na limpeza, reconstrução e criação de cenários.",
+    "O resultado é preparado para campanha, portfólio ou entrega comercial."
+  ],
+  layers: ["Base","Capô","Lateral","Teto","Rodas","Vidros","Faróis","Cenário","Finalização"],
+  modules: [
+    ["LAP 01","Construção da imagem automotiva",["Fotografia automotiva como fotografia de produto.","Fotografia comercial, editorial e lifestyle.","Leitura das linhas do veículo.","Escolha de ângulos.","Imagem hero, detalhes e interiores.","Referências, briefing e planejamento visual.","Introdução à Técnica LAP."]],
+    ["LAP 02","Equipamentos e preparação",["Câmeras e resolução.","Lentes e distorções.","Tripé e controle remoto.","Flashes portáteis e flashes de estúdio.","Rádios e sincronizadores.","Difusores e estruturas.","Notebook e computador.","Captura vinculada.","Capture One, Lightroom e Photoshop.","Preparação e limpeza do veículo.","Kit de entrada, intermediário e profissional."]],
+    ["LAP 03","Domínio da luz e dos reflexos",["Pinturas claras, escuras, metálicas e foscas.","Reflexos em vidros, cromados e superfícies pretas.","Luz direta e luz difusa.","Distância entre flash, difusor e veículo.","Controle de hotspots.","Exposição do ambiente.","Planejamento dos passes de luz.","Estúdio, garagem, concessionária e locação externa."]],
+    ["LAP 04","Produção completa na prática",["Análise da locação.","Posicionamento do carro.","Enquadramento.","Configuração da câmera.","Montagem do tethering.","Exposição-base.","Passes de luz.","Capô, teto, portas, laterais e rodas.","Faróis, lanternas e vidros.","Interiores e detalhes.","Organização dos arquivos.","Trabalho sozinho ou com assistente.","Erros e resolução de problemas."]],
+    ["LAP 05","Composição, edição e inteligência artificial",["Seleção dos arquivos.","Revelação RAW.","Alinhamento.","Organização das camadas.","Máscaras e modos de mesclagem.","Construção da iluminação.","Remoção de flashes, suportes e difusores.","Limpeza da pintura.","Tratamento de vidros, pneus, rodas e faróis.","Dodge and burn.","Cor, contraste e acabamento publicitário.","Remoção de objetos com IA.","Reconstrução de áreas.","Expansão de cenários.","Criação e substituição de fundos.","Integração entre fotografia real e ambiente gerado.","Preservação das proporções e do design do veículo.","Finalização e exportação."]],
+    ["LAP 06","Portfólio, prospecção e mercado",["Como começar sem clientes automotivos.","Projetos autorais e spec shoots.","Como conseguir veículos.","Construção do portfólio.","Site e apresentação comercial.","Prospecção de montadoras.","Agências e produtoras.","Concessionárias.","Colecionadores.","Marcas de pneus, acessórios e produtos.","Orçamento.","Escopo.","Direitos de uso e licenciamento.","Prazos e entregas.","Posicionamento de um serviço premium."]]
+  ],
+  aiApplications: [
+    ["eraser","Limpeza e remoção","Retire flashes, suportes, difusores e imperfeições sem comprometer a superfície do veículo."],
+    ["wrench","Reconstrução","Recomponha áreas danificadas ou obstruídas mantendo a coerência de luz e material."],
+    ["maximize-2","Expansão","Amplie o enquadramento e o cenário preservando perspectiva e proporção."],
+    ["wand-2","Criação de cenários","Construa ou substitua fundos integrando fotografia real e ambiente gerado."]
+  ],
+  aiFlow: ["Fotografia original","Composição de luz","Tratamento","IA","Imagem final"],
+  aiPrinciples: ["Preservação das linhas do veículo","Manutenção da identidade do produto","Realismo","Coerência de luz","Controle de perspectiva","Uso responsável da manipulação"],
+  journey: [
+    ["01","Planejamento","Referências, briefing e a leitura das linhas do veículo antes de qualquer disparo.","dakota_side"],
+    ["02","Posicionamento","O carro é posicionado e a câmera fixada no tripé. Nada se move a partir daqui.","versa_side"],
+    ["03","Captura vinculada","O tethering leva cada frame direto para a tela, onde cada decisão é avaliada.","interior_iki"],
+    ["04","Passes de luz","Flash e difusores iluminam capô, teto, laterais, rodas, faróis e vidros separadamente.","ram_tailgate"],
+    ["05","Composição","As exposições são alinhadas e combinadas em camadas no Photoshop.","amg_grille"],
+    ["06","Inteligência artificial","IA auxilia na limpeza, reconstrução, expansão e criação de cenários.","camaro"],
+    ["07","Entrega","A imagem é finalizada com padrão publicitário e preparada para campanha.","ram_front_final"]
+  ],
+  audienceFor: ["Fotógrafos que desejam entrar no mercado automotivo.","Profissionais de fotografia de produto.","Fotógrafos que já registram carros, mas não dominam iluminação.","Criadores que atendem concessionárias.","Filmmakers que desejam ampliar seus serviços.","Profissionais que querem construir um portfólio mais especializado.","Pessoas que desejam atender marcas, agências e produtoras."],
+  audienceNot: ["Quem procura apenas presets ou efeitos rápidos.","Quem não deseja aprender iluminação.","Quem espera que a IA faça todo o trabalho.","Quem busca somente fotografias casuais de encontros automotivos.","Quem não está disposto a estudar composição e pós-produção."],
+  outcomes: ["Planejar uma produção automotiva.","Escolher equipamentos adequados.","Controlar reflexos.","Trabalhar com flash e difusores.","Utilizar tethering.","Criar diferentes passes de luz.","Compor múltiplas exposições.","Finalizar imagens com padrão publicitário.","Utilizar IA de maneira controlada.","Construir um portfólio automotivo.","Apresentar e vender o serviço."],
+  bonuses: ["Checklist de produção.","Checklist de equipamentos.","Shot list automotiva.","Lista de equipamentos em diferentes faixas de investimento.","Diagrama de iluminação.","Arquivos RAW para prática.","Arquivo PSD em camadas.","Modelo de orçamento.","Modelo de apresentação comercial.","Mensagem de prospecção.","Guia de organização e entrega."],
+  gallery: [
+    ["Carros","versa_white","Nissan Versa"],
+    ["Carros","versa_side","Nissan Versa · light painting"],
+    ["Carros","versa_front_red","Nissan Versa SR"],
+    ["Carros","dakota_milkyway","RAM Dakota · Via Láctea"],
+    ["Carros","dakota_night","RAM Dakota · céu estrelado"],
+    ["Carros","dakota_dusk","RAM Dakota · entardecer"],
+    ["Carros","dakota_sunset","RAM Dakota · pôr do sol"],
+    ["Carros","dakota_side","RAM Dakota"],
+    ["Carros","camaro_base","Chevrolet Camaro"],
+    ["Carros","ram_extra","RAM"],
+    ["Motos","ducati","Ducati Diavel"],
+    ["Detalhes","amg_engine","Mercedes-AMG"],
+    ["Detalhes","amg_grille","Mercedes-AMG"],
+    ["Detalhes","porsche_crest","Porsche"],
+    ["Detalhes","farol","Farol"],
+    ["Detalhes","dakota_badge","RAM Dakota"],
+    ["Detalhes","ram_grille","RAM"],
+    ["Detalhes","ram_tailgate","RAM"],
+    ["Detalhes","ram_turbo","RAM Turbo"],
+    ["Detalhes","merc_model","Mercedes-Benz 300 SL"],
+    ["Interiores","dakota_interior","RAM Dakota · interior"],
+    ["Interiores","dakota_console","RAM Dakota · console"],
+    ["Interiores","versa_sr_interior","Nissan Versa SR · interior"],
+    ["Interiores","wheel_omote","Interior · Nissan"],
+    ["Interiores","interior_iki","Interior · IKI"],
+    ["Antes e depois","porsche_base","Base"],
+    ["Antes e depois","porsche_final","Final"],
+    ["Cenários com IA","camaro","Chevrolet Camaro · cenário IA"]
+  ],
+  faq: [
+    ["Preciso ter experiência com fotografia?","O curso constrói a técnica do fundamento à finalização, mas você aproveita melhor se já tiver noções básicas de fotografia. Não é necessário experiência prévia com fotografia automotiva."],
+    ["Preciso ter um carro para acompanhar o curso?","Não é obrigatório. O curso mostra também como conseguir veículos para projetos autorais e spec shoots. [CONFIRMAR detalhes conforme a estrutura final]."],
+    ["Qual câmera é necessária?","A Técnica LAP funciona com câmeras que permitam controle manual e captura vinculada. O módulo de equipamentos apresenta opções de entrada, intermediárias e profissionais."],
+    ["É obrigatório ter flash de estúdio?","Não. O curso aborda tanto flashes de estúdio quanto flashes portáteis, com caminhos para diferentes orçamentos."],
+    ["Posso começar usando speedlights?","Sim. Você aprende a planejar os passes de luz e adaptar a técnica ao equipamento disponível, incluindo speedlights."],
+    ["Preciso usar Capture One?","Não é obrigatório. Trabalhamos com Capture One, Lightroom e Photoshop, e você pode adaptar ao seu fluxo."],
+    ["Qual computador é recomendado?","O módulo de equipamentos apresenta recomendações por faixa de investimento para captura vinculada e composição em camadas."],
+    ["O curso ensina Photoshop?","Sim. A composição das exposições, máscaras, dodge and burn e o acabamento publicitário são feitos no Photoshop, do RAW à imagem final."],
+    ["O curso ensina inteligência artificial?","Sim. Há um módulo dedicado ao uso de IA para limpeza, reconstrução, expansão e criação de cenários de forma controlada."],
+    ["A IA substitui a fotografia real?","Não. A IA amplia as possibilidades da imagem quando usada com intenção e controle. A técnica, a iluminação e a direção fotográfica continuam sendo o fundamento."],
+    ["A técnica funciona em motos?","Sim. A metodologia se aplica principalmente a carros e motos, e também a produtos de grande porte."],
+    ["Posso aplicar o método em barcos ou aviões?","Sim. O mesmo princípio de múltiplas exposições e passes de luz pode ser aplicado a barcos, helicópteros, aviões e outros produtos de grande porte."],
+    ["O curso ensina prospecção?","Sim. O último módulo cobre portfólio, prospecção de montadoras, agências, concessionárias, orçamento, escopo e licenciamento."],
+    ["Os arquivos de prática estão incluídos?","Sim, entre os materiais complementares estão arquivos RAW para prática e um arquivo PSD em camadas. [CONFIRMAR disponibilidade final]."],
+    ["Por quanto tempo terei acesso?","Acesso por [PERÍODO DE ACESSO]. [CONFIRMAR]."],
+    ["Existe certificado?","[CONFIRMAR emissão de certificado]."],
+    ["Como funciona a garantia?","Garantia de [PRAZO E CONDIÇÕES]. [CONFIRMAR]."]
+  ],
+  nav: [["#curso","Curso"],["#tecnica","Técnica"],["#programa","Programa"],["#professor","Professor"],["#para-quem","Para quem é"],["#faq","FAQ"]]
+};
+
+/* ---------------------- ÍCONES (SVG inline) ---------------------- */
+const ICON_PATHS = {
+  "menu":'<line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>',
+  "x":'<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+  "chevron-down":'<path d="m6 9 6 6 6-6"/>',
+  "arrow-right":'<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
+  "check":'<path d="M20 6 9 17l-5-5"/>',
+  "camera":'<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/>',
+  "aperture":'<circle cx="12" cy="12" r="10"/><path d="m14.31 8 5.74 9.94"/><path d="M9.69 8h11.48"/><path d="m7.38 12 5.74-9.94"/><path d="M9.69 16 3.95 6.06"/><path d="M14.31 16H2.83"/><path d="m16.62 12-5.74 9.94"/>',
+  "layers":'<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.84Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>',
+  "cpu":'<rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/>',
+  "target":'<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+  "maximize-2":'<polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" x2="14" y1="3" y2="10"/><line x1="3" x2="10" y1="21" y2="14"/>',
+  "instagram":'<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>',
+  "flag":'<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/>',
+  "wand-2":'<path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/>',
+  "eraser":'<path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7"/><path d="m5 11 9 9"/>',
+  "wrench":'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
+  "send":'<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
+  "monitor-play":'<path d="m10 7 5 3-5 3Z"/><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M12 17v4"/><path d="M8 21h8"/>',
+  "play":'<polygon points="6 3 20 12 6 21 6 3"/>',
+  "pause":'<rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>',
+  "volume-2":'<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>',
+  "volume-x":'<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="22" x2="16" y1="9" y2="15"/><line x1="16" x2="22" y1="9" y2="15"/>',
+  "maximize":'<path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/>' 
+};
+function icon(name){
+  return '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+(ICON_PATHS[name]||'')+'</svg>';
+}
+function ph(file, desc, tag, ratio, iconName){
+  return '<div class="ph" role="img" aria-label="'+desc+'" style="aspect-ratio:'+(ratio||'16/9')+'">'+
+    '<span class="ph-tag mono">'+(tag||'IMAGE')+'</span>'+
+    '<span class="ph-icon">'+icon(iconName||'camera')+'</span>'+
+    '<div class="ph-meta"><div class="ph-file">'+file+'</div><div class="ph-desc">'+desc+'</div></div></div>';
+}
+const $ = (s)=>document.querySelector(s);
+const el = (id)=>document.getElementById(id);
+
+/* ---------------------- RENDER ---------------------- */
+// inject standalone icons (data-ic)
+document.querySelectorAll('[data-ic]').forEach(n=>{ n.innerHTML = icon(n.getAttribute('data-ic')); });
+
+// nav
+const navHtml = CONTENT.nav.map(([h,l])=>'<a data-scroll="'+h+'">'+l+'</a>').join('');
+el('navDesktop').innerHTML = navHtml + '<button class="btn btn-primary" style="padding:11px 20px;min-height:42px" data-scroll="#oferta">Quero entrar no grid '+icon('arrow-right')+'</button>';
+el('navMobile').innerHTML = CONTENT.nav.map(([h,l])=>'<a data-scroll="'+h+'">'+l+'</a>').join('');
+el('burger').innerHTML = icon('menu');
+el('closeMenu').innerHTML = icon('x');
+
+// hero chips
+el('heroChips').innerHTML = CONTENT.indicators.map(c=>'<span class="chip"><i></i>'+c+'</span>').join('');
+
+// technique flow
+el('flowList').innerHTML = CONTENT.techniqueFlow.map((t,i)=>
+  '<div class="flow-item"><span class="fn mono">'+String(i+1).padStart(2,'0')+'</span><p>'+t+'</p></div>').join('');
+el('techShot').innerHTML = img('merc_model','Mercedes-Benz 300 SL — composição e controle de luz (Marcos Prado)');
+
+// differentials
+el('diffCards').innerHTML = CONTENT.differentials.map(([ic,t,p])=>
+  '<div class="card"><div class="ci">'+icon(ic)+'</div><h3>'+t+'</h3><p>'+p+'</p></div>').join('');
+
+// curriculum
+el('curriculum').innerHTML = CONTENT.modules.map(([code,title,items],i)=>
+  '<div class="mod'+(i===0?' open':'')+'"><button class="mod-head" aria-expanded="'+(i===0)+'">'+
+  '<span class="mod-code mono">'+code+'</span><span class="mod-title disp">'+title+'</span>'+
+  '<span class="mod-toggle">'+icon('chevron-down')+'</span></button>'+
+  '<div class="mod-body"><ul class="mod-body-in">'+items.map(it=>'<li>'+it+'</li>').join('')+'</ul></div></div>').join('');
+document.querySelectorAll('.mod-head').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const mod=btn.parentElement; const body=mod.querySelector('.mod-body');
+    const isOpen=mod.classList.contains('open');
+    document.querySelectorAll('.mod').forEach(m=>{m.classList.remove('open');m.querySelector('.mod-body').style.maxHeight='0';});
+    if(!isOpen){mod.classList.add('open');body.style.maxHeight=body.scrollHeight+'px';}
+  });
+});
+// open first
+(function(){const b=document.querySelector('.mod.open .mod-body'); if(b) b.style.maxHeight=b.scrollHeight+'px';})();
+
+// ai
+el('aiFlow').innerHTML = CONTENT.aiFlow.map((s,i)=>
+  '<span class="step'+(s==='IA'?' hot':'')+'">'+s+'</span>'+(i<CONTENT.aiFlow.length-1?'<span class="arw">'+icon('arrow-right')+'</span>':'')).join('');
+el('aiCards').innerHTML = CONTENT.aiApplications.map(([ic,t,p])=>
+  '<div class="card"><div class="ci cyan">'+icon(ic)+'</div><h3>'+t+'</h3><p>'+p+'</p></div>').join('');
+el('aiPrinciples').innerHTML = CONTENT.aiPrinciples.map(p=>'<span>'+icon('check')+' '+p+'</span>').join('');
+
+// journey
+function renderJourney(active){
+  el('journeyNav').innerHTML = CONTENT.journey.map(([s,t],i)=>
+    '<button class="jn-tab'+(i===active?' active':'')+'" data-j="'+i+'"><span class="js mono">'+s+'</span><span class="jt">'+t+'</span></button>').join('');
+  const [s,t,d,f]=CONTENT.journey[active];
+  el('journeyPanel').innerHTML = '<div class="shot">'+img(f,'Etapa '+s+' — '+t)+'</div>'+
+    '<div class="jn-txt"><span class="jn-step mono">ETAPA '+s+'</span><h3 class="disp">'+t+'</h3><p>'+d+'</p></div>';
+  document.querySelectorAll('.jn-tab').forEach(b=>b.addEventListener('click',()=>renderJourney(+b.getAttribute('data-j'))));
+}
+renderJourney(0);
+
+// audience
+el('audienceFor').innerHTML = CONTENT.audienceFor.map(t=>'<li>'+icon('check')+' '+t+'</li>').join('');
+el('audienceNot').innerHTML = CONTENT.audienceNot.map(t=>'<li>'+icon('x')+' '+t+'</li>').join('');
+
+// outcomes
+el('outcomes').innerHTML = CONTENT.outcomes.map(o=>'<li>'+icon('check')+' '+o+'</li>').join('');
+
+// bonuses
+if(CONFIG.showBonuses){
+  el('bonuses-grid').innerHTML = CONTENT.bonuses.map((b,i)=>
+    '<div class="bonus"><span class="bi mono">B'+String(i+1).padStart(2,'0')+'</span><span style="font-size:14px">'+b+'</span></div>').join('');
+}else{ el('bonuses').style.display='none'; }
+
+// instructor images
+el('instImgs').classList.add('inst-stack');
+el('instImgs').innerHTML =
+  '<div class="inst-shot">'+img('marcos_portrait','Retrato de Marcos Prado — LAP')+'</div>'+
+  '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">'+
+    '<div class="inst-shot">'+img('amg_engine','Trabalho de Marcos Prado — detalhe Mercedes-AMG')+'<div class="inst-cap">TRABALHO · MERCEDES-AMG</div></div>'+
+    '<div class="inst-shot">'+img('porsche_crest','Trabalho de Marcos Prado — Porsche')+'<div class="inst-cap">TRABALHO · PORSCHE</div></div>'+
+  '</div>';
+el('instIg').href=CONFIG.instagram; el('instPort').href=CONFIG.portfolio;
+
+// gallery
+const galCats=['Todos'].concat(CONTENT.gallery.reduce((a,g)=>a.indexOf(g[0])>-1?a:a.concat(g[0]),[]));
+el('galGrid').className='gal-masonry';
+function renderGallery(cat){
+  el('galTabs').innerHTML = galCats.map(c=>'<button class="gal-tab'+(c===cat?' active':'')+'" data-cat="'+c+'">'+c+'</button>').join('');
+  const items = cat==='Todos'?CONTENT.gallery:CONTENT.gallery.filter(g=>g[0]===cat);
+  el('galGrid').innerHTML = items.map(([c,k,d])=>
+    '<div class="gal-cell" data-k="'+k+'" data-desc="'+d+'">'+img(k,d)+'<span class="cap">'+d+'</span></div>').join('');
+  document.querySelectorAll('.gal-tab').forEach(b=>b.addEventListener('click',()=>renderGallery(b.getAttribute('data-cat'))));
+  document.querySelectorAll('.gal-cell').forEach(it=>it.addEventListener('click',()=>{
+    el('lbInner').innerHTML=img(it.getAttribute('data-k'),it.getAttribute('data-desc'));
+    el('lightbox').classList.add('open');
+  }));
+}
+renderGallery('Todos');
+
+// real photos into hero, before/after, cenário
+if(el('heroBg')&&window.IMAGES&&window.IMAGES['hero_bg']) el('heroBg').style.backgroundImage='url("'+window.IMAGES['hero_bg']+'")';
+if(el('manifestoBg')&&window.IMAGES&&window.IMAGES['manifesto_bg']) el('manifestoBg').style.backgroundImage='url("'+window.IMAGES['manifesto_bg']+'")';
+(function(){
+  var b=window.IMAGES||{};
+  if(el('baBefore')) el('baBefore').style.backgroundImage='url("'+(b['camaro_base']||'')+'")';
+  if(el('baAfter'))  el('baAfter').style.backgroundImage='url("'+(b['camaro']||'')+'")';
+})();
+el('lightbox').addEventListener('click',e=>{ if(e.target===el('lightbox')||e.target.closest('.lb-close')) el('lightbox').classList.remove('open'); });
+
+// testimonials (only if enabled)
+if(CONFIG.showTestimonials){
+  el('depoimentos').style.display='block';
+  const t=[["[Nome do aluno]","[Profissão]","[Depoimento]","[Projeto realizado]"],["[Nome do aluno]","[Profissão]","[Depoimento]","[Projeto realizado]"],["[Nome do aluno]","[Profissão]","[Depoimento]","[Projeto realizado]"]];
+  el('testimonials').innerHTML=t.map(([n,r,d,p])=>
+    '<div class="card"><div style="margin-bottom:16px">'+ph('/images/lap-student.jpg','Foto','ALUNO','1/1','camera')+'</div>'+
+    '<p style="color:var(--white);font-style:italic">'+d+'</p><p class="mono" style="margin-top:14px;font-size:12px;color:var(--gray)">'+n+' · '+r+'</p><p class="mono" style="font-size:12px;color:var(--orange)">'+p+'</p></div>').join('');
+}
+
+// offer spec
+el('offerSpec').innerHTML =
+  '<li><span>Acesso</span><span>'+CONFIG.accessPeriod+'</span></li>'+
+  '<li><span>Certificado</span><span>'+CONFIG.certificate+'</span></li>'+
+  '<li><span>Atualizações</span><span>'+CONFIG.updates+'</span></li>'+
+  '<li><span>Comunidade</span><span>'+CONFIG.community+'</span></li>'+
+  '<li><span>Garantia</span><span>'+CONFIG.guarantee+'</span></li>'+
+  '<li><span>Início / liberação</span><span>'+CONFIG.startDate+'</span></li>';
+
+// offer right (waitlist vs checkout)
+if(CONFIG.salesMode==='waitlist'){
+  el('offerRight').innerHTML =
+    '<p class="mono" style="font-size:12px;color:var(--gray);letter-spacing:.14em;margin-bottom:16px">INSCRIÇÕES EM BREVE</p>'+
+    '<div id="formWrap">'+
+      field('nome','Nome','text','Seu nome')+
+      field('email','E-mail','email','voce@email.com')+
+      field('whats','WhatsApp','text','(00) 00000-0000')+
+      select('nivel','Nível atual na fotografia',['Iniciante','Intermediário','Avançado','Profissional'])+
+      select('objetivo','Principal objetivo',['Entrar no mercado automotivo','Dominar iluminação e reflexos','Aprender composição e edição','Construir portfólio','Prospectar clientes'])+
+      '<label class="consent"><input type="checkbox" id="consent"><span>Concordo em receber comunicações sobre o LAP e aceito a Política de Privacidade.</span></label>'+
+      '<div id="consentErr">É necessário aceitar para continuar.</div>'+
+      '<div id="formErr" class="err" style="display:none;color:var(--red);font-size:12px;margin-bottom:12px">Algo deu errado. Tente novamente.</div>'+
+      '<button class="btn btn-primary" id="submitBtn" style="width:100%">Quero ser avisado '+icon('send')+'</button>'+
+    '</div>';
+  wireForm();
+}else{
+  el('offerEyebrow').innerHTML='<span class="num">13</span>Inscrição';
+  el('offerRight').innerHTML =
+    '<div class="price">'+CONFIG.price+'</div><div class="price-sub">ou '+CONFIG.installments+'</div>'+
+    '<a class="btn btn-primary" style="width:100%;margin-top:24px" href="'+CONFIG.checkoutUrl+'">Quero dominar a Técnica LAP '+icon('arrow-right')+'</a>'+
+    '<p class="offer-note">Você será direcionado para um ambiente seguro de pagamento.</p>';
+}
+function field(id,label,type,ph_){return '<div class="form-field" id="f_'+id+'"><label>'+label+'</label><input type="'+type+'" id="i_'+id+'" placeholder="'+ph_+'"><div class="err">Campo inválido.</div></div>';}
+function select(id,label,opts){return '<div class="form-field" id="f_'+id+'"><label>'+label+'</label><select id="i_'+id+'"><option value="">Selecione</option>'+opts.map(o=>'<option>'+o+'</option>').join('')+'</select><div class="err">Selecione uma opção.</div></div>';}
+function wireForm(){
+  el('submitBtn').addEventListener('click',async()=>{
+    let ok=true;
+    const inval=(id,cond)=>{const f=el('f_'+id);if(cond){f.classList.add('invalid');ok=false;}else f.classList.remove('invalid');};
+    const v=id=>el('i_'+id).value.trim();
+    inval('nome', !v('nome'));
+    inval('email', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email')));
+    inval('whats', v('whats').replace(/\D/g,'').length<10);
+    inval('nivel', !v('nivel'));
+    el('consentErr').style.display = el('consent').checked?'none':'block';
+    if(!el('consent').checked) ok=false;
+    if(!ok) return;
+    const btn=el('submitBtn'); btn.textContent='Enviando...'; btn.disabled=true;
+    try{
+      /* ============================================================
+         INTEGRAÇÃO DA API — substitua por: Resend / Mailchimp / ConvertKit /
+         ActiveCampaign / RD Station / API própria.
+         Ex.: await fetch('/api/waitlist',{method:'POST',body:JSON.stringify(data)});
+      ============================================================ */
+      await new Promise(r=>setTimeout(r,900));
+      el('formWrap').outerHTML =
+        '<div class="form-success"><div class="fs-ic">'+icon('check')+'</div>'+
+        '<h3 class="disp" style="font-size:20px;margin-bottom:8px">Você está na lista.</h3>'+
+        '<p style="color:var(--gray);font-size:14px">Avisaremos assim que as inscrições do LAP abrirem. Prepare o grid.</p></div>';
+    }catch(e){ el('formErr').style.display='block'; btn.textContent='Quero ser avisado'; btn.disabled=false; }
+  });
+}
+
+// faq
+el('faqList').innerHTML = CONTENT.faq.map(([q,a])=>
+  '<div class="faq-item"><button class="faq-q">'+q+'<span class="fi">'+icon('chevron-down')+'</span></button>'+
+  '<div class="faq-a"><div class="faq-a-in">'+a+'</div></div></div>').join('');
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement; const a=item.querySelector('.faq-a'); const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(f=>{f.classList.remove('open');f.querySelector('.faq-a').style.maxHeight='0';});
+    if(!isOpen){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
+  });
+});
+
+// footer
+el('footNav').innerHTML = CONTENT.nav.map(([h,l])=>'<a data-scroll="'+h+'">'+l+'</a>').join('')+'<a data-scroll="#oferta">Inscrição</a>';
+el('footLegal').innerHTML =
+  '<a href="'+CONFIG.instagram+'" target="_blank" rel="noreferrer">Instagram</a>'+
+  '<a href="'+CONFIG.portfolio+'" target="_blank" rel="noreferrer">Portfólio</a>'+
+  '<a href="'+CONFIG.support+'">Suporte</a>'+
+  '<a href="#">Termos de uso</a><a href="#">Política de privacidade</a>';
+el('copyright').textContent = '© '+new Date().getFullYear()+' Marcos Prado · LAP — Luz Automotiva Publicitária.';
+
+/* ---------------------- INTERAÇÕES GLOBAIS ---------------------- */
+// smooth scroll
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-scroll]'); if(!t) return;
+  const target=document.querySelector(t.getAttribute('data-scroll'));
+  if(target){ target.scrollIntoView({behavior:'smooth'}); el('mobileMenu').classList.remove('open'); }
+});
+// mobile menu
+el('burger').addEventListener('click',()=>el('mobileMenu').classList.add('open'));
+el('closeMenu').addEventListener('click',()=>el('mobileMenu').classList.remove('open'));
+
+// scroll progress + header
+function onScroll(){
+  const h=document.documentElement;
+  const max=h.scrollHeight-h.clientHeight;
+  el('progress').style.width=(max>0?(h.scrollTop/max)*100:0)+'%';
+  el('hdr').classList.toggle('solid', h.scrollTop>60);
+}
+window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+// reveal on scroll
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+},{threshold:0.14});
+document.querySelectorAll('.rv').forEach(n=>io.observe(n));
+
+// VSL video player (custom controls)
+(function(){
+  var v=el('vslVideo'); if(!v) return;
+  var player=el('vslPlayer'), fill=el('vslFill'), seek=el('vslSeek'),
+      cur=el('vslCur'), dur=el('vslDur'), note=el('vslNote');
+  v.poster = (window.IMAGES&&window.IMAGES['vsl_cover'])||'';
+  if(CONFIG.vslUrl){ v.src=CONFIG.vslUrl; note.textContent=''; }
+  else { note.textContent='PLAYER PRONTO · INSIRA A URL DO SEU VÍDEO VSL EM CONFIG.vslUrl'; }
+  function ic(id,name){ el(id).innerHTML=icon(name); }
+  ic('vslBigPlay','play'); ic('vslPlay','play'); ic('vslMute','volume-2'); ic('vslFs','maximize');
+  function fmt(t){ if(!isFinite(t))return '0:00'; t=Math.floor(t); var m=Math.floor(t/60),s=t%60; return m+':'+(s<10?'0':'')+s; }
+  function toggle(){ if(v.paused){ var p=v.play(); if(p&&p.catch)p.catch(function(){}); } else v.pause(); }
+  el('vslBigPlay').addEventListener('click',toggle);
+  el('vslPlay').addEventListener('click',toggle);
+  v.addEventListener('play',function(){ player.classList.add('playing'); ic('vslPlay','pause'); });
+  v.addEventListener('pause',function(){ player.classList.remove('playing'); ic('vslPlay','play'); });
+  v.addEventListener('ended',function(){ player.classList.remove('playing'); ic('vslPlay','play'); });
+  v.addEventListener('loadedmetadata',function(){ dur.textContent=fmt(v.duration); });
+  v.addEventListener('timeupdate',function(){ var p=v.duration?(v.currentTime/v.duration*100):0; fill.style.width=p+'%'; cur.textContent=fmt(v.currentTime); });
+  function seekTo(clientX){ var r=seek.getBoundingClientRect(); var ratio=Math.min(1,Math.max(0,(clientX-r.left)/r.width)); if(v.duration) v.currentTime=ratio*v.duration; }
+  seek.addEventListener('click',function(e){ seekTo(e.clientX); });
+  el('vslMute').addEventListener('click',function(){ v.muted=!v.muted; ic('vslMute', v.muted?'volume-x':'volume-2'); });
+  el('vslFs').addEventListener('click',function(){ if(document.fullscreenElement){ document.exitFullscreen(); } else if(player.requestFullscreen){ player.requestFullscreen(); } });
+})();
+
+// before/after slider
+(function(){
+  const ba=el('beforeAfter'), after=el('baAfter'), line=el('baLine'), handle=el('baHandle');
+  let dragging=false;
+  function setSplit(pct){
+    pct=Math.max(0,Math.min(100,pct));
+    ba.style.setProperty('--split',pct+'%');
+    after.style.clipPath='inset(0 0 0 '+pct+'%)';
+    line.style.left=pct+'%'; handle.style.left=pct+'%';
+  }
+  function fromX(clientX){ const r=ba.getBoundingClientRect(); setSplit(((clientX-r.left)/r.width)*100); }
+  setSplit(52);
+  ba.addEventListener('mousedown',e=>{dragging=true;fromX(e.clientX);});
+  ba.addEventListener('touchstart',e=>{dragging=true;if(e.touches[0])fromX(e.touches[0].clientX);},{passive:true});
+  window.addEventListener('mousemove',e=>{if(dragging)fromX(e.clientX);});
+  window.addEventListener('touchmove',e=>{if(dragging&&e.touches[0])fromX(e.touches[0].clientX);},{passive:true});
+  window.addEventListener('mouseup',()=>dragging=false);
+  window.addEventListener('touchend',()=>dragging=false);
+})();
+</script>
 </body>
 </html>

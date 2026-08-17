@@ -2,30 +2,1380 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Domine Sua Fuji — Carreira Visual</title>
-<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Domine Sua Fuji — Curso online de fotografia e vídeo Fujifilm | Marcos Prado</title>
+<meta name="description" content="Curso online para entender, configurar e explorar sua câmera Fujifilm de verdade: menus, foco, exposição, lentes, Film Simulations, Recipes, vídeo e workflow. Com Marcos Prado, fotógrafo e Embaixador Fujifilm.">
+<meta name="theme-color" content="#080A09">
+<meta name="author" content="Marcos Prado">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Domine Sua Fuji — com Marcos Prado">
+<meta property="og:description" content="Sua Fuji pode muito mais. Aprenda a dominar o sistema Fujifilm: fotografia, vídeo, lentes, cores, Film Simulations e Recipes.">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  *{box-sizing:border-box}
-  body{margin:0;min-height:100svh;display:grid;place-items:center;text-align:center;padding:32px;
-    background:#000;color:#fff;font-family:'General Sans','Inter',-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
-  body::before{content:"";position:fixed;inset:0;z-index:0;
-    background:radial-gradient(60% 60% at 20% 30%,rgba(255,109,41,.28),transparent 65%),
-               radial-gradient(50% 50% at 80% 70%,rgba(69,48,39,.7),transparent 70%);filter:blur(70px)}
-  .box{position:relative;z-index:1;max-width:520px}
-  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#8a8386;font-family:ui-monospace,monospace}
-  h1{font-size:clamp(28px,6vw,46px);letter-spacing:-.035em;line-height:1.02;margin:16px 0 0;font-weight:600}
-  p{color:rgba(255,255,255,.66);margin:18px 0 0;line-height:1.55}
-  a{display:inline-flex;align-items:center;gap:9px;margin-top:30px;height:48px;padding:0 26px;border-radius:999px;
-    background:#FF6D29;color:#150a04;font-weight:600;text-decoration:none}
+/* ============================================================
+   DOMINE SUA FUJI — sistema visual
+   Verde Fujifilm como assinatura · vermelho apenas em micro-elementos
+   ============================================================ */
+:root{
+  --green:#01916D;
+  --green-hi:#12C08F;
+  --green-lo:#016B52;
+  --black:#080A09;
+  --graphite:#111513;
+  --graphite-2:#171C19;
+  --steel:#8C918E;
+  --white:#FFFFFF;
+  --off:#F3F2ED;
+  --red:#E60012;
+
+  --line:rgba(243,242,237,.12);
+  --line-soft:rgba(243,242,237,.07);
+
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Zen Kaku Gothic New","Archivo",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --pad:clamp(20px,5vw,88px);
+  --sec:clamp(84px,11vw,180px);
+  --maxw:1560px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--black);color:var(--off);
+  font-family:var(--f-body);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+ul{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4{margin:0;font-family:var(--f-display);font-weight:800;line-height:.92;letter-spacing:-.03em;font-variation-settings:"wdth" 108}
+p{margin:0}
+::selection{background:var(--green);color:#fff}
+:focus-visible{outline:2px solid var(--green-hi);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+.sec{padding-block:var(--sec);position:relative}
+.mono{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:500}
+.steel{color:var(--steel)}
+.green{color:var(--green)}
+.lead{font-size:clamp(17px,1.35vw,20px);line-height:1.75;color:#CFD3D0;max-width:62ch}
+.small{font-size:14.5px;line-height:1.7;color:var(--steel)}
+
+/* eyebrow com ponto vermelho (único uso frequente do vermelho) */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--steel)}
+.eyebrow::before{content:"";width:5px;height:5px;background:var(--red);border-radius:50%;flex:none;box-shadow:0 0 10px rgba(230,0,18,.7)}
+
+.h-xl{font-size:clamp(46px,8.4vw,132px)}
+.h-lg{font-size:clamp(34px,5.2vw,78px)}
+.h-md{font-size:clamp(27px,3.2vw,46px)}
+.h-sm{font-size:clamp(20px,2vw,27px);letter-spacing:-.02em}
+
+/* --------- botões --------- */
+.btn{
+  display:inline-flex;align-items:center;gap:14px;
+  padding:19px 30px;background:var(--green);color:#fff;
+  font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+  border:1px solid var(--green);position:relative;overflow:hidden;
+  transition:background .45s var(--ease),transform .45s var(--ease),box-shadow .45s var(--ease);
+}
+.btn span{position:relative;z-index:1}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,var(--green-hi),var(--green) 60%);opacity:0;transition:opacity .45s var(--ease);z-index:0}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px -18px rgba(1,145,109,.9)}
+.btn:hover::after{opacity:1}
+.btn__ar{position:relative;z-index:1;transition:transform .45s var(--ease)}
+.btn:hover .btn__ar{transform:translateX(5px)}
+.btn--ghost{background:transparent;color:var(--off);border-color:var(--line)}
+.btn--ghost::after{background:var(--green)}
+.btn--ghost:hover{color:#fff;border-color:var(--green)}
+.btn--sm{padding:13px 20px;font-size:10.5px;letter-spacing:.14em}
+.btn--wide{width:100%;justify-content:space-between}
+
+/* --------- grão de película --------- */
+.grain{
+  position:fixed;inset:-50%;z-index:70;pointer-events:none;opacity:.045;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --------- moldura de visor (assinatura) --------- */
+.vf{position:fixed;inset:16px;z-index:55;pointer-events:none;display:none}
+.vf i{position:absolute;width:22px;height:22px;border:1px solid rgba(1,145,109,.55);transition:inset .6s var(--ease)}
+.vf i:nth-child(1){top:0;left:0;border-right:0;border-bottom:0}
+.vf i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
+.vf i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0}
+.vf i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
+.vf__read{position:absolute;right:0;bottom:-3px;justify-content:flex-end;display:flex;gap:14px;align-items:center;background:rgba(8,10,9,.66);backdrop-filter:blur(8px);padding:7px 12px;border:1px solid rgba(243,242,237,.06);font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(243,242,237,.45)}
+.vf__read b{color:var(--green-hi);font-weight:500}
+.vf__dot{width:5px;height:5px;border-radius:50%;background:var(--red);animation:blink 2.6s infinite}
+@keyframes blink{0%,45%{opacity:1}55%,100%{opacity:.15}}
+@media (min-width:1180px){.vf{display:block}}
+
+/* --------- reveal --------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.09s}.rv-d2{transition-delay:.18s}.rv-d3{transition-delay:.27s}.rv-d4{transition-delay:.36s}
+.mask>img,.mask .brk{clip-path:inset(0 0 100% 0);transition:clip-path 1.25s var(--ease)}
+.mask.in>img,.mask.in .brk{clip-path:inset(0 0 0 0)}
+
+/* --------- figuras --------- */
+.fig{position:relative;overflow:hidden;background:var(--graphite)}
+.fig img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease),filter .8s var(--ease)}
+.fig--zoom:hover img{transform:scale(1.045)}
+.cap{margin-top:12px;display:flex;justify-content:space-between;gap:16px;color:var(--steel);font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.brk{position:absolute;inset:12px;pointer-events:none;opacity:0;transition:opacity .5s var(--ease)}
+.brk i{position:absolute;width:14px;height:14px;border:1px solid var(--green-hi)}
+.brk i:nth-child(1){top:0;left:0;border-right:0;border-bottom:0}
+.brk i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
+.brk i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0}
+.brk i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
+.fig:hover .brk{opacity:1}
+
+/* ============================ HEADER ============================ */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .5s var(--ease),border-color .5s var(--ease),backdrop-filter .5s}
+.hdr__in{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:18px;border-bottom:1px solid transparent;transition:border-color .5s var(--ease)}
+.hdr.is-stuck{background:rgba(8,10,9,.72);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%)}
+.hdr.is-stuck .hdr__in{border-color:var(--line-soft)}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--f-display);font-weight:800;font-size:14px;letter-spacing:.02em;text-transform:uppercase;font-variation-settings:"wdth" 90}
+.brand em{font-style:normal;color:var(--green-hi)}
+.brand::before{content:"";width:9px;height:9px;border:2px solid var(--green);border-radius:50%;flex:none}
+.nav{display:none;gap:34px;align-items:center}
+.nav a{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#C3C8C5;position:relative;padding-block:4px}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--green-hi);transition:width .45s var(--ease)}
+.nav a:hover{color:#fff}
+.nav a:hover::after{width:100%}
+.hdr__cta{display:none}
+.burger{display:grid;place-items:center;width:42px;height:42px;border:1px solid var(--line)}
+.burger span{display:block;width:16px;height:1px;background:var(--off);position:relative;transition:transform .4s var(--ease),background .3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:16px;height:1px;background:var(--off);transition:transform .4s var(--ease)}
+.burger span::before{top:-5px}.burger span::after{top:5px}
+body.menu-open .burger span{background:transparent}
+body.menu-open .burger span::before{transform:translateY(5px) rotate(45deg)}
+body.menu-open .burger span::after{transform:translateY(-5px) rotate(-45deg)}
+@media (min-width:1000px){.nav{display:flex}.hdr__cta{display:inline-flex}.burger{display:none}}
+
+.menu{position:fixed;inset:0;z-index:59;background:rgba(8,10,9,.97);backdrop-filter:blur(10px);display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 var(--pad);opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
+body.menu-open .menu{opacity:1;visibility:visible}
+.menu a{font-family:var(--f-display);font-weight:800;font-size:clamp(30px,9vw,46px);letter-spacing:-.03em;padding-block:10px;border-bottom:1px solid var(--line-soft)}
+.menu a:last-of-type{border:0}
+.menu .btn{margin-top:26px;justify-content:center;font-family:var(--f-mono);font-size:12px;font-weight:500;letter-spacing:.16em;line-height:1;border-bottom:1px solid var(--green)}
+
+/* ============================ HERO ============================ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;padding-top:110px}
+.hero__media{position:absolute;inset:0;z-index:0}
+.hero__media img{width:100%;height:110%;object-fit:cover;object-position:70% 26%;will-change:transform}
+.hero__media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(to top,rgba(8,10,9,.97) 8%,rgba(8,10,9,.78) 46%,rgba(8,10,9,.18) 88%),
+    linear-gradient(105deg,rgba(8,10,9,.72) 4%,rgba(8,10,9,.3) 52%,rgba(1,145,109,.14) 100%);
+}
+.hero__in{position:relative;z-index:2;width:100%;padding-bottom:clamp(38px,6vw,74px)}
+.hero h1{font-size:clamp(52px,10.2vw,150px);line-height:.84;font-variation-settings:"wdth" 112;margin:22px 0 0}
+.hero h1 .l2{display:block;color:var(--green)}
+.hero__lead{font-family:var(--f-display);font-weight:600;font-size:clamp(21px,2.5vw,34px);letter-spacing:-.02em;line-height:1.15;margin-top:26px;color:#fff;font-variation-settings:"wdth" 96}
+.hero__sub{max-width:56ch;margin-top:16px;color:#C7CCC9;font-size:clamp(15px,1.1vw,17px);line-height:1.7}
+.hero__by{display:flex;align-items:center;gap:14px;margin-top:30px}
+.hero__by i{width:26px;height:1px;background:var(--green);display:block;flex:none}
+.hero__by p{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#C3C8C5}
+.hero__by p b{color:#fff;font-weight:500}
+.hero__act{display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;margin-top:34px}
+.hero__price{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel)}
+.hero__price b{color:var(--off);font-weight:500}
+.hero__chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px;padding-top:26px;border-top:1px solid var(--line-soft)}
+.hero__chips li{font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--steel);border:1px solid var(--line);padding:7px 13px}
+.hero__chips li:first-child{color:var(--green-hi);border-color:rgba(1,145,109,.5)}
+.hero__scroll{position:absolute;right:var(--pad);bottom:38px;z-index:2;display:none;align-items:center;gap:12px;color:var(--steel);font-family:var(--f-mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase}
+.hero__scroll i{width:1px;height:52px;background:linear-gradient(var(--green),transparent);display:block;animation:drop 2.4s infinite var(--ease)}
+@keyframes drop{0%{transform:scaleY(.2);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media (min-width:900px){
+  .hero{align-items:center;padding-top:0}
+  .hero__media{left:auto;width:56%}
+  .hero__media img{object-position:58% 40%}
+  .hero__media::after{background:linear-gradient(90deg,var(--black) 2%,rgba(8,10,9,.55) 34%,rgba(8,10,9,.05) 74%,rgba(1,145,109,.16) 100%)}
+  .hero__in{padding-bottom:0}
+  .hero__in>*{max-width:66%}
+  .hero h1,.hero__chips{max-width:none}
+  .hero__chips{width:66%}
+  .hero__scroll{display:flex;flex-direction:column;right:auto;left:var(--pad)}
+}
+
+/* ============================ AGORA ============================ */
+.now{background:var(--graphite);border-top:1px solid var(--line-soft)}
+.now__grid{display:grid;gap:clamp(40px,6vw,86px)}
+.now__txt p+p{margin-top:19px}
+.now__hl{color:#fff;font-family:var(--f-display);font-weight:600;font-size:19px;line-height:1.45;letter-spacing:-.01em}
+.now__media{position:relative}
+.now__media .fig{aspect-ratio:3/4}
+.now__badge{position:absolute;left:-14px;bottom:34px;background:var(--black);border:1px solid var(--line);padding:14px 18px;display:flex;gap:16px}
+.now__badge span{font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;color:var(--steel)}
+.now__badge span b{display:block;color:var(--green-hi);font-size:13px;letter-spacing:.06em;margin-top:3px;font-weight:500}
+@media (min-width:960px){
+  .now__grid{grid-template-columns:1.05fr .95fr;align-items:center}
+  .now__media{order:2}
+}
+
+/* ============================ PÚBLICOS ============================ */
+.aud__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(34px,4vw,58px)}
+.aud__grid{display:grid;gap:2px;background:var(--line-soft)}
+.aud__card{position:relative;overflow:hidden;background:var(--black);padding:clamp(30px,3.6vw,58px);min-height:clamp(430px,52vw,580px);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+.aud__card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:grayscale(1) contrast(1.05) brightness(.5);transition:filter 1s var(--ease),transform 1.6s var(--ease)}
+.aud__card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(8,10,9,.96) 12%,rgba(8,10,9,.72) 55%,rgba(8,10,9,.45));transition:background .8s var(--ease)}
+.aud__card:hover img{filter:grayscale(0) contrast(1.02) brightness(.62);transform:scale(1.04)}
+.aud__card:hover::after{background:linear-gradient(to top,rgba(8,10,9,.94) 10%,rgba(8,10,9,.6) 58%,rgba(1,145,109,.16))}
+.aud__num{font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;color:var(--green-hi);margin-bottom:auto}
+.aud__card h3{font-size:clamp(26px,3vw,40px);margin-bottom:16px}
+.aud__card p{color:#C7CCC9;font-size:15.5px;line-height:1.7;max-width:44ch}
+.aud__line{height:1px;background:var(--line);margin:26px 0 0;position:relative}
+.aud__line::after{content:"";position:absolute;left:0;top:0;height:1px;width:0;background:var(--green);transition:width 1s var(--ease)}
+.aud__card:hover .aud__line::after{width:100%}
+.aud__foot{margin-top:clamp(34px,4vw,54px);text-align:center;font-family:var(--f-display);font-weight:600;font-size:clamp(19px,2.1vw,29px);line-height:1.3;letter-spacing:-.02em;color:#fff}
+.aud__foot span{color:var(--green-hi)}
+@media (min-width:900px){.aud__grid{grid-template-columns:1fr 1fr}}
+
+/* ============================ DOMINAR ============================ */
+.dom{background:var(--graphite);position:relative;overflow:hidden}
+.dom__bg{position:absolute;inset:0;opacity:.16;z-index:0}
+.dom__bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.5)}
+.dom__bg::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 40%,rgba(17,21,19,.55),var(--graphite) 72%)}
+.dom .wrap{position:relative;z-index:1}
+.scale{display:flex;align-items:flex-end;gap:0;height:34px;margin:34px 0 clamp(30px,4vw,52px);border-bottom:1px solid var(--line-soft)}
+.scale i{flex:1;height:8px;border-left:1px solid var(--line)}
+.scale i:nth-child(5n+1){height:20px;border-color:rgba(243,242,237,.24)}
+.scale i.mk{height:26px;border-color:var(--green)}
+.dom__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)}
+.dom__i{background:var(--graphite);padding:clamp(18px,2.2vw,30px);display:flex;flex-direction:column;gap:12px;min-height:118px;transition:background .5s var(--ease)}
+.dom__i span{font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;color:var(--steel);transition:color .4s}
+.dom__i b{font-family:var(--f-display);font-weight:700;font-size:clamp(15px,1.5vw,21px);letter-spacing:-.01em;text-transform:uppercase;font-variation-settings:"wdth" 94;line-height:1.05;margin-top:auto}
+.dom__i:hover{background:#0C100E}
+.dom__i:hover span{color:var(--red)}
+.dom__i:hover b{color:var(--green-hi)}
+.dom__i--end{grid-column:span 2}
+@media (min-width:700px){.dom__i--end{grid-column:auto}}
+@media (min-width:700px){.dom__grid{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1100px){.dom__grid{grid-template-columns:repeat(5,1fr)}}
+
+/* ============================ CURSO / MÓDULOS ============================ */
+.mod__head{margin-bottom:clamp(38px,5vw,70px);max-width:70ch}
+.mod__wrap{display:grid;gap:clamp(30px,4vw,66px)}
+.mod__sticky{margin-bottom:14px}
+.mod__list{border-top:1px solid var(--line-soft)}
+.mod__item{border-bottom:1px solid var(--line-soft)}
+.mod__btn{width:100%;display:flex;align-items:center;gap:clamp(14px,2vw,28px);padding:clamp(20px,2.4vw,30px) 0;text-align:left}
+.mod__n{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;color:var(--steel);flex:none;transition:color .4s}
+.mod__t{font-family:var(--f-display);font-weight:700;font-size:clamp(18px,2.3vw,30px);letter-spacing:-.02em;line-height:1.15;flex:1;transition:color .4s var(--ease)}
+.mod__ic{width:34px;height:34px;flex:none;border:1px solid var(--line);display:grid;place-items:center;position:relative;transition:border-color .4s,background .4s}
+.mod__ic::before,.mod__ic::after{content:"";position:absolute;background:var(--off);transition:transform .45s var(--ease),background .4s}
+.mod__ic::before{width:11px;height:1px}
+.mod__ic::after{width:1px;height:11px}
+.mod__item.open .mod__ic{border-color:var(--green);background:rgba(1,145,109,.14)}
+.mod__item.open .mod__ic::after{transform:scaleY(0)}
+.mod__item.open .mod__ic::before,.mod__item.open .mod__ic::after{background:var(--green-hi)}
+.mod__item.open .mod__t,.mod__btn:hover .mod__t{color:var(--green-hi)}
+.mod__item.open .mod__n{color:var(--red)}
+.mod__panel{overflow:hidden;height:0;transition:height .6s var(--ease)}
+.mod__inner{padding:0 0 30px clamp(0px,4vw,60px)}
+.mod__inner li{display:flex;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px dashed rgba(243,242,237,.08);color:#C7CCC9;font-size:15px}
+.mod__inner li::before{content:"";width:4px;height:4px;background:var(--green);flex:none;transform:translateY(-2px)}
+.mod__inner li:last-child{border:0}
+.mod__figwrap{position:relative;aspect-ratio:16/11;overflow:hidden;background:var(--graphite)}
+.mod__figwrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1s var(--ease),transform 1.6s var(--ease)}
+.mod__figwrap img.on{opacity:1;transform:none}
+.mod__meta{display:flex;justify-content:space-between;margin-top:14px;color:var(--steel);font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+@media (min-width:1000px){
+  .mod__wrap{grid-template-columns:.82fr 1.18fr}
+  .mod__sticky{position:sticky;top:120px;align-self:start;margin-bottom:0}
+  .mod__figwrap{aspect-ratio:4/5}
+}
+
+/* ============================ PHOTO / VIDEO ============================ */
+.pv{padding:0;background:var(--black)}
+.pv__split{display:flex;flex-direction:column;gap:2px;background:var(--line-soft)}
+.pv__side{position:relative;overflow:hidden;min-height:clamp(440px,64vw,660px);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(28px,3.4vw,60px);padding-top:clamp(96px,8vw,130px);isolation:isolate;flex:1;transition:flex 1s var(--ease)}
+.pv__side img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 2s var(--ease),filter 1s var(--ease)}
+.pv__side::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(8,10,9,.95) 14%,rgba(8,10,9,.55) 60%,rgba(8,10,9,.3))}
+.pv__side:hover img{transform:scale(1.05)}
+.pv__tag{display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--steel);margin-bottom:auto}
+.pv__tag i{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.pv__side--video .pv__tag i{background:var(--red);animation:blink 2.4s infinite}
+.pv__side h3{font-size:clamp(44px,7vw,104px);letter-spacing:-.045em;font-variation-settings:"wdth" 116;margin-bottom:14px}
+.pv__side p{max-width:46ch;color:#C7CCC9;font-size:15.5px;line-height:1.7}
+.pv__side--photo h3{color:#fff}
+.pv__side--video h3{color:#fff}
+.pv__side--video h3 span{color:var(--green)}
+.pv__bar{display:flex;gap:3px;margin-top:24px;align-items:flex-end;height:22px}
+.pv__bar i{width:3px;background:rgba(243,242,237,.28);height:30%}
+@media (min-width:900px){
+  .pv__split{flex-direction:row}
+  .pv__side{min-height:88svh}
+  .pv__split:hover .pv__side{flex:.85}
+  .pv__split .pv__side:hover{flex:1.3}
+}
+
+/* ============================ VSL / PLAYER ============================ */
+.vsl{background:var(--black);border-top:1px solid var(--line-soft);position:relative}
+.vsl__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:22px;margin-bottom:clamp(28px,3.4vw,48px)}
+.vsl__player{margin:0}
+.vsl__stage{position:relative;background:#050706;border:1px solid var(--line);aspect-ratio:16/9;overflow:hidden}
+.vsl__stage video,.vsl__stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;background:#050706}
+.vsl__stage.is-vertical video{object-fit:contain}
+.vsl__brk{opacity:.45}
+.vsl__player:hover .vsl__brk{opacity:1}
+
+.vsl__poster{position:absolute;inset:0;z-index:3;display:grid;place-items:center;transition:opacity .7s var(--ease),visibility .7s}
+.vsl__poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;filter:brightness(.62) saturate(.9)}
+.vsl__poster::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 70% at 50% 50%,rgba(8,10,9,.35),rgba(8,10,9,.82))}
+.vsl__stage.is-playing .vsl__poster,.vsl__stage.is-ready .vsl__poster{opacity:0;visibility:hidden}
+
+.vsl__big{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:18px}
+.vsl__bigIc{width:clamp(66px,7vw,92px);height:clamp(66px,7vw,92px);border-radius:50%;background:var(--green);display:grid;place-items:center;position:relative;transition:transform .5s var(--ease),background .5s var(--ease),box-shadow .5s var(--ease);box-shadow:0 18px 60px -22px rgba(1,145,109,.9)}
+.vsl__bigIc::before{content:"";border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #fff;margin-left:5px}
+.vsl__bigIc::after{content:"";position:absolute;inset:-10px;border:1px solid rgba(1,145,109,.55);border-radius:50%;animation:pulse 3s infinite var(--ease)}
+@keyframes pulse{0%{transform:scale(.92);opacity:.9}70%{transform:scale(1.25);opacity:0}100%{opacity:0}}
+.vsl__big:hover .vsl__bigIc{transform:scale(1.06);background:var(--green-hi)}
+.vsl__bigTx{color:#fff;letter-spacing:.2em;text-shadow:0 2px 14px rgba(0,0,0,.7)}
+.vsl__rec{position:absolute;top:16px;left:16px;z-index:2;display:flex;align-items:center;gap:9px;color:rgba(255,255,255,.78);text-shadow:0 1px 10px rgba(0,0,0,.7)}
+.vsl__rec i{width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink 2.4s infinite}
+.vsl__empty[hidden]{display:none}
+.vsl__empty{position:absolute;inset:auto 0 0;z-index:4;padding:14px 16px;background:rgba(8,10,9,.86);border-top:1px solid var(--line);color:var(--steel);text-transform:none;letter-spacing:.06em;font-size:11px}
+.vsl__empty b{color:var(--green-hi);font-weight:500}
+
+.vsl__bar[hidden]{display:none}
+.vsl__bar{display:flex;align-items:center;gap:clamp(8px,1vw,16px);padding:12px clamp(10px,1.2vw,16px);background:var(--graphite);border:1px solid var(--line);border-top:0}
+.vsl__b{width:38px;height:38px;flex:none;display:grid;place-items:center;border:1px solid transparent;color:var(--off);transition:color .35s,border-color .35s,background .35s}
+.vsl__b:hover{color:var(--green-hi);border-color:rgba(1,145,109,.4);background:rgba(1,145,109,.1)}
+.vsl__b--tx{width:auto;padding-inline:11px;color:var(--steel);font-size:11px}
+.vsl__b--tx .mono{text-transform:none;letter-spacing:.08em}
+.ic-play,.ic-vol,.ic-fs{display:block;position:relative}
+.ic-play{width:0;height:0;border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent currentColor;margin-left:3px}
+.is-playing-btn .ic-play{width:11px;height:13px;border:0;margin:0;background:currentColor;-webkit-mask:linear-gradient(#000 0 0) 0/4px 100% no-repeat,linear-gradient(#000 0 0) 100%/4px 100% no-repeat;mask:linear-gradient(#000 0 0) 0/4px 100% no-repeat,linear-gradient(#000 0 0) 100%/4px 100% no-repeat}
+.ic-vol{width:15px;height:13px}
+.ic-vol::before{content:"";position:absolute;left:0;top:3px;width:0;height:0;border-style:solid;border-width:3.5px 6px 3.5px 0;border-color:transparent currentColor transparent transparent}
+.ic-vol::after{content:"";position:absolute;left:8px;top:1px;width:7px;height:11px;border:1.5px solid currentColor;border-left:0;border-radius:0 9px 9px 0;transition:opacity .3s}
+.is-muted .ic-vol::after{opacity:.18}
+.ic-fs{width:15px;height:13px}
+.ic-fs::before,.ic-fs::after{content:"";position:absolute;width:5px;height:5px;border:1.5px solid currentColor}
+.ic-fs::before{top:0;left:0;border-right:0;border-bottom:0}
+.ic-fs::after{bottom:0;right:0;border-left:0;border-top:0}
+
+.vsl__seek{flex:1;height:26px;display:flex;align-items:center;position:relative;cursor:pointer;touch-action:none}
+.vsl__seek::before{content:"";position:absolute;left:0;right:0;height:3px;background:rgba(243,242,237,.14)}
+.vsl__buf{position:absolute;left:0;height:3px;width:0;background:rgba(243,242,237,.24)}
+.vsl__prog{position:absolute;left:0;height:3px;width:0;background:var(--green);transition:background .3s}
+.vsl__prog span{position:absolute;right:-6px;top:50%;transform:translateY(-50%) scale(.6);width:12px;height:12px;border-radius:50%;background:var(--green-hi);box-shadow:0 0 0 3px rgba(1,145,109,.22);opacity:0;transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.vsl__seek:hover .vsl__prog span,.vsl__seek:focus-visible .vsl__prog span,.vsl__seek.drag .vsl__prog span{opacity:1;transform:translateY(-50%) scale(1)}
+.vsl__seek:hover .vsl__prog{background:var(--green-hi)}
+.vsl__time{flex:none;display:flex;align-items:center;gap:5px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--steel)}
+.vsl__time b{color:var(--off);font-weight:500;font-variant-numeric:tabular-nums}
+.vsl__time em{font-style:normal;opacity:.4}
+.vsl__vol{display:flex;align-items:center;gap:6px}
+.vsl__range{-webkit-appearance:none;appearance:none;width:76px;height:3px;background:rgba(243,242,237,.16);outline:0;cursor:pointer}
+.vsl__range::-webkit-slider-thumb{-webkit-appearance:none;width:11px;height:11px;border-radius:50%;background:var(--green-hi);cursor:pointer;transition:box-shadow .3s}
+.vsl__range::-webkit-slider-thumb:hover{box-shadow:0 0 0 4px rgba(1,145,109,.25)}
+.vsl__range::-moz-range-thumb{width:11px;height:11px;border:0;border-radius:50%;background:var(--green-hi);cursor:pointer}
+.vsl__cap{display:flex;justify-content:space-between;gap:16px;margin-top:12px;color:var(--steel);font-size:10px;letter-spacing:.18em}
+.vsl__act{display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(28px,3.2vw,44px)}
+@media (max-width:619px){.vsl__range{display:none}}
+@media (min-width:620px){.vsl__b{width:40px;height:40px}}
+@media (max-width:619px){.vsl__cap span:last-child{display:none}.vsl__act .btn{width:100%;justify-content:space-between}}
+
+/* ============================ FILM SIM ============================ */
+.fs{background:var(--graphite);border-block:1px solid var(--line-soft)}
+.fs__grid{display:grid;gap:clamp(30px,4vw,60px);align-items:center}
+.fs__stage{position:relative}
+.fs__img{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--black)}
+.fs__img img{width:100%;height:100%;object-fit:cover;transition:filter 1s var(--ease)}
+.fs__hud{position:absolute;left:14px;top:14px;right:14px;display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.72);text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.fs__hud b{color:var(--green-hi);font-weight:500}
+.fs__list{display:flex;flex-wrap:wrap;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);margin-top:26px}
+.fs__list button{flex:1 1 132px;padding:14px 12px;background:var(--graphite);font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);text-align:left;display:flex;align-items:center;gap:9px;transition:background .4s,color .4s}
+.fs__list button i{width:5px;height:5px;background:transparent;border:1px solid var(--steel);border-radius:50%;flex:none;transition:.4s}
+.fs__list button:hover{color:var(--off);background:#0D110F}
+.fs__list button[aria-pressed="true"]{color:#fff;background:#0B0F0D}
+.fs__list button[aria-pressed="true"] i{background:var(--green-hi);border-color:var(--green-hi);box-shadow:0 0 10px rgba(18,192,143,.8)}
+.fs__note{margin-top:18px;font-size:12.5px;line-height:1.6;color:var(--steel);max-width:60ch}
+@media (min-width:980px){.fs__grid{grid-template-columns:1.15fr .85fr}.fs__txt{order:2}}
+
+/* ============================ INSTRUTOR ============================ */
+.ins__grid{display:grid;gap:clamp(32px,4.6vw,72px);align-items:center}
+.ins__media{position:relative}
+.ins__media .fig{aspect-ratio:4/5}
+.ins__media .fig img{filter:contrast(1.04)}
+.ins__float{position:absolute;right:-10px;bottom:-32px;width:44%;max-width:230px;border:6px solid var(--black);display:none}
+.ins__float img{aspect-ratio:3/4;object-fit:cover;width:100%}
+.ins__tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.ins__tags li{font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--steel);border:1px solid var(--line);padding:8px 13px}
+.ins__tags li:nth-child(3){color:var(--green-hi);border-color:rgba(1,145,109,.45)}
+.ins__txt p+p{margin-top:18px}
+@media (min-width:900px){.ins__grid{grid-template-columns:.92fr 1.08fr}.ins__float{display:block}}
+
+/* ============================ GALERIA ============================ */
+.gal{background:var(--black);overflow:hidden;padding-bottom:clamp(60px,7vw,110px)}
+.gal__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:22px;margin-bottom:clamp(30px,4vw,52px)}
+.gal__nav{display:none;gap:8px}
+.gal__nav button{width:46px;height:46px;border:1px solid var(--line);display:grid;place-items:center;transition:border-color .4s,background .4s,color .4s}
+.gal__nav button:hover{border-color:var(--green);color:var(--green-hi);background:rgba(1,145,109,.1)}
+.gal__track{display:flex;gap:clamp(12px,1.4vw,22px);overflow-x:auto;scroll-snap-type:x mandatory;padding-inline:var(--pad);padding-bottom:22px;scrollbar-width:none;cursor:grab}
+.gal__track::-webkit-scrollbar{display:none}
+.gal__track.drag{cursor:grabbing;scroll-snap-type:none}
+.gal__f{flex:none;scroll-snap-align:center;position:relative}
+.gal__f .fig{height:clamp(340px,58vw,620px)}
+.gal__f--p .fig{width:clamp(240px,42vw,420px)}
+.gal__f--l .fig{width:clamp(320px,68vw,780px)}
+.gal__f--s .fig{height:clamp(240px,40vw,420px);width:clamp(240px,44vw,440px);align-self:flex-end}
+@media (min-width:900px){.gal__nav{display:flex}}
+
+/* ============================ OFERTA ============================ */
+.off{background:var(--graphite);border-top:1px solid var(--line-soft)}
+.off__card{max-width:1000px;margin:0 auto;border:1px solid var(--line);background:linear-gradient(160deg,#141917,#0B0F0D 60%);position:relative;overflow:hidden}
+.off__card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green),var(--green-hi) 40%,transparent)}
+.off__card::after{content:"";position:absolute;right:-160px;top:-160px;width:420px;height:420px;background:radial-gradient(circle,rgba(1,145,109,.28),transparent 68%);pointer-events:none}
+.off__in{padding:clamp(30px,4vw,66px);position:relative;z-index:1;display:grid;gap:clamp(28px,3.4vw,56px)}
+.off__price{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:22px 0 10px}
+.off__price b{font-family:var(--f-display);font-weight:800;font-size:clamp(52px,7vw,96px);line-height:.86;letter-spacing:-.045em;color:#fff}
+.off__price span{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;color:var(--steel);padding-bottom:12px}
+.off__ul li{display:flex;gap:13px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line-soft);font-size:15px;color:#CFD3D0}
+.off__ul li:last-child{border:0}
+.off__ul li::before{content:"";width:15px;height:1px;background:var(--green);flex:none;margin-top:12px}
+@media (min-width:900px){.off__in{grid-template-columns:1.05fr .95fr;align-items:center}}
+
+/* ============================ MENTORIA ============================ */
+.men{background:#050706;border-top:1px solid var(--line-soft);position:relative;overflow:hidden}
+.men__grid{display:grid;gap:clamp(32px,4vw,70px);align-items:center}
+.men__media{position:relative}
+.men__media .fig{aspect-ratio:4/5}
+.men__media .fig img{object-position:center 46%}
+.men__media .fig img{filter:brightness(.92) contrast(1.04)}
+.men__badge{position:absolute;top:18px;left:18px;background:rgba(8,10,9,.82);border:1px solid rgba(1,145,109,.4);backdrop-filter:blur(8px);padding:10px 14px;font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--green-hi)}
+.men__ul{margin:28px 0 0;border-top:1px solid var(--line-soft)}
+.men__ul li{display:flex;justify-content:space-between;gap:18px;padding:13px 0;border-bottom:1px solid var(--line-soft);font-size:14.5px;color:#CFD3D0}
+.men__ul li em{font-style:normal;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;color:var(--steel);text-transform:uppercase;flex:none;padding-top:4px}
+.men__price{display:flex;align-items:flex-end;gap:12px;margin:30px 0 24px}
+.men__price b{font-family:var(--f-display);font-weight:800;font-size:clamp(40px,5.2vw,68px);line-height:.9;letter-spacing:-.04em;color:#fff}
+.men__price span{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;color:var(--steel);padding-bottom:9px}
+@media (min-width:900px){.men__grid{grid-template-columns:.9fr 1.1fr}.men__media{order:2}.men__media .fig{aspect-ratio:3/4}}
+
+/* ============================ COMPARAÇÃO ============================ */
+.cmp__grid{display:grid;gap:2px;background:var(--line-soft);border:1px solid var(--line-soft)}
+.cmp__c{background:var(--graphite);padding:clamp(26px,3.2vw,50px);display:flex;flex-direction:column;gap:14px;transition:background .5s var(--ease)}
+.cmp__c:hover{background:#0C100E}
+.cmp__c h3{font-size:clamp(21px,2.2vw,31px)}
+.cmp__c b{font-family:var(--f-display);font-weight:800;font-size:clamp(32px,3.6vw,48px);letter-spacing:-.04em;color:var(--green);line-height:1}
+.cmp__c p{color:#C7CCC9;font-size:15.5px}
+.cmp__c a{margin-top:auto;padding-top:22px;font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;display:inline-flex;gap:10px;align-items:center;color:var(--off);transition:color .4s,gap .4s}
+.cmp__c a:hover{color:var(--green-hi);gap:16px}
+@media (min-width:820px){.cmp__grid{grid-template-columns:1fr 1fr}}
+
+/* ============================ FAQ ============================ */
+.faq{background:var(--graphite)}
+.faq__grid{display:grid;gap:clamp(26px,3vw,60px)}
+.faq__list{border-top:1px solid var(--line-soft)}
+.faq__i{border-bottom:1px solid var(--line-soft)}
+.faq__q{width:100%;display:flex;gap:20px;align-items:flex-start;text-align:left;padding:24px 0;font-family:var(--f-display);font-weight:600;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.01em;line-height:1.4;transition:color .4s}
+.faq__q:hover,.faq__i.open .faq__q{color:var(--green-hi)}
+.faq__q i{width:9px;height:9px;border:1px solid var(--steel);border-radius:50%;flex:none;margin-top:8px;transition:.4s}
+.faq__i.open .faq__q i{background:var(--green-hi);border-color:var(--green-hi)}
+.faq__a{overflow:hidden;height:0;transition:height .55s var(--ease)}
+.faq__a div{padding:0 0 26px 29px;color:#C0C5C2;font-size:15px;line-height:1.75;max-width:64ch}
+@media (min-width:960px){.faq__grid{grid-template-columns:.72fr 1.28fr}}
+
+/* ============================ CTA FINAL ============================ */
+.fin{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;text-align:center}
+.fin__bg{position:absolute;inset:0;z-index:0}
+.fin__bg img{width:100%;height:112%;object-fit:cover;object-position:center 62%;will-change:transform}
+.fin__bg::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 42%,rgba(8,10,9,.82),rgba(8,10,9,.5) 70%),linear-gradient(to bottom,rgba(8,10,9,.9),rgba(8,10,9,.68) 45%,rgba(8,10,9,.95))}
+.fin__in{position:relative;z-index:1;width:100%;display:flex;flex-direction:column;align-items:center;gap:26px;padding-block:clamp(90px,12vw,150px)}
+.fin h2{font-size:clamp(40px,8.4vw,124px);text-shadow:0 6px 40px rgba(8,10,9,.6);letter-spacing:-.045em;font-variation-settings:"wdth" 110;line-height:.88}
+.fin h2 span{display:block;color:var(--green-hi)}
+.fin p{max-width:44ch;color:#D5D9D6;font-size:clamp(15px,1.2vw,18px);line-height:1.7}
+.fin .btn{padding:24px 40px;font-size:13px}
+.fin__kw{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-top:8px;font-family:var(--f-mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--steel)}
+
+/* ============================ FOOTER ============================ */
+.ft{background:var(--black);border-top:1px solid var(--line-soft);padding-block:clamp(44px,5vw,74px)}
+.ft__in{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:flex-start}
+.ft__brand{font-family:var(--f-display);font-weight:800;font-size:clamp(26px,3.6vw,44px);letter-spacing:-.035em;line-height:.95}
+.ft__brand span{color:var(--green)}
+.ft__nav{display:flex;flex-wrap:wrap;gap:10px 30px}
+.ft__nav a{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);transition:color .4s}
+.ft__nav a:hover{color:var(--green-hi)}
+.ft__bot{margin-top:44px;padding-top:22px;border-top:1px solid var(--line-soft);display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-between;font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#5F6663}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+  .mask>img,.mask .brk{clip-path:none}
+}
 </style>
+<noscript><style>.rv{opacity:1;transform:none}.mask>img{clip-path:none}.mod__panel,.faq__a{height:auto!important}</style></noscript>
 </head>
 <body>
-  <div class="box">
-    <span class="kicker">● Carreira Visual</span>
-    <h1>Domine Sua Fuji</h1>
-    <p>A página deste treinamento está sendo preparada. Enquanto isso, explore o restante da plataforma.</p>
-    <a href="/">Voltar para a plataforma</a>
+
+<div class="grain" aria-hidden="true"></div>
+
+<div class="vf" aria-hidden="true">
+  <i></i><i></i><i></i><i></i>
+  <div class="vf__read">
+    <span class="vf__dot"></span>
+    <span id="vfSec">01 — DOMINE SUA FUJI</span>
+    <span>f/2.0</span><span>1/250</span><span>ISO 400</span>
+    <span><b id="vfPct">00</b>%</span>
   </div>
+</div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="hdr" id="hdr">
+  <div class="wrap hdr__in">
+    <a href="#top" class="brand" aria-label="Domine Sua Fuji — início">Domine <em>Sua Fuji</em></a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#curso">O Curso</a>
+      <a href="#conteudo">Conteúdo</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#mentoria">Mentoria</a>
+    </nav>
+    <a href="#oferta" class="btn btn--sm hdr__cta" data-cfg-link="curso"><span>Começar agora</span><span class="btn__ar">→</span></a>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+  </div>
+</header>
+
+<div class="menu" id="menu">
+  <a href="#curso">O Curso</a>
+  <a href="#conteudo">Conteúdo</a>
+  <a href="#sobre">Sobre</a>
+  <a href="#mentoria">Mentoria</a>
+  <a href="#oferta" class="btn" data-cfg-link="curso"><span>Começar agora</span><span class="btn__ar">→</span></a>
+</div>
+
+<main id="top">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" data-vf="01 — DOMINE SUA FUJI">
+  <div class="hero__media">
+    <img src="images/foto-01.webp" data-key="IMG_HERO" alt="Marcos Prado fotografando com uma câmera Fujifilm entre folhagens" fetchpriority="high" data-par="0.12">
+  </div>
+  <div class="wrap hero__in">
+    <p class="eyebrow mono">Curso online · Fotografia + Vídeo</p>
+    <h1 class="rv">DOMINE<span class="l2">SUA FUJI</span></h1>
+    <p class="hero__lead rv rv-d1">Sua Fuji pode muito mais.</p>
+    <p class="hero__sub rv rv-d2">Aprenda a entender, configurar e explorar sua Fujifilm de verdade — fotografia, vídeo, lentes, cores, Film Simulations, Recipes e todo o sistema que você tem nas mãos.</p>
+    <div class="hero__by rv rv-d2"><i></i><p><b>Com Marcos Prado</b> · Fotógrafo e Embaixador Fujifilm</p></div>
+    <div class="hero__act rv rv-d3">
+      <a href="#oferta" class="btn" data-cfg-link="curso"><span>Quero dominar minha Fuji</span><span class="btn__ar">→</span></a>
+      <p class="hero__price">Curso completo · Acesso online · <b data-cfg="precoCurso">R$ 297</b></p>
+    </div>
+    <ul class="hero__chips rv rv-d4">
+      <li>Photo / Video</li><li>X Series / GFX</li><li>Film Simulation</li><li>Recipes</li>
+    </ul>
+  </div>
+  <div class="hero__scroll" aria-hidden="true"><i></i><span>Role</span></div>
+</section>
+
+<!-- ===================== VOCÊ COMPROU UMA FUJI ===================== -->
+<section class="sec now" id="curso" data-vf="02 — E AGORA?">
+  <div class="wrap now__grid">
+    <div class="now__txt">
+      <p class="eyebrow mono rv">O ponto de partida</p>
+      <h2 class="h-lg rv rv-d1" style="margin:22px 0 30px">Você comprou uma Fuji. Agora é hora de entender <span class="green">tudo que ela pode fazer.</span></h2>
+      <p class="lead rv rv-d2">Talvez essa seja sua primeira câmera. Talvez você já fotografe há anos e tenha acabado de migrar de Sony, Canon, Nikon ou outro sistema.</p>
+      <p class="lead rv rv-d2">Ou talvez você já tenha sua Fuji há algum tempo, mas ainda perceba que existem menus, configurações, cores e recursos que nunca utilizou.</p>
+      <p class="now__hl rv rv-d3" style="margin-top:26px">O Domine Sua Fuji foi criado exatamente para isso.</p>
+      <p class="lead rv rv-d3" style="margin-top:14px">Não é um curso enorme sobre fotografia. É um curso direto para você entender e dominar o sistema que já está nas suas mãos.</p>
+    </div>
+    <div class="now__media rv rv-d1">
+      <div class="fig fig--zoom mask">
+        <img src="images/foto-02.webp" data-key="IMG_NYC" alt="Visor de observação em Nova York, com arranha-céus ao fundo, em preto e branco" loading="lazy" data-par="0.05">
+        <div class="brk" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="now__badge">
+        <span>Sistema<b>X / GFX</b></span>
+        <span>Foco<b>Foto + Vídeo</b></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VSL / VÍDEO ===================== -->
+<section class="sec vsl" id="video" data-vf="03 — ASSISTA">
+  <div class="wrap">
+    <div class="vsl__head">
+      <div>
+        <p class="eyebrow mono rv">Assista antes de decidir</p>
+        <h2 class="h-md rv rv-d1" style="margin-top:18px">Marcos explica o curso<br>e a mentoria.</h2>
+      </div>
+      <p class="small rv rv-d2" style="max-width:36ch">Poucos minutos para você entender como o Domine Sua Fuji funciona e qual formato faz mais sentido para o seu momento.</p>
+    </div>
+
+    <figure class="vsl__player rv rv-d1" id="vsl">
+      <div class="vsl__stage">
+        <video id="vslVideo" playsinline preload="metadata" aria-label="Vídeo de apresentação do curso Domine Sua Fuji">
+          <track kind="captions" label="Legendas" srclang="pt-BR" default>
+          Seu navegador não suporta vídeo HTML5.
+        </video>
+
+        <!-- capa -->
+        <div class="vsl__poster" id="vslPoster">
+          <img src="images/foto-03.webp" data-key="IMG_MENTOR" alt="Marcos Prado sentado, apresentando o curso Domine Sua Fuji" loading="lazy">
+          <button class="vsl__big" id="vslBig" aria-label="Reproduzir vídeo de apresentação">
+            <span class="vsl__bigIc" aria-hidden="true"></span>
+            <span class="vsl__bigTx mono">Assistir apresentação</span>
+          </button>
+          <div class="vsl__rec mono" aria-hidden="true"><i></i>REC · 4K · 24P</div>
+        </div>
+
+        <!-- estado sem vídeo configurado -->
+        <div class="vsl__empty mono" id="vslEmpty" hidden>Defina <b>CONFIG.videoUrl</b> ou <b>CONFIG.videoEmbed</b> para carregar sua VSL.</div>
+
+        <div class="brk vsl__brk" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </div>
+
+      <!-- controles -->
+      <div class="vsl__bar" id="vslBar" hidden>
+        <button class="vsl__b" id="vslPlay" aria-label="Reproduzir"><span class="ic-play" aria-hidden="true"></span></button>
+
+        <div class="vsl__seek" id="vslSeek" role="slider" tabindex="0" aria-label="Posição do vídeo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="vsl__buf" id="vslBuf"></div>
+          <div class="vsl__prog" id="vslProg"><span></span></div>
+        </div>
+
+        <p class="vsl__time mono"><b id="vslCur">0:00</b><em>/</em><span id="vslDur">0:00</span></p>
+
+        <div class="vsl__vol">
+          <button class="vsl__b" id="vslMute" aria-label="Silenciar"><span class="ic-vol" aria-hidden="true"></span></button>
+          <input class="vsl__range" id="vslRange" type="range" min="0" max="100" value="100" aria-label="Volume">
+        </div>
+
+        <button class="vsl__b vsl__b--tx" id="vslRate" aria-label="Velocidade de reprodução"><span class="mono">1x</span></button>
+        <button class="vsl__b" id="vslFs" aria-label="Tela cheia"><span class="ic-fs" aria-hidden="true"></span></button>
+      </div>
+      <figcaption class="vsl__cap mono"><span>Domine Sua Fuji · Apresentação</span><span>Com Marcos Prado</span></figcaption>
+    </figure>
+
+    <div class="vsl__act rv rv-d2">
+      <a href="#oferta" class="btn" data-cfg-link="curso"><span>Quero dominar minha Fuji</span><span class="btn__ar">→</span></a>
+      <a href="#mentoria" class="btn btn--ghost"><span>Ver a mentoria 1:1</span><span class="btn__ar">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DOIS PÚBLICOS ===================== -->
+<section class="sec aud" data-vf="04 — DOIS PÚBLICOS">
+  <div class="wrap">
+    <div class="aud__head">
+      <div>
+        <p class="eyebrow mono rv">Para quem é</p>
+        <h2 class="h-lg rv rv-d1" style="margin-top:20px">Dois públicos,<br>o mesmo objetivo.</h2>
+      </div>
+      <p class="small rv rv-d2" style="max-width:34ch">O caminho muda. O destino é o mesmo: usar sua Fujifilm com intenção.</p>
+    </div>
+
+    <div class="aud__grid">
+      <article class="aud__card rv">
+        <p class="aud__num">A · Iniciando</p>
+        <img src="images/foto-04.webp" data-key="IMG_SHADOW" alt="Sombra de uma pessoa projetada em uma parede amarela ao sol forte" loading="lazy">
+        <h3>Minha primeira Fuji</h3>
+        <p>Para quem acabou de comprar uma Fujifilm ou está começando na fotografia e no vídeo. Você vai entender a câmera, configurações, foco, exposição, lentes, cores e ainda receber uma base prática para começar a fotografar e filmar.</p>
+        <div class="aud__line"></div>
+      </article>
+
+      <article class="aud__card rv rv-d2">
+        <p class="aud__num">B · Migrando</p>
+        <img src="images/foto-05.webp" data-key="IMG_TENNIS" alt="Atleta em quadra fotografado em ensaio esportivo com skyline ao fundo" loading="lazy">
+        <h3>Estou migrando para Fuji</h3>
+        <p>Para fotógrafos e filmmakers que já dominam foto ou vídeo, mas estão chegando agora ao sistema. Você pode avançar diretamente pelas partes que realmente precisa: menus, personalização, lentes, Film Simulations, Recipes, vídeo, conectividade e workflow.</p>
+        <div class="aud__line"></div>
+      </article>
+    </div>
+
+    <p class="aud__foot rv">Você não precisa assistir o que já sabe.<br><span>Precisa dominar o que ainda não conhece na sua Fuji.</span></p>
+  </div>
+</section>
+
+<!-- ===================== O QUE VOCÊ VAI DOMINAR ===================== -->
+<section class="sec dom" data-vf="05 — O QUE VOCÊ DOMINA">
+  <div class="dom__bg" aria-hidden="true"><img src="images/foto-06.webp" data-key="IMG_LIGHT" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <p class="eyebrow mono rv">Escopo</p>
+    <h2 class="h-lg rv rv-d1" style="margin-top:20px">O que você<br>vai dominar.</h2>
+    <div class="scale rv rv-d2" aria-hidden="true"></div>
+    <div class="dom__grid rv rv-d2">
+      <div class="dom__i"><span>01</span><b>Câmera</b></div>
+      <div class="dom__i"><span>02</span><b>Menu</b></div>
+      <div class="dom__i"><span>03</span><b>Configurações</b></div>
+      <div class="dom__i"><span>04</span><b>Foco</b></div>
+      <div class="dom__i"><span>05</span><b>Exposição</b></div>
+      <div class="dom__i"><span>06</span><b>Lentes</b></div>
+      <div class="dom__i"><span>07</span><b>Sensores</b></div>
+      <div class="dom__i"><span>08</span><b>Film<br>Simulations</b></div>
+      <div class="dom__i"><span>09</span><b>Recipes</b></div>
+      <div class="dom__i"><span>10</span><b>Fotografia</b></div>
+      <div class="dom__i"><span>11</span><b>Vídeo</b></div>
+      <div class="dom__i"><span>12</span><b>Fujifilm<br>XApp</b></div>
+      <div class="dom__i"><span>13</span><b>Tethering</b></div>
+      <div class="dom__i"><span>14</span><b>Workflow</b></div>
+      <div class="dom__i dom__i--end" style="background:#0B0F0D"><span style="color:var(--red)">·</span><b class="green">Sua Fuji<br>na mão</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MÓDULOS ===================== -->
+<section class="sec mod" id="conteudo" data-vf="06 — O CURSO">
+  <div class="wrap">
+    <div class="mod__head">
+      <p class="eyebrow mono rv">O curso</p>
+      <h2 class="h-md rv rv-d1" style="margin:20px 0 22px">Tudo que você precisa. Sem transformar isso em uma faculdade de câmera.</h2>
+      <p class="lead rv rv-d2">Um curso direto, organizado e prático para você aprender o sistema Fujifilm sem precisar assistir dezenas de horas de conteúdo desnecessário.</p>
+    </div>
+
+    <div class="mod__wrap">
+      <div class="mod__sticky">
+        <div class="mod__figwrap" id="modFig">
+          <img src="images/foto-07.webp" data-key="IMG_CAMERA" alt="Câmera Fujifilm segurada na mão" data-m="1" class="on" loading="lazy">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-clone="IMG_NYC" alt="Detalhe de instrumento óptico em preto e branco" data-m="2" loading="lazy">
+          <img src="images/foto-08.webp" data-key="IMG_ARPOADOR" alt="Cena em contraluz no Arpoador ao pôr do sol" data-m="3" loading="lazy">
+          <img src="images/foto-09.webp" data-key="IMG_PARROT" alt="Papagaio verde fotografado com pouca profundidade de campo" data-m="4" loading="lazy">
+          <img src="images/foto-10.webp" data-key="IMG_REDLADY" alt="Retrato de senhora de vestido vermelho diante de parede azul e amarela" data-m="5" loading="lazy">
+          <img src="images/foto-11.webp" data-key="IMG_TRUMPET" alt="Trompetista em silhueta no pôr do sol do Arpoador" data-m="6" loading="lazy">
+          <img src="images/foto-12.webp" data-key="IMG_SHIPS" alt="Navios ao entardecer com atmosfera cinematográfica alaranjada" data-m="7" loading="lazy">
+          <img src="images/foto-13.webp" data-key="IMG_STADIUM" alt="Estádio de futebol americano visto da arquibancada" data-m="8" loading="lazy">
+          <div class="brk" aria-hidden="true" style="opacity:.5"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="mod__meta"><span id="modLabel">Módulo 01</span><span>8 módulos · Foto + Vídeo</span></div>
+      </div>
+
+      <div class="mod__list" id="modList">
+
+        <div class="mod__item open" data-m="1">
+          <button class="mod__btn" aria-expanded="true"><span class="mod__n">01</span><span class="mod__t">Bem-vindo à Fujifilm</span><span class="mod__ic" aria-hidden="true"></span></button>
+          <div class="mod__panel"><div class="mod__inner">
+            <ul>
+              <li>Bem-vindo ao Domine Sua Fuji</li>
+              <li>Entendendo o universo Fujifilm</li>
+              <li>Cheguei na Fuji: o que preciso entender?</li>
+            </ul>
+          </div></div>
+        </div>
+
+        <div class="mod__item" data-m="2">
+          <button class="mod__btn" aria-expanded="false"><span class="mod__n">02</span><span class="mod__t">Entendendo e configurando sua câmera</span><span class="mod__ic" aria-hidden="true"></span></button>
+          <div class="mod__panel"><div class="mod__inner">
+            <ul>
+              <li>Conhecendo sua Fuji</li>
+              <li>Entendendo o menu</li>
+              <li>Personalizando sua Fuji</li>
+              <li>Configurando uma Fuji do zero</li>
+            </ul>
+          </div></div>
+        </div>
+
+        <div class="mod__item" data-m="3">
+          <button class="mod__btn" aria-expanded="false"><span class="mod__n">03</span><span class="mod__t">Fotografia e configurações</span><span class="mod__ic" aria-hidden="true"></span></button>
+          <div class="mod__panel"><div class="mod__inner">
+            <ul>
+              <li>Exposição e configurações</li>
+              <li>Foco e movimento</li>
+              <li>Arquivos e qualidade de imagem</li>
+            </ul>
+          </div></div>
+        </div>
+
+        <div class="mod__item" data-m="4">
+          <button class="mod__btn" aria-expanded="false"><span class="mod__n">04</span><span class="mod__t">Sensor e lentes</span><span class="mod__ic" aria-hidden="true"></span></button>
+          <div class="mod__panel"><div class="mod__inner">
+            <ul>
+              <li>Sensor, Crop Factor e distância focal</li>
+              <li>Entendendo as lentes Fujifilm</li>
+              <li>Como escolher uma lente</li>
+            </ul>
+          </div></div>
+        </div>
+
+        <div class="mod__item" data-m="5">
+          <button class="mod__btn" aria-expanded="false"><span class="mod__n">05</span><span class="mod__t">Cores, Film Simulations e Recipes</span><span class="mod__ic" aria-hidden="true"></span></button>
+          <div class="mod__panel"><div class="mod__inner">
+            <ul>
+              <li>Film Simulations e a cor Fujifilm</li>
+              <li>Instalando e criando Recipes</li>
+              <li>Entendendo e ajustando uma Recipe</li>
+            </ul>
+          </div></div>
+        </div>
+
+        <div class="mod__item" data-m="6">
+          <button class="mod__btn" aria-expanded="false"><span class="mod__n">06</span><span class="mod__t">Fotografando com sua Fuji</span><span class="mod__ic" aria-hidden="true"></span></button>
+          <div class="mod__panel"><div class="mod__inner">
+            <ul>
+              <li>Composição, luz e fotografia</li>
+              <li>Fotografando situações diferentes</li>
+              <li>Street e cotidiano</li>
+              <li>Fotografando em viagens</li>
+            </ul>
+          </div></div>
+        </div>
+
+        <div class="mod__item" data-m="7">
+          <button class="mod__btn" aria-expanded="false"><span class="mod__n">07</span><span class="mod__t">Vídeo com sua Fuji</span><span class="mod__ic" aria-hidden="true"></span></button>
+          <div class="mod__panel"><div class="mod__inner">
+            <ul>
+              <li>Configurando sua Fuji para vídeo</li>
+              <li>Cor e imagem no vídeo</li>
+              <li>Foco, movimento e gravação</li>
+              <li>Configurações para situações reais</li>
+            </ul>
+          </div></div>
+        </div>
+
+        <div class="mod__item" data-m="8">
+          <button class="mod__btn" aria-expanded="false"><span class="mod__n">08</span><span class="mod__t">Conectividade, arquivos e workflow</span><span class="mod__ic" aria-hidden="true"></span></button>
+          <div class="mod__panel"><div class="mod__inner">
+            <ul>
+              <li>Fuji + celular</li>
+              <li>Fuji + computador e organização</li>
+              <li>Firmware e cuidados</li>
+              <li>Tethering, webcam e recursos conectados</li>
+            </ul>
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PHOTO / VIDEO ===================== -->
+<section class="pv" data-vf="07 — FOTO + VÍDEO">
+  <div class="pv__split">
+    <article class="pv__side pv__side--photo">
+      <img src="images/foto-14.webp" data-key="IMG_CARNIVAL" alt="Passista de carnaval em fantasia roxa fotografada em close" loading="lazy">
+      <p class="pv__tag"><i></i> Fotografia · 23mm · f/2.0</p>
+      <h3>PHOTO</h3>
+      <p>Entenda exposição, foco, lentes, composição, Film Simulations, Recipes e como configurar sua câmera para situações reais.</p>
+      <div class="pv__bar" aria-hidden="true"><i style="height:40%"></i><i style="height:70%"></i><i style="height:30%"></i><i style="height:90%"></i><i style="height:55%"></i><i style="height:25%"></i><i style="height:65%"></i></div>
+    </article>
+    <article class="pv__side pv__side--video">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-clone="IMG_SHIPS" alt="Navios ao entardecer, imagem de atmosfera cinematográfica" loading="lazy">
+      <p class="pv__tag"><i></i> REC · 00:04:17:12 · 24p</p>
+      <h3><span>VIDEO</span></h3>
+      <p>Configure resolução, frame rate, shutter, autofocus, estabilização, Eterna, F-Log e os principais recursos de vídeo da sua Fuji.</p>
+      <div class="pv__bar" aria-hidden="true"><i style="height:60%"></i><i style="height:35%"></i><i style="height:80%"></i><i style="height:45%"></i><i style="height:95%"></i><i style="height:50%"></i><i style="height:30%"></i></div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== FILM SIMULATIONS ===================== -->
+<section class="sec fs" data-vf="08 — COR / FILM SIM">
+  <div class="wrap fs__grid">
+    <div class="fs__stage rv">
+      <div class="fs__img">
+        <img id="fsImg" src="images/foto-15.webp" data-key="IMG_ORANGES" alt="Laranjas organizadas em fileiras em uma feira, imagem usada para demonstrar tratamento de cor">
+        <div class="fs__hud"><span>Simulação: <b id="fsName">PROVIA / STANDARD</b></span><span>DEMO</span></div>
+      </div>
+      <div class="fs__list" id="fsList" role="group" aria-label="Demonstração visual de tratamentos de cor">
+        <button aria-pressed="true" data-f="none" data-n="PROVIA / STANDARD"><i></i>Provia</button>
+        <button aria-pressed="false" data-f="saturate(1.35) contrast(1.14) hue-rotate(-4deg)" data-n="VELVIA / VIVID"><i></i>Velvia</button>
+        <button aria-pressed="false" data-f="saturate(1.12) contrast(.96) brightness(1.04)" data-n="ASTIA / SOFT"><i></i>Astia</button>
+        <button aria-pressed="false" data-f="saturate(.78) contrast(1.12) sepia(.12)" data-n="CLASSIC CHROME"><i></i>Classic Chrome</button>
+        <button aria-pressed="false" data-f="saturate(.72) contrast(1.2) sepia(.2) brightness(.96)" data-n="CLASSIC NEG."><i></i>Classic Neg.</button>
+        <button aria-pressed="false" data-f="saturate(.85) sepia(.28) contrast(.94) brightness(1.03)" data-n="NOSTALGIC NEG."><i></i>Nostalgic Neg.</button>
+        <button aria-pressed="false" data-f="saturate(.7) contrast(.9) brightness(1.02)" data-n="ETERNA / CINEMA"><i></i>Eterna</button>
+        <button aria-pressed="false" data-f="grayscale(1) contrast(1.16)" data-n="ACROS"><i></i>Acros</button>
+      </div>
+      <p class="fs__note">Demonstração visual apenas ilustrativa, criada com ajustes no navegador para mostrar como a cor muda a leitura de uma mesma cena. As Film Simulations reais são aplicadas dentro da câmera, no processamento do arquivo.</p>
+    </div>
+
+    <div class="fs__txt">
+      <p class="eyebrow mono rv">Cor</p>
+      <h2 class="h-lg rv rv-d1" style="margin:20px 0 26px">A cor também faz parte<br>da <span class="green">experiência Fuji.</span></h2>
+      <p class="lead rv rv-d2">Aprenda o que são Film Simulations, como encontrar e instalar Recipes, como salvar suas próprias configurações e principalmente entender o que você está alterando dentro da câmera.</p>
+      <p class="lead rv rv-d3" style="margin-top:18px">Quando você entende o que cada ajuste faz, a cor deixa de ser um filtro e passa a ser uma decisão sua — antes do clique, não depois.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INSTRUTOR ===================== -->
+<section class="sec ins" id="sobre" data-vf="09 — MARCOS PRADO">
+  <div class="wrap ins__grid">
+    <div class="ins__media rv">
+      <div class="fig mask">
+        <img src="images/foto-16.webp" data-key="IMG_PORTRAIT" alt="Marcos Prado fotografando com uma Fujifilm em paisagem de neve" loading="lazy" data-par="0.05">
+      </div>
+      <div class="ins__float"><img src="images/foto-17.webp" data-key="IMG_HELI" alt="Helicóptero sobrevoando o Rio de Janeiro ao entardecer" loading="lazy"></div>
+    </div>
+    <div class="ins__txt">
+      <p class="eyebrow mono rv">Aprenda com quem usa Fuji de verdade</p>
+      <h2 class="h-md rv rv-d1" style="margin:20px 0 28px">Mais do que entender o menu, entenda a experiência.</h2>
+      <p class="lead rv rv-d2">Marcos Prado é fotógrafo e filmmaker, atua profissionalmente há anos com fotografia e produção audiovisual e é Embaixador Fujifilm.</p>
+      <p class="lead rv rv-d2">No Domine Sua Fuji, ele reúne de forma simples e direta aquilo que aprendeu utilizando o sistema em trabalhos profissionais, projetos pessoais, viagens, fotografia de rua, esporte e filmmaking.</p>
+      <p class="lead rv rv-d3">A proposta não é transformar o curso em um manual técnico. É mostrar o que realmente importa quando a câmera sai da caixa e vai para a sua mão.</p>
+      <ul class="ins__tags rv rv-d3">
+        <li>Fotografia</li><li>Filmmaking</li><li>Fujifilm</li><li>Experiência real</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERIA ===================== -->
+<section class="sec gal" data-vf="10 — FEITA COM FUJI">
+  <div class="wrap gal__head">
+    <div>
+      <p class="eyebrow mono rv">Galeria</p>
+      <h2 class="h-lg rv rv-d1" style="margin-top:20px">Feita com Fuji.</h2>
+      <p class="small rv rv-d2" style="margin-top:16px;max-width:40ch">A câmera é a ferramenta. O próximo passo é aprender a usá-la.</p>
+    </div>
+    <div class="gal__nav">
+      <button id="galPrev" aria-label="Imagem anterior">←</button>
+      <button id="galNext" aria-label="Próxima imagem">→</button>
+    </div>
+  </div>
+  <div class="gal__track" id="galTrack">
+    <figure class="gal__f gal__f--l"><div class="fig fig--zoom"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-clone="IMG_TRUMPET" alt="Trompetista em silhueta no pôr do sol do Arpoador, Rio de Janeiro" loading="lazy"><div class="brk"><i></i><i></i><i></i><i></i></div></div><figcaption class="cap"><span>Frame 01</span><span>Rio de Janeiro</span></figcaption></figure>
+    <figure class="gal__f gal__f--p"><div class="fig fig--zoom"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-clone="IMG_HELI" alt="Helicóptero sobrevoando o Rio de Janeiro com o Corcovado ao fundo" loading="lazy"><div class="brk"><i></i><i></i><i></i><i></i></div></div><figcaption class="cap"><span>Frame 02</span><span>Rio de Janeiro</span></figcaption></figure>
+    <figure class="gal__f gal__f--l"><div class="fig fig--zoom"><img src="images/foto-18.webp" data-key="IMG_SILH" alt="Três jovens em silhueta observando a praia ao entardecer" loading="lazy"><div class="brk"><i></i><i></i><i></i><i></i></div></div><figcaption class="cap"><span>Frame 03</span><span>Arpoador</span></figcaption></figure>
+    <figure class="gal__f gal__f--p"><div class="fig fig--zoom"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-clone="IMG_TENNIS" alt="Atleta caminhando em quadra durante ensaio esportivo" loading="lazy"><div class="brk"><i></i><i></i><i></i><i></i></div></div><figcaption class="cap"><span>Frame 04</span><span>Esporte</span></figcaption></figure>
+    <figure class="gal__f gal__f--l"><div class="fig fig--zoom"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-clone="IMG_REDLADY" alt="Senhora de vestido vermelho na porta de casa com parede azul e amarela" loading="lazy"><div class="brk"><i></i><i></i><i></i><i></i></div></div><figcaption class="cap"><span>Frame 05</span><span>Retrato</span></figcaption></figure>
+    <figure class="gal__f gal__f--s"><div class="fig fig--zoom"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-clone="IMG_ORANGES" alt="Laranjas empilhadas em uma feira" loading="lazy"><div class="brk"><i></i><i></i><i></i><i></i></div></div><figcaption class="cap"><span>Frame 06</span><span>Cor</span></figcaption></figure>
+    <figure class="gal__f gal__f--p"><div class="fig fig--zoom"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-clone="IMG_PARROT" alt="Papagaio verde em close com fundo desfocado" loading="lazy"><div class="brk"><i></i><i></i><i></i><i></i></div></div><figcaption class="cap"><span>Frame 07</span><span>Natureza</span></figcaption></figure>
+    <figure class="gal__f gal__f--l"><div class="fig fig--zoom"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-clone="IMG_CARNIVAL" alt="Passista de carnaval em fantasia roxa com detalhes brilhantes" loading="lazy"><div class="brk"><i></i><i></i><i></i><i></i></div></div><figcaption class="cap"><span>Frame 08</span><span>Carnaval</span></figcaption></figure>
+    <figure class="gal__f gal__f--p"><div class="fig fig--zoom"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-clone="IMG_NYC" alt="Visor de observação em Nova York em preto e branco" loading="lazy"><div class="brk"><i></i><i></i><i></i><i></i></div></div><figcaption class="cap"><span>Frame 09</span><span>Nova York</span></figcaption></figure>
+    <figure class="gal__f gal__f--l"><div class="fig fig--zoom"><img src="images/foto-19.webp" data-key="IMG_BEACH" alt="Vista ampla de praia lotada no Rio de Janeiro" loading="lazy"><div class="brk"><i></i><i></i><i></i><i></i></div></div><figcaption class="cap"><span>Frame 10</span><span>Copacabana</span></figcaption></figure>
+    <figure class="gal__f gal__f--s"><div class="fig fig--zoom"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-clone="IMG_SHADOW" alt="Sombra projetada em parede amarela sob sol forte" loading="lazy"><div class="brk"><i></i><i></i><i></i><i></i></div></div><figcaption class="cap"><span>Frame 11</span><span>Street</span></figcaption></figure>
+    <figure class="gal__f gal__f--l"><div class="fig fig--zoom"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-clone="IMG_STADIUM" alt="Torcedores assistindo a uma partida em estádio" loading="lazy"><div class="brk"><i></i><i></i><i></i><i></i></div></div><figcaption class="cap"><span>Frame 12</span><span>Esporte</span></figcaption></figure>
+    <figure class="gal__f gal__f--p"><div class="fig fig--zoom"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-clone="IMG_SHIPS" alt="Navios ao entardecer com névoa alaranjada" loading="lazy"><div class="brk"><i></i><i></i><i></i><i></i></div></div><figcaption class="cap"><span>Frame 13</span><span>Baía de Guanabara</span></figcaption></figure>
+    <figure class="gal__f gal__f--l"><div class="fig fig--zoom"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-clone="IMG_ARPOADOR" alt="Pessoas sobre a pedra do Arpoador em contraluz" loading="lazy"><div class="brk"><i></i><i></i><i></i><i></i></div></div><figcaption class="cap"><span>Frame 14</span><span>Arpoador</span></figcaption></figure>
+    <figure class="gal__f gal__f--s"><div class="fig fig--zoom"><img src="images/foto-20.webp" data-key="IMG_CRISTO" alt="Silhueta do Corcovado ao amanhecer com céu alaranjado" loading="lazy"><div class="brk"><i></i><i></i><i></i><i></i></div></div><figcaption class="cap"><span>Frame 15</span><span>Corcovado</span></figcaption></figure>
+    <figure class="gal__f gal__f--l"><div class="fig fig--zoom"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-clone="IMG_LIGHT" alt="Linhas de luz dourada refletidas em superfície metálica" loading="lazy"><div class="brk"><i></i><i></i><i></i><i></i></div></div><figcaption class="cap"><span>Frame 16</span><span>Luz</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- ===================== OFERTA ===================== -->
+<section class="sec off" id="oferta" data-vf="11 — O CURSO / R$297">
+  <div class="wrap">
+    <div class="off__card rv">
+      <div class="off__in">
+        <div>
+          <p class="eyebrow mono">Curso online completo</p>
+          <h2 class="h-lg" style="margin:20px 0 6px">Domine<br><span class="green">Sua Fuji.</span></h2>
+          <div class="off__price"><b data-cfg="precoCurso">R$ 297</b><span>Acesso online</span></div>
+          <p class="small" style="max-width:40ch">Do primeiro contato com a câmera ao uso avançado do sistema — fotografia e vídeo, no seu ritmo.</p>
+        </div>
+        <div>
+          <ul class="off__ul">
+            <li>Curso completo, com 8 módulos organizados por tema</li>
+            <li>Fotografia e vídeo em um só lugar</li>
+            <li>Do básico ao uso avançado do sistema Fujifilm</li>
+            <li>Acesso online, para assistir quando quiser</li>
+            <li>Conteúdo direto ao ponto, sem enrolação</li>
+          </ul>
+          <a href="#" class="btn btn--wide" style="margin-top:30px" data-cfg-link="curso"><span>Quero dominar minha Fuji</span><span class="btn__ar">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MENTORIA ===================== -->
+<section class="sec men" id="mentoria" data-vf="12 — MENTORIA 1:1">
+  <div class="wrap men__grid">
+    <div class="men__media rv">
+      <div class="fig mask">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-clone="IMG_MENTOR" alt="Retrato de Marcos Prado sentado, em conversa, com luz quente ao fundo" loading="lazy" data-par="0.04">
+      </div>
+      <span class="men__badge">1:1 · Ao vivo</span>
+    </div>
+    <div class="men__txt">
+      <p class="eyebrow mono rv">Quer fazer isso comigo?</p>
+      <h2 class="h-md rv rv-d1" style="margin:20px 0 24px">Mentoria Domine Sua Fuji <span class="green">1:1</span></h2>
+      <p class="lead rv rv-d2">Para quem quer acelerar o processo e configurar a própria Fujifilm diretamente comigo. Não é uma aula genérica sobre Fujifilm. É uma mentoria sobre a <b style="font-weight:500;color:#fff;text-decoration:none">sua</b> Fujifilm.</p>
+      <ul class="men__ul rv rv-d2">
+        <li><span>2 encontros individuais</span><em>Ao vivo</em></li>
+        <li><span>1h30 a 2h por encontro</span><em>Duração</em></li>
+        <li><span>Configuração personalizada da câmera</span><em>Setup</em></li>
+        <li><span>Fotografia e/ou vídeo de acordo com o objetivo do aluno</span><em>Foco</em></li>
+        <li><span>Lentes e equipamentos do próprio aluno</span><em>Equipamento</em></li>
+        <li><span>Film Simulations e Recipes</span><em>Cor</em></li>
+        <li><span>Workflow e conectividade quando necessário</span><em>Workflow</em></li>
+        <li><span>Acesso completo ao curso Domine Sua Fuji</span><em>Incluso</em></li>
+      </ul>
+      <div class="men__price"><b data-cfg="precoMentoria">R$ 1.500</b><span>Mentoria individual</span></div>
+      <a href="#" class="btn btn--ghost rv rv-d3" data-cfg-link="mentoria"><span>Quero a mentoria 1:1</span><span class="btn__ar">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COMPARAÇÃO ===================== -->
+<section class="sec cmp" data-vf="13 — QUAL ESCOLHER">
+  <div class="wrap">
+    <p class="eyebrow mono rv">Qual escolher</p>
+    <h2 class="h-md rv rv-d1" style="margin:20px 0 clamp(28px,3.4vw,48px)">Duas formas de dominar a mesma câmera.</h2>
+    <div class="cmp__grid rv rv-d2">
+      <article class="cmp__c">
+        <p class="mono steel">Curso online</p>
+        <h3>Domine Sua Fuji</h3>
+        <b data-cfg="precoCurso">R$ 297</b>
+        <p>Quero aprender no meu ritmo.</p>
+        <a href="#" data-cfg-link="curso">Começar o curso <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="cmp__c">
+        <p class="mono steel" style="color:var(--green-hi)">Mentoria individual</p>
+        <h3>Mentoria Domine Sua Fuji 1:1</h3>
+        <b data-cfg="precoMentoria">R$ 1.500</b>
+        <p>Quero aprender diretamente com Marcos.</p>
+        <a href="#" data-cfg-link="mentoria">Quero a mentoria <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="sec faq" data-vf="14 — PERGUNTAS">
+  <div class="wrap faq__grid">
+    <div>
+      <p class="eyebrow mono rv">Dúvidas</p>
+      <h2 class="h-md rv rv-d1" style="margin-top:20px">Perguntas<br>frequentes.</h2>
+    </div>
+    <div class="faq__list" id="faqList">
+      <div class="faq__i">
+        <button class="faq__q" aria-expanded="false"><i aria-hidden="true"></i>Preciso ser fotógrafo para fazer o curso?</button>
+        <div class="faq__a"><div>Não. O curso foi pensado também para quem acabou de comprar sua primeira Fujifilm.</div></div>
+      </div>
+      <div class="faq__i">
+        <button class="faq__q" aria-expanded="false"><i aria-hidden="true"></i>Já sou fotógrafo ou filmmaker. O curso serve para mim?</button>
+        <div class="faq__a"><div>Sim. Você pode avançar diretamente para os módulos relacionados ao sistema Fujifilm que ainda não domina.</div></div>
+      </div>
+      <div class="faq__i">
+        <button class="faq__q" aria-expanded="false"><i aria-hidden="true"></i>O curso ensina fotografia e vídeo?</button>
+        <div class="faq__a"><div>Sim. Existe uma base prática de fotografia e um módulo específico de vídeo, mas o foco principal é ensinar você a dominar sua Fujifilm.</div></div>
+      </div>
+      <div class="faq__i">
+        <button class="faq__q" aria-expanded="false"><i aria-hidden="true"></i>O curso é para uma câmera específica?</button>
+        <div class="faq__a"><div>Não. A proposta é ensinar a lógica do ecossistema Fujifilm. Alguns recursos variam conforme modelo e geração.</div></div>
+      </div>
+      <div class="faq__i">
+        <button class="faq__q" aria-expanded="false"><i aria-hidden="true"></i>Qual a diferença entre o curso e a mentoria?</button>
+        <div class="faq__a"><div>No curso, você aprende através das aulas gravadas. Na mentoria, são dois encontros individuais em que Marcos trabalha diretamente com sua câmera, suas lentes, suas dúvidas e seus objetivos.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA FINAL ===================== -->
+<section class="fin" data-vf="15 — SUA FUJI PODE MAIS">
+  <div class="fin__bg">
+    <img src="images/foto-21.webp" data-key="IMG_ALTINHA" alt="Roda de altinha em silhueta na praia de Ipanema ao pôr do sol" loading="lazy" data-par="0.1">
+  </div>
+  <div class="wrap fin__in">
+    <p class="eyebrow mono rv">Último quadro</p>
+    <h2 class="rv rv-d1">Sua Fuji<span>pode muito mais.</span></h2>
+    <p class="rv rv-d2">Você já escolheu a câmera. Agora é hora de entender tudo que ela pode colocar nas suas mãos.</p>
+    <a href="#" class="btn rv rv-d3" data-cfg-link="curso"><span>Domine sua Fuji — <span data-cfg="precoCurso">R$ 297</span></span><span class="btn__ar">→</span></a>
+    <div class="fin__kw rv rv-d3"><span>Fotografia</span><span>Vídeo</span><span>Cor</span><span>Configuração</span><span>Experiência</span></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft__in">
+      <div>
+        <p class="ft__brand">Domine<br><span>Sua Fuji.</span></p>
+        <p class="mono steel" style="margin-top:16px">Por Marcos Prado · Fotógrafo e Embaixador Fujifilm</p>
+      </div>
+      <nav class="ft__nav" aria-label="Navegação do rodapé">
+        <a href="#curso">O Curso</a>
+        <a href="#conteudo">Conteúdo</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#mentoria">Mentoria</a>
+        <a href="#oferta">Comprar</a>
+      </nav>
+    </div>
+    <div class="ft__bot">
+      <span>© <span id="yr">2026</span> Domine Sua Fuji</span>
+      <span>Fotografia · Vídeo · Fujifilm</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =============================================================
+   CONFIG — edite aqui links, preços e textos comerciais
+   ============================================================= */
+const CONFIG = {
+  // ---- VÍDEO DE VENDAS (VSL) ----
+  // Opção A — arquivo de vídeo próprio (recomendado): caminho ou URL do .mp4
+  videoUrl: "",                  // ex.: "videos/vsl-domine-sua-fuji.mp4"
+  // Opção B — YouTube ou Vimeo: cole aqui a URL do vídeo (o player nativo é usado)
+  videoEmbed: "https://youtu.be/WAPn0CYesVg",   // YouTube/Vimeo — deixe vazio se usar videoUrl
+  videoVertical: false,          // true se a VSL for vertical (9:16)
+
+  precoCurso: "R$ 297",
+  precoMentoria: "R$ 1.500",
+  linkCurso: "#oferta",          // ex.: link de checkout do curso
+  linkMentoria: "#mentoria",     // ex.: link de checkout / WhatsApp da mentoria
+  abrirEmNovaAba: false
+};
+
+(function(){
+  "use strict";
+  const rm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const desk = window.matchMedia("(min-width: 900px)").matches;
+
+  /* ---- imagens clonadas (cada foto entra no arquivo uma única vez) ---- */
+  document.querySelectorAll("img[data-clone]").forEach(el=>{
+    const s = document.querySelector('img[data-key="'+el.dataset.clone+'"]');
+    if(s) el.src = s.currentSrc || s.src;
+  });
+
+  /* ---- aplica CONFIG ---- */
+  document.querySelectorAll("[data-cfg]").forEach(el=>{
+    const k = el.dataset.cfg; if(CONFIG[k]) el.textContent = CONFIG[k];
+  });
+  document.querySelectorAll("[data-cfg-link]").forEach(el=>{
+    const k = el.dataset.cfgLink === "curso" ? CONFIG.linkCurso : CONFIG.linkMentoria;
+    if(k){ el.setAttribute("href", k);
+      if(CONFIG.abrirEmNovaAba && k.startsWith("http")){ el.target="_blank"; el.rel="noopener"; } }
+  });
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  /* ---- header ---- */
+  const hdr = document.getElementById("hdr");
+  const burger = document.getElementById("burger");
+  const menu = document.getElementById("menu");
+  burger.addEventListener("click",()=>{
+    const open = document.body.classList.toggle("menu-open");
+    burger.setAttribute("aria-expanded", open);
+    burger.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  });
+  menu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+    document.body.classList.remove("menu-open"); burger.setAttribute("aria-expanded","false");
+  }));
+
+  /* ---- reveal ---- */
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+  },{rootMargin:"0px 0px -12% 0px",threshold:.08});
+  document.querySelectorAll(".rv,.mask").forEach(el=>io.observe(el));
+
+  /* ---- régua de escala focal ---- */
+  const scale = document.querySelector(".scale");
+  if(scale){
+    const marks = [7,15,23,33,41];
+    for(let i=0;i<46;i++){ const i2=document.createElement("i"); if(marks.includes(i)) i2.className="mk"; scale.appendChild(i2); }
+  }
+
+  /* ---- módulos ---- */
+  const list = document.getElementById("modList");
+  const figs = document.querySelectorAll("#modFig img");
+  const modLabel = document.getElementById("modLabel");
+  function setPanel(item, open){
+    const p = item.querySelector(".mod__panel");
+    const inner = p.firstElementChild;
+    item.classList.toggle("open", open);
+    item.querySelector(".mod__btn").setAttribute("aria-expanded", open);
+    p.style.height = open ? inner.offsetHeight + "px" : "0px";
+  }
+  list.querySelectorAll(".mod__item").forEach(item=>{
+    const btn = item.querySelector(".mod__btn");
+    setPanel(item, item.classList.contains("open"));
+    btn.addEventListener("click",()=>{
+      const willOpen = !item.classList.contains("open");
+      list.querySelectorAll(".mod__item").forEach(o=>{ if(o!==item) setPanel(o,false); });
+      setPanel(item, willOpen);
+      if(willOpen){
+        const m = item.dataset.m;
+        figs.forEach(f=>f.classList.toggle("on", f.dataset.m===m));
+        modLabel.textContent = "Módulo " + String(m).padStart(2,"0");
+      }
+    });
+  });
+  window.addEventListener("resize",()=>{
+    list.querySelectorAll(".mod__item.open").forEach(i=>setPanel(i,true));
+  });
+
+  /* ---- FAQ ---- */
+  document.querySelectorAll("#faqList .faq__i").forEach(item=>{
+    const q = item.querySelector(".faq__q"), a = item.querySelector(".faq__a");
+    q.addEventListener("click",()=>{
+      const open = !item.classList.contains("open");
+      document.querySelectorAll("#faqList .faq__i").forEach(o=>{
+        o.classList.remove("open"); o.querySelector(".faq__a").style.height="0px";
+        o.querySelector(".faq__q").setAttribute("aria-expanded","false");
+      });
+      if(open){ item.classList.add("open"); a.style.height = a.firstElementChild.offsetHeight+"px"; q.setAttribute("aria-expanded","true"); }
+    });
+  });
+
+  /* ---- film simulation (demonstração visual) ---- */
+  const fsImg = document.getElementById("fsImg"), fsName = document.getElementById("fsName");
+  document.querySelectorAll("#fsList button").forEach(b=>{
+    b.addEventListener("click",()=>{
+      document.querySelectorAll("#fsList button").forEach(o=>o.setAttribute("aria-pressed","false"));
+      b.setAttribute("aria-pressed","true");
+      fsImg.style.filter = b.dataset.f === "none" ? "none" : b.dataset.f;
+      fsName.textContent = b.dataset.n;
+    });
+  });
+
+  /* ---- player da VSL ---- */
+  (function(){
+    const stage = document.querySelector(".vsl__stage");
+    if(!stage) return;
+    const v = document.getElementById("vslVideo");
+    const bar = document.getElementById("vslBar");
+    const poster = document.getElementById("vslPoster");
+    const empty = document.getElementById("vslEmpty");
+    const big = document.getElementById("vslBig");
+    const play = document.getElementById("vslPlay");
+    const seek = document.getElementById("vslSeek");
+    const prog = document.getElementById("vslProg");
+    const buf = document.getElementById("vslBuf");
+    const cur = document.getElementById("vslCur");
+    const dur = document.getElementById("vslDur");
+    const mute = document.getElementById("vslMute");
+    const range = document.getElementById("vslRange");
+    const rate = document.getElementById("vslRate");
+    const fs = document.getElementById("vslFs");
+
+    if(CONFIG.videoVertical) stage.classList.add("is-vertical");
+
+    /* --- YouTube / Vimeo: usa o player nativo do serviço --- */
+    const emb = (CONFIG.videoEmbed || "").trim();
+    if(emb){
+      let src = "";
+      const yt = emb.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+      const vm = emb.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+      if(yt) src = "https://www.youtube-nocookie.com/embed/" + yt[1] + "?rel=0&modestbranding=1&playsinline=1";
+      else if(vm) src = "https://player.vimeo.com/video/" + vm[1];
+      else if(/\/embed\//.test(emb) || /player\./.test(emb)) src = emb;
+      if(src){
+        big.addEventListener("click",()=>{
+          const f = document.createElement("iframe");
+          f.src = src + (src.includes("?") ? "&" : "?") + "autoplay=1";
+          f.title = "Vídeo de apresentação — Domine Sua Fuji";
+          f.allow = "autoplay; fullscreen; picture-in-picture";
+          f.allowFullscreen = true;
+          stage.appendChild(f);
+          stage.classList.add("is-ready");
+        });
+        v.remove();
+        return;
+      }
+    }
+
+    /* --- vídeo próprio --- */
+    if(!CONFIG.videoUrl){ empty.hidden = false; big.disabled = true; big.style.opacity = ".45"; return; }
+    v.src = CONFIG.videoUrl;
+    bar.hidden = false;
+
+    const fmt = s => { if(!isFinite(s)) return "0:00";
+      s = Math.floor(s); const h = Math.floor(s/3600), m = Math.floor(s%3600/60), x = s%60;
+      return (h ? h+":"+String(m).padStart(2,"0") : m) + ":" + String(x).padStart(2,"0"); };
+
+    function toggle(){ v.paused ? v.play() : v.pause(); }
+    big.addEventListener("click",toggle);
+    play.addEventListener("click",toggle);
+    v.addEventListener("click",toggle);
+
+    v.addEventListener("play",()=>{ stage.classList.add("is-playing"); play.classList.add("is-playing-btn"); play.setAttribute("aria-label","Pausar"); });
+    v.addEventListener("pause",()=>{ play.classList.remove("is-playing-btn"); play.setAttribute("aria-label","Reproduzir"); });
+    v.addEventListener("ended",()=>{ stage.classList.remove("is-playing"); play.classList.remove("is-playing-btn"); });
+    v.addEventListener("loadedmetadata",()=>{ dur.textContent = fmt(v.duration); seek.setAttribute("aria-valuetext","0 de "+fmt(v.duration)); });
+    v.addEventListener("timeupdate",()=>{
+      const p = v.duration ? v.currentTime/v.duration*100 : 0;
+      prog.style.width = p + "%";
+      cur.textContent = fmt(v.currentTime);
+      seek.setAttribute("aria-valuenow", Math.round(p));
+      seek.setAttribute("aria-valuetext", fmt(v.currentTime)+" de "+fmt(v.duration));
+    });
+    v.addEventListener("progress",()=>{
+      if(v.buffered.length && v.duration) buf.style.width = (v.buffered.end(v.buffered.length-1)/v.duration*100)+"%";
+    });
+
+    /* seek: clique, arraste e teclado */
+    const pos = e => Math.min(1, Math.max(0, (e.clientX - seek.getBoundingClientRect().left) / seek.offsetWidth));
+    const scrub = e => { if(v.duration) v.currentTime = pos(e)*v.duration; };
+    seek.addEventListener("pointerdown",e=>{ seek.classList.add("drag"); seek.setPointerCapture(e.pointerId); scrub(e); });
+    seek.addEventListener("pointermove",e=>{ if(seek.classList.contains("drag")) scrub(e); });
+    seek.addEventListener("pointerup",e=>{ seek.classList.remove("drag"); seek.releasePointerCapture(e.pointerId); });
+    seek.addEventListener("keydown",e=>{
+      const k = e.key;
+      if(k==="ArrowRight"||k==="ArrowUp"){ v.currentTime = Math.min(v.duration, v.currentTime+5); e.preventDefault(); }
+      if(k==="ArrowLeft"||k==="ArrowDown"){ v.currentTime = Math.max(0, v.currentTime-5); e.preventDefault(); }
+      if(k===" "||k==="Enter"){ toggle(); e.preventDefault(); }
+    });
+
+    /* volume */
+    function syncVol(){
+      mute.classList.toggle("is-muted", v.muted || v.volume === 0);
+      mute.setAttribute("aria-label", (v.muted || v.volume===0) ? "Ativar som" : "Silenciar");
+      range.value = (v.muted ? 0 : v.volume*100);
+    }
+    mute.addEventListener("click",()=>{ v.muted = !v.muted; if(!v.muted && v.volume===0) v.volume = .8; syncVol(); });
+    range.addEventListener("input",()=>{ v.volume = range.value/100; v.muted = range.value == 0; syncVol(); });
+    v.addEventListener("volumechange",syncVol);
+    syncVol();
+
+    /* velocidade */
+    const rates = [1,1.25,1.5,2,.75];
+    let ri = 0;
+    rate.addEventListener("click",()=>{ ri = (ri+1)%rates.length; v.playbackRate = rates[ri]; rate.firstElementChild.textContent = rates[ri]+"x"; });
+
+    /* tela cheia */
+    fs.addEventListener("click",()=>{
+      if(document.fullscreenElement) document.exitFullscreen();
+      else if(stage.requestFullscreen) stage.requestFullscreen();
+      else if(v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+    });
+  })();
+
+  /* ---- galeria: setas + arrastar ---- */
+  const track = document.getElementById("galTrack");
+  const step = ()=> Math.min(track.clientWidth*.7, 640);
+  document.getElementById("galNext").addEventListener("click",()=>track.scrollBy({left:step(),behavior:"smooth"}));
+  document.getElementById("galPrev").addEventListener("click",()=>track.scrollBy({left:-step(),behavior:"smooth"}));
+  let down=false,sx=0,sl=0;
+  track.addEventListener("pointerdown",e=>{ if(e.pointerType==="touch")return; down=true; sx=e.clientX; sl=track.scrollLeft; track.classList.add("drag"); });
+  window.addEventListener("pointerup",()=>{ down=false; track.classList.remove("drag"); });
+  window.addEventListener("pointermove",e=>{ if(!down)return; track.scrollLeft = sl - (e.clientX-sx); });
+
+  /* ---- visor: seção + progresso ---- */
+  const vfSec = document.getElementById("vfSec"), vfPct = document.getElementById("vfPct");
+  const secs = document.querySelectorAll("[data-vf]");
+  const io2 = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting && vfSec) vfSec.textContent = e.target.dataset.vf; });
+  },{rootMargin:"-45% 0px -45% 0px"});
+  secs.forEach(s=>io2.observe(s));
+
+  /* ---- parallax + scroll state ---- */
+  const pars = rm ? [] : Array.from(document.querySelectorAll("[data-par]"));
+  let ticking = false;
+  function frame(){
+    const y = window.scrollY;
+    hdr.classList.toggle("is-stuck", y > 40);
+    if(vfPct){
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      vfPct.textContent = String(Math.min(99, Math.round(y/h*100))).padStart(2,"0");
+    }
+    if(desk){
+      pars.forEach(el=>{
+        const r = el.getBoundingClientRect();
+        if(r.bottom < -200 || r.top > window.innerHeight + 200) return;
+        const off = (r.top + r.height/2 - window.innerHeight/2) * -parseFloat(el.dataset.par);
+        el.style.transform = "translate3d(0," + off.toFixed(1) + "px,0)";
+      });
+    }
+    ticking = false;
+  }
+  window.addEventListener("scroll",()=>{ if(!ticking){ ticking=true; requestAnimationFrame(frame); } },{passive:true});
+  frame();
+})();
+</script>
 </body>
 </html>

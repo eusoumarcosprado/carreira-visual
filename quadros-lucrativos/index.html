@@ -1,31 +1,1827 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quadros Lucrativos — Carreira Visual</title>
-<meta name="robots" content="noindex">
+<title>Quadros Lucrativos | Transforme suas Fotografias em Quadros que Vendem</title>
+<meta name="description" content="Aprenda a transformar suas fotografias em quadros Fine Art prontos para vender: edição, impressão, moldura, apresentação e técnicas de venda.">
+<meta name="author" content="Marcos Prado">
+<meta name="theme-color" content="#F7F2E8">
+<link rel="canonical" href="https://quadroslucrativos.com.br/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Quadros Lucrativos | Transforme suas Fotografias em Quadros que Vendem">
+<meta property="og:description" content="Da foto ao quadro. Do quadro à venda. O método para transformar fotografia em produto.">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+
 <style>
-  *{box-sizing:border-box}
-  body{margin:0;min-height:100svh;display:grid;place-items:center;text-align:center;padding:32px;
-    background:#000;color:#fff;font-family:'General Sans','Inter',-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
-  body::before{content:"";position:fixed;inset:0;z-index:0;
-    background:radial-gradient(60% 60% at 20% 30%,rgba(255,109,41,.28),transparent 65%),
-               radial-gradient(50% 50% at 80% 70%,rgba(69,48,39,.7),transparent 70%);filter:blur(70px)}
-  .box{position:relative;z-index:1;max-width:520px}
-  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#8a8386;font-family:ui-monospace,monospace}
-  h1{font-size:clamp(28px,6vw,46px);letter-spacing:-.035em;line-height:1.02;margin:16px 0 0;font-weight:600}
-  p{color:rgba(255,255,255,.66);margin:18px 0 0;line-height:1.55}
-  a{display:inline-flex;align-items:center;gap:9px;margin-top:30px;height:48px;padding:0 26px;border-radius:999px;
-    background:#FF6D29;color:#150a04;font-weight:600;text-decoration:none}
+/* ============================================================
+   QUADROS LUCRATIVOS — Design tokens
+   ============================================================ */
+:root{
+  --sand:        #F7F2E8;
+  --sand-deep:   #EFE5D6;
+  --paper:       #FBF9F5;
+  --sun:         #E8753D;
+  --terra:       #C45F38;
+  --ink:         #352A25;
+  --ink-soft:    #6F5C50;
+  --warm:        #D7C2A8;
+  --line:        #DDD0BE;
+
+  --serif: "Instrument Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --fs-display: clamp(2.9rem, 8.2vw, 6.6rem);
+  --fs-h2:      clamp(2.15rem, 5.6vw, 4.35rem);
+  --fs-h3:      clamp(1.35rem, 2.3vw, 1.95rem);
+  --fs-lead:    clamp(1.05rem, 1.55vw, 1.32rem);
+  --fs-body:    clamp(1rem, 1.05vw, 1.075rem);
+  --fs-small:   0.9rem;
+  --fs-label:   0.7rem;
+
+  --pad-x: clamp(1.25rem, 5vw, 4.5rem);
+  --sec-y: clamp(5rem, 11vh, 9.5rem);
+  --maxw: 1240px;
+  --r: 3px;
+  --r-lg: 6px;
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --shadow-soft: 0 2px 4px rgba(53,42,37,.03), 0 12px 34px -14px rgba(53,42,37,.14);
+  --shadow-art: 0 1px 2px rgba(53,42,37,.06), 0 26px 60px -22px rgba(53,42,37,.34);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:88px}
+body{
+  margin:0;
+  background:var(--sand);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:var(--fs-body);
+  line-height:1.72;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;font-weight:400;letter-spacing:-0.018em;line-height:1}
+p{margin:0 0 1.15em}
+p:last-child{margin-bottom:0}
+a{color:inherit}
+button{font:inherit;color:inherit}
+ul{margin:0;padding:0;list-style:none}
+
+/* paper grain */
+body::before{
+  content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.42;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+}
+
+::selection{background:var(--sun);color:var(--paper)}
+:focus-visible{outline:2px solid var(--sun);outline-offset:3px;border-radius:2px}
+
+/* ============================================================
+   Layout primitives
+   ============================================================ */
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad-x)}
+.wrap--narrow{max-width:880px}
+.section{padding-block:var(--sec-y);position:relative}
+.section--tight{padding-block:calc(var(--sec-y) * .62)}
+.section--paper{background:var(--paper)}
+.section--deep{background:var(--sand-deep)}
+
+.eyebrow{
+  font-size:var(--fs-label);text-transform:uppercase;letter-spacing:.24em;
+  font-weight:500;color:var(--ink-soft);margin:0 0 1.6rem;display:block;
+}
+.eyebrow--sun{color:var(--terra)}
+
+.display{font-family:var(--serif);font-size:var(--fs-display);line-height:.94;letter-spacing:-0.025em}
+.h2{font-family:var(--serif);font-size:var(--fs-h2);line-height:.98;letter-spacing:-0.022em}
+.h3{font-family:var(--serif);font-size:var(--fs-h3);line-height:1.12}
+.lead{font-size:var(--fs-lead);line-height:1.62;color:var(--ink-soft);max-width:58ch}
+.muted{color:var(--ink-soft)}
+.em-serif{font-family:var(--serif);font-style:italic;color:var(--sun)}
+.em-sun{color:var(--sun)}
+
+/* passe-partout corner mark — recurring graphic motif */
+.mark{position:relative;padding-top:1.9rem}
+.mark::before{
+  content:"";position:absolute;top:0;left:0;width:22px;height:22px;
+  border-top:1px solid var(--sun);border-left:1px solid var(--sun);opacity:.8;
+}
+
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  font-family:var(--sans);font-size:.875rem;font-weight:500;letter-spacing:.055em;
+  text-transform:uppercase;text-decoration:none;cursor:pointer;
+  padding:1.12rem 2.1rem;border-radius:var(--r);border:1px solid transparent;
+  background:var(--sun);color:#FFF9F2;line-height:1.15;text-align:center;
+  transition:background .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease);
+  box-shadow:0 10px 26px -14px rgba(196,95,56,.75);
+}
+.btn:hover{background:var(--terra);transform:translateY(-2px);box-shadow:0 16px 32px -14px rgba(196,95,56,.8)}
+.btn:active{transform:translateY(0)}
+.btn--ghost{
+  background:transparent;color:var(--ink);border-color:var(--line);box-shadow:none;
+}
+.btn--ghost:hover{background:transparent;border-color:var(--ink);color:var(--ink)}
+.btn--on-sun{background:var(--paper);color:var(--terra);box-shadow:0 14px 34px -18px rgba(53,42,37,.6)}
+.btn--on-sun:hover{background:#fff;color:var(--terra)}
+.btn--lg{padding:1.32rem 2.6rem;font-size:.94rem}
+.btn--block{display:flex;width:100%}
+
+.link-arrow{
+  display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;
+  font-size:.82rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--terra);padding-bottom:.35rem;position:relative;
+}
+.link-arrow::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--sun);
+  transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease);
+}
+.link-arrow:hover::after{transform:scaleX(1)}
+.link-arrow span{transition:transform .45s var(--ease);display:inline-block}
+.link-arrow:hover span{transform:translateX(4px)}
+
+.micro{font-size:var(--fs-small);color:var(--ink-soft);letter-spacing:.02em}
+
+/* ============================================================
+   Placeholder de imagem (editorial, substituível via CONFIG)
+   ============================================================ */
+.ph{
+  position:relative;overflow:hidden;background:
+    linear-gradient(150deg,#F3EADB 0%,#E7D8C2 42%,#DCC6AC 72%,#E9DCC9 100%);
+  background-size:cover;background-position:center;
+  border-radius:var(--r);
+}
+.ph::after{
+  content:attr(data-label);
+  position:absolute;left:1rem;bottom:.9rem;z-index:2;
+  font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+  color:rgba(53,42,37,.5);background:rgba(251,249,245,.72);
+  padding:.4rem .65rem;border-radius:2px;backdrop-filter:blur(4px);
+  max-width:calc(100% - 2rem);
+}
+.ph[data-filled="true"]::after{display:none}
+.ph[data-filled="true"]::before{display:none}
+.ph::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 80% at 72% 18%, rgba(255,247,235,.65), transparent 62%);
+}
+.ph--sky{background:linear-gradient(170deg,#FBEEDD 0%,#F0CFA8 38%,#E8A272 66%,#D9805A 100%)}
+.ph--dune{background:linear-gradient(160deg,#F6EEE1 0%,#E3D2B8 40%,#C9AE8C 78%,#B79A78 100%)}
+.ph--sea{background:linear-gradient(165deg,#EDE7DC 0%,#CBC4B4 45%,#9AA39C 75%,#7C8880 100%)}
+.ph--arch{background:linear-gradient(145deg,#F7F2E8 0%,#E6DACA 35%,#C6B7A4 70%,#8E8073 100%)}
+
+/* ============================================================
+   Header
+   ============================================================ */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:120;
+  transition:background .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.header.is-stuck{
+  background:rgba(247,242,232,.82);
+  backdrop-filter:blur(14px) saturate(1.1);
+  -webkit-backdrop-filter:blur(14px) saturate(1.1);
+  border-bottom-color:var(--line);
+}
+.header__inner{
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  height:76px;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad-x);
+}
+.brand{
+  font-family:var(--serif);font-size:1.16rem;letter-spacing:.02em;text-decoration:none;
+  display:flex;align-items:center;gap:.55rem;white-space:nowrap;
+}
+.brand__dot{width:7px;height:7px;background:var(--sun);border-radius:50%;flex:0 0 auto}
+.nav{display:flex;align-items:center;gap:2.1rem}
+.nav a{
+  text-decoration:none;font-size:.83rem;letter-spacing:.04em;color:var(--ink-soft);
+  position:relative;padding-block:.3rem;transition:color .3s var(--ease);
+}
+.nav a::after{
+  content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--sun);
+  transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);
+}
+.nav a:hover{color:var(--ink)}
+.nav a:hover::after{transform:scaleX(1)}
+.header .btn{padding:.82rem 1.5rem;font-size:.74rem}
+
+.burger{
+  display:none;background:none;border:0;padding:.6rem;cursor:pointer;
+  flex-direction:column;gap:5px;border-radius:var(--r);
+}
+.burger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:transform .35s var(--ease),opacity .25s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+.drawer{
+  position:fixed;inset:76px 0 auto;z-index:119;background:rgba(247,242,232,.97);
+  backdrop-filter:blur(16px);border-bottom:1px solid var(--line);
+  padding:1.4rem var(--pad-x) 2.2rem;display:none;
+}
+.drawer.is-open{display:block}
+.drawer a{
+  display:block;text-decoration:none;font-family:var(--serif);font-size:1.5rem;
+  padding:.72rem 0;border-bottom:1px solid var(--line);
+}
+.drawer .btn{margin-top:1.6rem}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero{padding-top:clamp(7.5rem,16vh,10.5rem);padding-bottom:clamp(3rem,7vh,5rem);position:relative;overflow:hidden}
+.hero::after{
+  content:"";position:absolute;top:-22%;right:-14%;width:60vw;height:60vw;max-width:820px;max-height:820px;
+  background:radial-gradient(circle, rgba(232,117,61,.16) 0%, rgba(232,117,61,.06) 42%, transparent 68%);
+  pointer-events:none;z-index:0;
+}
+.hero__grid{
+  display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(2rem,5vw,4.5rem);
+  align-items:center;position:relative;z-index:1;
+}
+.hero h1{font-family:var(--serif);font-size:var(--fs-display);line-height:.92;letter-spacing:-0.03em;margin-bottom:1.7rem}
+.hero__sub{font-size:var(--fs-lead);color:var(--ink-soft);max-width:46ch;line-height:1.6}
+.hero__chain{
+  margin:2rem 0 2.4rem;padding-left:1.15rem;border-left:1px solid var(--warm);
+  font-size:.98rem;line-height:1.95;color:var(--ink-soft);
+}
+.hero__chain strong{font-weight:500;color:var(--ink)}
+.hero__ctas{display:flex;flex-wrap:wrap;align-items:center;gap:1.15rem 1.6rem}
+.hero__micro{margin-top:1.5rem;display:flex;align-items:center;gap:.6rem}
+.hero__micro::before{content:"";width:26px;height:1px;background:var(--warm)}
+
+/* Hero art — obra apoiada em ambiente claro */
+.hero__art{position:relative;padding:1.2rem 0 2.6rem}
+.frame-art{
+  position:relative;background:var(--paper);padding:clamp(14px,1.7vw,22px);
+  border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-art);
+}
+.frame-art .ph{aspect-ratio:4/5;border-radius:2px;background-size:cover}
+.frame-art .ph[data-fit="auto"]{background-size:cover;background-position:center}
+.hero__art{max-width:480px;margin-inline:auto;width:100%}
+.frame-art__mat{background:#fff;padding:clamp(16px,2.1vw,30px);border-radius:2px}
+.frame-art__cap{
+  display:flex;justify-content:space-between;gap:1rem;margin-top:.95rem;
+  font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);
+}
+.hero__art-shadow{
+  position:absolute;left:8%;right:8%;bottom:.7rem;height:26px;border-radius:50%;
+  background:radial-gradient(ellipse at center, rgba(53,42,37,.2), transparent 70%);filter:blur(7px);
+}
+.hero__tag{
+  position:absolute;z-index:3;background:var(--paper);border:1px solid var(--line);
+  border-radius:var(--r);padding:.6rem .85rem;box-shadow:var(--shadow-soft);
+  font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);
+  display:flex;align-items:center;gap:.5rem;
+}
+.hero__tag b{font-weight:500;color:var(--ink)}
+.hero__tag--a{left:-8%;top:16%}
+.hero__tag--b{right:-6%;bottom:16%}
+.hero__tag i{width:6px;height:6px;background:var(--sun);border-radius:50%;display:block}
+
+/* ============================================================
+   Faixa de conceito
+   ============================================================ */
+.chain{border-block:1px solid var(--line);background:var(--paper)}
+.chain__inner{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding-block:1.5rem;overflow-x:auto;scrollbar-width:none;
+}
+.chain__inner::-webkit-scrollbar{display:none}
+.chain__step{
+  display:flex;align-items:center;gap:1rem;white-space:nowrap;
+  font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--ink);
+}
+.chain__step em{
+  font-family:var(--serif);font-style:italic;font-size:.9rem;letter-spacing:0;
+  text-transform:none;color:var(--sun);opacity:.75;
+}
+.chain__step:last-child em{display:none}
+.chain__step:last-child{color:var(--terra)}
+
+/* ============================================================
+   Insight — dinheiro parado no HD
+   ============================================================ */
+.insight__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.4rem,6vw,6rem);align-items:start}
+.insight h2{margin-bottom:0}
+.insight__pull{
+  margin-top:3rem;padding:2rem 2.2rem;background:var(--paper);
+  border:1px solid var(--line);border-left:3px solid var(--sun);border-radius:var(--r);
+}
+.insight__pull strong{
+  display:block;font-family:var(--serif);font-size:clamp(1.5rem,2.7vw,2.15rem);
+  line-height:1.08;font-weight:400;margin-bottom:.75rem;
+}
+.stack-list{margin:1.6rem 0;font-size:1.02rem;line-height:2.05;color:var(--ink-soft)}
+.stack-list li{position:relative;padding-left:1.4rem}
+.stack-list li::before{content:"";position:absolute;left:0;top:.95em;width:8px;height:1px;background:var(--warm)}
+
+/* HD visual */
+.hd-visual{position:relative}
+.hd-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:14px;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-soft);
+}
+.hd-grid .ph{aspect-ratio:3/2;border-radius:1px;opacity:.7;background-size:cover;background-position:center;
+  transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.hd-grid .ph::after{display:none}
+.hd-grid:hover .ph{opacity:.55}
+.hd-grid .ph:hover{opacity:1;transform:scale(1.03);z-index:2}
+.hd-grid__bar{
+  grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;
+  font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);
+  padding-bottom:10px;margin-bottom:2px;border-bottom:1px solid var(--line);
+}
+.hd-note{
+  position:absolute;right:-4%;bottom:-1.6rem;background:var(--sun);color:#FFF7EF;
+  padding:.9rem 1.2rem;border-radius:var(--r);box-shadow:var(--shadow-soft);
+  font-family:var(--serif);font-size:1.05rem;line-height:1.25;max-width:230px;
+}
+
+/* ============================================================
+   Antes / Outra possibilidade
+   ============================================================ */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,3.5vw,3rem);margin-top:3.4rem}
+.path{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:clamp(1.8rem,3.2vw,2.8rem);
+}
+.path--now{background:transparent;border-style:dashed}
+.path--next{border-color:var(--warm);box-shadow:var(--shadow-soft);position:relative;overflow:hidden}
+.path--next::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--sun),var(--terra));
+}
+.path__label{
+  font-size:var(--fs-label);letter-spacing:.24em;text-transform:uppercase;font-weight:500;
+  color:var(--ink-soft);margin-bottom:1.9rem;display:block;
+}
+.path--next .path__label{color:var(--terra)}
+.path__steps li{
+  font-family:var(--serif);font-size:clamp(1.35rem,2.5vw,1.85rem);line-height:1.15;
+  padding:.62rem 0;display:flex;align-items:center;gap:.85rem;
+}
+.path--now .path__steps li{color:var(--ink-soft)}
+.path__steps li i{
+  font-style:normal;width:6px;height:6px;border-radius:50%;background:var(--warm);flex:0 0 auto;
+}
+.path--next .path__steps li i{background:var(--sun)}
+.path__steps li:last-child{color:var(--ink)}
+.path--now .path__steps li:last-child{opacity:.55}
+.path--next .path__steps li:last-child{color:var(--terra)}
+
+/* ============================================================
+   Mentalidade
+   ============================================================ */
+.mind{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.mind h2 span{display:block;font-style:italic;color:var(--sun);font-size:.62em;margin-top:1.1rem;letter-spacing:-0.01em}
+.verbs{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:2.2rem}
+.verbs li{
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+  border:1px solid var(--line);border-radius:100px;padding:.55rem 1.1rem;color:var(--ink-soft);
+  background:var(--paper);
+}
+.verbs li:last-child{border-color:var(--sun);color:var(--terra)}
+
+/* ============================================================
+   SIGNATURE — a passagem (scroll transformation)
+   ============================================================ */
+.passage{position:relative;background:var(--sand-deep)}
+.passage__track{height:420vh;position:relative}
+.passage__sticky{
+  position:sticky;top:0;height:100vh;min-height:560px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.passage__room{
+  position:absolute;inset:0;opacity:0;
+  background:linear-gradient(180deg,#F4EDE2 0%,#EDE3D4 58%,#E2D5C2 58.1%,#D9C9B3 100%);
+  transition:opacity .1s linear;
+}
+.passage__room::after{
+  content:"";position:absolute;left:0;right:0;top:0;height:100%;
+  background:radial-gradient(70% 55% at 78% 12%, rgba(255,236,210,.85), transparent 60%);
+}
+.passage__stage{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:100%}
+.passage__obj{
+  position:relative;width:min(70vw,340px);will-change:transform;
+  background:var(--paper);
+}
+.passage__mat{background:#fff;display:block}
+.passage__img{aspect-ratio:4/5;width:100%}
+.passage__img::after{display:none}
+.passage__cap{
+  position:absolute;left:50%;transform:translateX(-50%);bottom:-2.6rem;white-space:nowrap;
+  font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);opacity:0;
+}
+.passage__legend{
+  position:absolute;bottom:clamp(1.4rem,4vh,3rem);left:0;right:0;z-index:3;
+  display:flex;justify-content:center;gap:clamp(.8rem,3vw,2.6rem);flex-wrap:wrap;
+  padding-inline:var(--pad-x);
+}
+.passage__legend li{
+  font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+  color:var(--ink-soft);opacity:.35;transition:opacity .4s var(--ease),color .4s var(--ease);
+  display:flex;align-items:center;gap:.55rem;
+}
+.passage__legend li::before{
+  content:"";width:5px;height:5px;border-radius:50%;background:currentColor;
+}
+.passage__legend li.is-on{opacity:1;color:var(--terra)}
+.passage__title{
+  position:absolute;top:clamp(1.6rem,6vh,4rem);left:0;right:0;z-index:3;text-align:center;
+  padding-inline:var(--pad-x);
+}
+.passage__title span{
+  font-size:var(--fs-label);letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);
+}
+.passage__title strong{
+  display:block;font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,3.4vw,2.6rem);
+  line-height:1.05;margin-top:.7rem;
+}
+/* fallback estático (reduced motion / no-js) */
+.passage__static{display:none;grid-template-columns:repeat(4,1fr);gap:1.2rem;padding-block:var(--sec-y)}
+.passage__static figure{margin:0}
+.passage__static .ph{aspect-ratio:4/5}
+.passage__static figcaption{
+  margin-top:.85rem;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);
+}
+
+/* ============================================================
+   Método
+   ============================================================ */
+.method{position:relative}
+.method__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.1rem,2.4vw,2rem);margin-top:3.8rem;position:relative}
+.method__grid::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,var(--warm),var(--sun),var(--warm));opacity:.6;
+}
+.step{position:relative;padding-top:1.7rem;border-top:1px solid var(--line)}
+.method__grid .step{border-top-color:transparent}
+.step__num{
+  font-family:var(--serif);font-size:clamp(2.6rem,4.6vw,3.9rem);line-height:1;color:var(--sun);
+  display:block;position:relative;z-index:1;background:var(--sand);padding-right:.6rem;
+}
+.section--paper .step__num{background:var(--paper)}
+.step h3{margin:1.2rem 0 .85rem;letter-spacing:.12em;text-transform:uppercase;font-family:var(--sans);font-size:.82rem;font-weight:500}
+.step p{font-size:.98rem;color:var(--ink-soft);line-height:1.68}
+
+/* ============================================================
+   Faixa de impacto
+   ============================================================ */
+.impact{
+  background:linear-gradient(135deg,var(--sun) 0%,var(--terra) 62%,#A84E2E 100%);
+  color:#FFF6EC;text-align:center;position:relative;overflow:hidden;
+}
+.impact::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(60% 60% at 50% 0%, rgba(255,225,190,.28), transparent 60%);
+}
+.impact .wrap{position:relative;z-index:1}
+.impact h2{color:#FFF6EC}
+.impact p{color:rgba(255,246,236,.86);font-size:var(--fs-lead);max-width:46ch;margin-inline:auto;margin-top:1.8rem}
+.impact__split{
+  display:flex;align-items:center;justify-content:center;gap:clamp(1rem,4vw,3rem);
+  margin-top:3rem;flex-wrap:wrap;
+  font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,246,236,.75);
+}
+.impact__logo{
+  font-family:var(--serif);font-size:clamp(1.3rem,2.6vw,1.9rem);letter-spacing:.06em;
+  text-transform:none;color:#FFF6EC;padding:.7rem 1.6rem;border:1px solid rgba(255,246,236,.4);border-radius:var(--r);
+}
+
+/* ============================================================
+   Módulos
+   ============================================================ */
+.modules{margin-top:3.6rem;border-top:1px solid var(--line)}
+.module{border-bottom:1px solid var(--line);padding-block:clamp(2rem,3.6vw,2.9rem)}
+.module__head{display:grid;grid-template-columns:auto 1fr;gap:clamp(1.4rem,4vw,3.4rem);align-items:start}
+.module__num{
+  font-family:var(--serif);font-size:clamp(1.6rem,2.6vw,2.1rem);color:var(--warm);line-height:1;padding-top:.2rem;
+}
+.module h3{font-family:var(--serif);font-size:clamp(1.65rem,3.2vw,2.5rem);line-height:1.04;margin-bottom:.9rem}
+.module__benefit{color:var(--ink-soft);max-width:60ch;font-size:1.02rem}
+.module__benefit em{font-style:italic;font-family:var(--serif);color:var(--ink);font-size:1.12em}
+.module details{margin-top:1.5rem}
+.module summary{
+  display:inline-flex;align-items:center;gap:.6rem;cursor:pointer;list-style:none;
+  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--terra);
+  padding:.4rem 0;
+}
+.module summary::-webkit-details-marker{display:none}
+.module summary i{
+  font-style:normal;display:inline-block;transition:transform .35s var(--ease);font-size:1rem;line-height:1;
+}
+.module details[open] summary i{transform:rotate(45deg)}
+.module__lessons{
+  margin-top:1.3rem;columns:2;column-gap:2.6rem;
+}
+.module__lessons li{
+  break-inside:avoid;font-size:.93rem;color:var(--ink-soft);padding:.42rem 0 .42rem 1.5rem;position:relative;line-height:1.5;
+}
+.module__lessons li::before{
+  content:"";position:absolute;left:0;top:.95em;width:7px;height:7px;border:1px solid var(--warm);border-radius:1px;
+}
+
+/* ============================================================
+   Serviço x Produto
+   ============================================================ */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.4rem,3vw,2.4rem);margin-top:3.4rem}
+.duo__card{
+  padding:clamp(1.9rem,3.4vw,2.8rem);border:1px solid var(--line);border-radius:var(--r-lg);background:var(--paper);
+}
+.duo__card--hi{background:linear-gradient(170deg,#FFF8F0,#F9EDDF);border-color:var(--warm)}
+.duo__card h3{
+  font-family:var(--sans);font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;
+  color:var(--ink-soft);margin-bottom:1.6rem;
+}
+.duo__card--hi h3{color:var(--terra)}
+.duo__card li{
+  font-family:var(--serif);font-size:clamp(1.25rem,2.2vw,1.6rem);line-height:1.32;padding:.45rem 0;
+}
+.duo__card--hi li:last-child{color:var(--terra)}
+.duo__note{margin-top:1.8rem;font-size:.88rem;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:1.2rem}
+
+/* ============================================================
+   Uma foto, várias vidas
+   ============================================================ */
+.thrice{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,3vw,2.6rem);margin-top:3.6rem;align-items:end}
+.thrice figure{margin:0}
+.thrice .frame-art{transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.thrice figure:hover .frame-art{transform:translateY(-6px);box-shadow:0 32px 66px -26px rgba(53,42,37,.4)}
+.thrice figcaption{
+  margin-top:1.1rem;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);
+}
+.thrice figcaption b{display:block;color:var(--ink);font-weight:500;margin-bottom:.3rem}
+.thrice figure:nth-child(1) .frame-art .ph{aspect-ratio:4/5}
+.thrice figure:nth-child(2) .frame-art .ph{aspect-ratio:1/1}
+.thrice figure:nth-child(3) .frame-art .ph{aspect-ratio:3/4}
+
+/* ============================================================
+   Simulação — mostrar antes de imprimir
+   ============================================================ */
+.sim__top{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.sim__points{margin:2.2rem 0 0;border-top:1px solid var(--line)}
+.sim__points li{
+  display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:baseline;
+  padding:1.1rem 0;border-bottom:1px solid var(--line);
+}
+.sim__points b{font-family:var(--serif);font-size:1.15rem;color:var(--sun);line-height:1}
+.sim__points span{font-size:.99rem;line-height:1.6}
+.sim__points strong{font-weight:500;display:block;margin-bottom:.15rem}
+.sim__points em{font-style:normal;color:var(--ink-soft)}
+.sim__disclaimer{
+  margin-top:1.8rem;font-size:.82rem;color:var(--ink-soft);
+  display:flex;gap:.7rem;align-items:flex-start;line-height:1.55;
+}
+.sim__disclaimer::before{content:"";flex:0 0 auto;width:18px;height:1px;background:var(--warm);margin-top:.7em}
+
+.sim__gallery{margin-top:clamp(2.4rem,5vw,4rem);display:flex;flex-direction:column;gap:clamp(1rem,2vw,1.4rem)}
+.sim__row{display:flex;gap:clamp(1rem,2vw,1.4rem);align-items:flex-start}
+.sim__row figure{margin:0;min-width:0}
+.sim__row .r-wide{flex:1.6 1 0}
+.sim__row .r-tall{flex:.8 1 0}
+.sim-shot{
+  position:relative;overflow:hidden;border-radius:var(--r-lg);border:1px solid var(--line);
+  background:var(--sand-deep);box-shadow:var(--shadow-soft);
+  transition:transform .55s var(--ease),box-shadow .55s var(--ease);
+}
+/* proporção nativa do arquivo — o <img> define a altura, nunca há recorte */
+.sim-img{display:block;width:100%;height:auto;border-radius:0}
+.sim-shot:has(.sim-img:not([src])){aspect-ratio:8/5;background:
+  linear-gradient(150deg,#F3EADB 0%,#E7D8C2 42%,#DCC6AC 72%,#E9DCC9 100%)}
+.r-tall .sim-shot:has(.sim-img:not([src])){aspect-ratio:4/5}
+.sim__row figure:hover .sim-shot{transform:translateY(-4px);box-shadow:0 30px 60px -28px rgba(53,42,37,.42)}
+.sim__cap{
+  margin-top:.75rem;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);
+}
+.sim__cap b{display:block;color:var(--ink);font-weight:500;margin-bottom:.22rem;letter-spacing:.14em}
+
+.sim__cta{margin-top:clamp(2.2rem,4vw,3.2rem);display:flex;flex-wrap:wrap;gap:1.2rem 2rem;align-items:center}
+
+/* ============================================================
+   Para quem é
+   ============================================================ */
+.forwho{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;margin-top:3rem}
+.forwho li{
+  background:var(--paper);padding:1.6rem 1.7rem;font-size:1rem;line-height:1.55;
+  display:flex;gap:1rem;align-items:flex-start;transition:background .35s var(--ease);
+}
+.forwho li:hover{background:#fff}
+.forwho li b{
+  font-family:var(--serif);font-style:italic;color:var(--sun);font-size:1.15rem;line-height:1.3;flex:0 0 auto;
+}
+
+/* ============================================================
+   Emocional
+   ============================================================ */
+.imagine{position:relative;overflow:hidden;background:var(--sand-deep)}
+.imagine__grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.imagine__lines p{font-family:var(--serif);font-size:clamp(1.35rem,2.6vw,1.95rem);line-height:1.32;margin-bottom:.5rem}
+.imagine__lines p.dim{color:var(--ink-soft);font-family:var(--sans);font-size:var(--fs-body);line-height:1.7}
+.imagine__wall{
+  position:relative;padding:clamp(2rem,5vw,4rem) clamp(1.5rem,4vw,3rem);
+  background:linear-gradient(175deg,#F6EFE4,#E9DDCB);border-radius:var(--r-lg);
+  display:flex;justify-content:center;
+}
+.imagine__wall::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:22%;
+  background:linear-gradient(180deg,rgba(184,163,138,.35),rgba(160,138,113,.55));border-radius:0 0 var(--r-lg) var(--r-lg);
+}
+.imagine__wall .frame-art{width:min(100%,320px);position:relative;z-index:1}
+
+/* ============================================================
+   Sem CEP
+   ============================================================ */
+.reach__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.reach__dots{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
+.reach__dots span{
+  font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);
+  border:1px solid var(--line);border-radius:100px;padding:.5rem 1rem;background:var(--paper);
+}
+
+/* ============================================================
+   Professor
+   ============================================================ */
+.teacher{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.teacher__photo .ph{aspect-ratio:4/5;border-radius:var(--r-lg)}
+.teacher__name{font-family:var(--serif);font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:1;margin-bottom:.9rem}
+.teacher__role{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);margin-bottom:2rem;display:block}
+.teacher blockquote{
+  margin:0 0 2rem;padding-left:1.6rem;border-left:2px solid var(--sun);
+  font-family:var(--serif);font-size:clamp(1.2rem,2.1vw,1.55rem);line-height:1.42;
+}
+.slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin-top:2rem}
+.slot{
+  border:1px dashed var(--warm);border-radius:var(--r);padding:1rem;
+  font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);text-align:center;
+}
+.slot b{display:block;font-weight:500;color:var(--ink);margin-bottom:.3rem}
+
+/* ============================================================
+   Oferta
+   ============================================================ */
+.offer{background:var(--sand-deep)}
+.offer__card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);
+  box-shadow:var(--shadow-art);overflow:hidden;margin-top:3.2rem;
+}
+.offer__top{
+  background:linear-gradient(120deg,var(--sun),var(--terra));color:#FFF6EC;
+  padding:clamp(1.8rem,3.4vw,2.6rem) clamp(1.6rem,3.4vw,3rem);
+  display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;
+}
+.offer__top h3{font-family:var(--serif);font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1}
+.offer__top p{margin:.6rem 0 0;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,246,236,.85)}
+.offer__body{
+  display:grid;grid-template-columns:1.25fr .75fr;gap:0;
+}
+.offer__includes{padding:clamp(1.8rem,3.4vw,2.8rem) clamp(1.6rem,3.4vw,3rem);border-right:1px solid var(--line)}
+.offer__includes h4{
+  font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);
+  font-weight:500;margin-bottom:1.5rem;
+}
+.offer__includes ul{columns:2;column-gap:2rem}
+.offer__includes li{
+  break-inside:avoid;padding:.42rem 0 .42rem 1.65rem;position:relative;font-size:.96rem;line-height:1.5;
+}
+.offer__includes li::before{
+  content:"✓";position:absolute;left:0;top:.42rem;color:var(--sun);font-size:.85rem;
+}
+.offer__buy{
+  padding:clamp(1.8rem,3.4vw,2.8rem) clamp(1.6rem,3.4vw,3rem);
+  display:flex;flex-direction:column;justify-content:center;background:#fff;
+}
+.price__label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.price__main{font-family:var(--serif);font-size:clamp(2.2rem,4.4vw,3.1rem);line-height:1;margin:.7rem 0 .35rem}
+.price__alt{font-size:.95rem;color:var(--ink-soft);margin-bottom:1.8rem}
+.offer__buy .micro{margin-top:1.1rem;text-align:center}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{margin-top:3rem;border-top:1px solid var(--line)}
+.faq__item{border-bottom:1px solid var(--line)}
+.faq__q{
+  width:100%;background:none;border:0;cursor:pointer;text-align:left;
+  padding:1.5rem 3rem 1.5rem 0;position:relative;
+  font-family:var(--serif);font-size:clamp(1.12rem,2.1vw,1.5rem);line-height:1.3;
+  transition:color .3s var(--ease);
+}
+.faq__q:hover{color:var(--terra)}
+.faq__q::after{
+  content:"";position:absolute;right:.3rem;top:50%;width:13px;height:1px;background:var(--sun);
+}
+.faq__q::before{
+  content:"";position:absolute;right:6.3px;top:50%;width:1px;height:13px;background:var(--sun);
+  transform:translateY(-50%);transition:transform .4s var(--ease),opacity .3s;
+}
+.faq__q[aria-expanded="true"]::before{transform:translateY(-50%) rotate(90deg);opacity:0}
+.faq__a{overflow:hidden;height:0;transition:height .4s var(--ease)}
+.faq__a > div{padding:0 3rem 1.7rem 0;color:var(--ink-soft);max-width:70ch}
+
+/* ============================================================
+   CTA final
+   ============================================================ */
+.final{
+  position:relative;overflow:hidden;text-align:center;
+  background:linear-gradient(180deg,var(--sand) 0%,#F7E7D3 46%,#F2CBA5 78%,#E8A472 100%);
+}
+.final::before{
+  content:"";position:absolute;left:50%;bottom:-32vw;transform:translateX(-50%);
+  width:64vw;height:64vw;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,117,61,.42),rgba(232,117,61,.12) 52%,transparent 70%);
+}
+.final .wrap{position:relative;z-index:1}
+.final p{max-width:48ch;margin-inline:auto;color:var(--ink);opacity:.82;font-size:var(--fs-lead)}
+.final__sig{
+  font-family:var(--serif);font-style:italic;font-size:clamp(1.2rem,2.4vw,1.7rem);
+  margin:2.4rem 0;line-height:1.4;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer{background:var(--ink);color:#E8DED4;padding-block:clamp(2.8rem,6vw,4.2rem)}
+.footer__inner{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:flex-start}
+.footer .brand{color:#F7F2E8;font-size:1.3rem}
+.footer__by{font-size:.82rem;color:rgba(232,222,212,.6);margin-top:.6rem}
+.footer__links{display:flex;gap:1.8rem;flex-wrap:wrap}
+.footer__links a{font-size:.85rem;text-decoration:none;color:rgba(232,222,212,.75);transition:color .3s}
+.footer__links a:hover{color:var(--sun)}
+.footer__base{
+  margin-top:3rem;padding-top:1.6rem;border-top:1px solid rgba(232,222,212,.16);
+  font-size:.76rem;color:rgba(232,222,212,.5);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+}
+
+/* ============================================================
+   Sticky CTA mobile
+   ============================================================ */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:110;display:none;
+  padding:.7rem clamp(.9rem,4vw,1.2rem) calc(.7rem + env(safe-area-inset-bottom));
+  background:rgba(247,242,232,.93);backdrop-filter:blur(12px);border-top:1px solid var(--line);
+  transform:translateY(105%);transition:transform .45s var(--ease);
+}
+.sticky-cta.is-on{transform:translateY(0)}
+.sticky-cta .btn{padding:1rem 1.4rem;font-size:.78rem}
+
+/* ============================================================
+   Reveal
+   ============================================================ */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.is-in{opacity:1;transform:none}
+.rv-d1{transition-delay:.09s}.rv-d2{transition-delay:.18s}.rv-d3{transition-delay:.27s}.rv-d4{transition-delay:.36s}
+
+/* ============================================================
+   Responsivo
+   ============================================================ */
+@media (max-width:1080px){
+  .method__grid{grid-template-columns:repeat(2,1fr);row-gap:2.6rem}
+  .method__grid::before{display:none}
+  .method__grid .step{border-top-color:var(--line)}
+  .hero__tag--a{left:-2%}
+  .hero__tag--b{right:-2%}
+}
+@media (max-width:900px){
+  .nav,.header .btn{display:none}
+  .burger{display:flex}
+  .hero__grid,.insight__grid,.mind,.imagine__grid,.reach__grid,.teacher,.paths,.duo,.forwho,.offer__body{grid-template-columns:1fr}
+  .hero__art{order:-1;max-width:420px;margin-inline:auto;width:100%}
+  .hero{padding-top:clamp(6rem,14vh,8rem)}
+  .hero__tag--a{left:0}
+  .hero__tag--b{right:0}
+  .thrice{grid-template-columns:1fr;gap:2.4rem;max-width:420px;margin-inline:auto}
+  .sim__top{grid-template-columns:1fr}
+  .sim__feature{order:-1}
+  .sim__row{flex-direction:column}
+  .sim__row .r-wide,.sim__row .r-tall{flex:1 1 auto}
+  .thrice figure:nth-child(n) .frame-art .ph{aspect-ratio:4/5}
+  .insight__pull{margin-top:2rem}
+  .hd-note{position:static;margin-top:1.4rem;max-width:none;display:inline-block}
+  .offer__includes{border-right:0;border-bottom:1px solid var(--line)}
+  .offer__includes ul,.module__lessons{columns:1}
+  .sticky-cta{display:block}
+  .footer__inner{flex-direction:column}
+  .passage__track{height:360vh}
+  .imagine__wall{order:-1}
+}
+@media (max-width:560px){
+  :root{--sec-y:clamp(3.6rem,9vh,5.5rem)}
+  .btn{width:100%;max-width:420px}
+  .hero__ctas{flex-direction:column;align-items:stretch}
+  .hero__ctas .link-arrow{align-self:center}
+  .path__steps li{font-size:1.25rem}
+  .passage__legend{gap:.5rem 1.1rem}
+  .passage__legend li{font-size:.58rem;letter-spacing:.14em}
+  .footer__base{flex-direction:column}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  .passage__track{height:auto}
+  .passage__sticky{display:none}
+  .passage__static{display:grid}
+}
+@media print{.header,.sticky-cta{display:none}}
 </style>
 </head>
 <body>
-  <div class="box">
-    <span class="kicker">● Carreira Visual</span>
-    <h1>Quadros Lucrativos</h1>
-    <p>A página deste treinamento está sendo preparada. Enquanto isso, explore o restante da plataforma.</p>
-    <a href="/">Voltar para a plataforma</a>
+
+<!-- ============================ HEADER ============================ -->
+<header class="header" id="header">
+  <div class="header__inner">
+    <a href="#top" class="brand"><span class="brand__dot" aria-hidden="true"></span>Quadros Lucrativos</a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#metodo">O método</a>
+      <a href="#conteudo">Conteúdo</a>
+      <a href="#simulacao">Simulação</a>
+      <a href="#para-quem">Para quem é</a>
+      <a href="#professor">Sobre</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#oferta" class="btn" data-cta="header">Quero começar</a>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <a href="#metodo">O método</a>
+  <a href="#conteudo">Conteúdo</a>
+  <a href="#simulacao">Simulação</a>
+  <a href="#para-quem">Para quem é</a>
+  <a href="#professor">Sobre</a>
+  <a href="#faq">FAQ</a>
+  <a href="#oferta" class="btn btn--block" data-cta="drawer">Quero começar</a>
+</div>
+
+<main id="top">
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <span class="eyebrow rv">Fotografia • Fine Art • Negócio</span>
+      <h1 id="hero-title" class="rv rv-d1">Sua fotografia<br>pode valer <em class="em-serif">muito&nbsp;mais</em><br>do que um post.</h1>
+      <p class="hero__sub rv rv-d2">Aprenda a transformar suas fotografias em obras Fine Art e criar um produto físico premium que pode ser apresentado e vendido para clientes no Brasil e no exterior.</p>
+      <p class="hero__chain rv rv-d2">
+        Da fotografia à <strong>edição</strong>.<br>
+        Da edição à <strong>impressão</strong>.<br>
+        Da impressão à <strong>parede</strong>.<br>
+        Da parede à <strong>venda</strong>.
+      </p>
+      <div class="hero__ctas rv rv-d3">
+        <a href="#oferta" class="btn btn--lg" data-cta="hero">Quero transformar minhas fotos em quadros</a>
+        <a href="#metodo" class="link-arrow">Conhecer o método <span aria-hidden="true">↓</span></a>
+      </div>
+      <p class="micro hero__micro rv rv-d4">Acesso online • Assista no seu ritmo</p>
+    </div>
+
+    <div class="hero__art rv rv-d2">
+      <div class="hero__tag hero__tag--a" aria-hidden="true"><i></i> Papel <b>algodão 310g</b></div>
+      <figure class="frame-art" style="margin:0">
+        <div class="frame-art__mat">
+          <div class="ph ph--sky" data-img="hero" data-fit="auto" data-label="Obra Fine Art emoldurada"></div>
+        </div>
+        <figcaption class="frame-art__cap"><span>Marcos Prado</span><span>60 × 75 cm</span></figcaption>
+      </figure>
+      <div class="hero__tag hero__tag--b" aria-hidden="true"><i></i> Edição <b>limitada</b></div>
+      <div class="hero__art-shadow" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAIXA DE CONCEITO ============================ -->
+<section class="chain" aria-label="Etapas do processo">
+  <div class="wrap chain__inner">
+    <span class="chain__step">Fotografia <em aria-hidden="true">→</em></span>
+    <span class="chain__step">Edição <em aria-hidden="true">→</em></span>
+    <span class="chain__step">Impressão <em aria-hidden="true">→</em></span>
+    <span class="chain__step">Moldura <em aria-hidden="true">→</em></span>
+    <span class="chain__step">Apresentação <em aria-hidden="true">→</em></span>
+    <span class="chain__step">Venda</span>
+  </div>
+</section>
+
+<!-- ============================ INSIGHT ============================ -->
+<section class="section insight" aria-labelledby="insight-title">
+  <div class="wrap insight__grid">
+    <div>
+      <div class="mark rv">
+        <h2 class="h2" id="insight-title">Existe dinheiro<br>parado no seu <em class="em-serif">HD</em>.</h2>
+      </div>
+      <div class="rv rv-d1" style="margin-top:2.4rem">
+        <p class="lead">Quantas fotografias você produziu nos últimos anos?</p>
+        <ul class="stack-list">
+          <li>Viagens.</li>
+          <li>Paisagens.</li>
+          <li>Cidades.</li>
+          <li>Arquitetura.</li>
+          <li>Projetos autorais.</li>
+          <li>Momentos que você fotografou simplesmente porque precisava registrar.</li>
+        </ul>
+        <p>Algumas foram publicadas. Muitas provavelmente estão esquecidas em alguma pasta.</p>
+        <p>Mas existe outra possibilidade: transformar essas imagens em produtos. Uma fotografia pode deixar de existir apenas como um arquivo digital e se transformar em um quadro impresso, emoldurado, apresentado e comercializado.</p>
+      </div>
+      <div class="insight__pull rv rv-d2">
+        <strong>Você já produziu a matéria-prima.</strong>
+        <p class="muted" style="margin-bottom:1.4rem">Agora precisa aprender a transformá-la em produto.</p>
+        <a href="#metodo" class="link-arrow">Quero aprender como <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+
+    <div class="hd-visual rv rv-d2">
+      <div class="hd-grid" aria-hidden="true">
+        <div class="hd-grid__bar"><span>Catálogo › 2019–2026</span><span>18.412 arquivos</span></div>
+        <div class="ph ph--dune"></div><div class="ph ph--sea"></div><div class="ph ph--arch"></div>
+        <div class="ph ph--sky"></div><div class="ph ph--arch"></div><div class="ph ph--dune"></div>
+        <div class="ph ph--sea"></div><div class="ph ph--dune"></div><div class="ph ph--sky"></div>
+      </div>
+      <p class="hd-note">Todas elas continuam sendo apenas arquivos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ANTES / DEPOIS ============================ -->
+<section class="section section--paper" aria-labelledby="paths-title">
+  <div class="wrap">
+    <div class="mark rv">
+      <h2 class="h2" id="paths-title" style="max-width:16ch">Sua fotografia não precisa terminar no <em class="em-serif">Instagram</em>.</h2>
+    </div>
+    <div class="paths">
+      <div class="path path--now rv rv-d1">
+        <span class="path__label">Antes</span>
+        <ul class="path__steps">
+          <li><i></i>HD</li>
+          <li><i></i>Lightroom</li>
+          <li><i></i>Instagram</li>
+          <li><i></i>Fim.</li>
+        </ul>
+      </div>
+      <div class="path path--next rv rv-d2">
+        <span class="path__label">Outra possibilidade</span>
+        <ul class="path__steps">
+          <li><i></i>Fotografia</li>
+          <li><i></i>Quadro Fine Art</li>
+          <li><i></i>Produto</li>
+          <li><i></i>Cliente</li>
+          <li><i></i>Venda</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ MENTALIDADE ============================ -->
+<section class="section" aria-labelledby="mind-title">
+  <div class="wrap mind">
+    <div class="mark rv">
+      <h2 class="h2" id="mind-title">Você não precisa<br>fotografar mais.
+        <span>Talvez precise vender melhor o que já fotografou.</span>
+      </h2>
+    </div>
+    <div class="rv rv-d2">
+      <p class="lead">Para muitos fotógrafos, aumentar a renda significa aceitar mais trabalhos, fotografar mais eventos, produzir mais ensaios e vender mais horas do próprio tempo.</p>
+      <p style="margin-top:1.4rem">Fine Art abre outra possibilidade. Transformar aquilo que você já criou em algo que pode ser apresentado como produto.</p>
+      <ul class="verbs">
+        <li>Criar</li><li>Produzir</li><li>Apresentar</li><li>Vender</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SIGNATURE: A PASSAGEM ============================ -->
+<section class="passage" id="passagem" aria-label="Da tela para a parede">
+  <div class="passage__track" id="pTrack">
+    <div class="passage__sticky">
+      <div class="passage__room" id="pRoom" aria-hidden="true"></div>
+
+      <div class="passage__title">
+        <span>Foto → Quadro → Produto → Venda</span>
+        <strong id="pTitle">O mesmo arquivo. Quatro estados.</strong>
+      </div>
+
+      <div class="passage__stage">
+        <div class="passage__obj" id="pObj">
+          <div class="passage__mat" id="pMat">
+            <div class="ph ph--sky passage__img" id="pImg" data-img="passagem"></div>
+          </div>
+          <span class="passage__cap" id="pCap">Marcos Prado · 60 × 75 cm</span>
+        </div>
+      </div>
+
+      <ul class="passage__legend" id="pLegend">
+        <li data-i="0">Arquivo</li>
+        <li data-i="1">Impressão</li>
+        <li data-i="2">Moldura</li>
+        <li data-i="3">Parede</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- fallback estático -->
+  <div class="wrap passage__static" id="pStatic">
+    <figure><div class="ph ph--sky" data-img="passagem" data-label="Arquivo"></div><figcaption>01 · Arquivo</figcaption></figure>
+    <figure><div class="ph ph--sky" data-img="passagem" data-label="Impressão"></div><figcaption>02 · Impressão</figcaption></figure>
+    <figure><div class="ph ph--sky" data-img="passagem" data-label="Moldura"></div><figcaption>03 · Moldura</figcaption></figure>
+    <figure><div class="ph ph--sky" data-img="passagem" data-label="Parede"></div><figcaption>04 · Parede</figcaption></figure>
+  </div>
+</section>
+
+<!-- ============================ MÉTODO ============================ -->
+<section class="section section--paper method" id="metodo" aria-labelledby="method-title">
+  <div class="wrap">
+    <div class="mark rv">
+      <span class="eyebrow eyebrow--sun">O método</span>
+      <h2 class="h2" id="method-title">Do arquivo digital<br>para a <em class="em-serif">parede</em>.</h2>
+      <p class="lead" style="margin-top:1.8rem">O Quadros Lucrativos conecta todo o processo necessário para transformar uma fotografia em um quadro pronto para ser vendido.</p>
+    </div>
+
+    <div class="method__grid">
+      <article class="step rv rv-d1">
+        <span class="step__num">01</span>
+        <h3>Criar</h3>
+        <p>Entenda fotografia Fine Art, composição e os elementos que fazem uma imagem funcionar quando deixa a tela e ocupa uma parede.</p>
+      </article>
+      <article class="step rv rv-d2">
+        <span class="step__num">02</span>
+        <h3>Preparar</h3>
+        <p>Trate, refine, limpe, redimensione e prepare seus arquivos para produção.</p>
+      </article>
+      <article class="step rv rv-d3">
+        <span class="step__num">03</span>
+        <h3>Produzir</h3>
+        <p>Entenda impressão Fine Art, formatos, molduras, acabamento e apresentação física.</p>
+      </article>
+      <article class="step rv rv-d4">
+        <span class="step__num">04</span>
+        <h3>Vender</h3>
+        <p>Aprenda a simular suas obras, criar presença online, apresentar seus produtos e desenvolver sua abordagem comercial.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ IMPACTO ============================ -->
+<section class="section impact" aria-labelledby="impact-title">
+  <div class="wrap wrap--narrow">
+    <h2 class="h2 rv" id="impact-title">Não é apenas<br>um curso de impressão.</h2>
+    <p class="rv rv-d1">É o caminho entre fazer uma fotografia e transformá-la em um quadro que pode ser apresentado, precificado e vendido.</p>
+    <div class="impact__split rv rv-d2">
+      <span>Arte</span>
+      <span class="impact__logo">Quadros Lucrativos</span>
+      <span>Negócio</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTEÚDO ============================ -->
+<section class="section" id="conteudo" aria-labelledby="content-title">
+  <div class="wrap">
+    <div class="mark rv">
+      <span class="eyebrow eyebrow--sun">Conteúdo do curso</span>
+      <h2 class="h2" id="content-title">Tudo o que acontece<br>entre o clique e a <em class="em-serif">venda</em>.</h2>
+    </div>
+
+    <div class="modules">
+      <article class="module rv">
+        <div class="module__head">
+          <span class="module__num">01</span>
+          <div>
+            <h3>A foto que vira obra</h3>
+            <p class="module__benefit"><em>Antes da impressão existe uma fotografia.</em><br>
+              Aprenda os fundamentos de fotografia Fine Art e composição necessários para construir imagens com força visual.</p>
+            <details>
+              <summary><i aria-hidden="true">+</i> Ver aulas deste módulo</summary>
+              <ul class="module__lessons">
+                <li>Introdução à fotografia Fine Art</li>
+                <li>Composição fotográfica</li>
+                <li>Aula 01 de composição</li>
+                <li>Aula 02 de composição</li>
+                <li>Aula 03 de composição</li>
+                <li>Aula 04 de composição</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <article class="module rv">
+        <div class="module__head">
+          <span class="module__num">02</span>
+          <div>
+            <h3>Do RAW ao arquivo final</h3>
+            <p class="module__benefit"><em>Uma boa impressão começa muito antes da impressora.</em><br>
+              Aprenda a tratar e preparar suas fotografias para uma apresentação profissional.</p>
+            <details>
+              <summary><i aria-hidden="true">+</i> Ver aulas deste módulo</summary>
+              <ul class="module__lessons">
+                <li>Adobe Lightroom no computador — Parte 01</li>
+                <li>Adobe Lightroom no computador — Parte 02</li>
+                <li>Adobe Lightroom no computador — Parte 03</li>
+                <li>Adobe Lightroom Mobile</li>
+                <li>Remoção de sujeira de lente no Photoshop</li>
+                <li>Melhoria de imagem utilizando Inteligência Artificial / Gigapixel</li>
+                <li>Redimensionamento no Photoshop</li>
+                <li>Criação de fotografias panorâmicas</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <article class="module rv">
+        <div class="module__head">
+          <span class="module__num">03</span>
+          <div>
+            <h3>Da tela para o papel</h3>
+            <p class="module__benefit"><em>É quando a fotografia deixa de ser apenas digital e ganha existência física.</em><br>
+              Impressão, papéis, formatos, moldura e acabamento.</p>
+            <details>
+              <summary><i aria-hidden="true">+</i> Ver aulas deste módulo</summary>
+              <ul class="module__lessons">
+                <li>Impressão Fine Art — Parte 01</li>
+                <li>Impressão Fine Art — Parte 02</li>
+                <li>Moldura Fine Art — Parte 01</li>
+                <li>Moldura Fine Art — Parte 02</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <article class="module rv">
+        <div class="module__head">
+          <span class="module__num">04</span>
+          <div>
+            <h3>Da obra para o cliente</h3>
+            <p class="module__benefit"><em>Produzir uma obra é apenas metade do processo.</em><br>
+              Agora você precisa saber apresentá-la.</p>
+            <details>
+              <summary><i aria-hidden="true">+</i> Ver aulas deste módulo</summary>
+              <ul class="module__lessons">
+                <li>Simulação utilizando SMARTIST</li>
+                <li>Simulação utilizando Artrooms</li>
+                <li>Criação de site de apresentação com ALBOOM — Parte 01</li>
+                <li>Criação de site com ALBOOM — Parte 02</li>
+                <li>Técnicas de vendas — Parte 01</li>
+                <li>Técnicas de vendas — Parte 02</li>
+                <li>Certificado de autenticidade</li>
+                <li>Caixa de apresentação</li>
+                <li>Wallary / simulação de quadros em realidade aumentada</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="rv" style="margin-top:3rem;display:flex;justify-content:center">
+      <a href="#oferta" class="btn btn--lg" data-cta="conteudo">Quero entrar no Quadros Lucrativos</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SERVIÇO x PRODUTO ============================ -->
+<section class="section section--deep" aria-labelledby="duo-title">
+  <div class="wrap">
+    <div class="mark rv">
+      <h2 class="h2" id="duo-title" style="max-width:18ch">Pare de pensar em fotografia apenas como <em class="em-serif">serviço</em>.</h2>
+      <p class="lead" style="margin-top:1.6rem">Comece a pensar em fotografia como produto.</p>
+    </div>
+    <div class="duo">
+      <div class="duo__card rv rv-d1">
+        <h3>Serviço</h3>
+        <ul>
+          <li>Você fotografa.</li>
+          <li>Entrega.</li>
+          <li>Recebe.</li>
+          <li>Precisa conseguir um novo trabalho.</li>
+        </ul>
+        <p class="duo__note">A receita recomeça do zero a cada projeto.</p>
+      </div>
+      <div class="duo__card duo__card--hi rv rv-d2">
+        <h3>Produto</h3>
+        <ul>
+          <li>Você cria uma fotografia.</li>
+          <li>Transforma em obra.</li>
+          <li>Cria uma coleção.</li>
+          <li>Pode apresentá-la para diferentes pessoas.</li>
+        </ul>
+        <p class="duo__note">A diferença não é ganhar mais rápido. É construir um ativo autoral em vez de vender apenas horas de trabalho.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ UMA FOTO, VÁRIAS VIDAS ============================ -->
+<section class="section" aria-labelledby="thrice-title">
+  <div class="wrap">
+    <div class="mark rv">
+      <h2 class="h2" id="thrice-title">Uma fotografia<br>pode ser vendida<br>mais de <em class="em-serif">uma vez</em>.</h2>
+    </div>
+    <div class="rv rv-d1" style="margin-top:2rem;max-width:62ch">
+      <p>Uma fotografia autoral pode fazer parte de uma coleção. Pode existir em diferentes tamanhos. Pode fazer parte de uma edição limitada. Pode ganhar uma apresentação premium. Pode encontrar compradores diferentes.</p>
+      <p>A oportunidade está em aprender a transformar a imagem em um produto desejável.</p>
+    </div>
+
+    <div class="thrice">
+      <figure class="rv rv-d1">
+        <div class="frame-art"><div class="frame-art__mat"><div class="ph ph--sea" data-img="obra1" data-label="Obra grande formato"></div></div></div>
+        <figcaption><b>Grande formato</b>90 × 112 cm · peça única de parede</figcaption>
+      </figure>
+      <figure class="rv rv-d2">
+        <div class="frame-art"><div class="frame-art__mat"><div class="ph ph--sea" data-img="obra2" data-label="Edição limitada"></div></div></div>
+        <figcaption><b>Edição limitada</b>40 × 40 cm · numerada e certificada</figcaption>
+      </figure>
+      <figure class="rv rv-d3">
+        <div class="frame-art"><div class="frame-art__mat"><div class="ph ph--sea" data-img="obra3" data-label="Coleção / série"></div></div></div>
+        <figcaption><b>Coleção</b>30 × 40 cm · parte de uma série autoral</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PARA QUEM É ============================ -->
+<!-- ============================ SIMULAÇÃO ============================ -->
+<section class="section" id="simulacao" aria-labelledby="sim-title">
+  <div class="wrap">
+    <div class="sim__top">
+      <div>
+        <div class="mark rv">
+          <span class="eyebrow eyebrow--sun">Simulação</span>
+          <h2 class="h2" id="sim-title">Ninguém compra<br>uma fotografia.<br>Compra ela na<br><em class="em-serif">própria parede</em>.</h2>
+        </div>
+        <div class="rv rv-d1" style="margin-top:2rem">
+          <p class="lead">O cliente quase nunca consegue imaginar sozinho o resultado. Ele não sabe qual tamanho cabe, qual moldura combina, como aquilo vai conviver com a casa dele.</p>
+          <p style="margin-top:1.2rem">A simulação resolve isso antes da conversa sobre preço. Você mostra a obra no ambiente, no tamanho certo, com a moldura certa — sem ter imprimido absolutamente nada.</p>
+        </div>
+        <ul class="sim__points rv rv-d2">
+          <li><b>01</b><span><strong>Vender antes de produzir.</strong><em>Sem estoque, sem custo de impressão adiantado, sem risco de sobrar obra encalhada.</em></span></li>
+          <li><b>02</b><span><strong>Eliminar a maior objeção.</strong><em>“Será que fica grande demais?” deixa de ser dúvida quando a pessoa vê a proporção na parede.</em></span></li>
+          <li><b>03</b><span><strong>Abrir portas comerciais.</strong><em>Escritórios, lojas, hotéis e recepções compram em volume — e decidem olhando simulação.</em></span></li>
+        </ul>
+        <p class="sim__disclaimer rv rv-d2">Todas as imagens desta seção são simulações. Nenhuma dessas obras precisou ser impressa para existir aqui — e é exatamente esse o ponto.</p>
+      </div>
+
+      <figure class="sim__feature rv rv-d2" style="margin:0">
+        <div class="sim-shot"><img class="sim-img" data-img="sim01" alt="Simulação de quadro em hall residencial, formato quadrado com moldura preta" loading="lazy" decoding="async"></div>
+        <figcaption class="sim__cap"><b>Hall residencial</b>Formato quadrado · moldura preta</figcaption>
+      </figure>
+    </div>
+
+    <div class="sim__gallery">
+      <div class="sim__row rv">
+        <figure class="r-wide">
+          <div class="sim-shot"><img class="sim-img" data-img="sim02" alt="Simulação de quadro sobre aparador em sala de estar" loading="lazy" decoding="async"></div>
+          <figcaption class="sim__cap"><b>Sala de estar</b>A mesma fotografia do topo desta página</figcaption>
+        </figure>
+        <figure class="r-tall">
+          <div class="sim-shot"><img class="sim-img" data-img="sim03" alt="Simulação de quadro emoldurado com passe-partout em entrada de casa" loading="lazy" decoding="async"></div>
+          <figcaption class="sim__cap"><b>Entrada</b>Passe-partout amplo · moldura fina</figcaption>
+        </figure>
+      </div>
+
+      <div class="sim__row rv">
+        <figure class="r-tall">
+          <div class="sim-shot"><img class="sim-img" data-img="sim04" alt="Simulação de dupla de quadros em loja de roupas" loading="lazy" decoding="async"></div>
+          <figcaption class="sim__cap"><b>Varejo</b>Dupla da mesma série</figcaption>
+        </figure>
+        <figure class="r-wide">
+          <div class="sim-shot"><img class="sim-img" data-img="sim05" alt="Simulação de quadro em grande formato em parede de galeria" loading="lazy" decoding="async"></div>
+          <figcaption class="sim__cap"><b>Galeria</b>Grande formato · parede única</figcaption>
+        </figure>
+      </div>
+
+      <div class="sim__row rv">
+        <figure class="r-wide">
+          <div class="sim-shot"><img class="sim-img" data-img="sim06" alt="Simulação de quadro em recepção corporativa" loading="lazy" decoding="async"></div>
+          <figcaption class="sim__cap"><b>Recepção corporativa</b>Cliente que compra em volume</figcaption>
+        </figure>
+        <figure class="r-wide">
+          <div class="sim-shot"><img class="sim-img" data-img="sim07" alt="Simulação de quadro panorâmico em sala de jantar" loading="lazy" decoding="async"></div>
+          <figcaption class="sim__cap"><b>Sala de jantar</b>Panorâmica · formato que quase ninguém oferece</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="sim__cta rv">
+      <a href="#oferta" class="btn btn--lg" data-cta="simulacao">Quero transformar minhas fotos em quadros</a>
+      <p class="micro" style="max-width:34ch;margin:0">No módulo 04 você aprende a simular com SMARTIST, Artrooms e Wallary, incluindo realidade aumentada.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper" id="para-quem" aria-labelledby="forwho-title">
+  <div class="wrap">
+    <div class="mark rv">
+      <span class="eyebrow eyebrow--sun">Para quem é</span>
+      <h2 class="h2" id="forwho-title">Se você fotografa,<br>provavelmente já tem<br>o que precisa para <em class="em-serif">começar</em>.</h2>
+    </div>
+    <ul class="forwho rv rv-d1">
+      <li><b>01</b><span>Possui centenas ou milhares de fotografias guardadas.</span></li>
+      <li><b>02</b><span>Quer criar uma fonte adicional de receita.</span></li>
+      <li><b>03</b><span>Quer monetizar projetos autorais.</span></li>
+      <li><b>04</b><span>Fotografa viagens, paisagens, arquitetura, natureza ou street.</span></li>
+      <li><b>05</b><span>Quer vender fotografia sem depender apenas de trabalhos contratados.</span></li>
+      <li><b>06</b><span>Quer aprender a transformar imagens em produtos físicos.</span></li>
+      <li><b>07</b><span>Tem vontade de vender Fine Art mas não sabe por onde começar.</span></li>
+      <li><b>08</b><span>Quer profissionalizar a apresentação das próprias obras.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ IMAGINE ============================ -->
+<section class="section imagine" aria-labelledby="imagine-title">
+  <div class="wrap imagine__grid">
+    <div>
+      <div class="mark rv">
+        <h2 class="h2" id="imagine-title">Imagine ver uma<br>fotografia sua<br>na parede de <em class="em-serif">alguém</em>.</h2>
+      </div>
+      <div class="imagine__lines rv rv-d1" style="margin-top:2.2rem">
+        <p class="dim">Não como arquivo. Não como publicação. Não como mais uma imagem no feed.</p>
+        <p>Mas impressa.</p>
+        <p>Emoldurada.</p>
+        <p>Apresentada como uma obra.</p>
+        <p class="dim" style="margin-top:1.2rem">E comprada porque alguém quis conviver todos os dias com algo que você criou.</p>
+        <p class="dim">O Quadros Lucrativos ensina o processo necessário para tornar isso possível de maneira profissional.</p>
+      </div>
+      <div class="rv rv-d2" style="margin-top:2.4rem">
+        <a href="#oferta" class="btn btn--lg" data-cta="imagine">Quero transformar minhas fotos em quadros</a>
+      </div>
+    </div>
+    <div class="imagine__wall rv rv-d2">
+      <figure class="frame-art" style="margin:0">
+        <div class="frame-art__mat"><div class="ph ph--dune" data-img="parede" data-label="Obra na parede do cliente"></div></div>
+        <figcaption class="frame-art__cap"><span>Coleção autoral</span><span>Ed. 2 / 10</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SEM CEP ============================ -->
+<section class="section section--paper" aria-labelledby="reach-title">
+  <div class="wrap reach__grid">
+    <div class="mark rv">
+      <h2 class="h2" id="reach-title">Sua fotografia<br>não precisa ter <em class="em-serif">CEP</em>.</h2>
+      <div class="reach__dots">
+        <span>Sua cidade</span><span>Outro estado</span><span>Outro país</span>
+      </div>
+    </div>
+    <div class="rv rv-d1">
+      <p class="lead">Fotografia é uma linguagem visual.</p>
+      <p style="margin-top:1.2rem">Com uma boa apresentação digital, estrutura de produto e posicionamento, você pode apresentar seu trabalho para pessoas que estão na sua cidade, em outro estado ou em outro país.</p>
+      <p>O Quadros Lucrativos mostra como estruturar a fotografia como produto para que você possa começar a enxergar um mercado muito maior do que apenas os clientes que contratam seus serviços.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PROFESSOR ============================ -->
+<section class="section" id="professor" aria-labelledby="teacher-title">
+  <div class="wrap teacher">
+    <div class="teacher__photo rv">
+      <div class="ph ph--arch" data-img="professor" data-label="Fotografia do professor"></div>
+    </div>
+    <div class="rv rv-d1">
+      <span class="eyebrow eyebrow--sun" style="margin-bottom:1rem">O professor</span>
+      <h2 class="teacher__name" id="teacher-title">Marcos Prado</h2>
+      <span class="teacher__role">Fotógrafo · Criador do Quadros Lucrativos</span>
+      <blockquote>
+        “Depois de anos trabalhando profissionalmente com fotografia, percebi que uma das maiores limitações do fotógrafo é acreditar que sua única forma de ganhar dinheiro é continuar fotografando novos trabalhos.
+        <br><br>
+        Fine Art me mostrou outra perspectiva: aquilo que você já criou também pode se transformar em produto.”
+      </blockquote>
+      <div class="slots" aria-label="Áreas editáveis para conteúdo do professor">
+        <div class="slot"><b>Bio</b>a inserir</div>
+        <div class="slot"><b>Experiência</b>a inserir</div>
+        <div class="slot"><b>Clientes</b>a inserir</div>
+        <div class="slot"><b>Exposições</b>a inserir</div>
+        <div class="slot"><b>Trabalhos</b>a inserir</div>
+        <div class="slot"><b>Logos de marcas</b>a inserir</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OFERTA ============================ -->
+<section class="section offer" id="oferta" aria-labelledby="offer-title">
+  <div class="wrap">
+    <div class="mark rv">
+      <h2 class="h2" id="offer-title">Comece a transformar<br>suas fotografias<br>em <em class="em-serif">quadros</em>.</h2>
+    </div>
+
+    <div class="offer__card rv rv-d1">
+      <div class="offer__top">
+        <div>
+          <h3>Quadros Lucrativos</h3>
+          <p>Da foto ao quadro. Do quadro à venda.</p>
+        </div>
+        <span style="font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.85">Curso online</span>
+      </div>
+
+      <div class="offer__body">
+        <div class="offer__includes">
+          <h4>O que está incluído</h4>
+          <ul>
+            <li>Curso completo online</li>
+            <li>Fotografia e composição</li>
+            <li>Lightroom e Photoshop</li>
+            <li>Preparação de arquivos</li>
+            <li>Impressão Fine Art</li>
+            <li>Molduras</li>
+            <li>Simulação de obras</li>
+            <li>Criação de apresentação online</li>
+            <li>Técnicas de vendas</li>
+            <li>Certificado de autenticidade</li>
+            <li>Apresentação e embalagem</li>
+          </ul>
+        </div>
+
+        <div class="offer__buy">
+          <span class="price__label">Investimento</span>
+          <span class="price__main" id="priceMain">R$ [VALOR]</span>
+          <span class="price__alt" id="priceAlt">ou 12x de R$ [VALOR]</span>
+          <a href="#checkout" class="btn btn--lg btn--block" id="checkoutBtn" data-cta="oferta">Quero entrar no Quadros Lucrativos</a>
+          <p class="micro">Acesso imediato após confirmação do pagamento.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="section" id="faq" aria-labelledby="faq-title">
+  <div class="wrap wrap--narrow">
+    <div class="mark rv">
+      <span class="eyebrow eyebrow--sun">Perguntas frequentes</span>
+      <h2 class="h2" id="faq-title">Antes de <em class="em-serif">começar</em>.</h2>
+    </div>
+
+    <div class="faq rv rv-d1">
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">Preciso já trabalhar como fotógrafo profissional?</button>
+        <div class="faq__a"><div><p>Não. O curso começa pelos fundamentos de fotografia Fine Art e composição. Se você já fotografa e tem um acervo de imagens, você já tem o ponto de partida.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">Preciso ter impressora Fine Art?</button>
+        <div class="faq__a"><div><p>Não é necessário ter equipamento próprio. O curso explica o processo de impressão Fine Art para que você entenda papéis, formatos e acabamento — e consiga conduzir essa etapa com clareza, inclusive ao trabalhar com laboratórios.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">Preciso ter Photoshop e Lightroom?</button>
+        <div class="faq__a"><div><p>As aulas de tratamento e preparação de arquivos são demonstradas em Adobe Lightroom (computador e mobile) e Photoshop. Ter acesso aos programas ajuda a acompanhar o passo a passo na prática.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">Minhas fotos precisam ser de paisagem?</button>
+        <div class="faq__a"><div><p>Não. Paisagem, viagem, arquitetura, natureza, street e projetos autorais podem funcionar. O que importa é a força visual da imagem quando ela deixa a tela e ocupa uma parede — e é justamente isso que o módulo de composição trabalha.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">Posso aplicar o método em fotografias que já tenho?</button>
+        <div class="faq__a"><div><p>Sim. Essa é a premissa do curso: partir do acervo que você já produziu e aprender a transformá-lo em produto.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">O curso ensina vendas?</button>
+        <div class="faq__a"><div><p>Sim. O módulo 04 trata de simulação das obras, criação de site de apresentação, certificado de autenticidade, caixa de apresentação e técnicas de vendas.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">Consigo utilizar o conteúdo para vender no exterior?</button>
+        <div class="faq__a"><div><p>O conteúdo ensina a estruturar o produto e a apresentação digital, que não dependem de localização geográfica. Questões operacionais de cada país — como envio, tributação e logística — variam caso a caso e não são o foco do curso. Nenhuma venda internacional é prometida ou garantida.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">Preciso produzir todos os quadros antes de começar a vender?</button>
+        <div class="faq__a"><div><p>Não. O curso mostra ferramentas de simulação de obras em ambientes — incluindo realidade aumentada — que permitem apresentar o trabalho antes da produção física.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">As aulas são online?</button>
+        <div class="faq__a"><div><p>Sim. O curso é online e você assiste no seu ritmo.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CTA FINAL ============================ -->
+<section class="section final" aria-labelledby="final-title">
+  <div class="wrap wrap--narrow">
+    <h2 class="h2 rv" id="final-title">Seu próximo quadro<br>pode já estar<br>no seu HD.</h2>
+    <p class="rv rv-d1" style="margin-top:2rem">Existe uma diferença entre fazer uma boa fotografia e construir valor ao redor dela. O Quadros Lucrativos existe para ensinar essa segunda parte.</p>
+    <p class="final__sig rv rv-d2">Da foto ao quadro.<br>Do quadro à venda.</p>
+    <div class="rv rv-d3" style="display:flex;justify-content:center">
+      <a href="#oferta" class="btn btn--lg" data-cta="final">Quero começar agora</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__inner">
+      <div>
+        <a href="#top" class="brand"><span class="brand__dot" aria-hidden="true"></span>Quadros Lucrativos</a>
+        <p class="footer__by">Curso por Marcos Prado</p>
+      </div>
+      <nav class="footer__links" aria-label="Links institucionais">
+        <a href="#termos">Termos</a>
+        <a href="#privacidade">Privacidade</a>
+        <a href="#suporte">Suporte</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+    <div class="footer__base">
+      <span>© <span id="year"></span> Quadros Lucrativos. Todos os direitos reservados.</span>
+      <span>Da foto ao quadro. Do quadro à venda.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================ STICKY CTA MOBILE ============================ -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="#oferta" class="btn btn--block" data-cta="sticky">Quero conhecer o curso</a>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG — edite apenas este bloco para publicar
+   ============================================================ */
+/* Foto do hero — Ipanema, Dois Irmãos ao pôr do sol.
+   Está embutida em base64 para funcionar mesmo com o arquivo solto.
+   Ao publicar, troque a linha abaixo por:  const HERO_IMG = "img/hero.jpg";
+   (o arquivo otimizado já está na pasta img/) */
+const HERO_IMG = "images/foto-01.jpg";
+
+/* Acervo — 9 fotografias do catálogo, embutidas em base64.
+   Ao publicar, troque por:  const ACERVO_IMGS = [
+     "img/acervo/acervo-01.jpg", ... "img/acervo/acervo-09.jpg" ];
+   (os arquivos otimizados já estão na pasta img/acervo/) */
+const ACERVO_IMGS = [
+  "images/foto-02.jpg",
+  "images/foto-03.jpg",
+  "images/foto-04.jpg",
+  "images/foto-05.jpg",
+  "images/foto-06.jpg",
+  "images/foto-07.jpg",
+  "images/foto-08.jpg",
+  "images/foto-09.jpg",
+  "images/foto-10.jpg"
+];
+
+/* Simulações — 7 mockups embutidos em base64.
+   Ao publicar, troque por: { s0965:"img/sim/sim-01-corcovado.jpg", ... }
+   (os arquivos otimizados já estão na pasta img/sim/) */
+const SIM_IMGS = {
+  s0965: "images/foto-11.jpg",
+  s1879: "images/foto-12.jpg",
+  s1933: "images/foto-13.jpg",
+  s1981: "images/foto-14.jpg",
+  s1893: "images/foto-15.jpg",
+  s1056: "images/foto-16.jpg",
+  s1130: "images/foto-17.jpg"
+};
+
+const CONFIG = {
+  checkoutUrl: "#checkout",          // ex.: "https://pay.hotmart.com/..."
+  precoAVista: "R$ [VALOR]",         // ex.: "R$ 1.497"
+  precoParcelado: "ou 12x de R$ [VALOR]", // deixe "" para ocultar
+
+  // ---- FOTOS ----
+  // Basta colocar o caminho do arquivo. Deixe "" para manter o placeholder.
+  // Enquadramento opcional: "url|posição"  →  "img/obra.jpg|center top"
+  imagens: {
+    hero:      HERO_IMG,   // topo da página — a moldura assume a proporção do arquivo
+    passagem:  "",   // A FOTO PRINCIPAL: atravessa arquivo → impressão → moldura → parede
+    professor: "",   // sua foto (vertical 4:5)
+    obra1:     "",   // "Uma fotografia pode ser vendida mais de uma vez" — grande formato
+    obra2:     "",   // idem — edição limitada (quadrada)
+    obra3:     "",   // idem — coleção / série
+    parede:    "",   // "Imagine ver uma fotografia sua na parede de alguém"
+
+    // Seção "Simulação" — mockups de obras em ambientes
+    sim01: SIM_IMGS.s0965,   // hall residencial (vertical 4:5)
+    sim02: SIM_IMGS.s1879,   // sala de estar    (horizontal 8:5)
+    sim03: SIM_IMGS.s1933,   // entrada          (vertical 4:5)
+    sim04: SIM_IMGS.s1981,   // varejo           (vertical 4:5)
+    sim05: SIM_IMGS.s1893,   // galeria          (horizontal 8:5)
+    sim06: SIM_IMGS.s1056,   // recepção         (horizontal 8:5)
+    sim07: SIM_IMGS.s1130    // sala de jantar   (horizontal 8:5)
+  },
+
+  // Miniaturas do catálogo ("Existe dinheiro parado no seu HD") — até 9 fotos
+  acervo: ACERVO_IMGS
+};
+
+(function(){
+  "use strict";
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- CONFIG → DOM ---------- */
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const priceMain = document.getElementById("priceMain");
+  const priceAlt  = document.getElementById("priceAlt");
+  if (priceMain) priceMain.textContent = CONFIG.precoAVista;
+  if (priceAlt){
+    if (CONFIG.precoParcelado) priceAlt.textContent = CONFIG.precoParcelado;
+    else priceAlt.style.display = "none";
+  }
+  const checkoutBtn = document.getElementById("checkoutBtn");
+  if (checkoutBtn && CONFIG.checkoutUrl) checkoutBtn.setAttribute("href", CONFIG.checkoutUrl);
+
+  document.querySelectorAll("[data-img]").forEach(el => {
+    const value = CONFIG.imagens[el.dataset.img];
+    if (!value) return;
+    const [src, pos] = value.split("|");
+    const url = src.trim();
+    if (el.tagName === "IMG"){          // proporção nativa, sem recorte
+      el.src = url;
+      el.dataset.filled = "true";
+      return;
+    }
+    el.style.backgroundImage = `url("${url}")`;
+    if (pos) el.style.backgroundPosition = pos.trim();
+    el.dataset.filled = "true";
+    // data-fit="auto": a moldura assume a proporção do arquivo (foto inteira, sem corte)
+    if (el.dataset.fit === "auto"){
+      const probe = new Image();
+      probe.onload = () => {
+        if (probe.naturalWidth && probe.naturalHeight){
+          el.style.aspectRatio = probe.naturalWidth + " / " + probe.naturalHeight;
+        }
+      };
+      probe.src = url;
+    }
+  });
+
+  const acervoCells = document.querySelectorAll(".hd-grid .ph");
+  (CONFIG.acervo || []).forEach((value, i) => {
+    if (!value || !acervoCells[i]) return;
+    const [src, pos] = value.split("|");
+    acervoCells[i].style.backgroundImage = `url("${src.trim()}")`;
+    if (pos) acervoCells[i].style.backgroundPosition = pos.trim();
+    acervoCells[i].dataset.filled = "true";
+  });
+
+  /* ---------- Header sticky ---------- */
+  const header = document.getElementById("header");
+  const sticky = document.getElementById("stickyCta");
+  let lastY = -1;
+  function onScroll(){
+    const y = window.scrollY;
+    if (y === lastY) return;
+    lastY = y;
+    header.classList.toggle("is-stuck", y > 40);
+    if (sticky) sticky.classList.toggle("is-on", y > window.innerHeight * 0.75);
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  /* ---------- Menu mobile ---------- */
+  const burger = document.getElementById("burger");
+  const drawer = document.getElementById("drawer");
+  function closeDrawer(){
+    drawer.classList.remove("is-open");
+    burger.setAttribute("aria-expanded","false");
+    burger.setAttribute("aria-label","Abrir menu");
+  }
+  burger.addEventListener("click", () => {
+    const open = drawer.classList.toggle("is-open");
+    burger.setAttribute("aria-expanded", String(open));
+    burger.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  });
+  drawer.querySelectorAll("a").forEach(a => a.addEventListener("click", closeDrawer));
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeDrawer(); });
+
+  /* ---------- Reveal on scroll ---------- */
+  const revealables = document.querySelectorAll(".rv");
+  if (reduce || !("IntersectionObserver" in window)){
+    revealables.forEach(el => el.classList.add("is-in"));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add("is-in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, {rootMargin:"0px 0px -12% 0px", threshold:0.12});
+    revealables.forEach(el => io.observe(el));
+  }
+
+  /* ---------- FAQ ---------- */
+  document.querySelectorAll(".faq__q").forEach(btn => {
+    const panel = btn.nextElementSibling;
+    btn.addEventListener("click", () => {
+      const open = btn.getAttribute("aria-expanded") === "true";
+      document.querySelectorAll(".faq__q").forEach(other => {
+        if (other !== btn && other.getAttribute("aria-expanded") === "true"){
+          other.setAttribute("aria-expanded","false");
+          other.nextElementSibling.style.height = "0px";
+        }
+      });
+      btn.setAttribute("aria-expanded", String(!open));
+      panel.style.height = open ? "0px" : panel.firstElementChild.offsetHeight + "px";
+    });
+  });
+  window.addEventListener("resize", () => {
+    document.querySelectorAll('.faq__q[aria-expanded="true"]').forEach(btn => {
+      const panel = btn.nextElementSibling;
+      panel.style.height = panel.firstElementChild.offsetHeight + "px";
+    });
+  }, {passive:true});
+
+  /* ---------- SIGNATURE: a passagem (arquivo → impressão → moldura → parede) ---------- */
+  const track = document.getElementById("pTrack");
+  const obj   = document.getElementById("pObj");
+  const mat   = document.getElementById("pMat");
+  const room  = document.getElementById("pRoom");
+  const cap   = document.getElementById("pCap");
+  const title = document.getElementById("pTitle");
+  const legend = document.getElementById("pLegend");
+
+  const STAGES = [
+    "O mesmo arquivo. Quatro estados.",
+    "Impresso em papel de algodão.",
+    "Passe-partout e moldura.",
+    "Um quadro na parede de alguém."
+  ];
+
+  if (!reduce && track && obj){
+    const legendItems = legend.querySelectorAll("li");
+    let ticking = false;
+
+    const lerp = (a,b,t) => a + (b - a) * t;
+    const seg  = (p, s, e) => Math.min(1, Math.max(0, (p - s) / (e - s)));
+
+    function render(){
+      ticking = false;
+      const rect = track.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      if (total <= 0) return;
+      const p = Math.min(1, Math.max(0, -rect.top / total));
+
+      const pPrint = seg(p, 0.10, 0.36);   // papel + passe-partout
+      const pFrame = seg(p, 0.38, 0.64);   // moldura
+      const pRoom  = seg(p, 0.66, 0.94);   // parede
+
+      // passe-partout branco
+      const matPad = lerp(0, 26, pPrint);
+      mat.style.padding = matPad + "px";
+      mat.style.background = pPrint > 0.02 ? "#fff" : "transparent";
+
+      // moldura + sombra
+      const framePad = lerp(0, 16, pFrame);
+      obj.style.padding = framePad + "px";
+      obj.style.border = "1px solid rgba(221,208,190," + pFrame + ")";
+      obj.style.borderRadius = "4px";
+      obj.style.background = "rgba(251,249,245," + Math.min(1, pPrint + pFrame) + ")";
+      obj.style.boxShadow =
+        "0 1px 2px rgba(53,42,37," + (0.06 * pFrame).toFixed(3) + ")," +
+        "0 " + (10 + 30 * pFrame).toFixed(1) + "px " + (24 + 44 * pFrame).toFixed(1) + "px -20px rgba(53,42,37," + (0.5 * (pFrame + pRoom)).toFixed(3) + ")";
+
+      // escala: aproxima na impressão, afasta ao entrar no ambiente
+      const scale = lerp(0.86, 1.06, pPrint) - 0.28 * pRoom;
+      const shiftY = -34 * pRoom;
+      obj.style.transform = "scale(" + scale.toFixed(4) + ") translateY(" + shiftY.toFixed(1) + "px)";
+
+      room.style.opacity = pRoom.toFixed(3);
+      cap.style.opacity = (pFrame * (1 - pRoom * 0.6)).toFixed(3);
+
+      const stage = pRoom > 0.25 ? 3 : pFrame > 0.25 ? 2 : pPrint > 0.2 ? 1 : 0;
+      legendItems.forEach(li => li.classList.toggle("is-on", Number(li.dataset.i) === stage));
+      if (title.dataset.stage !== String(stage)){
+        title.dataset.stage = String(stage);
+        title.textContent = STAGES[stage];
+      }
+    }
+
+    function request(){
+      if (!ticking){ ticking = true; requestAnimationFrame(render); }
+    }
+    window.addEventListener("scroll", request, {passive:true});
+    window.addEventListener("resize", request, {passive:true});
+    render();
+  }
+})();
+</script>
 </body>
 </html>

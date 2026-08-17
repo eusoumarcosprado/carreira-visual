@@ -1,31 +1,915 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mentoria Direção — Carreira Visual</title>
-<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MENTORIA DIREÇÃO — Marcos Prado</title>
+<meta name="description" content="Mentoria individual 1:1 para fotógrafos, filmmakers e profissionais do audiovisual. Talento abre portas. Direção constrói carreira.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-  *{box-sizing:border-box}
-  body{margin:0;min-height:100svh;display:grid;place-items:center;text-align:center;padding:32px;
-    background:#000;color:#fff;font-family:'General Sans','Inter',-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
-  body::before{content:"";position:fixed;inset:0;z-index:0;
-    background:radial-gradient(60% 60% at 20% 30%,rgba(255,109,41,.28),transparent 65%),
-               radial-gradient(50% 50% at 80% 70%,rgba(69,48,39,.7),transparent 70%);filter:blur(70px)}
-  .box{position:relative;z-index:1;max-width:520px}
-  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#8a8386;font-family:ui-monospace,monospace}
-  h1{font-size:clamp(28px,6vw,46px);letter-spacing:-.035em;line-height:1.02;margin:16px 0 0;font-weight:600}
-  p{color:rgba(255,255,255,.66);margin:18px 0 0;line-height:1.55}
-  a{display:inline-flex;align-items:center;gap:9px;margin-top:30px;height:48px;padding:0 26px;border-radius:999px;
-    background:#FF6D29;color:#150a04;font-weight:600;text-decoration:none}
+/* ═══════════════════════════════════════════════════════════
+   MENTORIA DIREÇÃO — sistema visual
+   paper #E9E9E7 · ink #0B0B0B · red #F23A17
+   display: Archivo (expandida, 900) · texto: Space Grotesk
+   ═══════════════════════════════════════════════════════════ */
+
+:root{
+  --paper:#E9E9E7;
+  --ink:#0B0B0B;
+  --red:#F23A17;
+  --grey:#8B8B87;
+  --grey-d:#6E6E6A;
+  --line:rgba(11,11,11,.16);
+  --line-i:rgba(233,233,231,.20);
+  --gut:clamp(14px,2.2vw,34px);
+  --pad:clamp(28px,5vw,90px);
+  --sec:clamp(90px,13vh,190px);
+  --foto:url("images/bg-01.jpg");
+  --foto-retrato:url("images/bg-02.jpg");
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  font-size:15px;line-height:1.5;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+::selection{background:var(--red);color:#fff}
+
+/* ── tipografia ─────────────────────────────── */
+.d{
+  font-family:'Archivo',sans-serif;
+  font-variation-settings:'wdth' 112,'wght' 900;
+  text-transform:uppercase;
+  line-height:.94;
+  letter-spacing:-.025em;
+  font-weight:900;
+}
+.d-xl{font-size:clamp(3.6rem,13.5vw,12rem)}
+.d-l {font-size:clamp(2.1rem,7.4vw,6.2rem)}
+.d-m {font-size:clamp(1.7rem,4.9vw,3.9rem)}
+.d-s {font-size:clamp(1.35rem,2.9vw,2.4rem);letter-spacing:-.01em}
+.red{color:var(--red)}
+.out{-webkit-text-stroke:1.4px var(--ink);color:transparent}
+.sec-dark .out{-webkit-text-stroke-color:var(--paper)}
+
+.lab{
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:500;color:var(--grey-d);
+}
+.sec-dark .lab{color:#9A9A95}
+.lab.red{color:var(--red)}
+.body{font-size:clamp(14px,1.05vw,16px);line-height:1.65;color:var(--grey-d);max-width:52ch}
+.sec-dark .body{color:#A5A5A0}
+
+/* ── grafismo de direção (assinatura) ───────── */
+.slashes{display:inline-flex;gap:4px;align-items:center}
+.slashes i{display:block;width:9px;height:20px;background:currentColor;transform:skewX(-22deg)}
+.slashes.sm i{width:6px;height:13px}
+
+/* ── layout ─────────────────────────────────── */
+.wrap{padding:0 var(--pad)}
+.sec{padding:var(--sec) 0;position:relative}
+.sec-dark{background:var(--ink);color:var(--paper)}
+.sec-dark .rule{background:var(--line-i)}
+.rule{height:1px;background:var(--line);width:100%}
+.bleed{margin:0 calc(var(--pad)*-1)}
+
+/* ── nav ────────────────────────────────────── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:90;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px var(--pad);
+  mix-blend-mode:normal;color:var(--ink);
+  transition:color .45s ease;
+}
+.nav.on-dark{color:var(--paper)}
+.nav-mark{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.nav-links{display:none;gap:30px}
+.nav-links a{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.75;transition:opacity .3s,color .3s}
+.nav-links a:hover{opacity:1;color:var(--red)}
+.nav-cta{
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+  border:1px solid currentColor;border-radius:100px;padding:9px 18px;
+  transition:background .35s,color .35s,border-color .35s;
+}
+.nav-cta:hover{background:var(--red);border-color:var(--red);color:#fff}
+@media(min-width:940px){.nav-links{display:flex}}
+
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--red);width:0;z-index:99;transform-origin:0 50%}
+
+/* ═══ HERO ═══════════════════════════════════ */
+.hero{padding:var(--gut);padding-top:calc(var(--gut) + 52px)}
+.hero-frame{
+  position:relative;background:#F1F1EF;color:var(--ink);
+  overflow:hidden;padding:clamp(20px,3vw,44px);
+  display:flex;flex-direction:column;
+  min-height:calc(100svh - var(--gut)*2 - 52px);
+}
+.hero-photo{
+  position:absolute;inset:-3%;z-index:1;pointer-events:none;
+  background:var(--foto) 46% 34%/cover no-repeat;
+}
+.hero-scrim{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:
+    linear-gradient(to right,rgba(241,241,239,.96) 0%,rgba(241,241,239,.72) 30%,rgba(241,241,239,0) 62%),
+    linear-gradient(to top,rgba(241,241,239,.92) 0%,rgba(241,241,239,.45) 22%,rgba(241,241,239,0) 46%),
+    linear-gradient(to bottom,rgba(241,241,239,.7) 0%,rgba(241,241,239,0) 18%);
+}
+.hero-eyebrow{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;position:relative;z-index:6}
+.hero-tags{display:flex;flex-wrap:wrap;gap:6px 14px}
+.hero-tags span{font-size:10px;letter-spacing:.14em;color:var(--grey-d);white-space:nowrap}
+
+.hero-copy{position:relative;z-index:5;margin-top:auto;padding-top:clamp(60px,14vw,120px);max-width:34ch}
+.hero-mentoria{
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 104,'wght' 700;
+  text-transform:uppercase;color:var(--ink);
+  font-size:clamp(.72rem,1.5vw,1.1rem);letter-spacing:.42em;
+  margin-bottom:clamp(10px,1.6vw,18px);
+}
+.hero-claim{
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 108,'wght' 800;
+  text-transform:uppercase;line-height:1.1;letter-spacing:-.02em;
+  font-size:clamp(1.3rem,4vw,2.4rem);max-width:18ch;
+}
+.hero-lead{font-size:clamp(13.5px,1.05vw,15.5px);line-height:1.6;color:var(--grey-d);max-width:40ch;margin-top:clamp(14px,2vw,22px)}
+
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:clamp(20px,2.6vw,30px)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:space-between;gap:26px;
+  background:var(--paper);color:var(--ink);
+  padding:16px 20px;min-width:250px;
+  font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:500;
+  position:relative;overflow:hidden;isolation:isolate;
+}
+.btn span{position:relative;z-index:2;transition:color .4s}
+.btn .ar{position:relative;z-index:2;transition:transform .45s cubic-bezier(.16,1,.3,1),color .4s}
+.btn::before{content:'';position:absolute;inset:0;background:var(--red);transform:translateY(101%);transition:transform .45s cubic-bezier(.16,1,.3,1);z-index:1}
+.btn:hover::before{transform:translateY(0)}
+.btn:hover span,.btn:hover .ar{color:#fff}
+.btn:hover .ar{transform:translateX(7px)}
+.btn-dark{background:var(--ink);color:var(--paper)}
+.btn-ghost{background:transparent;color:inherit;border:1px solid currentColor;min-width:auto;gap:14px}
+.btn-ghost::before{background:var(--ink)}
+.btn-ghost:hover span,.btn-ghost:hover .ar{color:var(--paper)}
+.sec-dark .btn-ghost::before{background:var(--paper)}
+.sec-dark .btn-ghost:hover span,.sec-dark .btn-ghost:hover .ar{color:var(--ink)}
+
+.hero-foot{
+  position:relative;z-index:6;display:flex;justify-content:space-between;align-items:flex-end;
+  gap:20px;margin-top:clamp(24px,4vw,42px);
+}
+.scroll-ind{display:flex;align-items:center;gap:10px;font-size:10px;letter-spacing:.16em;color:var(--grey-d);text-transform:uppercase}
+.scroll-ind .bar{width:52px;height:1px;background:rgba(11,11,11,.25);position:relative;overflow:hidden}
+.scroll-ind .bar::after{content:'';position:absolute;inset:0;background:var(--red);animation:sweep 2.4s cubic-bezier(.7,0,.3,1) infinite}
+@keyframes sweep{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+.hero-meta{display:flex;align-items:center;gap:14px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-d)}
+
+.hero-type{position:relative;z-index:3;margin-top:clamp(18px,3.4vw,44px)}
+.hero-word{
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 116,'wght' 900;
+  text-transform:uppercase;color:var(--red);
+  font-size:clamp(3rem,16.5vw,13.5rem);line-height:.92;letter-spacing:-.035em;white-space:nowrap;
+}
+.hero-word .ch{display:inline-block;will-change:transform}
+
+@media(min-width:900px){
+  .hero-photo{background-position:52% 55%}
+  .hero-scrim{background:
+    linear-gradient(to right,rgba(241,241,239,.94) 0%,rgba(241,241,239,.55) 26%,rgba(241,241,239,0) 52%),
+    linear-gradient(to top,rgba(241,241,239,.90) 0%,rgba(241,241,239,.35) 20%,rgba(241,241,239,0) 40%),
+    linear-gradient(to bottom,rgba(241,241,239,.6) 0%,rgba(241,241,239,0) 16%)}
+  .hero-copy{max-width:44%;padding-top:clamp(40px,7vw,90px)}
+  .hero-word{font-size:clamp(5rem,14.4vw,13rem)}
+}
+
+/* ── marquee ────────────────────────────────── */
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;background:var(--paper)}
+.sec-dark .marquee,.marquee.inv{background:var(--ink);border-color:var(--line-i)}
+.mq-track{display:flex;width:max-content;will-change:transform}
+.mq-track > *{display:flex;align-items:center;gap:clamp(20px,3vw,44px);padding-right:clamp(20px,3vw,44px)}
+.mq-item{
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 108,'wght' 800;
+  text-transform:uppercase;font-size:clamp(.95rem,1.9vw,1.55rem);letter-spacing:-.01em;white-space:nowrap;line-height:1.2;
+}
+.mq-item.o{color:var(--red)}
+
+/* ── manifesto ──────────────────────────────── */
+.stagger-lines{display:flex;flex-direction:column}
+.stagger-lines > div:nth-child(2){padding-left:5vw}
+.stagger-lines > div:nth-child(3){padding-left:10vw}
+.stagger-lines > div:nth-child(4){padding-left:4vw}
+@media(max-width:700px){.stagger-lines > div{padding-left:0!important}}
+
+.rl{display:block;overflow:hidden;padding:.08em 0 .18em;margin-bottom:-.14em}
+.rl > i{display:block;font-style:normal}
+
+.q-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));
+  border-top:1px solid var(--line);margin-top:clamp(50px,8vw,90px);
+}
+.q-grid div{
+  padding:22px 20px 22px 0;border-bottom:1px solid var(--line);
+  font-size:clamp(14px,1.15vw,17px);line-height:1.35;
+  display:flex;gap:12px;align-items:flex-start;
+}
+.q-grid div em{font-style:normal;color:var(--red);font-size:10px;letter-spacing:.1em;padding-top:5px;min-width:20px}
+.q-grid div:hover{color:var(--red)}
+
+/* ── grade fixa ─────────────────────────────── */
+.gf-terms{display:flex;flex-wrap:wrap;gap:0 6px;margin-top:clamp(40px,6vw,70px)}
+.gf-terms span{
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 100,'wght' 700;
+  text-transform:uppercase;font-size:clamp(.85rem,1.7vw,1.4rem);
+  color:#4a4a48;transition:color .35s;padding-right:4px;
+}
+.gf-terms span.hot{color:var(--red)}
+
+/* ── direções 01–06 ─────────────────────────── */
+.dir-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.dir{position:relative;border-bottom:1px solid var(--line);padding:clamp(38px,5.5vw,74px) 0;overflow:hidden}
+.dir-n{
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 120,'wght' 900;
+  font-size:clamp(4.2rem,15vw,13rem);line-height:.78;letter-spacing:-.05em;
+  color:transparent;-webkit-text-stroke:1.2px rgba(11,11,11,.22);
+  pointer-events:none;user-select:none;
+  position:absolute;right:-1.5vw;top:-.12em;z-index:0;
+  transition:-webkit-text-stroke-color .5s;
+}
+.dir.act .dir-n{-webkit-text-stroke-color:var(--red);color:transparent}
+.dir-in{position:relative;z-index:2;display:grid;gap:clamp(14px,2vw,30px);grid-template-columns:1fr}
+@media(min-width:860px){
+  .dir-in{grid-template-columns:12ch minmax(0,1fr) minmax(0,38ch);align-items:start;gap:clamp(20px,3vw,44px)}
+  .dir-n{right:auto;left:-1.2vw;top:50%;transform:translateY(-50%)}
+}
+.dir-idx{font-size:11px;letter-spacing:.14em;color:var(--red);text-transform:uppercase;padding-top:10px}
+.dir-t{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 112,'wght' 900;text-transform:uppercase;font-size:clamp(1.9rem,5.4vw,4.1rem);line-height:.94;letter-spacing:-.03em}
+.dir-tags{display:flex;flex-wrap:wrap;gap:6px 10px;margin-top:18px}
+.dir-tags span{font-size:11px;letter-spacing:.06em;color:var(--grey-d);text-transform:uppercase;border:1px solid var(--line);padding:5px 10px}
+.dir-txt{font-size:clamp(14px,1.05vw,16px);line-height:1.6;color:var(--grey-d);padding-top:clamp(6px,1vw,14px)}
+
+/* ── de → para ──────────────────────────────── */
+.dp{border-bottom:1px solid var(--line-i)}
+.dp-row{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;
+  padding:clamp(20px,3vw,34px) 0;border-top:1px solid var(--line-i);
+}
+.dp-from{
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 104,'wght' 700;
+  text-transform:uppercase;font-size:clamp(1.15rem,3.2vw,2.5rem);line-height:1;
+  color:#5B5B57;position:relative;transition:color .5s,opacity .5s;
+}
+.dp-from::after{
+  content:'';position:absolute;left:-2px;right:-2px;top:52%;height:2px;background:#5B5B57;
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .55s cubic-bezier(.16,1,.3,1);
+}
+.dp-row.act .dp-from::after{transform:scaleX(1)}
+.dp-row.act .dp-from{opacity:.45}
+.dp-ar{color:var(--red);font-size:clamp(1rem,2.4vw,1.9rem);transform:translateX(-14px);opacity:0;transition:.6s cubic-bezier(.16,1,.3,1)}
+.dp-row.act .dp-ar{transform:none;opacity:1}
+.dp-to{
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 112,'wght' 900;
+  text-transform:uppercase;font-size:clamp(1.35rem,3.9vw,3.1rem);line-height:1;letter-spacing:-.02em;
+  color:var(--paper);opacity:.25;transform:translateX(-10px);transition:.6s cubic-bezier(.16,1,.3,1) .06s;
+}
+.dp-row.act .dp-to{opacity:1;transform:none}
+
+/* ── experiência ────────────────────────────── */
+.xp{display:grid;gap:clamp(30px,5vw,60px);grid-template-columns:1fr;align-items:end}
+@media(min-width:900px){.xp{grid-template-columns:minmax(0,1fr) minmax(0,.85fr)}}
+.xp-photo{position:relative;background:var(--ink);overflow:hidden;aspect-ratio:4/5}
+.xp-photo .ph{position:absolute;inset:-8%;background:var(--foto-retrato) 50% 30%/cover no-repeat;opacity:.95;will-change:transform}
+.xp-photo .frame{position:absolute;inset:clamp(12px,2vw,22px);border:1px solid rgba(233,233,231,.4);pointer-events:none}
+.xp-photo .corner{position:absolute;width:26px;height:26px;border:2px solid var(--red)}
+.xp-photo .c1{left:clamp(12px,2vw,22px);top:clamp(12px,2vw,22px);border-right:0;border-bottom:0}
+.xp-photo .c2{right:clamp(12px,2vw,22px);bottom:clamp(12px,2vw,22px);border-left:0;border-top:0}
+.xp-photo .cap{position:absolute;left:clamp(20px,3vw,32px);bottom:clamp(20px,3vw,32px);color:var(--paper);font-size:10px;letter-spacing:.14em;text-transform:uppercase;z-index:3}
+.xp-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:clamp(34px,5vw,54px)}
+.xp-facts div{background:var(--paper);padding:22px 18px}
+.xp-facts b{display:block;font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 116,'wght' 900;font-size:clamp(1.6rem,3.6vw,2.7rem);line-height:1.06;color:var(--red);letter-spacing:-.03em;word-break:break-word}
+.xp-facts p{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey-d);margin-top:10px;line-height:1.4}
+@media(min-width:620px){.xp-facts{grid-template-columns:repeat(4,1fr)}}
+
+/* ── como funciona ──────────────────────────── */
+.steps{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line)}
+@media(min-width:820px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{padding:clamp(26px,3vw,44px) clamp(18px,2vw,30px) clamp(34px,4vw,60px) 0;border-bottom:1px solid var(--line);position:relative}
+@media(min-width:820px){.step{border-bottom:0;border-right:1px solid var(--line)}.step:last-child{border-right:0}}
+.step b{display:block;font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 118,'wght' 900;font-size:clamp(2.4rem,4.6vw,4rem);line-height:1;letter-spacing:-.04em}
+.step h4{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 106,'wght' 800;text-transform:uppercase;font-size:clamp(1rem,1.5vw,1.35rem);margin-top:14px;letter-spacing:.01em}
+.step p{font-size:13.5px;color:var(--grey-d);margin-top:8px;line-height:1.55}
+.step .mk{position:absolute;right:14px;top:clamp(26px,3vw,44px);color:var(--red)}
+
+/* ── formatos ───────────────────────────────── */
+.plans{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:clamp(40px,6vw,70px)}
+@media(min-width:900px){.plans{grid-template-columns:1fr 1.25fr}}
+.plan{background:var(--paper);padding:clamp(28px,3.4vw,52px);display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden}
+.plan-hi{background:var(--ink);color:var(--paper)}
+.plan-hi .lab{color:#9A9A95}
+.plan-hi .plan-desc{color:#A5A5A0}
+.plan-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.plan-name{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 114,'wght' 900;text-transform:uppercase;font-size:clamp(1.7rem,4vw,3.1rem);line-height:.96;letter-spacing:-.03em}
+.plan-days{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 120,'wght' 900;font-size:clamp(3rem,7.6vw,6.4rem);line-height:.9;letter-spacing:-.05em;color:var(--red)}
+.plan-meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-d);padding-bottom:4px;border-bottom:1px solid var(--line)}
+.plan-hi .plan-meta{color:#9A9A95;border-color:var(--line-i)}
+.plan-desc{font-size:14.5px;line-height:1.6;color:var(--grey-d);max-width:46ch}
+.plan-price{margin-top:auto;padding-top:18px;display:flex;align-items:baseline;gap:10px}
+.plan-price b{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 112,'wght' 900;font-size:clamp(1.7rem,3.4vw,2.7rem);letter-spacing:-.02em;line-height:1}
+.plan-price i{font-style:normal;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-d)}
+
+/* ── fechamento ─────────────────────────────── */
+.close-frame{position:relative;padding:clamp(30px,5vw,60px) 0}
+.close-frame .bracket{position:absolute;width:clamp(28px,4vw,54px);height:clamp(28px,4vw,54px);border:2px solid var(--red)}
+.b1{left:0;top:0;border-right:0;border-bottom:0}
+.b2{right:0;top:0;border-left:0;border-bottom:0}
+.b3{left:0;bottom:0;border-right:0;border-top:0}
+.b4{right:0;bottom:0;border-left:0;border-top:0}
+
+.final-word{
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 118,'wght' 900;
+  text-transform:uppercase;line-height:.94;letter-spacing:-.04em;
+  font-size:clamp(2.6rem,14.5vw,13rem);white-space:nowrap;
+}
+
+/* ── footer ─────────────────────────────────── */
+.foot{display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between;align-items:center;padding:34px 0;border-top:1px solid var(--line-i)}
+
+/* ── cursor ─────────────────────────────────── */
+.cursor{position:fixed;top:0;left:0;width:10px;height:10px;border-radius:50%;background:var(--red);pointer-events:none;z-index:200;transform:translate(-50%,-50%);mix-blend-mode:normal;transition:width .3s,height .3s,opacity .3s;opacity:0}
+.cursor.big{width:64px;height:64px;opacity:.9}
+@media(hover:none),(max-width:900px){.cursor{display:none}}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rl > i{transform:none!important}
+}
 </style>
 </head>
 <body>
-  <div class="box">
-    <span class="kicker">● Carreira Visual</span>
-    <h1>Mentoria Direção</h1>
-    <p>A página deste treinamento está sendo preparada. Enquanto isso, explore o restante da plataforma.</p>
-    <a href="/">Voltar para a plataforma</a>
+
+<div class="progress" id="progress"></div>
+<div class="cursor" id="cursor"></div>
+
+<!-- ══ NAV ══ -->
+<nav class="nav" id="nav">
+  <div class="nav-mark">
+    <span class="slashes sm"><i></i><i></i><i></i></span>
+    <span>Mentoria&nbsp;Direção</span>
   </div>
+  <div class="nav-links">
+    <a href="#manifesto">[ A Mentoria ]</a>
+    <a href="#direcoes">[ Direções ]</a>
+    <a href="#experiencia">[ Marcos ]</a>
+    <a href="#formatos">[ Formatos ]</a>
+  </div>
+  <a class="nav-cta" data-cta="principal" href="#formatos">Entrar na mentoria</a>
+</nav>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <div class="hero-frame">
+
+    <div class="hero-photo" id="heroPhoto" role="img" aria-label="Marcos Prado em estúdio"></div>
+    <div class="hero-scrim"></div>
+
+    <div class="hero-eyebrow">
+      <div class="hero-tags">
+        <span>[ MENTORIA 1:1 ]</span>
+        <span>[ AUDIOVISUAL ]</span>
+        <span>[ CARREIRA ]</span>
+        <span>[ BUSINESS ]</span>
+      </div>
+      <div class="hero-tags"><span>[ 2026 ]</span></div>
+    </div>
+
+    <div class="hero-type">
+      <div class="hero-mentoria">Mentoria</div>
+      <h1 class="hero-word" id="heroWord">Direção</h1>
+    </div>
+
+    <div class="hero-copy">
+      <p class="hero-claim">Você não precisa de mais informação.<br><span class="red">Precisa de direção.</span></p>
+      <p class="hero-lead">Mentoria individual para fotógrafos, filmmakers e profissionais do audiovisual que querem construir uma carreira mais estratégica, valorizada e alinhada com o futuro que desejam.</p>
+      <div class="cta-row">
+        <a class="btn btn-dark" data-cta="principal" href="#formatos" data-magnet><span>Quero entrar na mentoria</span><span class="ar">→</span></a>
+        <a class="btn btn-ghost" href="#manifesto" data-magnet><span>Conhecer</span><span class="ar">↓</span></a>
+      </div>
+    </div>
+
+    <div class="hero-foot">
+      <div class="scroll-ind"><span class="bar"></span><span>Role</span></div>
+      <div class="hero-meta"><span>[ 1:1 · Encontros individuais ]</span><span class="slashes sm" style="color:var(--red)"><i></i><i></i><i></i></span></div>
+    </div>
+
+  </div>
+</header>
+
+<!-- ══ MARQUEE 1 ══ -->
+<div class="marquee inv" data-marquee data-dir="-1" style="color:var(--paper)">
+  <div class="mq-track">
+    <div>
+      <span class="mq-item">Talento abre portas</span><span class="slashes" style="color:var(--red)"><i></i><i></i><i></i></span>
+      <span class="mq-item o">Direção constrói carreira</span><span class="slashes" style="color:var(--red)"><i></i><i></i><i></i></span>
+      <span class="mq-item">Talento abre portas</span><span class="slashes" style="color:var(--red)"><i></i><i></i><i></i></span>
+      <span class="mq-item o">Direção constrói carreira</span><span class="slashes" style="color:var(--red)"><i></i><i></i><i></i></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MANIFESTO ══ -->
+<section class="sec wrap" id="manifesto">
+  <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(34px,5vw,60px)">
+    <span class="lab red">[ O ponto cego ]</span>
+    <span class="lab">01 / 05</span>
+  </div>
+
+  <div class="d d-l stagger-lines" data-lines>
+    <div class="rl"><i>Você já tem</i></div>
+    <div class="rl"><i><span class="red">talento.</span></i></div>
+    <div class="rl"><i>Agora precisa</i></div>
+    <div class="rl"><i>transformá-lo</i></div>
+    <div class="rl"><i>em carreira.</i></div>
+  </div>
+
+  <div style="display:grid;gap:clamp(20px,4vw,60px);grid-template-columns:1fr;margin-top:clamp(40px,6vw,72px)" data-cols>
+    <p class="body">A maioria dos profissionais do audiovisual não trava por falta de técnica. Trava por não saber qual decisão tomar. O trabalho é bom, o portfólio é bonito, e mesmo assim a carreira parece andar de lado.</p>
+    <p class="body">Informação não falta. Existe curso, tutorial e conteúdo para tudo. O que falta é alguém olhar para o seu caso específico e ajudar a definir o próximo movimento — com critério, e sem achismo.</p>
+  </div>
+
+  <div class="q-grid" data-stagger>
+    <div><em>?</em>Que nicho seguir</div>
+    <div><em>?</em>Como se posicionar</div>
+    <div><em>?</em>Quanto cobrar</div>
+    <div><em>?</em>Como chegar em clientes melhores</div>
+    <div><em>?</em>O que entra no portfólio</div>
+    <div><em>?</em>Como falar com grandes marcas</div>
+    <div><em>?</em>Abrir uma produtora</div>
+    <div><em>?</em>Trabalhar fora do Brasil</div>
+    <div><em>?</em>Virar produto o que você sabe</div>
+  </div>
+
+  <div class="d d-m" style="margin-top:clamp(46px,7vw,90px);max-width:16ch" data-lines>
+    <div class="rl"><i>Qual deve ser</i></div>
+    <div class="rl"><i>o próximo <span class="red">movimento?</span></i></div>
+  </div>
+</section>
+
+<!-- ══ GRADE FIXA ══ -->
+<section class="sec sec-dark" data-theme="dark">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(34px,5vw,60px)">
+      <span class="lab red">[ Como é construída ]</span>
+      <span class="lab">02 / 05</span>
+    </div>
+    <div class="d d-l" data-lines>
+      <div class="rl"><i>Não existe</i></div>
+      <div class="rl"><i>uma grade fixa.</i></div>
+      <div class="rl"><i class="red">Existe a sua carreira.</i></div>
+    </div>
+    <p class="body" style="margin-top:clamp(30px,4vw,50px)">Não é um curso onde todo mundo recebe o mesmo conteúdo. Cada profissional chega em um momento diferente, com um problema diferente e um objetivo diferente. A partir daí, analisamos a situação e definimos juntos quais movimentos precisam ser feitos.</p>
+  </div>
+
+  <div style="margin-top:clamp(50px,8vw,90px)">
+    <div class="marquee inv" data-marquee data-dir="1">
+      <div class="mq-track">
+        <div>
+          <span class="mq-item">Portfólio</span><span class="mq-item o">Posicionamento</span><span class="mq-item">Carreira</span><span class="mq-item o">Business</span><span class="mq-item">Vendas</span><span class="mq-item o">Filmmaking</span><span class="mq-item">Fotografia</span>
+        </div>
+      </div>
+    </div>
+    <div class="marquee inv" style="border-top:0" data-marquee data-dir="-1">
+      <div class="mq-track">
+        <div>
+          <span class="mq-item o">Mercado internacional</span><span class="mq-item">Branding</span><span class="mq-item o">Produtos</span><span class="mq-item">Prospecção</span><span class="mq-item o">Rebranding</span><span class="mq-item">Negociação</span><span class="mq-item o">Precificação</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AS 6 DIREÇÕES ══ -->
+<section class="sec wrap" id="direcoes">
+  <div class="dir-head">
+    <div>
+      <span class="lab red">[ O que podemos trabalhar ]</span>
+      <div class="d d-m" style="margin-top:16px" data-lines>
+        <div class="rl"><i>Seis direções.</i></div>
+        <div class="rl"><i>Uma de cada vez.</i></div>
+      </div>
+    </div>
+    <span class="lab">03 / 05</span>
+  </div>
+
+  <article class="dir" data-dir>
+    <div class="dir-n">01</div>
+    <div class="dir-in">
+      <div class="dir-idx">01 —</div>
+      <div>
+        <h3 class="dir-t">Carreira</h3>
+        <div class="dir-tags"><span>Clareza</span><span>Mudança de nicho</span><span>Transição</span><span>Planejamento</span><span>Prioridades</span><span>Reposicionamento</span></div>
+      </div>
+      <p class="dir-txt">Entender com honestidade onde você está e para onde realmente quer levar a sua carreira — e construir uma trajetória de longo prazo em vez de uma sequência de trabalhos avulsos.</p>
+    </div>
+  </article>
+
+  <article class="dir" data-dir>
+    <div class="dir-n">02</div>
+    <div class="dir-in">
+      <div class="dir-idx">02 —</div>
+      <div>
+        <h3 class="dir-t">Posicionamento</h3>
+        <div class="dir-tags"><span>Marca pessoal</span><span>Rebranding</span><span>Instagram</span><span>Portfólio</span><span>Autoridade</span><span>Percepção de valor</span></div>
+      </div>
+      <p class="dir-txt">Como fazer o mercado entender quem você é, o que você entrega e por que deveria contratar você — antes mesmo da primeira conversa sobre preço.</p>
+    </div>
+  </article>
+
+  <article class="dir" data-dir>
+    <div class="dir-n">03</div>
+    <div class="dir-in">
+      <div class="dir-idx">03 —</div>
+      <div>
+        <h3 class="dir-t">Business</h3>
+        <div class="dir-tags"><span>Precificação</span><span>Propostas</span><span>Negociação</span><span>Prospecção</span><span>Grandes marcas</span><span>Networking</span></div>
+      </div>
+      <p class="dir-txt">Cobrar melhor e sustentar o valor do seu trabalho. Transformar oportunidade em contrato. Montar uma operação que se comporta como negócio, não como hobby bem-sucedido.</p>
+    </div>
+  </article>
+
+  <article class="dir" data-dir>
+    <div class="dir-n">04</div>
+    <div class="dir-in">
+      <div class="dir-idx">04 —</div>
+      <div>
+        <h3 class="dir-t">Criação</h3>
+        <div class="dir-tags"><span>Fotografia</span><span>Filmmaking</span><span>Narrativa</span><span>Linguagem visual</span><span>Direção criativa</span><span>Seleção de portfólio</span></div>
+      </div>
+      <p class="dir-txt">Análise de trabalhos reais, com apontamentos concretos sobre o que eleva o nível das suas imagens e dos seus filmes — da técnica à forma de apresentar o trabalho.</p>
+    </div>
+  </article>
+
+  <article class="dir" data-dir>
+    <div class="dir-n">05</div>
+    <div class="dir-in">
+      <div class="dir-idx">05 —</div>
+      <div>
+        <h3 class="dir-t">Internacional</h3>
+        <div class="dir-tags"><span>Clientes estrangeiros</span><span>Portfólio global</span><span>Networking fora</span><span>Faturar em dólar ou euro</span><span>Mudança de país</span></div>
+      </div>
+      <p class="dir-txt">Preparação para trabalhar fora do Brasil: onde buscar oportunidades, como se apresentar em outros mercados e como usar fotografia e audiovisual para construir uma carreira global.</p>
+    </div>
+  </article>
+
+  <article class="dir" data-dir>
+    <div class="dir-n">06</div>
+    <div class="dir-in">
+      <div class="dir-idx">06 —</div>
+      <div>
+        <h3 class="dir-t">Expansão</h3>
+        <div class="dir-tags"><span>Produtora</span><span>Equipe</span><span>Produtos digitais</span><span>Cursos</span><span>Novas receitas</span><span>Monetizar conhecimento</span></div>
+      </div>
+      <p class="dir-txt">Criar ativos que não dependam exclusivamente das suas horas de trabalho — e transformar experiência, conhecimento e autoridade em novos produtos e negócios.</p>
+    </div>
+  </article>
+</section>
+
+<!-- ══ DE → PARA ══ -->
+<section class="sec sec-dark" data-theme="dark">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(34px,5vw,64px)">
+      <span class="lab red">[ A mudança de perspectiva ]</span>
+      <span class="lab">04 / 05</span>
+    </div>
+
+    <div class="dp">
+      <div class="dp-row" data-dp><span class="dp-from">De executor</span><span class="dp-ar">→</span><span class="dp-to">Profissional estratégico</span></div>
+      <div class="dp-row" data-dp><span class="dp-from">De portfólio bonito</span><span class="dp-ar">→</span><span class="dp-to">Posicionamento</span></div>
+      <div class="dp-row" data-dp><span class="dp-from">De preço</span><span class="dp-ar">→</span><span class="dp-to">Valor</span></div>
+      <div class="dp-row" data-dp><span class="dp-from">De esperar indicações</span><span class="dp-ar">→</span><span class="dp-to">Prospecção</span></div>
+      <div class="dp-row" data-dp><span class="dp-from">De publicar por publicar</span><span class="dp-ar">→</span><span class="dp-to">Comunicação com propósito</span></div>
+      <div class="dp-row" data-dp><span class="dp-from">De trabalhos aleatórios</span><span class="dp-ar">→</span><span class="dp-to">Construção de carreira</span></div>
+      <div class="dp-row" data-dp><span class="dp-from">De aceitar o que aparece</span><span class="dp-ar">→</span><span class="dp-to">Escolher uma direção</span></div>
+    </div>
+
+    <p class="body" style="margin-top:clamp(30px,4vw,50px)">Sem promessa de faturamento e sem garantia de resultado. O que muda primeiro é o critério com que você decide — e é daí que vem o resto.</p>
+  </div>
+</section>
+
+<!-- ══ EXPERIÊNCIA ══ -->
+<section class="sec wrap" id="experiencia">
+  <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(34px,5vw,60px)">
+    <span class="lab red">[ Quem conduz ]</span>
+    <span class="lab">05 / 05</span>
+  </div>
+
+  <div class="xp">
+    <div class="xp-photo" data-parallax>
+      <span class="ph" role="img" aria-label="Retrato de Marcos Prado"></span>
+      <span class="frame"></span><span class="corner c1"></span><span class="corner c2"></span>
+      <span class="cap">[ Marcos Prado · Rio de Janeiro ]</span>
+    </div>
+    <div>
+      <div class="d d-l" data-lines>
+        <div class="rl"><i>Experiência</i></div>
+        <div class="rl"><i>que vira</i></div>
+        <div class="rl"><i class="red">direção.</i></div>
+      </div>
+      <p class="body" style="margin-top:clamp(24px,3vw,40px)">Fotógrafo e filmmaker, embaixador Fujifilm e fundador da Oná Brasil. Uma carreira construída atravessando nichos, mercados e formatos: projetos comerciais e autorais, grandes marcas, cobertura de eventos esportivos de escala olímpica, clientes no Brasil e fora, produtora própria, cursos e produtos digitais.</p>
+      <p class="body" style="margin-top:18px">As decisões que você está tentando tomar agora — mudar de nicho, subir o preço, montar equipe, virar produto, sair do país — eu já tomei, algumas mais de uma vez, e sei o que costuma dar certo e o que só parece bom no papel.</p>
+      <div class="cta-row">
+        <a class="btn btn-dark" data-cta="principal" href="#formatos" data-magnet><span>Quero entrar na mentoria</span><span class="ar">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="xp-facts" data-stagger>
+    <div><b>14</b><p>Anos de carreira</p></div>
+    <div><b>Fujifilm</b><p>Embaixador de marca</p></div>
+    <div><b>Oná</b><p>Produtora audiovisual</p></div>
+    <div><b>1:1</b><p>Sempre individual</p></div>
+  </div>
+</section>
+
+<!-- ══ COMO FUNCIONA ══ -->
+<section class="sec wrap" style="padding-top:0">
+  <div style="margin-bottom:clamp(30px,4vw,50px)">
+    <span class="lab red">[ Como funciona ]</span>
+    <div class="d d-m" style="margin-top:16px" data-lines>
+      <div class="rl"><i>Quatro etapas.</i></div>
+      <div class="rl"><i>Um plano só seu.</i></div>
+    </div>
+  </div>
+
+  <div class="steps" data-stagger>
+    <div class="step"><b>01</b><h4>Diagnóstico</h4><p>Onde você está, de verdade. Você traz o momento atual, os trabalhos, os números e os travamentos.</p><span class="mk slashes sm"><i></i><i></i><i></i></span></div>
+    <div class="step"><b>02</b><h4>Direção</h4><p>Onde você quer chegar. Definimos o destino antes de discutir qualquer tática.</p><span class="mk slashes sm"><i></i><i></i><i></i></span></div>
+    <div class="step"><b>03</b><h4>Estratégia</h4><p>O que precisa mudar. Identificamos os gargalos e definimos prioridades — o que fazer e o que abandonar.</p><span class="mk slashes sm"><i></i><i></i><i></i></span></div>
+    <div class="step"><b>04</b><h4>Movimento</h4><p>Qual é o próximo passo. Ações concretas, com prazo, revisadas e recalibradas nos encontros seguintes.</p><span class="mk slashes sm"><i></i><i></i><i></i></span></div>
+  </div>
+</section>
+
+<!-- ══ FORMATOS ══ -->
+<section class="sec wrap" id="formatos">
+  <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end">
+    <div class="d d-l" data-lines>
+      <div class="rl"><i>Escolha</i></div>
+      <div class="rl"><i>a profundidade</i></div>
+      <div class="rl"><i>da sua <span class="red">direção.</span></i></div>
+    </div>
+    <span class="lab">[ Duas modalidades ]</span>
+  </div>
+
+  <div class="plans">
+    <div class="plan">
+      <div class="plan-top">
+        <div><span class="lab red">Formato curto</span><div class="plan-name">Direção<br>30</div></div>
+        <div class="plan-days">30</div>
+      </div>
+      <div class="plan-meta"><span>30 dias</span><span>2 encontros 1:1</span></div>
+      <p class="plan-desc">Um processo direto e cirúrgico: diagnosticar o momento atual, definir prioridades, tomar decisões e sair com um plano claro para os próximos movimentos. Ideal para quem tem um problema ou objetivo específico e precisa de clareza para agir.</p>
+      <div class="plan-price"><b>R$ 2.997</b><i>ou parcelado</i></div>
+      <a class="btn btn-dark" data-cta="d30" href="#" data-magnet><span>Quero o Direção 30</span><span class="ar">→</span></a>
+    </div>
+
+    <div class="plan plan-hi">
+      <div class="plan-top">
+        <div><span class="lab red">Acompanhamento</span><div class="plan-name">Direção<br>60</div></div>
+        <div class="plan-days">60</div>
+      </div>
+      <div class="plan-meta"><span>60 dias</span><span>4 encontros 1:1</span><span>Ajuste de rota</span></div>
+      <p class="plan-desc">Dois meses para analisar, implementar, ajustar e evoluir a estratégia. Permite acompanhar os movimentos feitos depois dos primeiros encontros e recalibrar a direção conforme os resultados, os desafios e as oportunidades que aparecerem no caminho.</p>
+      <div class="plan-price"><b>R$ 4.997</b><i>ou parcelado</i></div>
+      <a class="btn" data-cta="d60" href="#" data-magnet><span>Quero o Direção 60</span><span class="ar">→</span></a>
+    </div>
+  </div>
+
+  <p class="lab" style="margin-top:22px">[ Vagas limitadas por mês · agenda individual ]</p>
+</section>
+
+<!-- ══ FECHAMENTO ══ -->
+<section class="sec sec-dark" data-theme="dark" id="contato">
+  <div class="wrap">
+    <div class="close-frame">
+      <span class="bracket b1"></span><span class="bracket b2"></span><span class="bracket b3"></span><span class="bracket b4"></span>
+      <div class="d d-l stagger-lines" data-lines style="padding:0 clamp(34px,5vw,70px)">
+        <div class="rl"><i>Às vezes você</i></div>
+        <div class="rl"><i>não precisa recomeçar</i></div>
+        <div class="rl"><i>sua carreira.</i></div>
+        <div class="rl"><i class="red">Precisa reenquadrá-la.</i></div>
+      </div>
+    </div>
+
+    <div style="display:grid;gap:clamp(18px,3vw,44px);grid-template-columns:1fr;margin-top:clamp(40px,6vw,70px)" data-cols>
+      <p class="body">Você traz o momento em que está. Nós analisamos onde você quer chegar. E construímos a direção entre esses dois pontos.</p>
+      <p class="body">A conversa começa com um formulário curto sobre o seu momento atual. A partir dele, defino se o Direção 30 ou o Direção 60 faz mais sentido para você.</p>
+    </div>
+
+    <div class="cta-row" style="margin-top:clamp(34px,5vw,54px)">
+      <a class="btn" data-cta="principal" href="#" data-magnet><span>Quero entrar na mentoria</span><span class="ar">→</span></a>
+      <a class="btn btn-ghost" data-cta="whatsapp" href="#" data-magnet><span>Falar antes</span><span class="ar">→</span></a>
+    </div>
+  </div>
+
+  <div style="margin-top:clamp(60px,10vw,120px);overflow:hidden">
+    <div class="wrap">
+      <div class="final-word" data-drift="-6">Mentoria</div>
+      <div class="final-word red" data-drift="6" style="text-align:right">Direção</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="foot">
+      <span class="lab">Talento abre portas. Direção constrói carreira.</span>
+      <span class="lab">Marcos Prado · Oná Brasil · Rio de Janeiro</span>
+      <span class="slashes sm" style="color:var(--red)"><i></i><i></i><i></i></span>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+/* ═══════════════════════════════════════════════
+   CONFIG — troque os links aqui e pronto
+   ═══════════════════════════════════════════════ */
+const CONFIG = {
+  principal : '#formatos',                  // CTA principal (checkout ou formulário)
+  d30       : 'https://exemplo.com/d30',    // checkout DIREÇÃO 30
+  d60       : 'https://exemplo.com/d60',    // checkout DIREÇÃO 60
+  whatsapp  : 'https://wa.me/5521000000000?text=Quero%20saber%20mais%20sobre%20a%20Mentoria%20Direção'
+};
+document.querySelectorAll('[data-cta]').forEach(el=>{
+  const k = el.dataset.cta; if(CONFIG[k]) el.setAttribute('href', CONFIG[k]);
+});
+
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* se o GSAP não carregar (offline, bloqueio de CDN), a página segue legível e estática */
+if(typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined'){
+  console.warn('GSAP indisponível — animações desligadas.');
+}else{
+gsap.registerPlugin(ScrollTrigger);
+
+/* ── progress ── */
+gsap.to('#progress',{width:'100%',ease:'none',scrollTrigger:{scrub:.3,start:0,end:'max'}});
+
+/* ── hero: split + entrada ── */
+const hw = document.getElementById('heroWord');
+hw.innerHTML = hw.textContent.trim().split('').map(c=>`<span class="ch">${c}</span>`).join('');
+
+if(!reduce){
+  const tl = gsap.timeline({defaults:{ease:'expo.out'}});
+  tl.from('.hero-frame',{scaleY:.86,transformOrigin:'50% 0%',duration:1.1,ease:'expo.inOut'})
+    .from('.hero-word .ch',{yPercent:118,duration:1.25,stagger:.045},'-=.65')
+    .from('.hero-photo',{scale:1.07,opacity:0,duration:1.7,ease:'expo.out'},'-=1.5')
+    .from('.hero-mentoria',{x:-26,opacity:0,duration:.9},'-=1.2')
+    .from('.hero-claim, .hero-lead, .cta-row, .hero-foot > *, .hero-eyebrow > *',{y:22,opacity:0,duration:.9,stagger:.06},'-=.95');
+
+  /* parallax do hero */
+  gsap.to('#heroPhoto',{yPercent:-6,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:.6}});
+  gsap.to('.hero-type',{yPercent:-14,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:.6}});
+}else{
+  document.body.classList.add('no-anim');
+}
+
+/* ── reveal de linhas ── */
+document.querySelectorAll('[data-lines]').forEach(box=>{
+  const inner = box.querySelectorAll('.rl > i');
+  if(reduce) return;
+  gsap.fromTo(inner,{yPercent:110},{yPercent:0,duration:1.05,ease:'expo.out',stagger:.085,
+    scrollTrigger:{trigger:box,start:'top 88%'}});
+});
+
+/* ── stagger genérico ── */
+document.querySelectorAll('[data-stagger]').forEach(box=>{
+  if(reduce) return;
+  gsap.from(box.children,{y:26,opacity:0,duration:.85,ease:'power3.out',stagger:.05,
+    scrollTrigger:{trigger:box,start:'top 85%'}});
+});
+document.querySelectorAll('[data-cols]').forEach(box=>{
+  if(reduce) return;
+  gsap.from(box.children,{y:24,opacity:0,duration:.9,ease:'power3.out',stagger:.12,
+    scrollTrigger:{trigger:box,start:'top 86%'}});
+});
+
+/* ── marquees ── */
+document.querySelectorAll('[data-marquee]').forEach(m=>{
+  const track = m.querySelector('.mq-track');
+  const group = track.firstElementChild;
+  track.appendChild(group.cloneNode(true));
+  track.appendChild(group.cloneNode(true));
+  const dir = parseFloat(m.dataset.dir||-1);
+  const w = group.offsetWidth;
+  if(reduce) return;
+  const tw = gsap.fromTo(track,{x: dir<0 ? 0 : -w},{x: dir<0 ? -w : 0,duration:w/70,ease:'none',repeat:-1});
+  ScrollTrigger.create({trigger:m,start:'top bottom',end:'bottom top',
+    onToggle:s=> s.isActive ? tw.play() : tw.pause()});
+});
+
+/* ── direções: número + ativação ── */
+document.querySelectorAll('[data-dir]').forEach(d=>{
+  const n = d.querySelector('.dir-n');
+  ScrollTrigger.create({trigger:d,start:'top 72%',end:'bottom 40%',
+    onToggle:s=> d.classList.toggle('act',s.isActive)});
+  if(reduce) return;
+  gsap.matchMedia().add('(min-width:860px)',()=>{
+    gsap.fromTo(n,{xPercent:10,yPercent:-50},{xPercent:-10,yPercent:-50,ease:'none',
+      scrollTrigger:{trigger:d,start:'top bottom',end:'bottom top',scrub:.8}});
+  });
+  gsap.from(d.querySelector('.dir-t'),{x:-40,opacity:0,duration:1,ease:'expo.out',
+    scrollTrigger:{trigger:d,start:'top 80%'}});
+});
+
+/* ── de → para ── */
+document.querySelectorAll('[data-dp]').forEach(r=>{
+  ScrollTrigger.create({trigger:r,start:'top 76%',
+    onEnter:()=>r.classList.add('act'),
+    onLeaveBack:()=>r.classList.remove('act')});
+});
+
+/* ── parallax fotos ── */
+document.querySelectorAll('[data-parallax] .ph').forEach(img=>{
+  if(reduce) return;
+  gsap.fromTo(img,{yPercent:-5},{yPercent:5,ease:'none',
+    scrollTrigger:{trigger:img.parentElement,start:'top bottom',end:'bottom top',scrub:.7}});
+});
+
+/* ── palavras finais em deriva ── */
+document.querySelectorAll('[data-drift]').forEach(el=>{
+  if(reduce) return;
+  const v = parseFloat(el.dataset.drift);
+  gsap.fromTo(el,{xPercent:v},{xPercent:-v,ease:'none',
+    scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:.8}});
+});
+
+/* ── nav clara/escura ── */
+const nav = document.getElementById('nav');
+document.querySelectorAll('[data-theme="dark"]').forEach(s=>{
+  ScrollTrigger.create({trigger:s,start:'top 60px',end:'bottom 60px',
+    onToggle:st=>nav.classList.toggle('on-dark',st.isActive)});
+});
+
+/* ── botões magnéticos ── */
+if(matchMedia('(hover:hover)').matches && !reduce){
+  document.querySelectorAll('[data-magnet]').forEach(b=>{
+    b.addEventListener('mousemove',e=>{
+      const r = b.getBoundingClientRect();
+      gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.16,y:(e.clientY-r.top-r.height/2)*.24,duration:.5,ease:'power3.out'});
+    });
+    b.addEventListener('mouseleave',()=>gsap.to(b,{x:0,y:0,duration:.7,ease:'elastic.out(1,.4)'}));
+  });
+
+  /* ── cursor ── */
+  const cur = document.getElementById('cursor');
+  let cx=0,cy=0,tx=0,ty=0;
+  window.addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;cur.style.opacity=.9});
+  gsap.ticker.add(()=>{cx+=(tx-cx)*.18;cy+=(ty-cy)*.18;cur.style.transform=`translate(${cx}px,${cy}px) translate(-50%,-50%)`});
+  document.querySelectorAll('a,button,[data-magnet],.q-grid div').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cur.classList.add('big'));
+    el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
+  });
+}
+
+
+/* ── scroll suave nas âncoras ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t = document.querySelector(a.getAttribute('href'));
+    if(!t) return;
+    e.preventDefault();
+    window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-40,behavior:reduce?'auto':'smooth'});
+  });
+});
+
+/* ── nenhuma palavra gigante pode ser cortada ── */
+function fitBig(){
+  document.querySelectorAll('.hero-word, .final-word').forEach(el=>{
+    el.style.fontSize='';
+    const avail = el.clientWidth;
+    if(!avail) return;
+    const w = el.scrollWidth;
+    if(w > avail){
+      const size = parseFloat(getComputedStyle(el).fontSize);
+      el.style.fontSize = (size * (avail/w) * 0.985) + 'px';
+    }
+  });
+}
+fitBig();
+if(document.fonts && document.fonts.ready){
+  document.fonts.ready.then(()=>{fitBig();ScrollTrigger.refresh()});
+}
+let rz; window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{fitBig();ScrollTrigger.refresh()},180)});
+window.addEventListener('load',()=>{fitBig();ScrollTrigger.refresh()});
+} /* fim do bloco GSAP */
+</script>
 </body>
 </html>

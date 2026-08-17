@@ -1,31 +1,724 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Corre y Cria — Carreira Visual</title>
-<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CORRE Y CRIA — Foto e vídeo para o mercado da corrida</title>
+<meta name="description" content="Aprenda a criar conteúdo profissional de foto e vídeo para atletas, run clubs, eventos e marcas no mercado da corrida. Com Marcos Prado. 13 módulos, 105 aulas e 7 bônus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  *{box-sizing:border-box}
-  body{margin:0;min-height:100svh;display:grid;place-items:center;text-align:center;padding:32px;
-    background:#000;color:#fff;font-family:'General Sans','Inter',-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
-  body::before{content:"";position:fixed;inset:0;z-index:0;
-    background:radial-gradient(60% 60% at 20% 30%,rgba(255,109,41,.28),transparent 65%),
-               radial-gradient(50% 50% at 80% 70%,rgba(69,48,39,.7),transparent 70%);filter:blur(70px)}
-  .box{position:relative;z-index:1;max-width:520px}
-  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#8a8386;font-family:ui-monospace,monospace}
-  h1{font-size:clamp(28px,6vw,46px);letter-spacing:-.035em;line-height:1.02;margin:16px 0 0;font-weight:600}
-  p{color:rgba(255,255,255,.66);margin:18px 0 0;line-height:1.55}
-  a{display:inline-flex;align-items:center;gap:9px;margin-top:30px;height:48px;padding:0 26px;border-radius:999px;
-    background:#FF6D29;color:#150a04;font-weight:600;text-decoration:none}
+/* ============================================================
+   CORRE Y CRIA — Landing Page
+   Paleta alinhada ao Guia de Estudos (PDF):
+   grafite/preto base · off-white · cinza urbano · laranja-vermelho + gold pontual
+   Tipografia: Archivo (títulos) · Inter (texto) — 100% sem serifa
+   ============================================================ */
+
+:root{
+  --black:#0e0d0c;
+  --graphite:#161514;
+  --graphite-2:#1e1c1a;
+  --card:#1a1917;
+  --card-border:#2c2926;
+  --white:#f6f3ee;
+  --off:#c9c4bb;
+  --gray:#8a857e;
+  --gray-urban:#5a5651;
+  --accent:#e24e2a;      /* laranja-vermelho (igual ao PDF) */
+  --accent-2:#ff7a45;    /* laranja claro */
+  --gold:#e6a24c;        /* dourado pontual (callouts) */
+  --cream:#f7f2ec;
+  --radius:16px;
+  --maxw:1180px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--black);
+  color:var(--white);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4,.display{font-family:'Archivo',sans-serif;letter-spacing:-.02em;line-height:1.02}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{position:relative}
+
+/* ---------- Utility ---------- */
+.eyebrow{
+  font-family:'Archivo';font-weight:700;font-size:.78rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block}
+.accent-txt{color:var(--accent)}
+.gold-txt{color:var(--gold)}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:'Archivo';font-weight:800;font-size:1rem;letter-spacing:.01em;
+  padding:16px 30px;border-radius:100px;border:2px solid transparent;cursor:pointer;
+  transition:transform .3s var(--ease),background .3s,box-shadow .3s,color .3s;
+  text-transform:uppercase;white-space:nowrap;
+}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 30px -8px rgba(226,78,42,.6)}
+.btn-primary:hover{transform:translateY(-3px);background:#f05a34;box-shadow:0 14px 40px -8px rgba(226,78,42,.75)}
+.btn-secondary{background:transparent;color:var(--white);border-color:var(--card-border)}
+.btn-secondary:hover{border-color:var(--white);transform:translateY(-3px)}
+.btn .arrow{transition:transform .3s var(--ease)}
+.btn:hover .arrow{transform:translateX(4px)}
+
+/* ---------- Header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .4s,backdrop-filter .4s,border-color .4s;
+  border-bottom:1px solid transparent;
+}
+header.scrolled{background:rgba(14,13,12,.82);backdrop-filter:blur(14px);border-color:var(--card-border)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{font-family:'Archivo';font-weight:900;font-size:1.35rem;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.logo b{color:var(--accent)}
+.logo .amp{color:var(--gray);font-weight:400}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:.92rem;font-weight:500;color:var(--off);transition:color .25s}
+.nav-links a:hover{color:var(--white)}
+.nav .btn{padding:11px 22px;font-size:.85rem}
+.menu-btn{display:none;background:none;border:none;color:var(--white);font-size:1.6rem;cursor:pointer}
+
+/* ---------- Hero ---------- */
+.hero{
+  min-height:100vh;display:flex;align-items:center;padding:120px 0 60px;
+  position:relative;overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 55% at 78% 30%,rgba(226,78,42,.22),transparent 60%),
+    radial-gradient(ellipse 50% 50% at 15% 80%,rgba(230,162,76,.08),transparent 60%),
+    linear-gradient(180deg,#0e0d0c 0%,#161412 60%,#0e0d0c 100%);
+}
+.streaks{position:absolute;inset:0;overflow:hidden;opacity:.5}
+.streak{position:absolute;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);animation:dash 3.5s linear infinite}
+.streak:nth-child(1){top:22%;width:220px;left:-220px;animation-delay:0s;opacity:.6}
+.streak:nth-child(2){top:52%;width:340px;left:-340px;animation-delay:1.1s;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.22}
+.streak:nth-child(3){top:70%;width:180px;left:-180px;animation-delay:.6s;opacity:.5}
+.streak:nth-child(4){top:38%;width:280px;left:-280px;animation-delay:2s;opacity:.4}
+@keyframes dash{to{left:110%}}
+
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;width:100%}
+.hero-tag{margin-bottom:26px}
+.hero h1{font-weight:900;font-size:clamp(2.6rem,6vw,5rem);text-transform:uppercase}
+.hero h1 .l2{color:var(--accent);display:block}
+.hero .sub{font-size:clamp(1.05rem,1.6vw,1.28rem);color:var(--off);max-width:560px;margin:26px 0 30px;line-height:1.55}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+.hero-mini{display:flex;gap:26px;margin-top:30px;flex-wrap:wrap}
+.hero-mini .m b{font-family:'Archivo';font-weight:900;font-size:1.5rem;color:var(--white);display:block;line-height:1}
+.hero-mini .m span{font-size:.76rem;color:var(--gray);text-transform:uppercase;letter-spacing:.08em}
+.authority{
+  margin-top:34px;padding-top:24px;border-top:1px solid var(--card-border);
+  display:flex;gap:16px;align-items:flex-start;max-width:560px;
+}
+.authority .badge{flex-shrink:0;width:44px;height:44px;border-radius:12px;background:var(--graphite-2);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.authority p{font-size:.92rem;color:var(--gray);line-height:1.5}
+.authority b{color:var(--white);font-weight:700}
+
+/* hero visual */
+.hero-visual{position:relative;height:520px}
+.hv-frame{position:absolute;border-radius:var(--radius);overflow:hidden;border:1px solid var(--card-border);background:linear-gradient(160deg,#221f1c,#121110);box-shadow:0 30px 70px -30px rgba(0,0,0,.9)}
+.hv-1{inset:0 22% 30% 0;z-index:2}
+.hv-2{width:52%;right:0;top:16%;bottom:12%;z-index:3}
+.hv-3{width:38%;left:8%;bottom:0;height:34%;z-index:4;border-color:var(--accent)}
+.placeholder-img{width:100%;height:100%;position:relative;display:flex;align-items:flex-end;padding:16px;background-size:cover;background-position:center}
+.ph-a{background:
+  linear-gradient(180deg,transparent 40%,rgba(0,0,0,.75)),
+  repeating-linear-gradient(115deg,#2a2724 0 22px,#201d1b 22px 44px),
+  radial-gradient(circle at 70% 30%,rgba(226,78,42,.38),transparent 55%)}
+.ph-b{background:
+  linear-gradient(180deg,transparent 45%,rgba(0,0,0,.8)),
+  repeating-linear-gradient(60deg,#282521 0 20px,#1d1a18 20px 40px),
+  radial-gradient(circle at 30% 70%,rgba(230,162,76,.22),transparent 60%)}
+.ph-c{background:
+  linear-gradient(160deg,rgba(226,78,42,.55),rgba(255,122,69,.28)),
+  repeating-linear-gradient(-40deg,#2c2926 0 14px,#211e1b 14px 28px)}
+.ph-tag{font-family:'Archivo';font-weight:700;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--white);background:rgba(0,0,0,.5);backdrop-filter:blur(4px);padding:6px 12px;border-radius:100px;border:1px solid rgba(255,255,255,.14)}
+.hv-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(226,78,42,.92);display:flex;align-items:center;justify-content:center;z-index:5;box-shadow:0 0 0 0 rgba(226,78,42,.55);animation:pulse 2.4s infinite}
+.hv-play svg{width:22px;height:22px;fill:#fff;margin-left:3px}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(226,78,42,.55)}70%{box-shadow:0 0 0 22px rgba(226,78,42,0)}100%{box-shadow:0 0 0 0 rgba(226,78,42,0)}}
+
+/* marquee ticker */
+.ticker{border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border);background:var(--graphite);overflow:hidden;padding:16px 0}
+.ticker-track{display:flex;gap:44px;white-space:nowrap;animation:scrollx 26s linear infinite;width:max-content}
+.ticker-track span{font-family:'Archivo';font-weight:800;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);display:flex;align-items:center;gap:44px}
+.ticker-track span::after{content:"●";color:var(--accent);font-size:.6rem}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+/* ---------- Section base ---------- */
+.section-pad{padding:100px 0}
+.section-head{max-width:780px;margin-bottom:56px}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.section-head.center .eyebrow{justify-content:center}
+.section-head h2{font-weight:800;font-size:clamp(2rem,4vw,3.2rem);text-transform:uppercase;margin-top:18px}
+.section-head p{color:var(--off);font-size:1.1rem;margin-top:18px;line-height:1.6}
+
+/* ---------- Opportunity ---------- */
+.opp{background:var(--graphite);border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border)}
+.opp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.opp-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 24px;transition:transform .4s var(--ease),border-color .4s,background .4s;position:relative;overflow:hidden}
+.opp-card::after{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--accent);transition:width .4s var(--ease)}
+.opp-card:hover{transform:translateY(-6px);border-color:var(--gray-urban);background:var(--graphite-2)}
+.opp-card:hover::after{width:100%}
+.opp-card .ic{font-size:1.7rem;margin-bottom:16px}
+.opp-card h4{font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:-.01em}
+.opp-card p{color:var(--gray);font-size:.92rem;margin-top:8px}
+
+/* ---------- For whom ---------- */
+.who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.who-card{background:linear-gradient(180deg,var(--card),#141210);border:1px solid var(--card-border);border-radius:var(--radius);padding:32px 26px;transition:transform .4s var(--ease),border-color .4s}
+.who-card:hover{transform:translateY(-8px);border-color:var(--accent)}
+.who-card.feat{border-color:rgba(226,78,42,.5);background:linear-gradient(180deg,rgba(226,78,42,.1),var(--card))}
+.who-num{font-family:'Archivo';font-weight:900;font-size:2.4rem;color:var(--card-border);line-height:1}
+.who-card:hover .who-num{color:var(--accent)}
+.who-card.feat .who-num{color:var(--accent)}
+.who-card h3{font-size:1.32rem;font-weight:800;text-transform:uppercase;margin:14px 0 12px}
+.who-card p{color:var(--off);font-size:.95rem;line-height:1.6}
+.who-badge{display:inline-block;font-family:'Archivo';font-weight:800;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--accent);padding:3px 9px;border-radius:100px;margin-bottom:12px}
+
+/* ---------- Learn ---------- */
+.learn{background:var(--graphite);border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border)}
+.learn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.learn-item{display:flex;gap:16px;align-items:flex-start;padding:20px 22px;background:var(--card);border:1px solid var(--card-border);border-radius:12px;transition:border-color .3s,transform .3s var(--ease),background .3s}
+.learn-item:hover{border-color:var(--gray-urban);transform:translateX(4px);background:var(--graphite-2)}
+.learn-item .chk{flex-shrink:0;width:26px;height:26px;border-radius:8px;background:rgba(226,78,42,.14);border:1px solid rgba(226,78,42,.4);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:900;font-size:.9rem;margin-top:2px}
+.learn-item p{font-size:1rem;color:var(--white);font-weight:500}
+
+/* ---------- Modules (accordion) ---------- */
+.mod-list{display:flex;flex-direction:column;gap:12px;max-width:940px;margin:0 auto}
+.mod{border:1px solid var(--card-border);border-radius:14px;background:var(--card);overflow:hidden;transition:border-color .3s,background .3s}
+.mod.open{border-color:var(--accent);background:var(--graphite-2)}
+.mod-head{display:flex;align-items:center;gap:18px;padding:22px 24px;cursor:pointer;user-select:none}
+.mod-badge{font-family:'Archivo';font-weight:900;font-size:.8rem;letter-spacing:.08em;color:var(--accent);flex-shrink:0;border:1px solid var(--card-border);border-radius:100px;padding:8px 13px;background:var(--black);min-width:74px;text-align:center}
+.mod-title{flex:1;font-family:'Archivo';font-weight:700;font-size:1.1rem;text-transform:uppercase;letter-spacing:-.01em;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mod-pill{font-family:'Archivo';font-weight:800;font-size:.6rem;letter-spacing:.12em;color:#fff;background:var(--accent);padding:2px 8px;border-radius:100px}
+.mod-aulas{flex-shrink:0;font-size:.8rem;color:var(--gray);font-weight:600;white-space:nowrap}
+.mod-toggle{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;transition:transform .35s var(--ease),background .3s,color .3s;font-size:1.3rem;color:var(--off)}
+.mod.open .mod-toggle{transform:rotate(45deg);background:var(--accent);color:#fff;border-color:var(--accent)}
+.mod-body{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.mod-body-inner{padding:0 24px 24px 24px;color:var(--off);font-size:.98rem;line-height:1.65}
+
+/* ---------- Bonus ---------- */
+.bonus{background:var(--graphite);border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border)}
+.bonus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.bonus-card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:26px 24px;display:flex;gap:16px;align-items:flex-start;transition:transform .35s var(--ease),border-color .35s}
+.bonus-card:hover{transform:translateY(-5px);border-color:var(--gold)}
+.bonus-ic{flex-shrink:0;width:44px;height:44px;border-radius:12px;background:rgba(226,78,42,.14);border:1px solid rgba(226,78,42,.32);display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.bonus-card h4{font-size:1.02rem;font-weight:700}
+.bonus-card p{color:var(--gray);font-size:.86rem;margin-top:4px}
+
+/* ---------- Teacher ---------- */
+.teacher-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px;align-items:center}
+.teacher-photo{position:relative;aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;border:1px solid var(--card-border);
+  background:
+    linear-gradient(180deg,transparent 50%,rgba(0,0,0,.75)),
+    repeating-linear-gradient(120deg,#2a2724 0 24px,#1e1b19 24px 48px),
+    radial-gradient(circle at 60% 25%,rgba(226,78,42,.3),transparent 55%);
+  display:flex;align-items:flex-end;padding:24px}
+.teacher-photo .ph-label{font-family:'Archivo';font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--off);background:rgba(0,0,0,.5);padding:8px 14px;border-radius:100px;border:1px solid rgba(255,255,255,.14)}
+.teacher-photo .frame-tick{position:absolute;top:16px;left:16px;font-family:'Archivo';font-weight:800;font-size:.7rem;letter-spacing:.1em;color:var(--accent)}
+.teacher-photo .frame-tick::before{content:"● REC "}
+.teacher-info h2{font-weight:800;font-size:clamp(1.9rem,3.6vw,2.8rem);text-transform:uppercase;margin:16px 0 20px}
+.teacher-info p{color:var(--off);font-size:1.08rem;line-height:1.7}
+.teacher-stats{display:flex;gap:34px;margin-top:30px;flex-wrap:wrap}
+.tstat b{font-family:'Archivo';font-weight:900;font-size:2rem;color:var(--white);display:block}
+.tstat span{font-size:.82rem;color:var(--gray);text-transform:uppercase;letter-spacing:.08em}
+
+/* ---------- Transformation ---------- */
+.transform{background:var(--graphite);border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border)}
+.ba-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;margin-top:20px}
+.ba-col{border:1px solid var(--card-border);border-radius:var(--radius);padding:34px 30px}
+.ba-before{background:var(--card);border-right:none;border-radius:var(--radius) 0 0 var(--radius)}
+.ba-after{background:linear-gradient(180deg,rgba(226,78,42,.08),var(--card));border-left:none;border-radius:0 var(--radius) var(--radius) 0;border-color:var(--accent)}
+.ba-label{font-family:'Archivo';font-weight:900;font-size:.9rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:22px}
+.ba-before .ba-label{color:var(--gray)}
+.ba-after .ba-label{color:var(--accent)}
+.ba-col ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.ba-col li{display:flex;gap:12px;align-items:flex-start;font-size:1rem}
+.ba-before li{color:var(--gray)}
+.ba-after li{color:var(--white);font-weight:500}
+.ba-icon{flex-shrink:0;width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.8rem;margin-top:1px}
+.ba-before .ba-icon{background:rgba(138,133,126,.14);color:var(--gray)}
+.ba-after .ba-icon{background:rgba(226,78,42,.16);color:var(--accent)}
+.ba-mid{display:flex;align-items:center;justify-content:center;padding:0 4px}
+.ba-arrow{width:56px;height:56px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;box-shadow:0 10px 30px -8px rgba(226,78,42,.6)}
+
+/* ---------- Pricing ---------- */
+.price-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.price-copy h2{font-weight:800;font-size:clamp(2rem,4vw,3rem);text-transform:uppercase;margin:18px 0}
+.price-copy p{color:var(--off);font-size:1.1rem;line-height:1.6}
+.price-copy .guarantee{margin-top:24px;display:flex;gap:12px;align-items:center;color:var(--gray);font-size:.92rem}
+.price-copy .guarantee .g-ic{width:34px;height:34px;border-radius:10px;background:rgba(226,78,42,.14);border:1px solid rgba(226,78,42,.32);display:flex;align-items:center;justify-content:center;color:var(--accent)}
+.offer-box{background:linear-gradient(180deg,var(--graphite-2),var(--card));border:1px solid var(--card-border);border-radius:22px;padding:38px 34px;position:relative;overflow:hidden;box-shadow:0 40px 90px -40px rgba(0,0,0,.9)}
+.offer-box::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--gold),var(--accent))}
+.offer-flag{display:inline-block;font-family:'Archivo';font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);background:rgba(230,162,76,.1);border:1px solid rgba(230,162,76,.3);padding:7px 14px;border-radius:100px;margin-bottom:20px}
+.offer-box h3{font-family:'Archivo';font-weight:900;font-size:1.7rem;text-transform:uppercase}
+.offer-box .osub{color:var(--gray);font-size:.95rem;margin-top:4px}
+.offer-price{display:flex;align-items:flex-end;gap:12px;margin:24px 0 6px}
+.offer-price .old{color:var(--gray-urban);text-decoration:line-through;font-size:1.1rem;margin-bottom:8px}
+.offer-price .cur{font-family:'Archivo';font-weight:900;font-size:3.2rem;color:var(--white);line-height:1}
+.offer-price .cur small{font-size:1.2rem;color:var(--gray);font-weight:700}
+.offer-parcel{color:var(--off);font-size:.9rem;margin-bottom:24px}
+.offer-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin:22px 0 28px;border-top:1px solid var(--card-border);padding-top:22px}
+.offer-list li{display:flex;gap:12px;align-items:flex-start;font-size:.98rem;color:var(--white)}
+.offer-list .oi{flex-shrink:0;width:22px;height:22px;border-radius:6px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.8rem;margin-top:2px}
+.offer-box .btn{width:100%;font-size:1.05rem;padding:18px}
+.offer-note{text-align:center;color:var(--gray);font-size:.82rem;margin-top:14px}
+
+/* ---------- FAQ ---------- */
+.faq{background:var(--graphite);border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border)}
+.faq-list{max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{border:1px solid var(--card-border);border-radius:14px;background:var(--card);overflow:hidden;transition:border-color .3s}
+.faq-item.open{border-color:var(--gray-urban)}
+.faq-q{display:flex;align-items:center;gap:18px;padding:22px 24px;cursor:pointer;user-select:none;font-family:'Archivo';font-weight:700;font-size:1.05rem}
+.faq-q .fq-ic{flex-shrink:0;width:30px;height:30px;border-radius:50%;border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--off);transition:transform .35s var(--ease),background .3s,color .3s}
+.faq-item.open .fq-ic{transform:rotate(45deg);background:var(--accent);color:#fff;border-color:var(--accent)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-a p{padding:0 24px 24px 72px;color:var(--off);font-size:.98rem;line-height:1.65}
+
+/* ---------- CTA final ---------- */
+.cta-final{padding:120px 0;text-align:center;position:relative;overflow:hidden}
+.cta-final::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(226,78,42,.18),transparent 60%);z-index:0}
+.cta-final .wrap{position:relative;z-index:2}
+.cta-final h2{font-weight:900;font-size:clamp(2.2rem,5vw,4rem);text-transform:uppercase;max-width:900px;margin:22px auto 0}
+.cta-final p{color:var(--off);font-size:1.15rem;max-width:620px;margin:22px auto 38px}
+.cta-final .btn{font-size:1.15rem;padding:20px 44px}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--card-border);padding:48px 0 40px;background:var(--black)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.foot .logo{font-size:1.2rem}
+.foot p{color:var(--gray-urban);font-size:.85rem}
+.foot-links{display:flex;gap:24px}
+.foot-links a{color:var(--gray);font-size:.85rem;transition:color .25s}
+.foot-links a:hover{color:var(--white)}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+
+/* ---------- Responsive ---------- */
+@media(max-width:1000px){
+  .who-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-visual{height:380px;order:-1}
+  .teacher-grid{grid-template-columns:1fr;gap:34px}
+  .price-wrap{grid-template-columns:1fr;gap:32px}
+  .opp-grid,.bonus-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  .nav-links{display:none}
+  .nav-links.mobile-open{display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;background:rgba(14,13,12,.97);backdrop-filter:blur(14px);padding:24px;gap:20px;border-bottom:1px solid var(--card-border)}
+  .menu-btn{display:block}
+  .nav .btn.desk{display:none}
+  .section-pad{padding:72px 0}
+  .who-grid,.learn-grid,.opp-grid,.bonus-grid{grid-template-columns:1fr}
+  .ba-grid{grid-template-columns:1fr;gap:0}
+  .ba-before{border-radius:var(--radius) var(--radius) 0 0;border-right:1px solid var(--card-border);border-bottom:none}
+  .ba-after{border-radius:0 0 var(--radius) var(--radius);border-left:1px solid var(--accent);border-top:none}
+  .ba-mid{padding:14px 0}
+  .ba-arrow{transform:rotate(90deg)}
+  .hero h1{font-size:2.5rem}
+  .mod-aulas{display:none}
+  .cta-final{padding:80px 0}
+}
+@media(max-width:420px){
+  .wrap{padding:0 18px}
+  .btn{width:100%}
+  .hero-cta{flex-direction:column}
+  .hero-cta .btn{width:100%}
+}
 </style>
 </head>
 <body>
-  <div class="box">
-    <span class="kicker">● Carreira Visual</span>
-    <h1>Corre y Cria</h1>
-    <p>A página deste treinamento está sendo preparada. Enquanto isso, explore o restante da plataforma.</p>
-    <a href="/">Voltar para a plataforma</a>
+
+<!-- ============ HEADER ============ -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="logo">CORRE <span class="amp">Y</span> <b>CRIA</b></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#oportunidade">Oportunidade</a>
+      <a href="#aprender">O que aprende</a>
+      <a href="#modulos">Módulos</a>
+      <a href="#professor">Professor</a>
+      <a href="#oferta">Oferta</a>
+      <a href="#oferta" class="btn btn-primary" style="padding:11px 22px;font-size:.85rem">Quero entrar</a>
+    </nav>
+    <a href="#oferta" class="btn btn-primary desk">Quero entrar</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
   </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <div class="streaks"><span class="streak"></span><span class="streak"></span><span class="streak"></span><span class="streak"></span></div>
+  </div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="hero-tag reveal in"><span class="eyebrow">Foto &amp; vídeo · mercado da corrida</span></div>
+      <h1 class="reveal in d1">Transforme corrida<br><span class="l2">em foto, vídeo e venda.</span></h1>
+      <p class="sub reveal in d2">Aprenda a criar conteúdo profissional para atletas, clubes, eventos e marcas no mercado da corrida.</p>
+      <div class="hero-cta reveal in d3">
+        <a href="#oferta" class="btn btn-primary">Quero entrar no CORRE Y CRIA <span class="arrow">→</span></a>
+        <a href="#aprender" class="btn btn-secondary">Ver o que vou aprender</a>
+      </div>
+      <div class="hero-mini reveal in d3">
+        <div class="m"><b>13</b><span>Módulos</span></div>
+        <div class="m"><b>105</b><span>Aulas</span></div>
+        <div class="m"><b>7</b><span>Bônus</span></div>
+        <div class="m"><b>+IA</b><span>Foto, vídeo e capas</span></div>
+      </div>
+      <div class="authority reveal in d4">
+        <div class="badge">🏅</div>
+        <p>Com <b>Marcos Prado</b> — fotógrafo e filmmaker com experiência em grandes marcas, campanhas esportivas e conteúdos para o perfil oficial das Olimpíadas.</p>
+      </div>
+    </div>
+    <div class="hero-visual reveal in d3">
+      <div class="hv-frame hv-1"><div class="placeholder-img ph-a"><span class="ph-tag">Largada · prova de rua</span></div></div>
+      <div class="hv-frame hv-2"><div class="placeholder-img ph-b"><span class="ph-tag">Filmmaker em ação</span></div>
+        <div class="hv-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="hv-frame hv-3"><div class="placeholder-img ph-c"><span class="ph-tag">Marca · tênis</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Atletas amadores</span><span>Run clubs</span><span>Assessorias</span><span>Eventos &amp; provas</span><span>Marcas de tênis</span><span>Campanhas</span><span>Ensaios</span><span>Edição &amp; IA</span>
+    <span>Atletas amadores</span><span>Run clubs</span><span>Assessorias</span><span>Eventos &amp; provas</span><span>Marcas de tênis</span><span>Campanhas</span><span>Ensaios</span><span>Edição &amp; IA</span>
+  </div>
+</div>
+
+<!-- ============ OPORTUNIDADE ============ -->
+<section class="section-pad opp" id="oportunidade">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">A oportunidade</span>
+      <h2>A corrida virou mercado.<br>Agora ela também pode virar o seu trabalho.</h2>
+      <p>A corrida deixou de ser apenas esporte. Ela virou comunidade, lifestyle, conteúdo, publicidade e oportunidade para fotógrafos e filmmakers. Onde existe treino, prova, clube, marca ou atleta, existe demanda por imagem.</p>
+    </div>
+    <div class="opp-grid">
+      <div class="opp-card reveal"><div class="ic">🏃</div><h4>Atletas amadores</h4><p>Ensaios, registros de prova e conteúdo pessoal.</p></div>
+      <div class="opp-card reveal d1"><div class="ic">👥</div><h4>Run clubs</h4><p>Conteúdo recorrente para comunidade e redes.</p></div>
+      <div class="opp-card reveal d2"><div class="ic">📋</div><h4>Assessorias esportivas</h4><p>Material para treinos, alunos e divulgação.</p></div>
+      <div class="opp-card reveal"><div class="ic">🏁</div><h4>Eventos e provas</h4><p>Cobertura de largada, percurso e chegada.</p></div>
+      <div class="opp-card reveal d1"><div class="ic">👟</div><h4>Marcas esportivas</h4><p>Tênis, roupas e acessórios que precisam de imagem.</p></div>
+      <div class="opp-card reveal d2"><div class="ic">📣</div><h4>Campanhas e ativações</h4><p>Produção publicitária e conteúdo de marca.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARA QUEM É ============ -->
+<section class="section-pad" id="paraquem">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Para quem é</span>
+      <h2>Para quem é o CORRE Y CRIA?</h2>
+    </div>
+    <div class="who-grid">
+      <div class="who-card reveal">
+        <div class="who-num">01</div>
+        <h3>Fotógrafos</h3>
+        <p>Para quem quer vender fotos, fazer ensaios com corredores, cobrir provas, criar portfólio esportivo e fechar com marcas.</p>
+      </div>
+      <div class="who-card reveal d1">
+        <div class="who-num">02</div>
+        <h3>Filmmakers</h3>
+        <p>Para quem quer produzir reels, vídeos comerciais, conteúdos para clubes, campanhas para marcas e materiais para atletas.</p>
+      </div>
+      <div class="who-card reveal d2">
+        <div class="who-num">03</div>
+        <h3>Criadores &amp; mobile</h3>
+        <p>Para quem quer começar com o que tem, criar conteúdo de corrida com estética profissional e transformar isso em oportunidade.</p>
+      </div>
+      <div class="who-card feat reveal d3">
+        <span class="who-badge">Novo módulo</span>
+        <div class="who-num">04</div>
+        <h3>Clubes de corrida</h3>
+        <p>Para clubes e seus times de mídia: posicionar, criar conteúdo, fechar com marcas e treinar o time com uma linguagem única.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ O QUE VOCÊ VAI APRENDER ============ -->
+<section class="section-pad learn" id="aprender">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Na prática</span>
+      <h2>O que você vai aprender na prática</h2>
+    </div>
+    <div class="learn-grid">
+      <div class="learn-item reveal"><span class="chk">✓</span><p>Enxergar oportunidades dentro do mercado da corrida</p></div>
+      <div class="learn-item reveal d1"><span class="chk">✓</span><p>Fotografar movimento, emoção, largada, chegada, treino e lifestyle</p></div>
+      <div class="learn-item reveal"><span class="chk">✓</span><p>Filmar treinos, provas, clubes e marcas com estética profissional</p></div>
+      <div class="learn-item reveal d1"><span class="chk">✓</span><p>Editar vídeos curtos e tratar cor de foto e vídeo</p></div>
+      <div class="learn-item reveal"><span class="chk">✓</span><p>Usar IA para foto, vídeo e criar capas de Reels e TikTok</p></div>
+      <div class="learn-item reveal d1"><span class="chk">✓</span><p>Vender fotos e criar ensaios para corredores</p></div>
+      <div class="learn-item reveal"><span class="chk">✓</span><p>Posicionar e profissionalizar a mídia de um clube de corrida</p></div>
+      <div class="learn-item reveal d1"><span class="chk">✓</span><p>Prospectar clubes, assessorias e marcas</p></div>
+      <div class="learn-item reveal"><span class="chk">✓</span><p>Montar propostas e um PDF de apresentação com Claude e Canva</p></div>
+      <div class="learn-item reveal d1"><span class="chk">✓</span><p>Posicionar seu Instagram para ser encontrado por clientes</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MÓDULOS ============ -->
+<section class="section-pad" id="modulos">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Conteúdo do curso</span>
+      <h2>Conteúdo do curso</h2>
+      <p>13 módulos e 105 aulas, do mercado à venda — passando por foto, vídeo, edição, IA, clubes e prospecção. Clique para expandir.</p>
+    </div>
+    <div class="mod-list">
+      <div class="mod reveal"><div class="mod-head"><span class="mod-badge">MÓD 0</span><span class="mod-title">Comece por aqui</span><span class="mod-aulas">4 aulas</span><span class="mod-toggle">+</span></div><div class="mod-body"><div class="mod-body-inner">Boas-vindas, como usar o curso, o que você precisa para começar e a mentalidade do criador esportivo.</div></div></div>
+
+      <div class="mod reveal"><div class="mod-head"><span class="mod-badge">MÓD 1</span><span class="mod-title">O mercado da corrida</span><span class="mod-aulas">6 aulas</span><span class="mod-toggle">+</span></div><div class="mod-body"><div class="mod-body-inner">Por que a corrida virou oportunidade, quem compra foto e vídeo, os 6 caminhos de monetização e o que as marcas procuram.</div></div></div>
+
+      <div class="mod reveal"><div class="mod-head"><span class="mod-badge">MÓD 2</span><span class="mod-title">Clube de corrida e time de mídia <span class="mod-pill">Novo · Especial</span></span><span class="mod-aulas">8 aulas</span><span class="mod-toggle">+</span></div><div class="mod-body"><div class="mod-body-inner">Módulo com dupla função: para o criador que quer atender clubes e para o próprio clube profissionalizar o time de mídia. Posicionamento, identidade visual, ideias de post, rotina de mídia em treinos e provas, marketing, crescimento e como o clube fecha com marcas e patrocinadores.</div></div></div>
+
+      <div class="mod reveal"><div class="mod-head"><span class="mod-badge">MÓD 3</span><span class="mod-title">Equipamento, preparação e visão de campo</span><span class="mod-aulas">7 aulas</span><span class="mod-toggle">+</span></div><div class="mod-body"><div class="mod-body-inner">Kit ideal, lentes, configurações de foto e vídeo, como se posicionar em treinos e provas, etiqueta no esporte e checklist pré-cobertura.</div></div></div>
+
+      <div class="mod reveal"><div class="mod-head"><span class="mod-badge">MÓD 4</span><span class="mod-title">Fotografia de corrida</span><span class="mod-aulas">10 aulas</span><span class="mod-toggle">+</span></div><div class="mod-body"><div class="mod-body-inner">Movimento, emoção, detalhes, run clubs, provas, ensaio com corredor, narrativa fotográfica, como vender fotos e erros comuns.</div></div></div>
+
+      <div class="mod reveal"><div class="mod-head"><span class="mod-badge">MÓD 5</span><span class="mod-title">Filmmaking de corrida</span><span class="mod-aulas">11 aulas</span><span class="mod-toggle">+</span></div><div class="mod-body"><div class="mod-body-inner">Planejamento, planos essenciais, treino de run club, atleta individual, produto, vídeo publicitário, celular, câmera e vídeos para marcas.</div></div></div>
+
+      <div class="mod reveal"><div class="mod-head"><span class="mod-badge">MÓD 6</span><span class="mod-title">Aula prática em campo</span><span class="mod-aulas">7 aulas</span><span class="mod-toggle">+</span></div><div class="mod-body"><div class="mod-body-inner">Coberturas reais comentadas: treino, movimento, reels, marca fictícia, ensaio, bastidores do raciocínio e do bruto ao entregue.</div></div></div>
+
+      <div class="mod reveal"><div class="mod-head"><span class="mod-badge">MÓD 7</span><span class="mod-title">Edição, cor e entrega</span><span class="mod-aulas">10 aulas</span><span class="mod-toggle">+</span></div><div class="mod-body"><div class="mod-body-inner">Seleção rápida, tratamento de foto, estética consistente, edição de reels, correção de cor, texto na tela, exportação e entrega premium.</div></div></div>
+
+      <div class="mod reveal"><div class="mod-head"><span class="mod-badge">MÓD 8</span><span class="mod-title">Inteligência artificial: foto, vídeo e capas <span class="mod-pill">Novo · Especial</span></span><span class="mod-aulas">6 aulas</span><span class="mod-toggle">+</span></div><div class="mod-body"><div class="mod-body-inner">IA no seu fluxo, IA para foto, IA para vídeo, como criar capas bonitas de Reels e TikTok com IA, capas de materiais e thumbnails, prompts e boas práticas.</div></div></div>
+
+      <div class="mod reveal"><div class="mod-head"><span class="mod-badge">MÓD 9</span><span class="mod-title">Instagram, portfólio e posicionamento</span><span class="mod-aulas">11 aulas</span><span class="mod-toggle">+</span></div><div class="mod-body"><div class="mod-body-inner">Posicionar o perfil, o que postar, atrair atletas, clubes e marcas, legendas, portfólio rápido, vitrine comercial e como fazer seu trabalho circular.</div></div></div>
+
+      <div class="mod reveal"><div class="mod-head"><span class="mod-badge">MÓD 10</span><span class="mod-title">Vendas, prospecção e propostas</span><span class="mod-aulas">13 aulas</span><span class="mod-toggle">+</span></div><div class="mod-body"><div class="mod-body-inner">Oferta e pacotes, prospecção de atletas, clubes e marcas, proposta simples, <b>PDF de apresentação com Claude e Canva</b>, negociação e recorrência.</div></div></div>
+
+      <div class="mod reveal"><div class="mod-head"><span class="mod-badge">MÓD 11</span><span class="mod-title">Entrega, experiência e profissionalismo</span><span class="mod-aulas">6 aulas</span><span class="mod-toggle">+</span></div><div class="mod-body"><div class="mod-body-inner">Atendimento antes do trabalho, condução na captação, entrega com percepção de valor, depoimento, indicação e como montar case.</div></div></div>
+
+      <div class="mod reveal"><div class="mod-head"><span class="mod-badge">MÓD 12</span><span class="mod-title">Plano de ação de 30 dias</span><span class="mod-aulas">6 aulas</span><span class="mod-toggle">+</span></div><div class="mod-body"><div class="mod-body-inner">Um plano semana a semana: portfólio, Instagram, prospecção, oferta e venda — e como continuar evoluindo depois.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BÔNUS ============ -->
+<section class="section-pad bonus" id="bonus">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Inclusos</span>
+      <h2>7 bônus inclusos</h2>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus-card reveal"><div class="bonus-ic">📄</div><div><h4>Proposta para run club</h4><p>Modelo pronto para vender cobertura de treino e pacote mensal.</p></div></div>
+      <div class="bonus-card reveal d1"><div class="bonus-ic">🏷️</div><div><h4>Proposta para marca esportiva</h4><p>Estrutura comercial para abordar marcas com profissionalismo.</p></div></div>
+      <div class="bonus-card reveal d2"><div class="bonus-ic">✅</div><div><h4>Checklist de cobertura de corrida</h4><p>Guia para treinos, provas e eventos, do antes ao depois.</p></div></div>
+      <div class="bonus-card reveal"><div class="bonus-ic">📸</div><div><h4>Checklist de ensaio com corredor</h4><p>Roteiro de captura do briefing à mensagem pós-ensaio.</p></div></div>
+      <div class="bonus-card reveal d1"><div class="bonus-ic">💡</div><div><h4>30 ideias de posts para Instagram</h4><p>Conteúdo pronto por categoria para se posicionar.</p></div></div>
+      <div class="bonus-card reveal d2"><div class="bonus-ic">💬</div><div><h4>Mensagens de prospecção</h4><p>Scripts para atletas, clubes, assessorias, lojas e marcas.</p></div></div>
+      <div class="bonus-card reveal"><div class="bonus-ic">🎬</div><div><h4>Aula bônus: atender uma marca de tênis</h4><p>Como conduzir um trabalho comercial do briefing à entrega.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROFESSOR ============ -->
+<section class="section-pad" id="professor">
+  <div class="wrap teacher-grid">
+    <div class="teacher-photo reveal">
+      <span class="frame-tick"></span>
+      <span class="ph-label">Foto do professor</span>
+    </div>
+    <div class="teacher-info reveal d1">
+      <span class="eyebrow">Quem vai te guiar</span>
+      <h2>Quem vai te guiar</h2>
+      <p>Marcos Prado é fotógrafo, filmmaker e criador de conteúdo com mais de uma década de experiência no audiovisual. Já trabalhou com grandes marcas, projetos esportivos, campanhas comerciais, marcas de corrida, vestuário, tênis e conteúdos para o perfil oficial das Olimpíadas. No CORRE Y CRIA, ele mostra de forma prática como usa fotografia, vídeo, edição, posicionamento e prospecção para transformar corrida em oportunidade real de trabalho.</p>
+      <div class="teacher-stats">
+        <div class="tstat"><b>+10</b><span>Anos de audiovisual</span></div>
+        <div class="tstat"><b>Marcas</b><span>Esportivas &amp; campanhas</span></div>
+        <div class="tstat"><b>Olimpíadas</b><span>Conteúdo perfil oficial</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRANSFORMAÇÃO ============ -->
+<section class="section-pad transform" id="transformacao">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">A transformação</span>
+      <h2>Você não vai aprender só a fotografar corrida.<br>Você vai aprender a entrar em um mercado.</h2>
+      <p>O objetivo do curso é te ajudar a sair da ideia de "fazer foto bonita" e começar a construir oportunidades reais: ensaios, coberturas, vídeos, parcerias, marcas, clubes e clientes recorrentes.</p>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-col ba-before reveal">
+        <div class="ba-label">Antes</div>
+        <ul>
+          <li><span class="ba-icon">✕</span> Não sabe por onde começar</li>
+          <li><span class="ba-icon">✕</span> Posta fotos sem estratégia</li>
+          <li><span class="ba-icon">✕</span> Não sabe como vender</li>
+          <li><span class="ba-icon">✕</span> Não sabe como abordar marcas</li>
+          <li><span class="ba-icon">✕</span> Não tem portfólio claro</li>
+        </ul>
+      </div>
+      <div class="ba-mid reveal d1"><div class="ba-arrow">→</div></div>
+      <div class="ba-col ba-after reveal d2">
+        <div class="ba-label">Depois</div>
+        <ul>
+          <li><span class="ba-icon">✓</span> Sabe o que fotografar e filmar</li>
+          <li><span class="ba-icon">✓</span> Tem uma oferta clara</li>
+          <li><span class="ba-icon">✓</span> Sabe prospectar e usar IA a seu favor</li>
+          <li><span class="ba-icon">✓</span> Sabe montar proposta e apresentação</li>
+          <li><span class="ba-icon">✓</span> Usa o Instagram como vitrine</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OFERTA / PREÇO ============ -->
+<section class="section-pad" id="oferta">
+  <div class="wrap price-wrap">
+    <div class="price-copy reveal">
+      <span class="eyebrow">A oferta</span>
+      <h2>Entre para o CORRE Y CRIA</h2>
+      <p>Acesso ao curso completo: 13 módulos e 105 aulas, aulas de edição, módulo de IA, módulo especial para clubes, checklists, modelos de proposta e 7 bônus.</p>
+      <div class="guarantee"><span class="g-ic">⚡</span> Acesso imediato após a inscrição · atualizações futuras inclusas</div>
+    </div>
+    <div class="offer-box reveal d1">
+      <span class="offer-flag">Oferta de lançamento</span>
+      <h3>CORRE Y CRIA</h3>
+      <div class="osub">Foto e vídeo para o mercado da corrida</div>
+      <div class="offer-price">
+        <span class="old">R$ 597</span>
+        <span class="cur"><small>R$</small> 397</span>
+      </div>
+      <div class="offer-parcel">ou em até 12x no cartão</div>
+      <ul class="offer-list">
+        <li><span class="oi">✓</span> Curso completo: 13 módulos e 105 aulas</li>
+        <li><span class="oi">✓</span> Módulo especial para clubes de corrida</li>
+        <li><span class="oi">✓</span> Módulo de Inteligência Artificial (foto, vídeo e capas)</li>
+        <li><span class="oi">✓</span> Aulas práticas e de edição</li>
+        <li><span class="oi">✓</span> Templates de proposta + PDF de apresentação</li>
+        <li><span class="oi">✓</span> Checklists e 7 bônus exclusivos</li>
+        <li><span class="oi">✓</span> Acesso imediato e atualizações futuras</li>
+      </ul>
+      <a href="#" class="btn btn-primary">Quero começar agora <span class="arrow">→</span></a>
+      <div class="offer-note">Pagamento seguro · vagas limitadas de lançamento</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section-pad faq" id="faq">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Dúvidas</span>
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q"><span class="fq-ic">+</span> Preciso ter câmera profissional?</div>
+        <div class="faq-a"><p>Não. O curso mostra caminhos para quem usa câmera, mas também pode ajudar quem cria com celular ou equipamentos mais simples.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><span class="fq-ic">+</span> O curso é mais para fotógrafo ou filmmaker?</div>
+        <div class="faq-a"><p>Para os dois. Existem aulas específicas para fotografia, vídeo, edição, IA, Instagram e vendas.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><span class="fq-ic">+</span> Tem conteúdo sobre inteligência artificial?</div>
+        <div class="faq-a"><p>Sim. Há um módulo inteiro sobre usar IA para foto, para vídeo e para criar capas bonitas de Reels e TikTok, além de prompts e boas práticas.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><span class="fq-ic">+</span> Serve para quem tem clube de corrida?</div>
+        <div class="faq-a"><p>Sim. Existe um módulo especial para clubes e seus times de mídia — posicionamento, conteúdo, marketing e patrocínio. O clube pode inclusive adquirir o curso para treinar o time (fotógrafo, filmmaker e social).</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><span class="fq-ic">+</span> Vou aprender a vender?</div>
+        <div class="faq-a"><p>Sim. O curso inclui aulas sobre prospecção, proposta, pacotes, recorrência e até como montar um PDF de apresentação para marcas usando Claude e Canva.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><span class="fq-ic">+</span> O curso é ao vivo?</div>
+        <div class="faq-a"><p>O curso é gravado, prático e direto, com acesso imediato e um plano de ação de 30 dias para aplicar.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="cta-final" id="cta">
+  <div class="wrap">
+    <span class="eyebrow reveal" style="justify-content:center">Última chamada</span>
+    <h2 class="reveal d1">A corrida está acontecendo na rua.<br>A <span class="accent-txt">oportunidade</span> também.</h2>
+    <p class="reveal d2">Aprenda a criar imagens, vídeos e ofertas para um dos mercados mais fortes do esporte hoje.</p>
+    <div class="reveal d3"><a href="#oferta" class="btn btn-primary">Entrar no CORRE Y CRIA <span class="arrow">→</span></a></div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot">
+    <a href="#top" class="logo">CORRE <span class="amp">Y</span> <b>CRIA</b></a>
+    <div class="foot-links">
+      <a href="#modulos">Módulos</a>
+      <a href="#professor">Professor</a>
+      <a href="#oferta">Oferta</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <p>© 2026 CORRE Y CRIA · Marcos Prado. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>20));
+
+const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>navLinks.classList.toggle('mobile-open'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('mobile-open')));
+
+document.querySelectorAll('.mod-head').forEach(head=>{
+  head.addEventListener('click',()=>{
+    const mod=head.parentElement,body=mod.querySelector('.mod-body');
+    const isOpen=mod.classList.contains('open');
+    document.querySelectorAll('.mod').forEach(m=>{m.classList.remove('open');m.querySelector('.mod-body').style.maxHeight=null;});
+    if(!isOpen){mod.classList.add('open');body.style.maxHeight=body.scrollHeight+'px';}
+  });
+});
+
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement,a=item.querySelector('.faq-a');
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;});
+    if(!isOpen){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
+  });
+});
+
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.12});
+document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>

@@ -1,31 +1,1037 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Masterclass Documentário Esportivo — Carreira Visual</title>
-<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Masterclass Documentário Esportivo — Da História ao Filme</title>
+<meta name="description" content="Masterclass para fotógrafos e filmmakers: transforme a jornada real de um atleta em um mini documentário esportivo cinematográfico. Pesquisa, direção, captação, montagem e finalização.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  *{box-sizing:border-box}
-  body{margin:0;min-height:100svh;display:grid;place-items:center;text-align:center;padding:32px;
-    background:#000;color:#fff;font-family:'General Sans','Inter',-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
-  body::before{content:"";position:fixed;inset:0;z-index:0;
-    background:radial-gradient(60% 60% at 20% 30%,rgba(255,109,41,.28),transparent 65%),
-               radial-gradient(50% 50% at 80% 70%,rgba(69,48,39,.7),transparent 70%);filter:blur(70px)}
-  .box{position:relative;z-index:1;max-width:520px}
-  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#8a8386;font-family:ui-monospace,monospace}
-  h1{font-size:clamp(28px,6vw,46px);letter-spacing:-.035em;line-height:1.02;margin:16px 0 0;font-weight:600}
-  p{color:rgba(255,255,255,.66);margin:18px 0 0;line-height:1.55}
-  a{display:inline-flex;align-items:center;gap:9px;margin-top:30px;height:48px;padding:0 26px;border-radius:999px;
-    background:#FF6D29;color:#150a04;font-weight:600;text-decoration:none}
+/* ============================================================
+   TOKENS — extraídos das artes oficiais da campanha
+   ============================================================ */
+:root{
+  --ink:#0C0C0B;
+  --ink-2:#171613;
+  --ink-3:#232019;
+  --paper:#D8D1C6;
+  --paper-hi:#EAE4DA;
+  --paper-2:#C7BFB2;
+  --neon:#EDF111;
+  --rust:#DD641C;
+  --sepia:#8C6B45;
+
+  --f-dsp:'Archivo','Arial Narrow',Helvetica,sans-serif;
+  --f-body:'Barlow','Helvetica Neue',Arial,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,monospace;
+
+  --gut:clamp(18px,4.2vw,64px);
+  --sec:clamp(72px,11vh,150px);
+  --max:1560px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--f-body);font-size:clamp(15px,1.05vw,17px);line-height:1.55;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--neon);outline-offset:3px}
+::selection{background:var(--neon);color:var(--ink)}
+
+/* ---------- tipografia ---------- */
+.dsp{
+  font-family:var(--f-dsp);font-weight:900;font-stretch:125%;
+  text-transform:uppercase;line-height:.82;letter-spacing:-.018em;margin:0;
+}
+.mono{
+  font-family:var(--f-mono);font-size:clamp(9.5px,.72vw,11.5px);
+  text-transform:uppercase;letter-spacing:.26em;font-weight:500;
+}
+.h-xl{font-size:clamp(46px,10.4vw,158px)}
+.h-lg{font-size:clamp(36px,6.6vw,104px)}
+.h-md{font-size:clamp(27px,3.5vw,54px)}
+.h-sm{font-size:clamp(20px,2.05vw,31px);line-height:.92}
+.lead{font-size:clamp(16px,1.35vw,21px);line-height:1.5;font-weight:400}
+.dim{opacity:.62}
+
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
+.sec{position:relative;padding-block:var(--sec)}
+.ink-sec{background:var(--ink);color:var(--paper-hi)}
+.ink-sec .dim{opacity:.55}
+
+/* ---------- texturas: halftone + grão ---------- */
+.grain{
+  position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.42;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+}
+.ht{ /* trama de pontos */
+  background-image:radial-gradient(var(--dot,rgba(12,12,11,.9)) 1px,transparent 1.5px);
+  background-size:4px 4px;
+}
+
+/* ---------- HUD / marcas de registro ---------- */
+.hud{position:fixed;inset:0;z-index:80;pointer-events:none}
+.hud i{position:absolute;display:block}
+.hud .tick{width:9px;height:9px;background:var(--rust)}
+.hud .cross{width:26px;height:26px;border:1px solid var(--rust);border-radius:50%;opacity:.75}
+.hud .cross::before,.hud .cross::after{content:'';position:absolute;background:var(--rust)}
+.hud .cross::before{left:50%;top:-8px;bottom:-8px;width:1px;transform:translateX(-50%)}
+.hud .cross::after{top:50%;left:-8px;right:-8px;height:1px;transform:translateY(-50%)}
+.hud .bars{display:flex;flex-direction:column;gap:5px}
+.hud .bars b{width:8px;height:8px;background:var(--rust);display:block}
+@media (max-width:860px){.hud{display:none}}
+
+/* ---------- cursor ---------- */
+.cur{position:fixed;top:0;left:0;z-index:100;pointer-events:none;mix-blend-mode:difference;
+  width:34px;height:34px;border:1px solid #fff;border-radius:50%;
+  transform:translate(-50%,-50%) scale(.42);transition:transform .28s cubic-bezier(.16,1,.3,1),opacity .3s;opacity:0}
+.cur.on{opacity:1}
+.cur.big{transform:translate(-50%,-50%) scale(1.5)}
+@media (hover:none),(max-width:900px){.cur{display:none}}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:70;padding:16px var(--gut);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  transition:background .4s,backdrop-filter .4s,color .4s;}
+.nav.solid{background:rgba(216,209,198,.86);backdrop-filter:blur(10px);border-bottom:1px solid rgba(12,12,11,.12)}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .bt{display:flex;gap:3px}
+.brand .bt b{width:5px;height:5px;background:var(--rust);display:block}
+.brand span{font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:500}
+.nav .right{display:flex;align-items:center;gap:22px}
+.nav .code{font-family:var(--f-mono);font-size:10px;letter-spacing:.24em;opacity:.6;text-transform:uppercase}
+@media (max-width:760px){.nav .code{display:none}.nav{padding-block:12px}}
+
+/* ---------- botões ---------- */
+.btn{
+  position:relative;display:inline-flex;align-items:center;gap:14px;overflow:hidden;
+  padding:19px 30px;background:var(--neon);color:var(--ink);isolation:isolate;
+  font-family:var(--f-dsp);font-weight:900;font-stretch:112%;text-transform:uppercase;
+  letter-spacing:.03em;font-size:clamp(13px,1.05vw,16px);line-height:1;
+  clip-path:polygon(0 0,100% 0,100% 100%,10px 100%,0 calc(100% - 10px));
+}
+.btn::before{content:'';position:absolute;inset:0;background:var(--ink);z-index:-1;
+  transform:translateY(101%);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.btn:hover::before{transform:translateY(0)}
+.btn:hover{color:var(--neon)}
+.btn .ar{display:block;width:16px;height:9px;border-right:2px solid currentColor;border-top:2px solid currentColor;
+  transform:rotate(45deg) translateY(-1px);transition:transform .4s}
+.btn:hover .ar{transform:rotate(45deg) translate(3px,-4px)}
+.btn.sm{padding:14px 22px}
+.btn.big{padding:26px 42px;font-size:clamp(15px,1.5vw,23px)}
+.btn.ghost{background:transparent;color:inherit;border:1px solid currentColor;clip-path:none}
+.btn.ghost::before{background:var(--neon)}
+.btn.ghost:hover{color:var(--ink);border-color:var(--neon)}
+
+/* ---------- reveals ---------- */
+.line{display:block;overflow:hidden;padding-bottom:.03em}
+.line>span{display:block;transform:translateY(108%);transition:transform 1.05s cubic-bezier(.16,1,.3,1);transition-delay:var(--d,0s)}
+.in .line>span{transform:none}
+[data-rv]{opacity:0;transform:translateY(22px);transition:opacity .95s cubic-bezier(.16,1,.3,1),transform .95s cubic-bezier(.16,1,.3,1);transition-delay:var(--d,0s)}
+[data-rv].in{opacity:1;transform:none}
+
+/* frame de imagem com revelação por máscara + dissolução halftone */
+.frame{position:relative;overflow:hidden;background:var(--paper-2)}
+.frame img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 1.6s cubic-bezier(.16,1,.3,1)}
+.frame.in img{transform:scale(1)}
+.frame::before{content:'';position:absolute;inset:0;z-index:3;background:var(--paper);
+  transform:translateY(0);transition:transform 1.15s cubic-bezier(.76,0,.24,1)}
+.ink-sec .frame::before{background:var(--ink)}
+.frame.in::before{transform:translateY(-101%)}
+.frame::after{ /* dissolução em pontos, como nas capas */
+  content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+  background-image:radial-gradient(var(--paper) 1.15px,transparent 1.5px);background-size:5px 5px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 42%,#000 100%);
+  mask-image:linear-gradient(to bottom,transparent 42%,#000 100%);
+  opacity:.9;
+}
+.ink-sec .frame::after{background-image:radial-gradient(var(--ink) 1.15px,transparent 1.5px)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;background:var(--paper-hi)}
+.hero-media{position:absolute;inset:0;overflow:hidden}
+.hero-media picture{position:absolute;inset:0;display:block}
+.hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 38%}
+/* camada de tratamento: qualquer footage entra na estética da campanha */
+.hero-media video{filter:grayscale(1) contrast(1.14) brightness(1.06) sepia(.34);mix-blend-mode:multiply;opacity:.92}
+.hero-media .glow{position:absolute;left:6%;top:8%;width:46vw;height:46vw;pointer-events:none;
+  background:radial-gradient(circle,rgba(221,100,28,.5),transparent 62%);mix-blend-mode:multiply;opacity:.55}
+.hero-media .dots{position:absolute;inset:0;--dot:rgba(12,12,11,.34);opacity:.5;
+  -webkit-mask-image:radial-gradient(120% 80% at 70% 30%,#000,transparent 72%);
+  mask-image:radial-gradient(120% 80% at 70% 30%,#000,transparent 72%)}
+.hero-veil{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(234,228,218,.55) 0%,rgba(234,228,218,0) 26%,rgba(216,209,198,.72) 62%,rgba(216,209,198,.97) 92%)}
+.hero-in{position:relative;z-index:4;width:100%;padding-bottom:clamp(30px,6vh,72px)}
+.hero-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:clamp(14px,2vh,26px)}
+.hero-eyebrow .rule{height:1px;flex:0 0 clamp(30px,6vw,90px);background:var(--ink);opacity:.5}
+.hero-eyebrow .mono{letter-spacing:.44em}
+.hero h1{margin:0;font-size:var(--fs,clamp(30px,9.2vw,158px));white-space:nowrap}
+.hero h1 .line>span{white-space:nowrap}
+.hero h1 .l2{color:transparent;-webkit-text-stroke:2px var(--ink)}
+.tagbox{display:inline-flex;align-items:center;margin-top:clamp(14px,2.4vh,26px);
+  border:1.5px solid var(--neon);padding:9px 22px 8px;background:rgba(237,241,17,.1)}
+.tagbox span{font-family:var(--f-dsp);font-weight:800;font-stretch:112%;text-transform:uppercase;
+  letter-spacing:.4em;font-size:clamp(9px,1.15vw,15px);line-height:1;white-space:nowrap}
+@media (max-width:420px){
+  .tagbox{padding:8px 14px 7px}
+  .tagbox span{letter-spacing:.24em}
+  .hero-eyebrow .mono{letter-spacing:.3em}
+}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr);gap:clamp(20px,4vw,70px);
+  align-items:end;margin-top:clamp(26px,4.5vh,54px)}
+.hero-copy{max-width:52ch}
+.hero-copy p{margin:0 0 18px}
+.hero-steps{display:flex;flex-wrap:wrap;gap:7px 0;align-items:center}
+.hero-steps span{font-family:var(--f-mono);font-size:clamp(9px,.72vw,11px);letter-spacing:.2em;text-transform:uppercase}
+.hero-steps i{width:4px;height:4px;background:var(--rust);display:block;margin:0 12px;flex:0 0 auto}
+.hero-cta{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.hero-note{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.66}
+.scroll-c{position:absolute;right:var(--gut);bottom:26px;z-index:5;display:flex;align-items:center;gap:10px}
+.scroll-c .bar{width:1px;height:46px;background:linear-gradient(var(--ink),transparent);position:relative;overflow:hidden}
+.scroll-c .bar::after{content:'';position:absolute;left:0;top:-46px;width:1px;height:46px;background:var(--rust);animation:sc 2.4s infinite}
+@keyframes sc{0%{transform:translateY(0)}60%,100%{transform:translateY(92px)}}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;align-items:start}
+  .hero-media img,.hero-media video{object-position:60% 30%}
+  .scroll-c{display:none}
+  .hero h1 .l2{-webkit-text-stroke-width:1.5px}
+}
+
+/* ---------- faixa de texto horizontal ---------- */
+.marq{overflow:hidden;border-top:1px solid rgba(12,12,11,.18);border-bottom:1px solid rgba(12,12,11,.18);
+  padding:14px 0;background:var(--paper)}
+.ink-sec .marq{border-color:rgba(234,228,218,.16);background:transparent}
+.marq .track{display:flex;gap:52px;width:max-content;animation:mv 34s linear infinite}
+.marq span{font-family:var(--f-dsp);font-weight:900;font-stretch:125%;text-transform:uppercase;
+  font-size:clamp(20px,3vw,44px);line-height:1;letter-spacing:.01em;color:transparent;-webkit-text-stroke:1px rgba(12,12,11,.42)}
+.ink-sec .marq span{-webkit-text-stroke-color:rgba(234,228,218,.34)}
+.marq span.hl{color:var(--neon);-webkit-text-stroke:0}
+@keyframes mv{to{transform:translateX(-50%)}}
+
+/* ============================================================
+   02 — VÍDEO
+   ============================================================ */
+.vid-head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(20px,4vw,60px);
+  align-items:end;margin-bottom:clamp(30px,5vw,58px)}
+.player{position:relative;aspect-ratio:2.4/1;background:#000;overflow:hidden;
+  border:1px solid rgba(234,228,218,.14)}
+.player video{width:100%;height:100%;object-fit:cover;display:block}
+.player .rec{position:absolute;left:16px;top:14px;z-index:3;display:flex;align-items:center;gap:8px;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;color:var(--paper-hi);opacity:.85;
+  text-shadow:0 1px 6px rgba(0,0,0,.6);pointer-events:none}
+.player .rec b{width:7px;height:7px;background:var(--rust);border-radius:50%;animation:bl 1.8s infinite}
+@keyframes bl{50%{opacity:.25}}
+
+/* aviso de som */
+.sound-cue{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:16px;background:rgba(12,12,11,.34);transition:opacity .5s,visibility .5s}
+.sound-cue.off{opacity:0;visibility:hidden}
+.sound-cue .disc{width:clamp(56px,6vw,84px);aspect-ratio:1;border-radius:50%;background:var(--neon);
+  display:grid;place-items:center;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.sound-cue:hover .disc{transform:scale(1.09)}
+.sound-cue .disc svg{width:44%;fill:var(--ink)}
+.sound-cue .plabel{font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--paper-hi);text-shadow:0 1px 8px rgba(0,0,0,.7)}
+
+/* barra de controles */
+.pctrl{position:absolute;left:0;right:0;bottom:0;z-index:5;display:flex;align-items:center;gap:clamp(10px,1.2vw,18px);
+  padding:clamp(10px,1.2vw,16px) clamp(12px,1.4vw,20px);
+  background:linear-gradient(transparent,rgba(12,12,11,.86));
+  opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
+.player:hover .pctrl,.player.act .pctrl{opacity:1;transform:none}
+.pbtn{width:22px;height:22px;display:grid;place-items:center;color:var(--paper-hi);flex:0 0 auto;opacity:.85}
+.pbtn:hover{opacity:1;color:var(--neon)}
+.pbtn svg{width:100%;height:100%;fill:currentColor}
+.ic-pp{width:13px;height:15px;position:relative;display:block}
+.ic-pp::before,.ic-pp::after{content:'';position:absolute;top:0;bottom:0;width:4px;background:currentColor}
+.ic-pp::before{left:0}.ic-pp::after{right:0}
+.paused .ic-pp::before{left:1px;top:0;bottom:0;width:0;height:0;background:none;
+  border-left:13px solid currentColor;border-top:7.5px solid transparent;border-bottom:7.5px solid transparent}
+.paused .ic-pp::after{display:none}
+.prog{flex:1;height:14px;display:flex;align-items:center;cursor:pointer;touch-action:none}
+.prog .track2{width:100%;height:2px;background:rgba(234,228,218,.28);position:relative}
+.prog .pbar{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--rust)}
+.prog .pbar::after{content:'';position:absolute;right:-4px;top:50%;width:8px;height:8px;background:var(--neon);
+  transform:translateY(-50%) scale(0);transition:transform .25s}
+.prog:hover .pbar::after,.player.act .pbar::after{transform:translateY(-50%) scale(1)}
+.tcode{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;color:var(--paper-hi);opacity:.75;
+  flex:0 0 auto;font-variant-numeric:tabular-nums}
+.volwrap{display:flex;align-items:center;gap:9px}
+.vol{-webkit-appearance:none;appearance:none;width:clamp(56px,6vw,86px);height:14px;background:none;cursor:pointer}
+.vol::-webkit-slider-runnable-track{height:2px;background:rgba(234,228,218,.3)}
+.vol::-moz-range-track{height:2px;background:rgba(234,228,218,.3)}
+.vol::-webkit-slider-thumb{-webkit-appearance:none;width:9px;height:9px;background:var(--neon);
+  margin-top:-3.5px;border-radius:0}
+.vol::-moz-range-thumb{width:9px;height:9px;background:var(--neon);border:0;border-radius:0}
+@media (max-width:900px){.player{aspect-ratio:16/9}.volwrap .vol{display:none}}
+@media (max-width:560px){.tcode{display:none}}
+
+.vid-foot{display:flex;flex-wrap:wrap;gap:18px 40px;align-items:center;justify-content:space-between;margin-top:28px}
+@media (max-width:900px){.vid-head{grid-template-columns:1fr;align-items:start}}
+
+/* ============================================================
+   03 — AULAS
+   ============================================================ */
+.aula{display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,.58fr);gap:clamp(20px,4vw,64px);
+  align-items:start;padding-block:clamp(44px,6vw,86px);border-top:1px solid rgba(12,12,11,.18)}
+.aula:nth-child(even) .aula-media{order:2}
+.aula-media{position:relative}
+.aula-media .frame{aspect-ratio:4/5}
+.aula-num{position:absolute;right:-6px;top:-38px;z-index:4;font-family:var(--f-dsp);font-weight:900;font-stretch:125%;
+  font-size:clamp(78px,10vw,168px);line-height:.7;color:transparent;-webkit-text-stroke:2px var(--rust);pointer-events:none}
+.aula-body{padding-top:clamp(4px,1vw,14px)}
+.aula-kicker{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.aula-kicker .mono{color:var(--rust);letter-spacing:.34em}
+.aula-kicker .rule{flex:1;height:1px;background:rgba(12,12,11,.2)}
+.aula-body h3{margin:0 0 18px}
+.aula-body>p{max-width:46ch;margin:0 0 26px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px}
+.chips i{font-style:normal;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  padding:6px 11px;border:1px solid rgba(12,12,11,.24);opacity:.8}
+.res{border-left:2px solid var(--neon);padding:4px 0 4px 18px;background:linear-gradient(90deg,rgba(237,241,17,.16),transparent 70%)}
+.res .mono{opacity:.55;display:block;margin-bottom:6px}
+.res p{margin:0;font-family:var(--f-dsp);font-weight:900;font-stretch:112%;text-transform:uppercase;
+  font-size:clamp(14px,1.5vw,22px);line-height:1.05;letter-spacing:-.01em}
+@media (max-width:860px){
+  .aula{grid-template-columns:1fr;gap:26px}
+  .aula:nth-child(even) .aula-media{order:0}
+  .aula-num{top:auto;bottom:12px;right:12px;-webkit-text-stroke-width:1.5px}
+}
+
+/* ============================================================
+   04 — NÍVEL
+   ============================================================ */
+.who{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(234,228,218,.16);margin-top:clamp(36px,5vw,64px)}
+.who>div{background:var(--ink);padding:clamp(24px,2.6vw,38px) clamp(20px,2.2vw,32px)}
+.who h4{margin:0 0 10px;font-family:var(--f-dsp);font-weight:900;font-stretch:118%;text-transform:uppercase;
+  font-size:clamp(15px,1.5vw,21px);line-height:1;color:var(--neon);letter-spacing:.01em}
+.who p{margin:0;font-size:15px;opacity:.72;max-width:28ch}
+.gear{display:grid;grid-template-columns:minmax(0,.4fr) minmax(0,.6fr);gap:clamp(20px,4vw,60px);
+  margin-top:clamp(46px,6vw,84px);align-items:start}
+.gear-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(234,228,218,.16)}
+.gear-list div{background:var(--ink);padding:18px 20px;display:flex;align-items:center;gap:12px}
+.gear-list b{width:6px;height:6px;background:var(--rust);flex:0 0 auto}
+.gear-list span{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.quote{margin-top:clamp(46px,6vw,88px);border-top:1px solid rgba(234,228,218,.18);padding-top:clamp(26px,3vw,44px)}
+@media (max-width:860px){.who{grid-template-columns:1fr}.gear{grid-template-columns:1fr}}
+
+/* ============================================================
+   05 — VALOR
+   ============================================================ */
+.band{position:relative;height:clamp(140px,20vw,260px);overflow:hidden;background:var(--paper-2)}
+.band img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
+.band::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(216,209,198,.9),rgba(216,209,198,.1) 45%,rgba(216,209,198,.95))}
+.cmp{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(12,12,11,.2);margin-top:clamp(34px,4.5vw,60px)}
+.cmp>div{background:var(--paper);padding:clamp(24px,2.8vw,40px)}
+.cmp .hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:22px;
+  padding-bottom:14px;border-bottom:1px solid rgba(12,12,11,.2)}
+.cmp h4{margin:0;font-family:var(--f-dsp);font-weight:900;font-stretch:118%;text-transform:uppercase;
+  font-size:clamp(17px,1.8vw,26px);line-height:1}
+.cmp ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.cmp li{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  display:flex;align-items:center;gap:12px}
+.cmp li::before{content:'';width:14px;height:1px;background:currentColor;opacity:.45;flex:0 0 auto}
+.cmp .deep li::before{background:var(--rust);opacity:1;height:2px}
+.cmp .thin{opacity:.55}
+.cmp .deep{background:var(--ink);color:var(--paper-hi)}
+.cmp .deep h4{color:var(--neon)}
+.cmp .deep .hd{border-color:rgba(234,228,218,.2)}
+.clients{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(34px,4vw,56px)}
+.clients span{font-family:var(--f-dsp);font-weight:900;font-stretch:118%;text-transform:uppercase;
+  font-size:clamp(13px,1.4vw,20px);line-height:1;padding:11px 17px;border:1px solid rgba(12,12,11,.28)}
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(18px,2vw,32px);
+  margin-top:clamp(34px,4vw,56px)}
+.cases p{margin:0;padding-top:16px;border-top:1px solid rgba(12,12,11,.22);font-size:15.5px;opacity:.8}
+.cases p b{display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--rust);margin-bottom:9px;font-weight:500}
+.hl-phrase{margin-top:clamp(44px,6vw,86px);background:var(--neon);color:var(--ink);padding:clamp(26px,3.4vw,50px)}
+@media (max-width:760px){.cmp{grid-template-columns:1fr}}
+
+/* ============================================================
+   06 — CTA FINAL
+   ============================================================ */
+.final{position:relative;overflow:hidden;background:var(--ink);color:var(--paper-hi)}
+.final-media{position:absolute;inset:0;opacity:.3}
+.final-media img,.final-media video{width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.2) brightness(.72)}
+.final-media::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(12,12,11,.96) 30%,rgba(12,12,11,.35))}
+.final .wrap{position:relative;z-index:2}
+.final-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(28px,4vw,72px);align-items:center}
+.offer{border:1px solid rgba(234,228,218,.2);padding:clamp(24px,2.8vw,42px);background:rgba(12,12,11,.6);backdrop-filter:blur(4px)}
+.offer .pname{margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid rgba(234,228,218,.18)}
+.offer .pname h3{margin:0;font-family:var(--f-dsp);font-weight:900;font-stretch:122%;text-transform:uppercase;
+  font-size:clamp(22px,2.5vw,38px);line-height:.9}
+.offer .pname h3 em{font-style:normal;color:var(--neon);display:block}
+.price{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+.price .de{font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;opacity:.5;text-decoration:line-through}
+.price .por{font-family:var(--f-dsp);font-weight:900;font-stretch:118%;font-size:clamp(34px,4vw,60px);line-height:.85;color:var(--paper-hi)}
+.price-note{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;opacity:.6;text-transform:uppercase;margin-bottom:26px}
+.ph{border:1px dashed rgba(237,241,17,.5);padding:18px;margin-bottom:24px}
+.ph .mono{color:var(--neon);display:block;margin-bottom:6px}
+.ph small{font-family:var(--f-mono);font-size:10.5px;opacity:.6;line-height:1.6;display:block}
+.offer .btn{width:100%;justify-content:center}
+.keyart{position:relative}
+.keyart .frame{aspect-ratio:1}
+.keyart .cap{display:flex;justify-content:space-between;margin-top:12px;opacity:.5}
+
+.final .frame::before{background:var(--ink)}
+.final .frame::after{background-image:radial-gradient(var(--ink) 1.15px,transparent 1.5px)}
+.final .keyart .frame{border:1px solid rgba(234,228,218,.14)}
+@media (max-width:900px){.final-grid{grid-template-columns:1fr}.keyart{order:-1;max-width:460px}}
+
+/* ============================================================
+   FAQ + FOOTER
+   ============================================================ */
+.faq{border-top:1px solid rgba(12,12,11,.2)}
+.faq details{border-bottom:1px solid rgba(12,12,11,.2)}
+.faq summary{list-style:none;cursor:pointer;padding:clamp(20px,2.4vw,30px) 0;display:flex;gap:20px;align-items:baseline}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .n{font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;color:var(--rust);flex:0 0 auto}
+.faq summary .q{font-family:var(--f-dsp);font-weight:900;font-stretch:115%;text-transform:uppercase;
+  font-size:clamp(15px,1.7vw,25px);line-height:1.05;flex:1}
+.faq summary .ic{width:14px;height:14px;position:relative;flex:0 0 auto;align-self:center}
+.faq summary .ic::before,.faq summary .ic::after{content:'';position:absolute;background:var(--ink);transition:transform .35s}
+.faq summary .ic::before{left:0;right:0;top:50%;height:2px;transform:translateY(-50%)}
+.faq summary .ic::after{top:0;bottom:0;left:50%;width:2px;transform:translateX(-50%)}
+.faq details[open] summary .ic::after{transform:translateX(-50%) scaleY(0)}
+.faq .a{padding:0 0 clamp(22px,2.4vw,32px) 51px;max-width:74ch;opacity:.78}
+.faq .a p{margin:0}
+@media (max-width:640px){.faq .a{padding-left:0}}
+
+.foot{background:var(--ink);color:var(--paper-hi);padding:clamp(40px,5vw,70px) 0 34px}
+.foot-top{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between;
+  padding-bottom:26px;border-bottom:1px solid rgba(234,228,218,.16)}
+.foot-lock{font-family:var(--f-dsp);font-weight:900;font-stretch:125%;text-transform:uppercase;
+  font-size:clamp(28px,5vw,72px);line-height:.85;color:var(--neon)}
+.foot-lock small{display:block;font-size:.3em;letter-spacing:.34em;color:var(--paper-hi);opacity:.7;margin-top:10px}
+.foot-bot{display:flex;flex-wrap:wrap;gap:14px 30px;justify-content:space-between;padding-top:22px;opacity:.5}
+
+/* barra fixa mobile */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:75;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(12,12,11,.94);display:none;gap:12px;align-items:center;justify-content:space-between;
+  transform:translateY(110%);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.sticky.show{transform:none}
+.sticky .mono{color:var(--paper-hi);opacity:.7;letter-spacing:.18em}
+.sticky .btn{padding:13px 18px;font-size:12px}
+@media (max-width:760px){.sticky{display:flex}}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.001s!important}
+  [data-rv],.line>span{opacity:1!important;transform:none!important}
+  .frame::before{display:none}
+  .cur{display:none}
+}
 </style>
 </head>
 <body>
-  <div class="box">
-    <span class="kicker">● Carreira Visual</span>
-    <h1>Masterclass Documentário Esportivo</h1>
-    <p>A página deste treinamento está sendo preparada. Enquanto isso, explore o restante da plataforma.</p>
-    <a href="/">Voltar para a plataforma</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cur" id="cur" aria-hidden="true"></div>
+<div class="hud" aria-hidden="true">
+  <i class="cross" style="right:38px;top:96px"></i>
+  <i class="cross" style="left:38px;bottom:120px"></i>
+  <i class="bars" style="right:34px;top:46%"><b></b><b style="opacity:.6"></b><b style="opacity:.35"></b><b style="opacity:.15"></b></i>
+  <i class="tick" style="left:34px;top:30%"></i>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="brand">
+    <span class="bt"><b></b><b style="opacity:.7"></b><b style="opacity:.45"></b><b style="opacity:.2"></b></span>
+    <span>Corre y Cria</span>
   </div>
+  <div class="right">
+    <span class="code">Masterclass · Doc. Esportivo · 03 Aulas</span>
+    <a class="btn sm" href="#inscricao" data-checkout>Entrar na masterclass <i class="ar"></i></a>
+  </div>
+</header>
+
+<!-- ============ 01 · HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-media">
+    <picture>
+      <source media="(max-width:760px)" srcset="images/foto-08.webp">
+      <img src="images/foto-01.webp" alt="Triatleta correndo e ciclista em bicicleta de contrarrelógio, arte oficial da masterclass" fetchpriority="high" data-par="0.14">
+    </picture>
+    <video id="heroVideo" playsinline muted loop preload="none" poster="images/foto-09.webp" style="display:none"></video>
+    <div class="glow"></div>
+    <div class="dots ht"></div>
+  </div>
+  <div class="hero-veil"></div>
+
+  <div class="hero-in wrap">
+    <div class="hero-eyebrow" data-rv>
+      <span class="rule"></span>
+      <span class="mono">Masterclass</span>
+      <span class="rule"></span>
+    </div>
+
+    <h1 class="dsp h-xl" data-lines>
+      <span class="line"><span>Documentário</span></span>
+      <span class="line"><span class="l2">Esportivo</span></span>
+    </h1>
+
+    <div class="tagbox" data-rv style="--d:.35s"><span>Da história ao filme</span></div>
+
+    <div class="hero-grid">
+      <div class="hero-copy" data-rv style="--d:.15s">
+        <p class="lead">Transforme histórias reais de atletas em filmes que emocionam, posicionam e possuem alto valor percebido.</p>
+        <div class="hero-steps">
+          <span>Pesquisa</span><i></i><span>Entrevista</span><i></i><span>Direção</span><i></i><span>Treino</span><i></i><span>Competição</span><i></i><span>Storytelling</span><i></i><span>Edição</span>
+        </div>
+      </div>
+      <div class="hero-cta" data-rv style="--d:.3s">
+        <a class="btn big" href="#inscricao" data-checkout>Quero entrar na masterclass <i class="ar"></i></a>
+        <span class="hero-note">3 aulas completas · teoria · produção · pós-produção</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-c"><span class="mono">Role</span><span class="bar"></span></div>
+</section>
+
+<div class="marq" aria-hidden="true">
+  <div class="track">
+    <span>Não filme apenas o atleta</span><span class="hl">·</span><span>Conte a história por trás dele</span><span class="hl">·</span>
+    <span>Não filme apenas o atleta</span><span class="hl">·</span><span>Conte a história por trás dele</span><span class="hl">·</span>
+  </div>
+</div>
+
+<!-- ============ 02 · VÍDEO ============ -->
+<section class="sec ink-sec" id="masterclass">
+  <div class="wrap">
+    <div class="vid-head">
+      <h2 class="dsp h-lg" data-lines>
+        <span class="line"><span>Antes da câmera,</span></span>
+        <span class="line"><span style="color:var(--neon)">existe uma história.</span></span>
+      </h2>
+      <div data-rv style="--d:.2s">
+        <div class="aula-kicker"><span class="mono" style="color:var(--rust)">Entenda a masterclass</span><span class="rule" style="background:rgba(234,228,218,.2)"></span></div>
+        <p class="lead dim" style="margin:0;max-width:44ch">Nesta masterclass você acompanha como uma história esportiva nasce, é pesquisada, planejada, filmada e finalmente transformada em um documentário.</p>
+      </div>
+    </div>
+
+    <div class="player" id="player" data-rv>
+      <video id="vid" playsinline loop muted preload="metadata" poster="images/foto-10.jpg">
+        <source src="media/video.mp4" type="video/mp4">
+      </video>
+
+      <button class="sound-cue" id="soundCue" type="button" aria-label="Ativar som do vídeo">
+        <span class="disc"><svg viewBox="0 0 24 24"><path d="M3 9h4l6-5v16l-6-5H3z"/><path d="M16.5 8.2a5 5 0 0 1 0 7.6l1.3 1.5a7 7 0 0 0 0-10.6l-1.3 1.5z"/></svg></span>
+        <span class="plabel">Ativar som</span>
+      </button>
+
+      <div class="rec"><b></b> <span>Apresentação</span></div>
+
+      <div class="pctrl" id="pctrl">
+        <button class="pbtn" id="btnPlay" type="button" aria-label="Pausar"><i class="ic-pp"></i></button>
+        <div class="prog" id="prog"><div class="track2"><div class="pbar" id="pbar"></div></div></div>
+        <span class="tcode" id="tcode">00:00</span>
+        <div class="volwrap">
+          <button class="pbtn" id="btnMute" type="button" aria-label="Ativar som"></button>
+          <input class="vol" id="vol" type="range" min="0" max="1" step="0.02" value="0" aria-label="Volume">
+        </div>
+        <button class="pbtn" id="btnFs" type="button" aria-label="Tela cheia"><svg viewBox="0 0 24 24"><path d="M4 9V4h5v2H6v3H4zm11-5h5v5h-2V6h-3V4zM4 15h2v3h3v2H4v-5zm14 0h2v5h-5v-2h3v-3z"/></svg></button>
+      </div>
+    </div>
+
+    <div class="vid-foot">
+      <span class="mono dim">Apresentação da masterclass</span>
+      <a class="btn ghost sm" href="#aulas">Quero aprender esse processo <i class="ar"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 · AS 3 AULAS ============ -->
+<section class="sec" id="aulas">
+  <div class="wrap">
+    <div style="display:flex;flex-wrap:wrap;gap:22px;align-items:flex-end;justify-content:space-between;margin-bottom:clamp(20px,3vw,44px)">
+      <h2 class="dsp h-lg" data-lines>
+        <span class="line"><span>Da história</span></span>
+        <span class="line"><span>ao filme.</span></span>
+      </h2>
+      <span class="mono dim" data-rv>03 aulas · processo completo</span>
+    </div>
+
+    <div class="aulas">
+      <article class="aula">
+        <div class="aula-media">
+          <div class="frame" data-frame><img src="images/foto-02.webp" alt="Corredor em movimento com tratamento halftone"></div>
+          <span class="aula-num">01</span>
+        </div>
+        <div class="aula-body">
+          <div class="aula-kicker"><span class="mono">Aula 01</span><span class="rule"></span></div>
+          <h3 class="dsp h-md" data-lines><span class="line"><span>História, referências</span></span><span class="line"><span>e pré-produção</span></span></h3>
+          <p data-rv>Aprenda a encontrar o verdadeiro filme antes de ligar a câmera.</p>
+          <div class="chips" data-rv style="--d:.1s">
+            <i>Personagem</i><i>Pesquisa</i><i>Desejo</i><i>Conflito</i><i>Transformação</i><i>Referências</i><i>Logline</i><i>Roteiro</i><i>Entrevista</i><i>Shot list</i><i>Locações</i><i>Cronograma</i>
+          </div>
+          <div class="res" data-rv style="--d:.15s">
+            <span class="mono">Resultado</span>
+            <p>Você chega à gravação sabendo exatamente qual história está tentando contar.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="aula">
+        <div class="aula-media">
+          <div class="frame" data-frame><img src="images/foto-03.webp" alt="Ciclista de triathlon com trama de pontos"></div>
+          <span class="aula-num">02</span>
+        </div>
+        <div class="aula-body">
+          <div class="aula-kicker"><span class="mono">Aula 02</span><span class="rule"></span></div>
+          <h3 class="dsp h-md" data-lines><span class="line"><span>Entrevista, direção</span></span><span class="line"><span>e gravação cinematográfica</span></span></h3>
+          <p data-rv>Entre na vida do personagem e transforme realidade em narrativa visual.</p>
+          <div class="chips" data-rv style="--d:.1s">
+            <i>Entrevista</i><i>Direção</i><i>Câmera</i><i>Lentes</i><i>Iluminação</i><i>Áudio</i><i>Casa</i><i>Rotina</i><i>Preparação</i><i>Treinamento</i><i>Cenas espontâneas</i><i>Cenas dirigidas</i><i>Competição</i><i>Cinematografia</i><i>Som ambiente</i>
+          </div>
+          <div class="res" data-rv style="--d:.15s">
+            <span class="mono">Destaque</span>
+            <p>Você acompanha uma produção real.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="aula">
+        <div class="aula-media">
+          <div class="frame" data-frame><img src="images/foto-04.webp" alt="Detalhe de roda de carbono e cadência"></div>
+          <span class="aula-num">03</span>
+        </div>
+        <div class="aula-body">
+          <div class="aula-kicker"><span class="mono">Aula 03</span><span class="rule"></span></div>
+          <h3 class="dsp h-md" data-lines><span class="line"><span>Montagem, storytelling</span></span><span class="line"><span>e finalização</span></span></h3>
+          <p data-rv>O material existe. Agora precisamos encontrar o filme.</p>
+          <div class="chips" data-rv style="--d:.1s">
+            <i>Organização</i><i>Transcrição</i><i>Seleção de falas</i><i>Roteiro de papel</i><i>Montagem</i><i>Ritmo</i><i>B-roll</i><i>Sound design</i><i>Música</i><i>Silêncio</i><i>Cor</i><i>Look</i><i>Títulos</i><i>Finalização</i>
+          </div>
+          <div class="res" data-rv style="--d:.15s">
+            <span class="mono">Resultado</span>
+            <p>Mini documentário finalizado.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 · NÍVEL ============ -->
+<section class="sec ink-sec" id="nivel">
+  <div class="wrap">
+    <h2 class="dsp h-lg" data-lines style="max-width:16ch">
+      <span class="line"><span>Não é uma masterclass</span></span>
+      <span class="line"><span>para aprender</span></span>
+      <span class="line"><span style="color:transparent;-webkit-text-stroke:2px var(--paper-hi)">a apertar rec.</span></span>
+    </h2>
+    <p class="lead dim" data-rv style="max-width:56ch;margin-top:26px">É para quem já possui experiência audiovisual e quer aprender a construir filmes esportivos com mais profundidade, direção e valor.</p>
+
+    <div class="who">
+      <div data-rv>
+        <h4>Para fotógrafos</h4>
+        <p>que querem expandir para filmes.</p>
+      </div>
+      <div data-rv style="--d:.1s">
+        <h4>Para filmmakers</h4>
+        <p>que querem dominar storytelling documental.</p>
+      </div>
+      <div data-rv style="--d:.2s">
+        <h4>Para profissionais do esporte</h4>
+        <p>que querem elevar a qualidade e o valor dos seus projetos.</p>
+      </div>
+    </div>
+
+    <div class="gear">
+      <div data-rv>
+        <div class="aula-kicker"><span class="mono" style="color:var(--rust)">Estrutura recomendada</span></div>
+        <p class="dim" style="max-width:34ch;margin:0">O aluno deve possuir ou ter acesso a uma estrutura audiovisual profissional para executar o projeto.</p>
+      </div>
+      <div class="gear-list" data-rv style="--d:.1s">
+        <div><b></b><span>Câmera</span></div>
+        <div><b></b><span>Lentes</span></div>
+        <div><b></b><span>Microfone</span></div>
+        <div><b></b><span>Iluminação</span></div>
+        <div><b></b><span>Tripé / suporte</span></div>
+        <div><b></b><span>Computador para edição</span></div>
+      </div>
+    </div>
+
+    <div class="quote">
+      <h3 class="dsp h-md" data-lines>
+        <span class="line"><span>Você não precisa</span></span>
+        <span class="line"><span>de uma grande produção.</span></span>
+        <span class="line"><span style="color:var(--neon)">Precisa de uma boa história,</span></span>
+        <span class="line"><span style="color:var(--neon)">domínio técnico e intenção.</span></span>
+      </h3>
+    </div>
+  </div>
+</section>
+
+<div class="band" aria-hidden="true"><img src="images/foto-05.webp" alt="" data-par="0.1"></div>
+
+<!-- ============ 05 · VALOR ============ -->
+<section class="sec" id="valor" style="padding-top:clamp(48px,7vh,90px)">
+  <div class="wrap">
+    <h2 class="dsp h-xl" data-lines>
+      <span class="line"><span>Pare de vender</span></span>
+      <span class="line"><span>apenas um vídeo.</span></span>
+    </h2>
+    <p class="dsp h-sm" data-rv style="color:var(--rust);margin-top:20px">Comece a vender uma história.</p>
+
+    <div class="cmp">
+      <div class="thin" data-rv>
+        <div class="hd"><h4>Cobertura</h4><span class="mono">Entrega simples</span></div>
+        <ul>
+          <li>Captação</li>
+          <li>Edição</li>
+          <li>Entrega</li>
+        </ul>
+        <p style="margin:22px 0 0;font-size:15px">Uma cobertura simples vende horas de produção.</p>
+      </div>
+      <div class="deep" data-rv style="--d:.12s">
+        <div class="hd"><h4>Documentário</h4><span class="mono" style="color:var(--neon)">Entrega profunda</span></div>
+        <ul>
+          <li>Pesquisa</li><li>Estratégia</li><li>Roteiro</li><li>Entrevista</li>
+          <li>Direção</li><li>Captação</li><li>Storytelling</li><li>Pós-produção</li>
+        </ul>
+        <p style="margin:22px 0 0;font-size:15px;opacity:.75">Isso aumenta a profundidade da entrega e pode aumentar significativamente o valor percebido do projeto.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(40px,5vw,70px)">
+      <span class="mono dim" data-rv>Possíveis clientes</span>
+      <div class="clients" data-rv style="--d:.08s">
+        <span>Atletas</span><span>Clubes</span><span>Assessorias</span><span>Patrocinadores</span><span>Marcas esportivas</span><span>Eventos</span>
+      </div>
+    </div>
+
+    <div class="cases">
+      <p data-rv><b>Triatleta</b>Pode documentar sua jornada até um Ironman.</p>
+      <p data-rv style="--d:.08s"><b>Atleta profissional</b>Pode transformar sua história em posicionamento.</p>
+      <p data-rv style="--d:.16s"><b>Marca</b>Pode transformar a jornada de um atleta em branded content.</p>
+      <p data-rv style="--d:.24s"><b>Clube</b>Pode contar histórias da própria comunidade.</p>
+      <p data-rv style="--d:.32s"><b>Patrocinador</b>Pode utilizar narrativa documental em campanhas.</p>
+    </div>
+
+    <div class="hl-phrase" data-rv>
+      <h3 class="dsp h-md" style="max-width:22ch">Quanto mais profunda a entrega, maior o potencial de valor do projeto.</h3>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 · CTA FINAL ============ -->
+<section class="sec final" id="inscricao">
+  <div class="final-media">
+    <img src="images/foto-06.webp" alt="">
+    <video id="finalVideo" playsinline muted loop preload="none" style="display:none"></video>
+  </div>
+  <div class="wrap">
+    <div class="final-grid">
+      <div>
+        <h2 class="dsp h-lg" data-lines>
+          <span class="line"><span>Todo atleta</span></span>
+          <span class="line"><span style="color:var(--neon)">carrega uma história.</span></span>
+        </h2>
+        <p class="lead dim" data-rv style="max-width:34ch;margin-top:22px">Aprenda a encontrá-la e transformá-la em filme.</p>
+
+        <div class="offer" data-rv style="--d:.15s;margin-top:clamp(28px,3.4vw,44px)">
+          <div class="pname">
+            <span class="mono" style="color:var(--rust)">Masterclass</span>
+            <h3 style="margin-top:10px">Documentário esportivo<em>Da história ao filme</em></h3>
+          </div>
+          <div id="priceBox"></div>
+          <a class="btn big" href="#" data-checkout>Quero entrar na masterclass <i class="ar"></i></a>
+          <p class="mono" id="guarantee" style="margin:16px 0 0;opacity:.55;letter-spacing:.14em;display:none"></p>
+        </div>
+      </div>
+
+      <div class="keyart" data-rv style="--d:.25s">
+        <div class="frame" data-frame><img src="images/foto-07.webp" alt="Arte oficial da Masterclass Documentário Esportivo"></div>
+        <div class="cap"><span class="mono">Corre y Cria</span><span class="mono">Da história ao filme</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec" id="faq" style="padding-block:clamp(56px,8vh,110px)">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:16px;margin-bottom:clamp(18px,2.4vw,34px)">
+      <h2 class="dsp h-md" data-lines><span class="line"><span>Perguntas</span></span></h2>
+      <span class="mono dim">05 respostas</span>
+    </div>
+    <div class="faq">
+      <details>
+        <summary><span class="n">01</span><span class="q">Para quem é a masterclass?</span><span class="ic"></span></summary>
+        <div class="a"><p>Para fotógrafos, filmmakers, videomakers, diretores e criadores audiovisuais que já produzem — ou querem produzir profissionalmente — dentro do esporte. Não é uma formação introdutória.</p></div>
+      </details>
+      <details>
+        <summary><span class="n">02</span><span class="q">Preciso ter equipamento profissional?</span><span class="ic"></span></summary>
+        <div class="a"><p>Sim. É recomendado possuir ou ter acesso a câmera, lentes, microfone, gravador quando necessário, fones, iluminação, tripé e computador para edição. A masterclass não trabalha com produção por celular.</p></div>
+      </details>
+      <details>
+        <summary><span class="n">03</span><span class="q">Serve para esportes além de corrida e triathlon?</span><span class="ic"></span></summary>
+        <div class="a"><p>Sim. A metodologia é documental e pode ser aplicada a diversas modalidades: ciclismo, natação, lutas, tênis, esportes coletivos. A modalidade é o cenário — a história humana é o filme.</p></div>
+      </details>
+      <details>
+        <summary><span class="n">04</span><span class="q">A produção é prática?</span><span class="ic"></span></summary>
+        <div class="a"><p>Sim. O aluno acompanha planejamento, gravação e pós-produção de uma produção real, do primeiro contato com o personagem até o filme finalizado.</p></div>
+      </details>
+      <details>
+        <summary><span class="n">05</span><span class="q">A edição faz parte da masterclass?</span><span class="ic"></span></summary>
+        <div class="a"><p>Sim. A terceira aula acompanha a construção narrativa e a finalização: montagem, ritmo, sound design, cor e entrega do mini documentário.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-lock">Da história<br>ao filme.<small>Masterclass · Documentário esportivo</small></div>
+      <a class="btn" href="#inscricao" data-checkout>Quero entrar na masterclass <i class="ar"></i></a>
+    </div>
+    <div class="foot-bot">
+      <span class="mono">Corre y Cria</span>
+      <span class="mono">Não filme apenas o atleta · conte a história por trás dele</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <span class="mono">Masterclass · 03 aulas</span>
+  <a class="btn sm" href="#inscricao" data-checkout>Quero entrar <i class="ar"></i></a>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG — altere somente este bloco
+   ============================================================ */
+const CONFIG = {
+  // Link do checkout (Hotmart, Kiwify, Eduzz, Stripe...)
+  checkout: '',
+
+  // Vídeo de apresentação. Deixe vazio para usar o arquivo já embutido na página.
+  // Em produção, hospede o MP4 e aponte aqui (ex.: 'videos/masterclass-apresentacao.mp4').
+  videoFile:   '',
+  videoPoster: '',
+  videoAutoplay: true,           // inicia sem som ao entrar na tela
+  videoVolume: .85,              // volume aplicado ao ativar o som
+
+  // Vídeo em loop do hero (MP4/WebM curto, otimizado, sem áudio)
+  heroVideo: { webm:'', mp4:'' },
+  // Vídeo em loop da seção final (opcional)
+  finalVideo:{ webm:'', mp4:'' },
+
+  // Oferta — deixe vazio para exibir o marcador de configuração
+  oferta: {
+    precoDe:   '',               // ex.: 'R$ 697'
+    precoPor:  '',               // ex.: 'R$ 497'
+    parcelas:  '',               // ex.: 'ou 12x de R$ 49,70'
+    obs:       '',               // ex.: 'Acesso imediato · 12 meses'
+    garantia:  ''                // ex.: '7 dias de garantia'
+  }
+};
+
+/* ============================================================ */
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* checkout */
+document.querySelectorAll('[data-checkout]').forEach(a=>{
+  if(CONFIG.checkout){ a.href = CONFIG.checkout; a.target='_blank'; a.rel='noopener'; }
+});
+
+/* preço */
+(function(){
+  const o = CONFIG.oferta, box = document.getElementById('priceBox');
+  if(o.precoPor){
+    box.innerHTML = `<div class="price">${o.precoDe?`<span class="de">${o.precoDe}</span>`:''}<span class="por">${o.precoPor}</span></div>
+      <p class="price-note">${[o.parcelas,o.obs].filter(Boolean).join(' · ')}</p>`;
+  }else{
+    box.innerHTML = `<div class="ph"><span class="mono">Preço a definir</span>
+      <small>Preencha CONFIG.oferta (precoDe, precoPor, parcelas, obs) no início do script.</small></div>`;
+  }
+  if(o.garantia){ const g=document.getElementById('guarantee'); g.textContent=o.garantia; g.style.display='block'; }
+})();
+
+/* vídeo de fundo do hero + final */
+function loopVideo(el, src, holderImg){
+  if(!src || (!src.mp4 && !src.webm) || reduce) return;
+  if(src.webm){ const s=document.createElement('source'); s.src=src.webm; s.type='video/webm'; el.appendChild(s); }
+  if(src.mp4){  const s=document.createElement('source'); s.src=src.mp4;  s.type='video/mp4';  el.appendChild(s); }
+  el.style.display='block'; el.autoplay=true; el.load();
+  el.play().then(()=>{ if(holderImg) holderImg.style.opacity='0'; }).catch(()=>{ el.style.display='none'; });
+}
+loopVideo(document.getElementById('heroVideo'), CONFIG.heroVideo, document.querySelector('.hero-media picture'));
+loopVideo(document.getElementById('finalVideo'), CONFIG.finalVideo, document.querySelector('.final-media img'));
+
+/* player: carrega só no clique (performance) */
+/* ---------- player de apresentação ---------- */
+(function(){
+  const v=document.getElementById('vid'), box=document.getElementById('player');
+  if(!v||!box) return;
+  if(CONFIG.videoFile){ v.querySelector('source').src=CONFIG.videoFile; v.load(); }
+  if(CONFIG.videoPoster) v.poster=CONFIG.videoPoster;
+
+  const cue=document.getElementById('soundCue'), btnPlay=document.getElementById('btnPlay'),
+        btnMute=document.getElementById('btnMute'), btnFs=document.getElementById('btnFs'),
+        vol=document.getElementById('vol'), prog=document.getElementById('prog'),
+        pbar=document.getElementById('pbar'), tcode=document.getElementById('tcode');
+
+  const ICON_ON ='<svg viewBox="0 0 24 24"><path d="M3 9h4l6-5v16l-6-5H3z"/><path d="M16.5 8.2a5 5 0 0 1 0 7.6l1.3 1.5a7 7 0 0 0 0-10.6l-1.3 1.5z"/></svg>';
+  const ICON_OFF='<svg viewBox="0 0 24 24"><path d="M3 9h4l6-5v16l-6-5H3z"/><path d="M22 9.4L20.6 8l-2.1 2.1L16.4 8 15 9.4l2.1 2.1L15 13.6 16.4 15l2.1-2.1 2.1 2.1 1.4-1.4-2.1-2.1L22 9.4z"/></svg>';
+
+  const fmt=s=>{ s=Math.max(0,s|0); return String(s/60|0).padStart(2,'0')+':'+String(s%60).padStart(2,'0'); };
+  function syncSound(){
+    const on = !v.muted && v.volume>0;
+    btnMute.innerHTML = on?ICON_ON:ICON_OFF;
+    btnMute.setAttribute('aria-label', on?'Desativar som':'Ativar som');
+    vol.value = on ? v.volume : 0;
+    cue.classList.toggle('off', on);
+  }
+  function syncPlay(){
+    box.classList.toggle('paused', v.paused);
+    btnPlay.setAttribute('aria-label', v.paused?'Reproduzir':'Pausar');
+  }
+
+  function enableSound(){
+    v.muted=false;
+    if(v.volume===0) v.volume=CONFIG.videoVolume;
+    v.play().catch(()=>{});
+    syncSound();
+  }
+  cue.addEventListener('click', enableSound);
+  btnMute.addEventListener('click', ()=>{ v.muted ? enableSound() : (v.muted=true, syncSound()); });
+  vol.addEventListener('input', ()=>{ v.volume=+vol.value; v.muted = +vol.value===0; syncSound(); });
+
+  btnPlay.addEventListener('click', ()=>{ v.paused ? v.play() : v.pause(); });
+  v.addEventListener('play', syncPlay); v.addEventListener('pause', syncPlay);
+
+  v.addEventListener('timeupdate', ()=>{
+    if(!v.duration) return;
+    pbar.style.width=(v.currentTime/v.duration*100)+'%';
+    tcode.textContent=fmt(v.currentTime)+' / '+fmt(v.duration);
+  });
+  v.addEventListener('loadedmetadata', ()=>{ tcode.textContent='00:00 / '+fmt(v.duration); });
+
+  /* seek */
+  let seeking=false;
+  const seek=e=>{ const r=prog.getBoundingClientRect();
+    v.currentTime=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width))*(v.duration||0); };
+  prog.addEventListener('pointerdown',e=>{ seeking=true; prog.setPointerCapture(e.pointerId); seek(e); });
+  prog.addEventListener('pointermove',e=>{ if(seeking) seek(e); });
+  prog.addEventListener('pointerup',()=>{ seeking=false; });
+
+  btnFs.addEventListener('click',()=>{
+    if(document.fullscreenElement) document.exitFullscreen();
+    else (box.requestFullscreen||v.webkitEnterFullscreen||(()=>{})).call(box.requestFullscreen?box:v);
+  });
+
+  /* toque no mobile: mostra os controles */
+  box.addEventListener('pointerdown',()=>{ box.classList.add('act');
+    clearTimeout(box._t); box._t=setTimeout(()=>box.classList.remove('act'),3200); });
+
+  /* toca em loop, sem som, apenas enquanto estiver visível */
+  let userPaused=false;
+  btnPlay.addEventListener('click',()=>{ userPaused=!v.paused ? false : true; });
+  if(CONFIG.videoAutoplay && !reduce){
+    new IntersectionObserver(es=>es.forEach(e=>{
+      if(e.isIntersecting){ if(!userPaused) v.play().catch(()=>{}); }
+      else if(!v.paused) v.pause();
+    }),{threshold:.25}).observe(box);
+  }
+  syncSound(); syncPlay();
+})();
+
+/* reveals */
+const io = new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.16, rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('[data-rv],[data-lines],[data-frame]').forEach(el=>io.observe(el));
+
+/* título do hero: cabe por inteiro em qualquer largura */
+const heroTitle=document.querySelector('.hero h1');
+function fitHeroTitle(){
+  if(!heroTitle) return;
+  const REF=120, MAXFS=158, SAFE=.985;
+  heroTitle.style.setProperty('--fs', REF+'px');
+  const avail=heroTitle.clientWidth;
+  let w=0, range=document.createRange();
+  heroTitle.querySelectorAll('.line>span').forEach(s=>{
+    range.selectNodeContents(s);
+    w=Math.max(w, range.getBoundingClientRect().width);
+  });
+  if(!w||!avail) return;
+  heroTitle.style.setProperty('--fs', Math.min(MAXFS, REF*(avail/w)*SAFE).toFixed(1)+'px');
+}
+fitHeroTitle();
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitHeroTitle);
+addEventListener('load', fitHeroTitle);
+let rz; addEventListener('resize',()=>{ clearTimeout(rz); rz=setTimeout(fitHeroTitle,120); },{passive:true});
+addEventListener('orientationchange',()=>setTimeout(fitHeroTitle,250));
+
+/* stagger das linhas de título */
+document.querySelectorAll('[data-lines]').forEach(h=>{
+  h.querySelectorAll('.line>span').forEach((s,i)=> s.style.setProperty('--d', (i*.09)+'s'));
+});
+
+/* parallax sutil */
+const pars=[...document.querySelectorAll('[data-par]')];
+let ticking=false;
+function parallax(){
+  const vh=innerHeight;
+  pars.forEach(el=>{
+    const r=el.parentElement.getBoundingClientRect();
+    if(r.bottom<-200||r.top>vh+200) return;
+    const p=(r.top+r.height/2-vh/2)/vh;
+    el.style.transform=`translate3d(0,${(p*parseFloat(el.dataset.par)*100).toFixed(2)}px,0) scale(1.08)`;
+  });
+  ticking=false;
+}
+if(!reduce && innerWidth>860){
+  addEventListener('scroll',()=>{ if(!ticking){ requestAnimationFrame(parallax); ticking=true; } },{passive:true});
+  parallax();
+}
+
+/* nav + barra fixa */
+const nav=document.getElementById('nav'), sticky=document.getElementById('sticky');
+addEventListener('scroll',()=>{
+  const y=scrollY;
+  nav.classList.toggle('solid', y>80);
+  sticky.classList.toggle('show', y>innerHeight*.9);
+},{passive:true});
+
+/* cursor */
+const cur=document.getElementById('cur');
+if(!reduce && matchMedia('(hover:hover)').matches){
+  let x=0,y=0,cx=0,cy=0;
+  addEventListener('mousemove',e=>{ x=e.clientX; y=e.clientY; cur.classList.add('on'); });
+  (function loop(){ cx+=(x-cx)*.18; cy+=(y-cy)*.18;
+    cur.style.left=cx+'px'; cur.style.top=cy+'px'; requestAnimationFrame(loop); })();
+  document.querySelectorAll('a,button,summary,.player').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cur.classList.add('big'));
+    el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
+  });
+}
+
+/* âncoras suaves */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); }
+  });
+});
+</script>
 </body>
 </html>

@@ -1,0 +1,101 @@
+CARREIRA VISUAL — carreiravisual.com.br
+=============================================
+
+
+1. COMO O SITE ESTÁ ORGANIZADO
+------------------------------
+
+A regra é simples: PASTA = ENDEREÇO.
+
+  index.html ..................................... carreiravisual.com.br
+  images/ ........................................ (capas e fotos da home)
+  o-que-fica/index.html .......................... carreiravisual.com.br/o-que-fica
+  lap/index.html ................................. carreiravisual.com.br/lap
+  corre-y-cria/index.html ........................ carreiravisual.com.br/corre-y-cria
+  domine-sua-fuji/index.html ..................... carreiravisual.com.br/domine-sua-fuji
+  quadros-lucrativos/index.html .................. carreiravisual.com.br/quadros-lucrativos
+  masterclass-documentario-esportivo/index.html .. carreiravisual.com.br/masterclass-documentario-esportivo
+  mentoria-direcao/index.html .................... carreiravisual.com.br/mentoria-direcao
+  vintagefilm/index.html ......................... carreiravisual.com.br/vintagefilm
+  presets-fuji/index.html ........................ carreiravisual.com.br/presets-fuji
+
+O arquivo dentro da pasta PRECISA se chamar index.html. É esse nome que faz o
+endereço ficar limpo, sem aparecer ".html" no final.
+
+
+2. COLOCAR AS SUAS LANDING PAGES NO LUGAR
+-----------------------------------------
+
+Hoje cada pasta tem uma página provisória. Para cada curso:
+
+  1. Pegue o HTML da landing page que já está pronta
+  2. Renomeie para index.html
+  3. Substitua o arquivo que está na pasta
+  4. Se a landing page tiver pasta images/, coloque dentro da mesma pasta
+  5. Apague o arquivo _SUBSTITUIR-ESTE-ARQUIVO.txt
+
+Pronto. O botão "Conhecer treinamento" da plataforma já aponta para lá.
+
+
+3. PUBLICAR — CAMINHO A: HOSPEDAGEM TRADICIONAL (Hostinger, Locaweb, cPanel)
+---------------------------------------------------------------------------
+
+  1. Entre no painel da hospedagem e abra o Gerenciador de Arquivos
+  2. Vá até a pasta public_html (é a raiz do site)
+  3. Apague o que estiver lá dentro, se for um site antigo
+  4. Suba o ZIP inteiro e use a opção "Extrair" do próprio painel
+     (subir arquivo por arquivo demora muito — sempre suba o ZIP e extraia)
+  5. Confira que o index.html ficou direto em public_html, e não dentro de
+     uma subpasta
+
+Se o domínio já está apontado para essa hospedagem, o site entra no ar em minutos.
+
+
+4. PUBLICAR — CAMINHO B: VERCEL, NETLIFY OU CLOUDFLARE PAGES (grátis e mais rápido)
+----------------------------------------------------------------------------------
+
+  1. Crie a conta e escolha "Deploy manually" / "Deploy without Git"
+  2. Arraste a PASTA descompactada inteira para a área indicada
+  3. O site sobe em segundos num endereço provisório
+  4. Em Settings > Domains, adicione carreiravisual.com.br
+  5. A plataforma mostra qual registro criar no seu provedor de domínio:
+       - registro A do domínio raiz apontando para o IP que ela informar
+       - registro CNAME do "www" apontando para o endereço que ela informar
+  6. Crie esses registros no painel onde o domínio foi comprado (Registro.br,
+     GoDaddy, Hostinger). O DNS costuma propagar entre 15 minutos e 4 horas
+
+Esse caminho já vem com HTTPS, cache e CDN ligados de fábrica — as capas em alta
+resolução carregam bem mais rápido.
+
+
+5. DEPOIS DE PUBLICAR — CONFERIR
+--------------------------------
+
+  [ ] carreiravisual.com.br abre a plataforma
+  [ ] o hero está trocando as capas sozinho
+  [ ] clicar num card abre o preview
+  [ ] "Conhecer treinamento" leva para a página do curso
+  [ ] os três vídeos do YouTube abrem e tocam
+  [ ] tudo isso também no celular
+  [ ] o cadeado de HTTPS aparece na barra do navegador
+
+
+6. O QUE AINDA PRECISA SER PREENCHIDO (topo do <script> no index.html)
+---------------------------------------------------------------------
+
+  CONFIG.whatsapp ....... número real (hoje está 5521000000000)
+  CONFIG.links .......... já apontam para as pastas. Troque por URL completa
+                          (https://...) se algum curso for vender direto na
+                          Hotmart ou Kiwify em vez de ter página própria
+  CONFIG.heroInterval ... tempo de cada destaque do hero, em milissegundos
+
+
+7. ADICIONAR UM CURSO NOVO NO FUTURO
+------------------------------------
+
+  1. Coloque a capa vertical (2:3) e a horizontal (16:9) em images/
+  2. Copie um bloco do array PRODUCTS no index.html e troque os campos
+  3. Crie a pasta do curso com o index.html da landing page dentro
+  4. Aponte CONFIG.links para essa pasta
+
+O layout não precisa ser mexido. Ele se organiza sozinho.
