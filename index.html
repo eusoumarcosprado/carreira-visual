@@ -127,7 +127,27 @@ main{position:relative;z-index:2}
 .reveal.in{opacity:1;transform:none}
 
 /* ============================ HERO ============================= */
-.hero{position:relative;min-height:min(100svh,860px);display:flex;align-items:flex-end;isolation:isolate;overflow:hidden}
+.hero{position:relative;min-height:min(100svh,860px);display:flex;align-items:flex-end;isolation:isolate;overflow:hidden;
+  touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none}
+.hero.dragging{cursor:grabbing}
+.hero-slide picture{transition:transform .55s var(--ease)}
+.hero-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:6;
+  width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;
+  background:rgba(0,0,0,.34);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.18);
+  opacity:0;transition:opacity .35s var(--ease),background .3s,transform .3s var(--ease)}
+.hero-nav svg{width:22px;height:22px}
+.hero-nav.prev{left:max(14px,calc(var(--gutter) - 16px))}
+.hero-nav.next{right:max(14px,calc(var(--gutter) - 16px))}
+.hero-nav:hover{background:rgba(255,109,41,.92);border-color:transparent;color:#150a04}
+.hero-nav.prev:hover{transform:translateY(-50%) translateX(-3px)}
+.hero-nav.next:hover{transform:translateY(-50%) translateX(3px)}
+.hero:hover .hero-nav{opacity:1}
+.hero-nav:focus-visible{opacity:1}
+@media(hover:none){
+  .hero-nav{opacity:.85;width:42px;height:42px;background:rgba(0,0,0,.42)}
+  .hero-nav svg{width:18px;height:18px}
+}
 .hero-media{position:absolute;inset:0;z-index:-2}
 .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s var(--ease)}
 .hero-slide.on{opacity:1}
@@ -783,6 +803,10 @@ function heroHTML(){
       <div class="hero-copy" id="heroCopy"></div>
       <figure class="hero-poster" id="heroPoster" hidden><img alt=""><figcaption></figcaption></figure>
     </div>
+    <button class="hero-nav prev" data-hero="-1" aria-label="Destaque anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="hero-nav next" data-hero="1" aria-label="Próximo destaque">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M9 5l7 7-7 7"/></svg></button>
     <div class="hero-bars" id="heroBars">
       ${slides.map((_,i)=>`<button data-go="${i}" aria-label="Destaque ${i+1}"><i></i></button>`).join('')}
     </div>
@@ -813,6 +837,40 @@ function paintHero(i){
     else if(bi===i){ bar.style.transition=''; bar.style.width=''; b.classList.add('on') } });
   heroIndex=i;
 }
+function goHero(dir){
+  if(!HERO.length) return;
+  paintHero((heroIndex + dir + HERO.length) % HERO.length);
+  startHero();
+}
+
+/* arraste com mouse e com o dedo — o mesmo código serve para os dois */
+let dgX=0, dgOn=false, dgPic=null, dgMoved=false;
+document.addEventListener('pointerdown',e=>{
+  const hero=e.target.closest('#hero'); if(!hero) return;
+  if(e.target.closest('a,button')) return;          // não atrapalha os botões
+  dgX=e.clientX; dgOn=true; dgMoved=false;
+  dgPic=hero.querySelector('.hero-slide.on picture');
+});
+document.addEventListener('pointermove',e=>{
+  if(!dgOn) return;
+  const dx=e.clientX-dgX;
+  if(Math.abs(dx)>6){
+    dgMoved=true;
+    $('#hero')?.classList.add('dragging');
+    if(dgPic){ dgPic.style.transition='none'; dgPic.style.transform=`translateX(${dx*0.24}px)`; }
+  }
+});
+function endDrag(e){
+  if(!dgOn) return;
+  const dx=(e.clientX||dgX)-dgX;
+  if(dgPic){ dgPic.style.transition=''; dgPic.style.transform=''; }
+  $('#hero')?.classList.remove('dragging');
+  dgOn=false; dgPic=null;
+  if(dgMoved && Math.abs(dx)>60) goHero(dx<0 ? 1 : -1);
+}
+document.addEventListener('pointerup',endDrag);
+document.addEventListener('pointercancel',endDrag);
+
 function startHero(){
   clearInterval(heroTimer);
   document.documentElement.style.setProperty('--hero-dur',(CONFIG.heroInterval/1000)+'s');
@@ -1076,6 +1134,8 @@ document.addEventListener('click',e=>{
   if(chip){ $$('.chip').forEach(c=>c.classList.remove('on')); chip.classList.add('on'); paintCatalog(chip.dataset.f) }
   const hint=e.target.closest('#searchHints button');
   if(hint){ $('#searchInput').value=hint.textContent; paintSearch(hint.textContent) }
+  const hn=e.target.closest('[data-hero]');
+  if(hn){ goHero(+hn.dataset.hero); return }
   const go=e.target.closest('[data-go]');
   if(go){ paintHero(+go.dataset.go); startHero() }
   if(e.target.closest('a[href^="#/"]')) closeSearch();
@@ -1087,6 +1147,11 @@ document.addEventListener('keydown',e=>{
     if(c){ e.preventDefault(); c.dataset.open?openProduct(c.dataset.open):openVideo(c.dataset.video) }
   }
   if(e.key==='/'&&!/input|textarea/i.test(document.activeElement.tagName)){ e.preventDefault(); openSearch() }
+  if($('#hero') && !$('#modal').classList.contains('open') && !$('#search').classList.contains('open')
+     && !/input|textarea/i.test(document.activeElement.tagName)){
+    if(e.key==='ArrowLeft')  goHero(-1);
+    if(e.key==='ArrowRight') goHero(1);
+  }
 });
 $('#openSearch').addEventListener('click',openSearch);
 $('#closeSearch').addEventListener('click',closeSearch);
