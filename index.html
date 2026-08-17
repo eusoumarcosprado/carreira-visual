@@ -509,7 +509,7 @@ const CONFIG = {
   instagram: 'https://instagram.com/eusoumarcosprado',
   youtube:   'https://youtube.com/@eusoumarcosprado',
   email:     'marcosprado011@hotmail.com',
-  whatsapp:  'https://wa.me/5521997442878',      // <- trocar número
+  whatsapp:  'https://wa.me/5521000000000',      // <- trocar número
   heroInterval: 7000,                            // tempo de cada slide do hero (ms)
 
   /* Endereço da landing page de cada produto.
@@ -753,7 +753,7 @@ function heroSlideData(h){
   if(h.kind==='product'){ const p=P(h.pid); return {
     img: p.wide||p.cover, tag:h.tag, hot:h.hot, title:esc(p.title), sub:p.tagline,
     meta:[p.cat,p.level], poster:p.cover, posterCap:'Capa oficial', light:h.light,
-    ctas:[{label:'Conhecer treinamento',href:'#',cls:'btn-orange',icon:'play',open:p.id},
+    ctas:[{label:'Conhecer treinamento',href:p.url,cls:'btn-orange',icon:'play',ext:/^https?:/.test(p.url)},
           {label:'Mais informações',href:'#',cls:'btn-glass',icon:'info',open:p.id}] };
   }
   if(h.kind==='video'){ const v=V(h.vid); return {
@@ -797,7 +797,7 @@ function paintHero(i){
     <h1 class="hero-title${s.brand?' brand':''}">${s.title}</h1>
     <p class="hero-sub">${esc(s.sub)}</p>
     <div class="hero-meta">${s.meta.map(m=>`<span>${esc(m)}</span>`).join('')}</div>
-    <div class="hero-cta">${s.ctas.map(c=>`<a class="btn ${c.cls}" href="${c.href}"${c.open?` data-open="${c.open}"`:''}${c.video?` data-video="${c.video}"`:''}>${ICONS[c.icon]||''}${esc(c.label)}</a>`).join('')}</div>`;
+    <div class="hero-cta">${s.ctas.map(c=>`<a class="btn ${c.cls}" href="${c.href}"${c.open?` data-open="${c.open}"`:''}${c.video?` data-video="${c.video}"`:''}${c.ext?' target="_blank" rel="noopener"':''}>${ICONS[c.icon]||''}${esc(c.label)}</a>`).join('')}</div>`;
   copy.style.animation='none'; void copy.offsetWidth; copy.style.animation='pop .8s var(--ease)';
   const poster = $('#heroPoster');
   if(s.poster){ poster.hidden=false; poster.querySelector('img').src=s.poster;
@@ -1004,7 +1004,7 @@ function openVideo(id){
       <div class="modal-tags"><span>${esc(v.meta)}</span><span>YouTube</span></div>
       <p>${esc(v.desc)}</p>
       <div class="modal-cta">
-        <a class="btn btn-orange" href="${CONFIG.youtube}" target="_blank" rel="noopener">${ICONS.play} Assistir no YouTube</a>
+        <a class="btn btn-orange" href="${yid?('https://youtu.be/'+yid):CONFIG.youtube}" target="_blank" rel="noopener">${ICONS.play} Assistir no YouTube</a>
         <button class="btn btn-glass" data-close>Voltar</button>
       </div>
     </div>`;
