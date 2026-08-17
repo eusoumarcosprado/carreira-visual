@@ -91,6 +91,7 @@ header.scrolled{background:rgba(14,13,12,.82);backdrop-filter:blur(14px);border-
 .nav-links a{font-size:.92rem;font-weight:500;color:var(--off);transition:color .25s}
 .nav-links a:hover{color:var(--white)}
 .nav .btn{padding:11px 22px;font-size:.85rem}
+.nav-links .btn.mob{display:none}
 .menu-btn{display:none;background:none;border:none;color:var(--white);font-size:1.6rem;cursor:pointer}
 
 /* ---------- Hero ---------- */
@@ -330,6 +331,7 @@ footer{border-top:1px solid var(--card-border);padding:48px 0 40px;background:va
   .nav-links.mobile-open{display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;background:rgba(14,13,12,.97);backdrop-filter:blur(14px);padding:24px;gap:20px;border-bottom:1px solid var(--card-border)}
   .menu-btn{display:block}
   .nav .btn.desk{display:none}
+  .nav-links.mobile-open .btn.mob{display:inline-flex}
   .section-pad{padding:72px 0}
   .who-grid,.learn-grid,.opp-grid,.bonus-grid{grid-template-columns:1fr}
   .ba-grid{grid-template-columns:1fr;gap:0}
@@ -361,7 +363,7 @@ footer{border-top:1px solid var(--card-border);padding:48px 0 40px;background:va
       <a href="#modulos">Módulos</a>
       <a href="#professor">Professor</a>
       <a href="#oferta">Oferta</a>
-      <a href="https://pay.hotmart.com/B106971047E" target="_blank" rel="noopener" class="btn btn-primary" style="padding:11px 22px;font-size:.85rem">Quero entrar</a>
+      <a href="https://pay.hotmart.com/B106971047E" target="_blank" rel="noopener" class="btn btn-primary mob" style="padding:11px 22px;font-size:.85rem">Quero entrar</a>
     </nav>
     <a href="https://pay.hotmart.com/B106971047E" target="_blank" rel="noopener" class="btn btn-primary desk">Quero entrar</a>
     <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
