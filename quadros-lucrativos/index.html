@@ -181,10 +181,10 @@ body::before{
   content:"";position:absolute;inset:0;
   background:radial-gradient(120% 80% at 72% 18%, rgba(255,247,235,.65), transparent 62%);
 }
-.ph--sky{background-image:linear-gradient(170deg,#FBEEDD 0%,#F0CFA8 38%,#E8A272 66%,#D9805A 100%)}
-.ph--dune{background-image:linear-gradient(160deg,#F6EEE1 0%,#E3D2B8 40%,#C9AE8C 78%,#B79A78 100%)}
-.ph--sea{background-image:linear-gradient(165deg,#EDE7DC 0%,#CBC4B4 45%,#9AA39C 75%,#7C8880 100%)}
-.ph--arch{background-image:linear-gradient(145deg,#F7F2E8 0%,#E6DACA 35%,#C6B7A4 70%,#8E8073 100%)}
+.ph--sky{background:linear-gradient(170deg,#FBEEDD 0%,#F0CFA8 38%,#E8A272 66%,#D9805A 100%)}
+.ph--dune{background:linear-gradient(160deg,#F6EEE1 0%,#E3D2B8 40%,#C9AE8C 78%,#B79A78 100%)}
+.ph--sea{background:linear-gradient(165deg,#EDE7DC 0%,#CBC4B4 45%,#9AA39C 75%,#7C8880 100%)}
+.ph--arch{background:linear-gradient(145deg,#F7F2E8 0%,#E6DACA 35%,#C6B7A4 70%,#8E8073 100%)}
 
 /* ============================================================
    Header
@@ -859,7 +859,7 @@ body::before{
       <a href="#professor">Sobre</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a href="https://pay.hotmart.com/C100883235C" target="_blank" rel="noopener" class="btn" data-cta="header">Quero começar</a>
+    <a href="#oferta" class="btn" data-cta="header">Quero começar</a>
     <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">
       <span></span><span></span><span></span>
     </button>
@@ -873,7 +873,7 @@ body::before{
   <a href="#para-quem">Para quem é</a>
   <a href="#professor">Sobre</a>
   <a href="#faq">FAQ</a>
-  <a href="https://pay.hotmart.com/C100883235C" target="_blank" rel="noopener" class="btn btn--block" data-cta="drawer">Quero começar</a>
+  <a href="#oferta" class="btn btn--block" data-cta="drawer">Quero começar</a>
 </div>
 
 <main id="top">
@@ -892,7 +892,7 @@ body::before{
         Da parede à <strong>venda</strong>.
       </p>
       <div class="hero__ctas rv rv-d3">
-        <a href="https://pay.hotmart.com/C100883235C" target="_blank" rel="noopener" class="btn btn--lg" data-cta="hero">Quero transformar minhas fotos em quadros</a>
+        <a href="#oferta" class="btn btn--lg" data-cta="hero">Quero transformar minhas fotos em quadros</a>
         <a href="#metodo" class="link-arrow">Conhecer o método <span aria-hidden="true">↓</span></a>
       </div>
       <p class="micro hero__micro rv rv-d4">Acesso online • Assista no seu ritmo</p>
@@ -1198,7 +1198,7 @@ body::before{
     </div>
 
     <div class="rv" style="margin-top:3rem;display:flex;justify-content:center">
-      <a href="https://pay.hotmart.com/C100883235C" target="_blank" rel="noopener" class="btn btn--lg" data-cta="conteudo">Quero entrar no Quadros Lucrativos</a>
+      <a href="#oferta" class="btn btn--lg" data-cta="conteudo">Quero entrar no Quadros Lucrativos</a>
     </div>
   </div>
 </section>
@@ -1327,7 +1327,7 @@ body::before{
     </div>
 
     <div class="sim__cta rv">
-      <a href="https://pay.hotmart.com/C100883235C" target="_blank" rel="noopener" class="btn btn--lg" data-cta="simulacao">Quero transformar minhas fotos em quadros</a>
+      <a href="#oferta" class="btn btn--lg" data-cta="simulacao">Quero transformar minhas fotos em quadros</a>
       <p class="micro" style="max-width:34ch;margin:0">No módulo 04 você aprende a simular com SMARTIST, Artrooms e Wallary, incluindo realidade aumentada.</p>
     </div>
   </div>
@@ -1368,7 +1368,7 @@ body::before{
         <p class="dim">O Quadros Lucrativos ensina o processo necessário para tornar isso possível de maneira profissional.</p>
       </div>
       <div class="rv rv-d2" style="margin-top:2.4rem">
-        <a href="https://pay.hotmart.com/C100883235C" target="_blank" rel="noopener" class="btn btn--lg" data-cta="imagine">Quero transformar minhas fotos em quadros</a>
+        <a href="#oferta" class="btn btn--lg" data-cta="imagine">Quero transformar minhas fotos em quadros</a>
       </div>
     </div>
     <div class="imagine__wall rv rv-d2">
@@ -1460,9 +1460,9 @@ body::before{
 
         <div class="offer__buy">
           <span class="price__label">Investimento</span>
-          <span class="price__main" id="priceMain">R$ 237</span>
-          <span class="price__alt" id="priceAlt">ou em até 12x no cartão</span>
-          <a href="https://pay.hotmart.com/C100883235C" target="_blank" rel="noopener" class="btn btn--lg btn--block" id="checkoutBtn" data-cta="oferta">Quero entrar no Quadros Lucrativos</a>
+          <span class="price__main" id="priceMain">R$ [VALOR]</span>
+          <span class="price__alt" id="priceAlt">ou 12x de R$ [VALOR]</span>
+          <a href="#checkout" class="btn btn--lg btn--block" id="checkoutBtn" data-cta="oferta">Quero entrar no Quadros Lucrativos</a>
           <p class="micro">Acesso imediato após confirmação do pagamento.</p>
         </div>
       </div>
@@ -1526,7 +1526,7 @@ body::before{
     <p class="rv rv-d1" style="margin-top:2rem">Existe uma diferença entre fazer uma boa fotografia e construir valor ao redor dela. O Quadros Lucrativos existe para ensinar essa segunda parte.</p>
     <p class="final__sig rv rv-d2">Da foto ao quadro.<br>Do quadro à venda.</p>
     <div class="rv rv-d3" style="display:flex;justify-content:center">
-      <a href="https://pay.hotmart.com/C100883235C" target="_blank" rel="noopener" class="btn btn--lg" data-cta="final">Quero começar agora</a>
+      <a href="#oferta" class="btn btn--lg" data-cta="final">Quero começar agora</a>
     </div>
   </div>
 </section>
@@ -1557,7 +1557,7 @@ body::before{
 
 <!-- ============================ STICKY CTA MOBILE ============================ -->
 <div class="sticky-cta" id="stickyCta">
-  <a href="https://pay.hotmart.com/C100883235C" target="_blank" rel="noopener" class="btn btn--block" data-cta="sticky">Quero conhecer o curso</a>
+  <a href="#oferta" class="btn btn--block" data-cta="sticky">Quero conhecer o curso</a>
 </div>
 
 <script>
@@ -1600,21 +1600,21 @@ const SIM_IMGS = {
 };
 
 const CONFIG = {
-  checkoutUrl: "https://pay.hotmart.com/C100883235C",   // link de checkout (Hotmart)
-  precoAVista: "R$ 237",             // ex.: "R$ 1.497"
-  precoParcelado: "ou em até 12x no cartão", // deixe "" para ocultar
+  checkoutUrl: "#checkout",          // ex.: "https://pay.hotmart.com/..."
+  precoAVista: "R$ [VALOR]",         // ex.: "R$ 1.497"
+  precoParcelado: "ou 12x de R$ [VALOR]", // deixe "" para ocultar
 
   // ---- FOTOS ----
   // Basta colocar o caminho do arquivo. Deixe "" para manter o placeholder.
   // Enquadramento opcional: "url|posição"  →  "img/obra.jpg|center top"
   imagens: {
     hero:      HERO_IMG,   // topo da página — a moldura assume a proporção do arquivo
-    passagem:  "/quadros-lucrativos/images/passagem.jpg",   // A FOTO PRINCIPAL: atravessa arquivo → impressão → moldura → parede
-    professor: "",   // sua foto (vertical 4:5)
-    obra1:     "/quadros-lucrativos/images/obra-01.jpg",   // "Uma fotografia pode ser vendida mais de uma vez" — grande formato
-    obra2:     "/quadros-lucrativos/images/obra-02.jpg",   // idem — edição limitada (quadrada)
-    obra3:     "/quadros-lucrativos/images/obra-03.jpg",   // idem — coleção / série
-    parede:    "/quadros-lucrativos/images/parede.jpg",   // "Imagine ver uma fotografia sua na parede de alguém"
+    passagem:  "",   // A FOTO PRINCIPAL: atravessa arquivo → impressão → moldura → parede
+    professor: "/quadros-lucrativos/images/professor.jpg|center 22%",   // sua foto (vertical 4:5)
+    obra1:     "",   // "Uma fotografia pode ser vendida mais de uma vez" — grande formato
+    obra2:     "",   // idem — edição limitada (quadrada)
+    obra3:     "",   // idem — coleção / série
+    parede:    "",   // "Imagine ver uma fotografia sua na parede de alguém"
 
     // Seção "Simulação" — mockups de obras em ambientes
     sim01: SIM_IMGS.s0965,   // hall residencial (vertical 4:5)
@@ -1644,14 +1644,8 @@ const CONFIG = {
     if (CONFIG.precoParcelado) priceAlt.textContent = CONFIG.precoParcelado;
     else priceAlt.style.display = "none";
   }
-  // todos os botoes de compra apontam para o checkout
-  if (CONFIG.checkoutUrl){
-    document.querySelectorAll("[data-cta]").forEach(el => {
-      el.setAttribute("href", CONFIG.checkoutUrl);
-      el.setAttribute("target", "_blank");
-      el.setAttribute("rel", "noopener");
-    });
-  }
+  const checkoutBtn = document.getElementById("checkoutBtn");
+  if (checkoutBtn && CONFIG.checkoutUrl) checkoutBtn.setAttribute("href", CONFIG.checkoutUrl);
 
   document.querySelectorAll("[data-img]").forEach(el => {
     const value = CONFIG.imagens[el.dataset.img];
