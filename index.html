@@ -13,22 +13,7 @@
 <meta property="og:description" content="Fotografia. Filme. Criatividade. Carreira. Vida. Tudo o que aprendi vivendo de imagem, agora em um só lugar.">
 <meta property="og:url" content="https://carreiravisual.com.br/">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:image" content="https://carreiravisual.com.br/og-v2.jpg">
-<meta property="og:image:secure_url" content="https://carreiravisual.com.br/og-v2.jpg">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="675">
-<meta property="og:image:alt" content="Carreira Visual — plataforma para fotógrafos e filmmakers, com Marcos Prado">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Carreira Visual">
-<meta name="twitter:description" content="Fotografia. Filme. Criatividade. Carreira. Vida.">
-<meta name="twitter:image" content="https://carreiravisual.com.br/og-v2.jpg">
-<meta name="twitter:image:alt" content="Carreira Visual — plataforma para fotógrafos e filmmakers, com Marcos Prado">
-<meta name="author" content="Marcos Prado">
-<link rel="icon" href="/favicon.ico?v=2" sizes="any">
-<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png?v=2">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
-<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
@@ -142,27 +127,7 @@ main{position:relative;z-index:2}
 .reveal.in{opacity:1;transform:none}
 
 /* ============================ HERO ============================= */
-.hero{position:relative;min-height:min(100svh,860px);display:flex;align-items:flex-end;isolation:isolate;overflow:hidden;
-  touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none}
-.hero.dragging{cursor:grabbing}
-.hero-slide picture{transition:transform .55s var(--ease)}
-.hero-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:6;
-  width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;
-  background:rgba(0,0,0,.34);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border:1px solid rgba(255,255,255,.18);
-  opacity:0;transition:opacity .35s var(--ease),background .3s,transform .3s var(--ease)}
-.hero-nav svg{width:22px;height:22px}
-.hero-nav.prev{left:max(14px,calc(var(--gutter) - 16px))}
-.hero-nav.next{right:max(14px,calc(var(--gutter) - 16px))}
-.hero-nav:hover{background:rgba(255,109,41,.92);border-color:transparent;color:#150a04}
-.hero-nav.prev:hover{transform:translateY(-50%) translateX(-3px)}
-.hero-nav.next:hover{transform:translateY(-50%) translateX(3px)}
-.hero:hover .hero-nav{opacity:1}
-.hero-nav:focus-visible{opacity:1}
-@media(hover:none){
-  .hero-nav{opacity:.85;width:42px;height:42px;background:rgba(0,0,0,.42)}
-  .hero-nav svg{width:18px;height:18px}
-}
+.hero{position:relative;min-height:min(100svh,860px);display:flex;align-items:flex-end;isolation:isolate;overflow:hidden}
 .hero-media{position:absolute;inset:0;z-index:-2}
 .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s var(--ease)}
 .hero-slide.on{opacity:1}
@@ -302,8 +267,6 @@ main{position:relative;z-index:2}
 .vcard .play i{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:rgba(255,109,41,.95);
   box-shadow:0 8px 30px rgba(255,109,41,.5)}
 .vcard .play svg{width:18px;height:18px;color:#120704;margin-left:2px}
-.vcard.prod{width:clamp(268px,80vw,392px)}
-.vcard.prod h3{font-size:15px;font-weight:600}
 .vcard h3{font-size:14px;font-weight:500;margin-top:11px;letter-spacing:-.01em;line-height:1.3}
 .vcard .meta{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-2);margin-top:6px}
 @media(hover:hover){.vcard:hover{transform:translateY(-6px)}.vcard:hover .play{opacity:1}
@@ -341,25 +304,7 @@ main{position:relative;z-index:2}
 .feature h2{font-size:clamp(32px,5.6vw,68px);letter-spacing:-.045em;line-height:.94;margin-top:16px;text-wrap:balance}
 .feature h2 em{font-style:normal;color:var(--orange)}
 .feature p{color:rgba(255,255,255,.72);font-size:clamp(15px,1.5vw,17px);max-width:42ch;line-height:1.55}
-.feature-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px;align-items:center}
-
-/* botão Instagram — exclusivo desta seção */
-.btn-ig{position:relative;display:inline-flex;align-items:center;gap:11px;height:52px;padding:0 26px;
-  border-radius:999px;font-size:15px;font-weight:600;letter-spacing:-.01em;color:#fff;white-space:nowrap;
-  background:linear-gradient(100deg,#515BD4 0%,#8134AF 26%,#DD2A7B 52%,#F58529 78%,#FEDA77 100%);
-  background-size:220% 100%;background-position:0% 50%;
-  box-shadow:0 10px 34px rgba(221,42,123,.34),0 2px 0 rgba(255,255,255,.18) inset;
-  transition:background-position .8s var(--ease),transform .35s var(--ease),box-shadow .4s var(--ease)}
-.btn-ig::after{content:"";position:absolute;inset:-2px;border-radius:999px;z-index:-1;opacity:.55;filter:blur(16px);
-  background:linear-gradient(100deg,#515BD4,#8134AF,#DD2A7B,#F58529,#FEDA77);
-  transition:opacity .4s var(--ease)}
-.btn-ig svg{width:19px;height:19px;flex:0 0 auto}
-.btn-ig .arw{width:16px;height:16px;transition:transform .35s var(--ease)}
-.btn-ig:hover{background-position:100% 50%;transform:translateY(-2px);
-  box-shadow:0 16px 44px rgba(221,42,123,.46),0 2px 0 rgba(255,255,255,.22) inset}
-.btn-ig:hover::after{opacity:.85}
-.btn-ig:hover .arw{transform:translateX(4px)}
-@media(max-width:520px){.btn-ig{height:48px;padding:0 20px;font-size:14px}}
+.feature-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
 @media(max-width:860px){.feature{grid-template-columns:1fr;align-items:start}}
 
 /* seção títulos grandes (páginas internas) */
@@ -457,40 +402,6 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);margin-top:4
 .foot-bottom a:hover{color:var(--orange)}
 @media(max-width:760px){.foot-top{grid-template-columns:1fr 1fr}.foot-mark{grid-column:span 2}}
 
-/* ===================== BOTÃO FLUTUANTE WHATSAPP ================ */
-.wa{position:fixed;right:clamp(16px,3vw,34px);bottom:clamp(20px,4vh,40px);z-index:90;
-  display:flex;align-items:center;gap:0;height:52px;padding:0 15px;border-radius:999px;
-  background:rgba(18,14,15,.72);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
-  border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.9);
-  box-shadow:0 12px 40px rgba(0,0,0,.55);
-  opacity:0;visibility:hidden;transform:translateY(14px) scale(.94);
-  transition:opacity .55s var(--ease),transform .55s var(--ease),visibility .55s,
-             background .3s,border-color .3s,gap .35s var(--ease),padding .35s var(--ease)}
-.wa.on{opacity:1;visibility:visible;transform:none}
-.wa svg{width:22px;height:22px;flex:0 0 auto}
-.wa span{max-width:0;overflow:hidden;white-space:nowrap;font-size:14.5px;font-weight:500;opacity:0;
-  transition:max-width .4s var(--ease),opacity .3s var(--ease)}
-@media(hover:hover){
-  .wa:hover{background:rgba(37,211,102,.94);border-color:transparent;color:#08210f;gap:10px;padding:0 20px;
-    box-shadow:0 16px 46px rgba(37,211,102,.35)}
-  .wa:hover span{max-width:180px;opacity:1}
-}
-@media(max-width:960px){.wa{bottom:calc(78px + env(safe-area-inset-bottom));height:48px;padding:0 13px}}
-
-/* ========================= AVISO DE COOKIES ==================== */
-.lgpd{position:fixed;left:clamp(14px,3vw,28px);right:clamp(14px,3vw,28px);bottom:clamp(14px,3vh,28px);z-index:110;
-  max-width:520px;padding:20px 22px;border-radius:16px;
-  background:rgba(16,13,14,.90);backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%);
-  border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 70px rgba(0,0,0,.7);
-  opacity:0;visibility:hidden;transform:translateY(18px);
-  transition:opacity .6s var(--ease),transform .6s var(--ease),visibility .6s}
-.lgpd.on{opacity:1;visibility:visible;transform:none}
-.lgpd p{font-size:14px;line-height:1.55;color:rgba(255,255,255,.76)}
-.lgpd p a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
-.lgpd-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-.lgpd .btn{height:40px;padding:0 18px;font-size:13.5px}
-@media(max-width:960px){.lgpd{bottom:calc(78px + env(safe-area-inset-bottom))}}
-
 /* ========================= TABBAR MOBILE ======================= */
 .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:100;display:none;
   padding:9px 6px calc(9px + env(safe-area-inset-bottom));
@@ -554,7 +465,6 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);margin-top:4
       <a href="#/portfolio">Portfolio</a>
       <a href="#/sobre">Sobre</a>
       <a href="#/contato">Contato</a>
-      <a href="/privacidade">Privacidade</a>
       <a data-social="instagram" target="_blank" rel="noopener">Instagram ↗</a>
       <a data-social="youtube" target="_blank" rel="noopener">YouTube ↗</a>
     </div>
@@ -566,19 +476,6 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);margin-top:4
 </footer>
 
 <nav class="tabbar" id="tabbar" aria-label="Navegação mobile"></nav>
-
-<a class="wa" id="wa" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.46 3.44 1.32 4.94L2.1 22l5.35-1.4a9.8 9.8 0 0 0 4.59 1.16h.01c5.43 0 9.84-4.4 9.84-9.84C21.89 6.4 17.48 2 12.04 2Zm5.76 14.02c-.24.68-1.42 1.3-1.95 1.34-.5.05-.98.23-3.3-.69-2.79-1.1-4.56-3.95-4.7-4.13-.14-.19-1.12-1.49-1.12-2.84 0-1.35.71-2.02.96-2.29.25-.28.55-.35.73-.35h.52c.17 0 .4-.06.62.48.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.09.19-.14.31-.28.47l-.42.49c-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.17-.19.7-.81.88-1.09.19-.28.37-.23.62-.14.25.09 1.6.75 1.87.89.28.14.46.21.53.32.07.12.07.66-.17 1.34Z"/></svg>
-  <span>Falar no WhatsApp</span>
-</a>
-
-<div class="lgpd" id="lgpd" role="dialog" aria-label="Aviso de privacidade">
-  <p>Usamos cookies e serviços de terceiros (YouTube, Instagram e fontes) para o site funcionar e melhorar sua experiência. Veja a <a href="/privacidade">Política de Privacidade</a>.</p>
-  <div class="lgpd-btns">
-    <button class="btn btn-orange" data-lgpd="ok">Aceitar</button>
-    <button class="btn btn-glass" data-lgpd="min">Só o essencial</button>
-  </div>
-</div>
 
 <!-- BUSCA -->
 <div class="search" id="search" role="dialog" aria-modal="true" aria-label="Buscar">
@@ -612,7 +509,7 @@ const CONFIG = {
   instagram: 'https://instagram.com/eusoumarcosprado',
   youtube:   'https://youtube.com/@eusoumarcosprado',
   email:     'marcosprado011@hotmail.com',
-  whatsapp:  'https://wa.me/5521997442878',
+  whatsapp:  'https://wa.me/5521997442878',      // <- trocar número
   heroInterval: 7000,                            // tempo de cada slide do hero (ms)
 
   /* Endereço da landing page de cada produto.
@@ -632,7 +529,7 @@ const CONFIG = {
   },
 
   /* IDs dos vídeos do YouTube — trocar pelos reais (ex.: 'dQw4w9WgXcQ') */
-  videoIds: { marun:'CPP2bgxeezA', ironman:'F5TyemRbqDs', tulio:'n5Rb8m6buSw', hyrox:'zvkgnexbPBc' }
+  videoIds: { ironman:'F5TyemRbqDs', tulio:'n5Rb8m6buSw', hyrox:'zvkgnexbPBc' }
 };
 
 /* ==================================================================
@@ -732,9 +629,6 @@ const PRODUCTS = [
 ];
 
 const VIDEOS = [
-  { id:'marun', title:'Vem correr na Marun', meta:'Vlog • Corrida',
-    thumb:'images/marun_h.webp', tags:['corrida','run club','rio','vlog','esporte','marun'],
-    desc:'Um treino com a Marun Running Club no Rio: gente chegando ainda no escuro, o pelotão inteiro na foto e o que acontece quando correr vira encontro.' },
   { id:'ironman', title:'Ironman 70.3 Rio de Janeiro', meta:'Documentário • Esporte',
     thumb:'images/ironman_h.webp', tags:['esporte','triathlon','rio','documentário'],
     desc:'Um dia inteiro dentro do Ironman 70.3 do Rio de Janeiro: largada no mar, bike na orla e a corrida que decide tudo. Filmado entre atletas, sem trilha de herói.' },
@@ -747,9 +641,9 @@ const VIDEOS = [
 ];
 
 const HERO = [
-  { kind:'product', pid:'oquefica',     tag:'Curso autoral',   hot:true  },
   { kind:'product', pid:'masterclass',  tag:'Original',        hot:true  },
   { kind:'product', pid:'correycria',   tag:'Curso',           hot:false },
+  { kind:'product', pid:'oquefica',     tag:'Curso autoral',   hot:true  },
   { kind:'product', pid:'lap',          tag:'Curso',           hot:false },
   { kind:'product', pid:'fuji',         tag:'Curso online',    hot:false },
   { kind:'product', pid:'quadros',      tag:'Curso',           hot:false, light:true },
@@ -759,12 +653,8 @@ const HERO = [
 ];
 
 const ROWS = [
-  { title:'Mais vendidos',        kind:'wide', more:'#/cursos',
-    ids:['direcao','oquefica','fuji','quadros'] },
-  { title:'Todos os treinamentos', more:'#/explorar',
-    ids:['masterclass','lap','correycria','fuji','quadros','oquefica','direcao'] },
-  { title:'Ferramentas & Presets', more:'#/explorar',
-    ids:['vintagefilm','presets'] }
+  { key:'destaque',    title:'Cursos e Mentorias',    more:'#/explorar' },
+  { key:'ferramentas', title:'Ferramentas & Presets', more:'#/explorar' }
 ];
 
 const FILTERS = [
@@ -842,13 +732,6 @@ function cardVid(v){
     <h3>${esc(v.title)}</h3><div class="meta">${esc(v.meta)}</div>
   </article>`;
 }
-function cardW(p){
-  return `<article class="vcard prod" data-open="${p.id}" tabindex="0" role="button" aria-label="${esc(p.title)}">
-    <div class="thumb"><img src="${p.wide||p.cover}" alt="Capa de ${esc(p.title)}" loading="lazy" decoding="async">
-      <span class="play"><i>${ICONS.play}</i></span></div>
-    <h3>${esc(p.title)}</h3><div class="meta">${esc(p.cat)}</div>
-  </article>`;
-}
 function rail(items, render){
   return `<div class="rail-wrap">
     <button class="rail-btn prev" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 5l-7 7 7 7"/></svg></button>
@@ -857,11 +740,11 @@ function rail(items, render){
   </div>`;
 }
 function rowBlock(r){
-  const items = (r.ids ? r.ids.map(P) : PRODUCTS.filter(p=>p.rows.includes(r.key))).filter(Boolean);
+  const items = PRODUCTS.filter(p=>p.rows.includes(r.key));
   if(!items.length) return '';
   return `<section class="row reveal">
     <div class="row-head"><h2>${esc(r.title)}</h2><a class="more" href="${r.more}">Ver tudo ${ICONS.arrow}</a></div>
-    ${rail(items, r.kind==='wide' ? cardW : cardV)}
+    ${rail(items, cardV)}
   </section>`;
 }
 
@@ -870,7 +753,7 @@ function heroSlideData(h){
   if(h.kind==='product'){ const p=P(h.pid); return {
     img: p.wide||p.cover, tag:h.tag, hot:h.hot, title:esc(p.title), sub:p.tagline,
     meta:[p.cat,p.level], poster:p.cover, posterCap:'Capa oficial', light:h.light,
-    ctas:[{label:'Conhecer treinamento',href:p.url,cls:'btn-orange',icon:'play',ext:/^https?:/.test(p.url)},
+    ctas:[{label:'Conhecer treinamento',href:'#',cls:'btn-orange',icon:'play',open:p.id},
           {label:'Mais informações',href:'#',cls:'btn-glass',icon:'info',open:p.id}] };
   }
   if(h.kind==='video'){ const v=V(h.vid); return {
@@ -900,10 +783,6 @@ function heroHTML(){
       <div class="hero-copy" id="heroCopy"></div>
       <figure class="hero-poster" id="heroPoster" hidden><img alt=""><figcaption></figcaption></figure>
     </div>
-    <button class="hero-nav prev" data-hero="-1" aria-label="Destaque anterior">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M15 5l-7 7 7 7"/></svg></button>
-    <button class="hero-nav next" data-hero="1" aria-label="Próximo destaque">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M9 5l7 7-7 7"/></svg></button>
     <div class="hero-bars" id="heroBars">
       ${slides.map((_,i)=>`<button data-go="${i}" aria-label="Destaque ${i+1}"><i></i></button>`).join('')}
     </div>
@@ -918,7 +797,7 @@ function paintHero(i){
     <h1 class="hero-title${s.brand?' brand':''}">${s.title}</h1>
     <p class="hero-sub">${esc(s.sub)}</p>
     <div class="hero-meta">${s.meta.map(m=>`<span>${esc(m)}</span>`).join('')}</div>
-    <div class="hero-cta">${s.ctas.map(c=>`<a class="btn ${c.cls}" href="${c.href}"${c.open?` data-open="${c.open}"`:''}${c.video?` data-video="${c.video}"`:''}${c.ext?' target="_blank" rel="noopener"':''}>${ICONS[c.icon]||''}${esc(c.label)}</a>`).join('')}</div>`;
+    <div class="hero-cta">${s.ctas.map(c=>`<a class="btn ${c.cls}" href="${c.href}"${c.open?` data-open="${c.open}"`:''}${c.video?` data-video="${c.video}"`:''}>${ICONS[c.icon]||''}${esc(c.label)}</a>`).join('')}</div>`;
   copy.style.animation='none'; void copy.offsetWidth; copy.style.animation='pop .8s var(--ease)';
   const poster = $('#heroPoster');
   if(s.poster){ poster.hidden=false; poster.querySelector('img').src=s.poster;
@@ -934,40 +813,6 @@ function paintHero(i){
     else if(bi===i){ bar.style.transition=''; bar.style.width=''; b.classList.add('on') } });
   heroIndex=i;
 }
-function goHero(dir){
-  if(!HERO.length) return;
-  paintHero((heroIndex + dir + HERO.length) % HERO.length);
-  startHero();
-}
-
-/* arraste com mouse e com o dedo — o mesmo código serve para os dois */
-let dgX=0, dgOn=false, dgPic=null, dgMoved=false;
-document.addEventListener('pointerdown',e=>{
-  const hero=e.target.closest('#hero'); if(!hero) return;
-  if(e.target.closest('a,button')) return;          // não atrapalha os botões
-  dgX=e.clientX; dgOn=true; dgMoved=false;
-  dgPic=hero.querySelector('.hero-slide.on picture');
-});
-document.addEventListener('pointermove',e=>{
-  if(!dgOn) return;
-  const dx=e.clientX-dgX;
-  if(Math.abs(dx)>6){
-    dgMoved=true;
-    $('#hero')?.classList.add('dragging');
-    if(dgPic){ dgPic.style.transition='none'; dgPic.style.transform=`translateX(${dx*0.24}px)`; }
-  }
-});
-function endDrag(e){
-  if(!dgOn) return;
-  const dx=(e.clientX||dgX)-dgX;
-  if(dgPic){ dgPic.style.transition=''; dgPic.style.transform=''; }
-  $('#hero')?.classList.remove('dragging');
-  dgOn=false; dgPic=null;
-  if(dgMoved && Math.abs(dx)>60) goHero(dx<0 ? 1 : -1);
-}
-document.addEventListener('pointerup',endDrag);
-document.addEventListener('pointercancel',endDrag);
-
 function startHero(){
   clearInterval(heroTimer);
   document.documentElement.style.setProperty('--hero-dur',(CONFIG.heroInterval/1000)+'s');
@@ -995,13 +840,10 @@ function galleryBlock(){
           <h2>Fotografe a vida<br>enquanto ela <em>acontece</em>.</h2>
         </div>
         <div>
+          <p>Rio, rua, praia, feira, carnaval, gente. Um recorte do arquivo que deu origem ao curso — e a mesma forma de olhar que você aprende dentro dele.</p>
           <div class="feature-cta">
             <a class="btn btn-orange" href="#" data-open="oquefica">${ICONS.play} Conhecer O Que Fica</a>
-            <a class="btn-ig" data-social="instagram" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5.4"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg>
-              <span>Ver no Instagram</span>
-              <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-            </a>
+            <a class="btn btn-glass" data-social="instagram" target="_blank" rel="noopener">A vida também acontece no Instagram ↗</a>
           </div>
         </div>
       </div>
@@ -1013,8 +855,7 @@ function sobreBlock(){
     <div>
       <span class="eyebrow"><span class="dot">●</span> Por trás das imagens</span>
       <h2 style="margin-top:18px">Fotógrafo,<br>filmmaker<br>e <em>criador</em>.</h2>
-      <p>Doze anos vivendo de imagem entre Brasil, Estados Unidos e Emirados Árabes. Premiado no Unsplash Awards, embaixador global Fujifilm X-Series, palestrante e diretor de campanhas, documentários e projetos autorais.</p>
-      <p style="margin-top:16px">A Carreira Visual nasceu de uma ambição: reunir num só lugar tudo o que aprendi na prática e colocar na mão de quem sonha em viver de imagem — para que essa carreira deixe de ser sorte e vire caminho.</p>
+      <p>Doze anos vivendo de imagem entre Rio, Estados Unidos e Dubai. Publicidade, esporte, documentário e projetos autorais — agora transformados em conhecimento que cabe na sua rotina.</p>
       <div class="stats">
         <div><b>12+</b><span>anos de audiovisual</span></div>
         <div><b>X-Series</b><span>embaixador global Fujifilm</span></div>
@@ -1163,7 +1004,7 @@ function openVideo(id){
       <div class="modal-tags"><span>${esc(v.meta)}</span><span>YouTube</span></div>
       <p>${esc(v.desc)}</p>
       <div class="modal-cta">
-        <a class="btn btn-orange" href="${yid?('https://youtu.be/'+yid):CONFIG.youtube}" target="_blank" rel="noopener">${ICONS.play} Assistir no YouTube</a>
+        <a class="btn btn-orange" href="${CONFIG.youtube}" target="_blank" rel="noopener">${ICONS.play} Assistir no YouTube</a>
         <button class="btn btn-glass" data-close>Voltar</button>
       </div>
     </div>`;
@@ -1235,8 +1076,6 @@ document.addEventListener('click',e=>{
   if(chip){ $$('.chip').forEach(c=>c.classList.remove('on')); chip.classList.add('on'); paintCatalog(chip.dataset.f) }
   const hint=e.target.closest('#searchHints button');
   if(hint){ $('#searchInput').value=hint.textContent; paintSearch(hint.textContent) }
-  const hn=e.target.closest('[data-hero]');
-  if(hn){ goHero(+hn.dataset.hero); return }
   const go=e.target.closest('[data-go]');
   if(go){ paintHero(+go.dataset.go); startHero() }
   if(e.target.closest('a[href^="#/"]')) closeSearch();
@@ -1248,38 +1087,12 @@ document.addEventListener('keydown',e=>{
     if(c){ e.preventDefault(); c.dataset.open?openProduct(c.dataset.open):openVideo(c.dataset.video) }
   }
   if(e.key==='/'&&!/input|textarea/i.test(document.activeElement.tagName)){ e.preventDefault(); openSearch() }
-  if($('#hero') && !$('#modal').classList.contains('open') && !$('#search').classList.contains('open')
-     && !/input|textarea/i.test(document.activeElement.tagName)){
-    if(e.key==='ArrowLeft')  goHero(-1);
-    if(e.key==='ArrowRight') goHero(1);
-  }
 });
 $('#openSearch').addEventListener('click',openSearch);
 $('#closeSearch').addEventListener('click',closeSearch);
 $('#searchInput').addEventListener('input',e=>paintSearch(e.target.value));
 addEventListener('scroll',()=>$('#hdr').classList.toggle('scrolled',scrollY>24),{passive:true});
 addEventListener('hashchange',route);
-
-/* --- botão do WhatsApp: aparece depois do hero --- */
-(function(){
-  const wa=$('#wa'); if(!wa) return;
-  wa.href = CONFIG.whatsapp;
-  const check=()=>wa.classList.toggle('on', scrollY > innerHeight*0.85);
-  addEventListener('scroll',check,{passive:true}); check();
-})();
-
-/* --- aviso de cookies (LGPD) --- */
-(function(){
-  const box=$('#lgpd'); if(!box) return;
-  let escolha=null;
-  try{ escolha=localStorage.getItem('cv-privacidade') }catch(e){}
-  if(!escolha) setTimeout(()=>box.classList.add('on'),1800);
-  document.addEventListener('click',e=>{
-    const b=e.target.closest('[data-lgpd]'); if(!b) return;
-    try{ localStorage.setItem('cv-privacidade', b.dataset.lgpd) }catch(e){}
-    box.classList.remove('on');
-  });
-})();
 
 $('#nav').innerHTML = NAV.map(([h,l])=>`<a href="${h}">${l}</a>`).join('');
 $('#tabbar').innerHTML = [['#/','Início','home'],['#/assistir','Assistir','watch'],['#/explorar','Explorar','search'],
