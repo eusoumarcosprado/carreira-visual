@@ -1,0 +1,87 @@
+PRESETS FUJI — pasta das imagens
+================================
+
+Coloque aqui os arquivos de foto e vídeo desta página.
+
+Depois abra o index.html, procure o bloco CONFIG lá no começo do
+<script> e escreva o caminho ao lado do campo correspondente.
+
+Exemplo:
+    hero: "",
+vira
+    hero: "/presets-fuji/images/hero.jpg",
+
+Sempre com a barra na frente. Caminho relativo quebra na Vercel.
+
+
+PADRÃO DE IMAGEM
+----------------
+WebP ou JPEG, qualidade 92.
+Foto de câmera: reduzir para 2400px no lado maior. Nunca menos.
+Nunca cortar fora de proporção — a moldura se adapta ao arquivo.
+
+
+O QUE VAI EM CADA CAMPO
+-----------------------
+Campo       Arquivo original do Canva              Onde aparece
+
+hero        FINEART - Manipulação 04 1080x1920.jpg fundo do topo
+
+mock1       (vídeo ou GIF)                         celular aplicando o preset
+mock2       (vídeo ou GIF)                         antes e depois em movimento
+demo        (vídeo ou GIF)                         preset sendo aplicado
+tut1        (vídeo ou GIF)                         trecho dos tutoriais
+
+antes1      DSCF1637.jpg                           coluna "Antes"
+antes2      DSCF7661.jpg                           coluna "Antes"
+antes3      _DSF6289.jpg                           coluna "Antes"
+
+depois1     DSCF1460 2.jpg                         coluna "Com Presets Fuji"
+depois2     DSCF1212.jpg                           coluna "Com Presets Fuji"
+depois3     DSCF6848.jpg                           coluna "Com Presets Fuji"
+
+post1       IMG_0311.jpg                           prova real
+post2       IMG_0315.jpg                           prova real
+lr1         Screenshot 2025-06-30 at 21.14.56.png  prova real
+lr2         Screenshot 2025-06-30 at 21.18.33.jpg  prova real
+painel      Screenshot 2025-06-30 at 21.10.07.png  seção do Lightroom
+tut2        Screenshot 2025-06-30 at 21.10.33.png  card dos tutoriais
+
+professor   TC2_6804.jpg                           sua foto (vertical 4:5)
+
+g1          A7405022.jpg                           galeria
+g2          _MG_2590.jpg                           galeria
+g3          _DSF2931.jpg                           galeria
+g4          _MG_9619.jpg                           galeria
+g5          _DSF2705.jpg                           galeria
+g6          _MG_4008.jpg                           galeria
+g7          DSCF6606.jpg                           galeria
+g8          _DSF3732.jpg                           galeria
+
+
+RETRATOS DOS DEPOIMENTOS (bloco "avatares" e "depoimentos")
+-----------------------------------------------------------
+p1          javier-amador-H4_100XlT9s-unsplash.jpg
+p2          ben-den-engelsen-YUu9UAcOKZ4-unsplash.jpg
+p3          max-harlynking-zaItO-b0afs-unsplash.jpg
+p4          noitchi-ladeira-XjXgctwyaVo-unsplash.jpg
+
+As quatro são do Unsplash e podem ser baixadas em alta, de graça:
+  https://unsplash.com/photos/H4_100XlT9s
+  https://unsplash.com/photos/YUu9UAcOKZ4
+  https://unsplash.com/photos/zaItO-b0afs
+  https://unsplash.com/photos/XjXgctwyaVo
+
+Fotos dos cards de depoimento:
+  Igor Bispo         foto DSCF6352.jpg    avatar _DSF5406.jpg
+  Beatriz Favacho    foto e avatar        WhatsApp Image 2025-06-29 at 19.42.31
+  Rodrigo Rodrigues  foto IMG_0317.jpg    avatar IMG_0316.jpg
+  Leonardo M.        foto _DSF9233.jpg    avatar p2
+  Pedro Oliveira     foto _MG_5114.jpg    avatar p3
+  Rafaela Almeida    foto _DSF3732.jpg    avatar p4
+
+
+Enquanto um campo estiver vazio, a página mostra uma moldura escura
+com o nome do arquivo que falta. Não é erro — é campo em branco.
+
+Pode apagar este arquivo quando terminar.
