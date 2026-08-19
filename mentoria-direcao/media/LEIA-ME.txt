@@ -1,0 +1,27 @@
+MENTORIA DIREÇÃO — pasta do vídeo
+=================================
+
+Se a sua VSL for um arquivo de vídeo (e não do YouTube),
+coloque o .mp4 aqui dentro.
+
+Depois abra o index.html, procure o bloco CONFIG no começo do
+<script> e preencha:
+
+    vsl: {
+      youtubeId : '',
+      arquivo   : '/mentoria-direcao/media/vsl.mp4',
+      capa      : '',
+      duracao   : '6 min'
+    }
+
+Sempre com a barra na frente. Caminho relativo quebra na Vercel.
+
+Se for do YouTube, deixe "arquivo" vazio e preencha só o youtubeId
+(o código depois do v= no endereço). A capa do YouTube é usada
+automaticamente.
+
+Enquanto os dois estiverem vazios, a seção do vídeo não aparece
+na página. É de propósito — melhor não ter seção do que ter uma
+caixa preta vazia numa página de venda.
+
+Pode apagar este arquivo quando terminar.

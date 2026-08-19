@@ -164,6 +164,39 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .sec-dark .btn-ghost::before{background:var(--paper)}
 .sec-dark .btn-ghost:hover span,.sec-dark .btn-ghost:hover .ar{color:var(--ink)}
 
+/* ── player da VSL ───────────────────────────── */
+.vsl-shell{max-width:1040px}
+.vsl{
+  position:relative;aspect-ratio:16/9;background:#000;overflow:hidden;
+  border:1px solid var(--line-i);cursor:pointer;
+}
+.vsl img{width:100%;height:100%;object-fit:cover;opacity:.7;transition:opacity .6s,transform .9s cubic-bezier(.16,1,.3,1)}
+.vsl:hover img{opacity:.88;transform:scale(1.025)}
+.vsl iframe,.vsl video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;background:#000}
+.vsl-ph{
+  position:absolute;inset:0;display:grid;place-items:center;
+  background:
+    linear-gradient(135deg,rgba(242,58,23,.16),transparent 58%),
+    repeating-linear-gradient(135deg,transparent 0 13px,rgba(233,233,231,.028) 13px 26px),
+    #101010;
+}
+.vsl-ph span{
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(233,233,231,.38);
+  transform:translateY(clamp(46px,7vw,68px));
+}
+.vsl-play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.vsl-play i{
+  width:clamp(62px,8.5vw,94px);aspect-ratio:1;border-radius:50%;
+  background:var(--red);display:grid;place-items:center;
+  box-shadow:0 18px 50px -14px rgba(242,58,23,.75);
+  transition:transform .45s cubic-bezier(.16,1,.3,1);
+}
+.vsl:hover .vsl-play i{transform:scale(1.09)}
+.vsl-play svg{width:38%;height:38%;fill:#fff;margin-left:8%}
+.vsl.playing{cursor:default}
+.vsl.playing .vsl-play,.vsl.playing .vsl-ph{display:none}
+.vsl:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
 .hero-foot{
   position:relative;z-index:6;display:flex;justify-content:space-between;align-items:flex-end;
   gap:20px;margin-top:clamp(24px,4vw,42px);
@@ -424,6 +457,34 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
     </div>
   </div>
 </div>
+
+<!-- ══ VSL ══ -->
+<section class="sec sec-dark" data-theme="dark" id="vsl" hidden>
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(30px,4.5vw,54px)">
+      <span class="lab red">[ Assista antes ]</span>
+      <span class="lab" id="vslLab"></span>
+    </div>
+
+    <div class="vsl-shell">
+      <div class="d d-m" style="max-width:19ch;margin-bottom:clamp(28px,4vw,50px)" data-lines>
+        <div class="rl"><i>Antes de decidir,</i></div>
+        <div class="rl"><i>me escute por</i></div>
+        <div class="rl"><i><span class="red">alguns minutos.</span></i></div>
+      </div>
+
+      <div class="vsl" id="vslFrame" role="button" tabindex="0" aria-label="Assistir ao vídeo da mentoria">
+        <div class="vsl-ph"><span>Vídeo da mentoria</span></div>
+        <div class="vsl-play"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></i></div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;margin-top:clamp(26px,4vw,44px)">
+        <a class="btn" data-cta="principal" href="#formatos" data-magnet><span>Quero entrar na mentoria</span><span class="ar">→</span></a>
+        <p class="body" style="max-width:36ch;margin:0">Cada encontro é individual, então o calendário fecha rápido.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ══ MANIFESTO ══ -->
 <section class="sec wrap" id="manifesto">
@@ -743,13 +804,61 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
    ═══════════════════════════════════════════════ */
 const CONFIG = {
   principal : '#formatos',                  // CTA principal (checkout ou formulário)
-  d30       : 'https://exemplo.com/d30',    // checkout DIREÇÃO 30
-  d60       : 'https://exemplo.com/d60',    // checkout DIREÇÃO 60
-  whatsapp  : 'https://wa.me/5521000000000?text=Quero%20saber%20mais%20sobre%20a%20Mentoria%20Direção'
+  d30       : 'https://pay.kirvano.com/a9029e8b-df26-4b04-b470-de2df1a545cb',  // checkout DIREÇÃO 30
+  d60       : 'https://pay.kirvano.com/01432b9b-461a-4326-abde-cc63421ad386',  // checkout DIREÇÃO 60
+  whatsapp  : 'https://wa.me/5521997442878?text=Quero%20saber%20mais%20sobre%20a%20Mentoria%20Direção',
+
+  /* ── VÍDEO DA VSL ──────────────────────────────
+     Preencha UM dos dois. Vazio nos dois = a seção
+     de vídeo não aparece na página.               */
+  vsl: {
+    youtubeId : '',   // só o código do vídeo, ex.: 'F5TyemRbqDs'
+    arquivo   : '',   // ou um arquivo, ex.: '/mentoria-direcao/media/vsl.mp4'
+    capa      : '',   // opcional. Vazio + YouTube = usa a capa do próprio YouTube
+    duracao   : ''    // opcional, aparece no canto. Ex.: '6 min'
+  }
 };
+
 document.querySelectorAll('[data-cta]').forEach(el=>{
   const k = el.dataset.cta; if(CONFIG[k]) el.setAttribute('href', CONFIG[k]);
+  if(/^https?:/.test(CONFIG[k]||'')){ el.target='_blank'; el.rel='noopener'; }
 });
+
+/* ── player da VSL ───────────────────────────── */
+(function(){
+  const V   = CONFIG.vsl || {};
+  const yt  = (V.youtubeId||'').trim();
+  const mp4 = (V.arquivo  ||'').trim();
+  const sec = document.getElementById('vsl');
+  if(!sec || (!yt && !mp4)) return;          // sem vídeo, a seção some
+
+  sec.hidden = false;
+  const lab = document.getElementById('vslLab');
+  if(lab && (V.duracao||'').trim()) lab.textContent = V.duracao.trim();
+
+  const box  = document.getElementById('vslFrame');
+  const capa = (V.capa||'').trim() || (yt ? 'https://i.ytimg.com/vi/'+yt+'/maxresdefault.jpg' : '');
+  if(capa){
+    const img = new Image();
+    img.alt = 'Capa do vídeo da mentoria';
+    img.decoding = 'async';
+    img.onload  = () => box.insertBefore(img, box.firstChild);
+    img.src = capa;
+  }
+
+  let tocou = false;
+  function tocar(){
+    if(tocou) return; tocou = true;
+    box.classList.add('playing');
+    box.innerHTML = yt
+      ? '<iframe src="https://www.youtube.com/embed/'+yt+'?autoplay=1&rel=0&modestbranding=1" title="Vídeo da Mentoria Direção" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>'
+      : '<video src="'+mp4+'" controls autoplay playsinline></video>';
+  }
+  box.addEventListener('click', tocar);
+  box.addEventListener('keydown', e => {
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); tocar(); }
+  });
+})();
 
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
