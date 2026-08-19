@@ -1,0 +1,91 @@
+VINTAGEFILM LUTs — pasta das imagens
+====================================
+
+Coloque aqui os arquivos de foto e vídeo desta página.
+
+Depois abra o index.html, procure o bloco CONFIG lá no começo do
+<script> e escreva o caminho ao lado do campo correspondente.
+
+Exemplo:
+    hero: "",
+vira
+    hero: "/vintagefilm/images/hero.jpg",
+
+Sempre com a barra na frente. Caminho relativo quebra na Vercel.
+
+
+PADRÃO DE IMAGEM
+----------------
+WebP ou JPEG, qualidade 92.
+Foto de câmera: reduzir para 2400px no lado maior. Nunca menos.
+Nunca cortar fora de proporção — a moldura se adapta ao arquivo.
+
+Vídeo: .mp4 ou .webm. GIF também funciona, mas pesa muito mais —
+se puder, converta para .mp4.
+
+
+O QUE VAI EM CADA CAMPO
+-----------------------
+Campo        Arquivo original do Canva               Onde aparece
+
+hero         DSCF6861.jpg                            fundo do topo
+                                                     (trompetista no pôr do sol)
+
+mock1        (vídeo ou GIF)                          LUT aplicado
+mock2        (vídeo ou GIF)                          antes e depois
+demo         (vídeo ou GIF)                          demonstração
+antesdepois  (vídeo ou GIF)                          comparação 16:9
+
+rio1         MARUN + STRAVA(12).png                  RIO VLOG — Pão de Açúcar
+rio2         MARUN + STRAVA(11).png                  RIO VLOG — helicóptero
+rio3         MARUN + STRAVA(14).png                  RIO VLOG — praia ao pôr do sol
+rio4         MARUN + STRAVA(8).png                   RIO VLOG — trompetista
+
+prova1       (vídeo ou print)                        "TODO MUNDO elogiando"
+prova2       (vídeo ou print)                        "TODO MUNDO elogiando"
+prova3       (vídeo ou print)                        "TODO MUNDO elogiando"
+
+retrato      0702 (1)(26).jpg                        seção "pode te dar lucro"
+
+dav1         Screenshot 2025-07-05 at 16.36.20.png   DaVinci
+dav2         Screenshot 2025-07-05 at 16.25.34.png   scopes
+dav3         Screenshot 2025-07-05 at 16.41.25.png   nós de cor
+dav4         Screenshot 2025-07-05 at 16.27.13.png   rodas de cor
+
+tut1         (vídeo ou GIF)                          card dos tutoriais
+tut2         A7405050.jpg                            card "desktop ou smartphone"
+professor    DSCF0642.jpg                            sua foto (vertical 4:5)
+
+mundo1       obelisco.jpg                            "Onde meu trabalho me levou"
+mundo2       DSC08555.jpg                            idem — Dubai
+mundo3       _MR34799.jpg                            idem — neve
+mundo4       IMG_0147.jpg                            idem — Alboom Summit
+mundo5       _DSF2245.jpg                            idem — Dubai
+mundo6       _DSF1881 2.jpg                          idem — Londres
+
+
+RETRATOS DA PROVA SOCIAL (bloco "avatares")
+-------------------------------------------
+p1   "Smiling People Happy People"                      (banco do Canva)
+p2   "Black photographer"                               (banco do Canva)
+p3   "Ethnic photographer taking photo on camera..."    (banco do Canva)
+p4   "A Man Holding a Camera"                           (banco do Canva)
+
+Essas quatro são do acervo do próprio Canva. Para baixar em alta:
+abra o design, clique na imagem, e use Compartilhar > Baixar
+selecionando só a página, ou procure pelo nome na aba Elementos.
+
+
+DEPOIMENTOS (bloco "depoimentos")
+---------------------------------
+Felipe V.        foto _DSF6308.jpg              avatar "A Man Holding a Camera"
+Daniel S. Moura  foto "Man Wearing Colorful..." avatar "Happy Traveling Man"
+Amanda Reis      foto "View of Cartagena"       avatar 6571193.jpg
+
+As fotos com nome entre aspas também são do banco do Canva.
+
+
+Enquanto um campo estiver vazio, a página mostra uma moldura escura
+com o nome do arquivo que falta. Não é erro — é campo em branco.
+
+Pode apagar este arquivo quando terminar.

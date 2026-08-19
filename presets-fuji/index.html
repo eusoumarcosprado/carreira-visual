@@ -75,6 +75,8 @@ h1,h2,h3{margin:0;line-height:1.04;letter-spacing:-.025em;font-weight:600}
 p{margin:0}
 
 .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad-x)}
+/* item de grade nunca pode ser empurrado por um texto comprido */
+.gal>*,.gal-3>*,.gal-6>*,.mock-row>*,.duo>*,.logs>*,.split>*,.ba-grid>*,.tst-grid>*{min-width:0}
 .sec{padding-block:var(--sec-y);position:relative}
 .center{text-align:center}
 .lime{color:var(--lime)}
@@ -124,7 +126,7 @@ p{margin:0}
 .ph-txt{
   position:relative;z-index:1;text-align:center;padding:1.2rem;
   font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;line-height:1.9;
-  color:rgba(255,255,255,.42);word-break:break-word;
+  color:rgba(255,255,255,.42);word-break:break-word;overflow-wrap:anywhere;
 }
 .ph-txt b{
   display:block;color:var(--lime);font-weight:500;letter-spacing:.16em;
