@@ -196,6 +196,12 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .vsl.playing{cursor:default}
 .vsl.playing .vsl-play,.vsl.playing .vsl-ph{display:none}
 .vsl:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+/* sem vídeo preenchido: moldura reservada, botão apagado e sem clique */
+.vsl.vazio{cursor:default}
+.vsl.vazio .vsl-play i{background:rgba(242,58,23,.26);box-shadow:none}
+.vsl.vazio .vsl-play svg{fill:rgba(233,233,231,.55)}
+.vsl.vazio:hover .vsl-play i{transform:none}
+.vsl.vazio:hover img{opacity:.7;transform:none}
 
 .hero-foot{
   position:relative;z-index:6;display:flex;justify-content:space-between;align-items:flex-end;
@@ -809,13 +815,18 @@ const CONFIG = {
   whatsapp  : 'https://wa.me/5521997442878?text=Quero%20saber%20mais%20sobre%20a%20Mentoria%20Direção',
 
   /* ── VÍDEO DA VSL ──────────────────────────────
-     Preencha UM dos dois. Vazio nos dois = a seção
-     de vídeo não aparece na página.               */
+     Preencha UM dos dois: youtubeId OU arquivo.
+
+     Vazio nos dois = a seção aparece com a moldura
+     reservada e o aviso "Vídeo em breve".
+     Se quiser que ela suma nesse caso, troque
+     esconderSeVazio para true.                     */
   vsl: {
-    youtubeId : '',   // só o código do vídeo, ex.: 'F5TyemRbqDs'
-    arquivo   : '',   // ou um arquivo, ex.: '/mentoria-direcao/media/vsl.mp4'
-    capa      : '',   // opcional. Vazio + YouTube = usa a capa do próprio YouTube
-    duracao   : ''    // opcional, aparece no canto. Ex.: '6 min'
+    youtubeId      : '',     // só o código do vídeo, ex.: 'F5TyemRbqDs'
+    arquivo        : '',     // ou um arquivo, ex.: '/mentoria-direcao/media/vsl.mp4'
+    capa           : '',     // opcional. Vazio + YouTube = usa a capa do próprio YouTube
+    duracao        : '',     // opcional, aparece no canto. Ex.: '6 min'
+    esconderSeVazio: false   // true = sem vídeo, a seção some da página
   }
 };
 
@@ -830,13 +841,27 @@ document.querySelectorAll('[data-cta]').forEach(el=>{
   const yt  = (V.youtubeId||'').trim();
   const mp4 = (V.arquivo  ||'').trim();
   const sec = document.getElementById('vsl');
-  if(!sec || (!yt && !mp4)) return;          // sem vídeo, a seção some
+  if(!sec) return;
+
+  const box = document.getElementById('vslFrame');
+  const lab = document.getElementById('vslLab');
+
+  /* sem vídeo preenchido */
+  if(!yt && !mp4){
+    if(V.esconderSeVazio){ return; }          // some com a seção inteira
+    sec.hidden = false;                        // mostra a moldura reservada
+    box.classList.add('vazio');
+    box.removeAttribute('role');
+    box.removeAttribute('tabindex');
+    box.setAttribute('aria-label','Vídeo em breve');
+    const t = box.querySelector('.vsl-ph span');
+    if(t) t.textContent = 'Vídeo em breve';
+    return;
+  }
 
   sec.hidden = false;
-  const lab = document.getElementById('vslLab');
   if(lab && (V.duracao||'').trim()) lab.textContent = V.duracao.trim();
 
-  const box  = document.getElementById('vslFrame');
   const capa = (V.capa||'').trim() || (yt ? 'https://i.ytimg.com/vi/'+yt+'/maxresdefault.jpg' : '');
   if(capa){
     const img = new Image();
