@@ -891,30 +891,65 @@ html.forcar-animacao .rv{opacity:1}
 @media print{.header,.sticky-cta{display:none}}
 
 /* ---------- player de vídeo ---------- */
-.vsl{max-width:960px;margin:0 auto}
-.vsl__frame{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#1a1512;
-  box-shadow:0 30px 80px rgba(60,40,25,.22);cursor:pointer}
+/* ---------- player da VSL: o vídeo apresentado como uma obra ---------- */
+.vsl{margin:0 auto}   /* usa a largura cheia da página — o vídeo é o maior elemento da seção */
+.vsl__head{text-align:center;margin-bottom:clamp(1.8rem,4vw,2.8rem);display:inline-block;width:100%}
+.vsl__head::before{left:50%;transform:translateX(-11px)}
+.vsl__title{margin-top:.9rem;font-size:clamp(1.7rem,3.4vw,2.9rem)}
+
+/* passe-partout: a mesma linguagem dos quadros da página */
+.vsl__mat{
+  background:var(--paper);
+  padding:clamp(10px,1.6vw,20px);
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  box-shadow:
+    0 1px 2px rgba(53,42,37,.05),
+    0 34px 70px -34px rgba(53,42,37,.42);
+}
+.vsl__frame{
+  position:relative;aspect-ratio:16/9;overflow:hidden;
+  border-radius:var(--r);background:#1a1512;cursor:pointer;
+}
 .vsl__frame img,.vsl__frame iframe,.vsl__frame video{position:absolute;inset:0;width:100%;height:100%;border:0}
-.vsl__frame img{object-fit:cover}
-.vsl__play{position:absolute;inset:0;display:grid;place-items:center;background:rgba(20,14,10,.28);transition:background .4s ease}
-.vsl__frame:hover .vsl__play{background:rgba(20,14,10,.14)}
-.vsl__play i{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.94);
-  box-shadow:0 12px 40px rgba(0,0,0,.3);transition:transform .4s ease}
-.vsl__frame:hover .vsl__play i{transform:scale(1.07)}
-.vsl__play svg{width:26px;height:26px;margin-left:4px;color:#C2612F}
-.vsl__cap{text-align:center;margin-top:1.1rem;font-size:.9rem;letter-spacing:.02em;opacity:.6}
+.vsl__frame img{object-fit:cover;transition:transform 1.1s var(--ease),filter .6s var(--ease)}
+.vsl__frame:hover img{transform:scale(1.02)}
+.vsl__frame:focus-visible{outline:2px solid var(--sun);outline-offset:4px}
+
+.vsl__play{
+  position:absolute;inset:0;display:grid;place-items:center;
+  background:linear-gradient(180deg,rgba(28,20,14,.16),rgba(28,20,14,.42));
+  transition:background .5s var(--ease);
+}
+.vsl__frame:hover .vsl__play{background:linear-gradient(180deg,rgba(28,20,14,.06),rgba(28,20,14,.3))}
+.vsl__play i{
+  width:clamp(66px,7.4vw,96px);aspect-ratio:1;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--sun);color:#fff;
+  box-shadow:0 0 0 1px rgba(255,255,255,.34) inset, 0 18px 46px -14px rgba(184,74,26,.8);
+  transition:transform .5s var(--ease),background .4s var(--ease);
+}
+.vsl__frame:hover .vsl__play i{transform:scale(1.08);background:var(--terra)}
+.vsl__play svg{width:34%;height:34%;margin-left:8%;color:currentColor}
+
+.vsl__cap{
+  text-align:center;margin-top:clamp(1.1rem,2.4vw,1.7rem);
+  font-size:var(--fs-label);letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);
+}
+.vsl__cap span{display:inline-flex;align-items:center;gap:.8rem}
+.vsl__cap span::before,.vsl__cap span::after{content:"";width:clamp(18px,4vw,42px);height:1px;background:var(--line)}
+
 /* sem vídeo preenchido: moldura reservada, botão apagado, sem clique */
 .vsl__frame.is-vazio{
   cursor:default;
   background:
-    linear-gradient(135deg,rgba(194,97,47,.14),transparent 58%),
-    repeating-linear-gradient(135deg,transparent 0 13px,rgba(255,255,255,.03) 13px 26px),
-    #1a1512;
+    linear-gradient(135deg,rgba(232,117,61,.16),transparent 58%),
+    repeating-linear-gradient(135deg,transparent 0 13px,rgba(255,255,255,.035) 13px 26px),
+    #211a15;
 }
-.vsl__frame.is-vazio .vsl__play{background:rgba(20,14,10,.12)}
-.vsl__frame.is-vazio .vsl__play i{background:rgba(255,255,255,.24);box-shadow:none}
-.vsl__frame.is-vazio .vsl__play svg{color:rgba(255,255,255,.5)}
-.vsl__frame.is-vazio:hover .vsl__play i{transform:none}
+.vsl__frame.is-vazio .vsl__play{background:transparent}
+.vsl__frame.is-vazio .vsl__play i{background:rgba(232,117,61,.26);box-shadow:none;color:rgba(255,255,255,.6)}
+.vsl__frame.is-vazio:hover .vsl__play i{transform:none;background:rgba(232,117,61,.26)}
 </style>
 </head>
 <body>
@@ -1038,11 +1073,20 @@ html.forcar-animacao .rv{opacity:1}
 <!-- ============================ VÍDEO ============================ -->
 <section class="section" id="video" aria-label="Vídeo de apresentação" hidden>
   <div class="wrap vsl">
-    <div class="vsl__frame" id="vslFrame">
-      <img id="vslPoster" alt="Assista à apresentação do curso">
-      <span class="vsl__play"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></i></span>
+    <div class="mark vsl__head rv">
+      <span class="eyebrow eyebrow--sun">Apresentação</span>
+      <h2 class="h2 vsl__title">Antes de decidir,<br>me escute por <em class="em-serif">alguns minutos</em>.</h2>
     </div>
-    <p class="vsl__cap">Assista antes de decidir.</p>
+
+    <!-- o vídeo emoldurado como uma obra: passe-partout, moldura fina e sombra -->
+    <div class="vsl__mat rv rv-d1">
+      <div class="vsl__frame" id="vslFrame" role="button" tabindex="0" aria-label="Assistir à apresentação do curso">
+        <img id="vslPoster" alt="Assista à apresentação do curso">
+        <span class="vsl__play"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></i></span>
+      </div>
+    </div>
+
+    <p class="vsl__cap rv rv-d1"><span>Assista antes de decidir</span></p>
   </div>
 </section>
 
@@ -1727,12 +1771,32 @@ const CONFIG = {
     }
 
     sec.hidden = false;
-    poster.src = CONFIG.videoPoster || (id ? "https://i.ytimg.com/vi/"+id+"/maxresdefault.jpg" : "");
-    frame.addEventListener("click", () => {
+    /* capa: tenta a de maior resolução; se o vídeo não tiver, cai para a padrão;
+       se nem essa existir, some com a imagem e fica a moldura escura com o play */
+    if (poster){
+      poster.addEventListener("error", () => {
+        if (!poster.dataset.tentou && id){
+          poster.dataset.tentou = "1";
+          poster.src = "https://i.ytimg.com/vi/"+id+"/hqdefault.jpg";
+        } else {
+          poster.remove();
+        }
+      });
+      const capa = CONFIG.videoPoster || (id ? "https://i.ytimg.com/vi/"+id+"/maxresdefault.jpg" : "");
+      if (capa) poster.src = capa; else poster.remove();
+    }
+    let tocou = false;
+    function tocar(){
+      if (tocou) return; tocou = true;
+      frame.style.cursor = "default";
       frame.innerHTML = id
-        ? '<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0" title="Apresentação do curso" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>'
+        ? '<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1" title="Apresentação do curso" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>'
         : '<video src="'+mp4+'" controls autoplay playsinline></video>';
-    }, { once:true });
+    }
+    frame.addEventListener("click", tocar);
+    frame.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " "){ e.preventDefault(); tocar(); }
+    });
   })();
 
   /* ---------- CONFIG → DOM ---------- */
