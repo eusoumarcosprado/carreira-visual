@@ -181,6 +181,15 @@ body::before{
   content:"";position:absolute;inset:0;
   background:radial-gradient(120% 80% at 72% 18%, rgba(255,247,235,.65), transparent 62%);
 }
+/* data-fit="auto" com foto dentro: mostra a FOTO INTEIRA, nunca corta nem amplia.
+   A moldura já assume a proporção do arquivo; o "contain" garante que,
+   mesmo se a proporção não bater, nada seja cortado. */
+.ph[data-fit="auto"][data-filled="true"]{
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-color:transparent;
+}
 .ph--sky{background:linear-gradient(170deg,#FBEEDD 0%,#F0CFA8 38%,#E8A272 66%,#D9805A 100%)}
 .ph--dune{background:linear-gradient(160deg,#F6EEE1 0%,#E3D2B8 40%,#C9AE8C 78%,#B79A78 100%)}
 .ph--sea{background:linear-gradient(165deg,#EDE7DC 0%,#CBC4B4 45%,#9AA39C 75%,#7C8880 100%)}
@@ -843,6 +852,20 @@ body::before{
   .passage__static{display:grid}
 }
 @media print{.header,.sticky-cta{display:none}}
+
+/* ---------- player de vídeo ---------- */
+.vsl{max-width:960px;margin:0 auto}
+.vsl__frame{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#1a1512;
+  box-shadow:0 30px 80px rgba(60,40,25,.22);cursor:pointer}
+.vsl__frame img,.vsl__frame iframe,.vsl__frame video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vsl__frame img{object-fit:cover}
+.vsl__play{position:absolute;inset:0;display:grid;place-items:center;background:rgba(20,14,10,.28);transition:background .4s ease}
+.vsl__frame:hover .vsl__play{background:rgba(20,14,10,.14)}
+.vsl__play i{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.94);
+  box-shadow:0 12px 40px rgba(0,0,0,.3);transition:transform .4s ease}
+.vsl__frame:hover .vsl__play i{transform:scale(1.07)}
+.vsl__play svg{width:26px;height:26px;margin-left:4px;color:#C2612F}
+.vsl__cap{text-align:center;margin-top:1.1rem;font-size:.9rem;letter-spacing:.02em;opacity:.6}
 </style>
 </head>
 <body>
@@ -963,6 +986,17 @@ body::before{
   </div>
 </section>
 
+<!-- ============================ VÍDEO ============================ -->
+<section class="section" id="video" aria-label="Vídeo de apresentação" hidden>
+  <div class="wrap vsl">
+    <div class="vsl__frame" id="vslFrame">
+      <img id="vslPoster" alt="Assista à apresentação do curso">
+      <span class="vsl__play"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></i></span>
+    </div>
+    <p class="vsl__cap">Assista antes de decidir.</p>
+  </div>
+</section>
+
 <!-- ============================ ANTES / DEPOIS ============================ -->
 <section class="section section--paper" aria-labelledby="paths-title">
   <div class="wrap">
@@ -1025,7 +1059,7 @@ body::before{
       <div class="passage__stage">
         <div class="passage__obj" id="pObj">
           <div class="passage__mat" id="pMat">
-            <div class="ph ph--sky passage__img" id="pImg" data-img="passagem"></div>
+            <div class="ph ph--sky passage__img" id="pImg" data-img="passagem" data-fit="auto"></div>
           </div>
           <span class="passage__cap" id="pCap">Marcos Prado · 60 × 75 cm</span>
         </div>
@@ -1203,38 +1237,6 @@ body::before{
   </div>
 </section>
 
-<!-- ============================ SERVIÇO x PRODUTO ============================ -->
-<section class="section section--deep" aria-labelledby="duo-title">
-  <div class="wrap">
-    <div class="mark rv">
-      <h2 class="h2" id="duo-title" style="max-width:18ch">Pare de pensar em fotografia apenas como <em class="em-serif">serviço</em>.</h2>
-      <p class="lead" style="margin-top:1.6rem">Comece a pensar em fotografia como produto.</p>
-    </div>
-    <div class="duo">
-      <div class="duo__card rv rv-d1">
-        <h3>Serviço</h3>
-        <ul>
-          <li>Você fotografa.</li>
-          <li>Entrega.</li>
-          <li>Recebe.</li>
-          <li>Precisa conseguir um novo trabalho.</li>
-        </ul>
-        <p class="duo__note">A receita recomeça do zero a cada projeto.</p>
-      </div>
-      <div class="duo__card duo__card--hi rv rv-d2">
-        <h3>Produto</h3>
-        <ul>
-          <li>Você cria uma fotografia.</li>
-          <li>Transforma em obra.</li>
-          <li>Cria uma coleção.</li>
-          <li>Pode apresentá-la para diferentes pessoas.</li>
-        </ul>
-        <p class="duo__note">A diferença não é ganhar mais rápido. É construir um ativo autoral em vez de vender apenas horas de trabalho.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============================ UMA FOTO, VÁRIAS VIDAS ============================ -->
 <section class="section" aria-labelledby="thrice-title">
   <div class="wrap">
@@ -1248,15 +1250,15 @@ body::before{
 
     <div class="thrice">
       <figure class="rv rv-d1">
-        <div class="frame-art"><div class="frame-art__mat"><div class="ph ph--sea" data-img="obra1" data-label="Obra grande formato"></div></div></div>
+        <div class="frame-art"><div class="frame-art__mat"><div class="ph ph--sea" data-img="obra1" data-fit="auto" data-label="Obra grande formato"></div></div></div>
         <figcaption><b>Grande formato</b>90 × 112 cm · peça única de parede</figcaption>
       </figure>
       <figure class="rv rv-d2">
-        <div class="frame-art"><div class="frame-art__mat"><div class="ph ph--sea" data-img="obra2" data-label="Edição limitada"></div></div></div>
+        <div class="frame-art"><div class="frame-art__mat"><div class="ph ph--sea" data-img="obra2" data-fit="auto" data-label="Edição limitada"></div></div></div>
         <figcaption><b>Edição limitada</b>40 × 40 cm · numerada e certificada</figcaption>
       </figure>
       <figure class="rv rv-d3">
-        <div class="frame-art"><div class="frame-art__mat"><div class="ph ph--sea" data-img="obra3" data-label="Coleção / série"></div></div></div>
+        <div class="frame-art"><div class="frame-art__mat"><div class="ph ph--sea" data-img="obra3" data-fit="auto" data-label="Coleção / série"></div></div></div>
         <figcaption><b>Coleção</b>30 × 40 cm · parte de uma série autoral</figcaption>
       </figure>
     </div>
@@ -1373,26 +1375,9 @@ body::before{
     </div>
     <div class="imagine__wall rv rv-d2">
       <figure class="frame-art" style="margin:0">
-        <div class="frame-art__mat"><div class="ph ph--dune" data-img="parede" data-label="Obra na parede do cliente"></div></div>
+        <div class="frame-art__mat"><div class="ph ph--dune" data-img="parede" data-fit="auto" data-label="Obra na parede do cliente"></div></div>
         <figcaption class="frame-art__cap"><span>Coleção autoral</span><span>Ed. 2 / 10</span></figcaption>
       </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ SEM CEP ============================ -->
-<section class="section section--paper" aria-labelledby="reach-title">
-  <div class="wrap reach__grid">
-    <div class="mark rv">
-      <h2 class="h2" id="reach-title">Sua fotografia<br>não precisa ter <em class="em-serif">CEP</em>.</h2>
-      <div class="reach__dots">
-        <span>Sua cidade</span><span>Outro estado</span><span>Outro país</span>
-      </div>
-    </div>
-    <div class="rv rv-d1">
-      <p class="lead">Fotografia é uma linguagem visual.</p>
-      <p style="margin-top:1.2rem">Com uma boa apresentação digital, estrutura de produto e posicionamento, você pode apresentar seu trabalho para pessoas que estão na sua cidade, em outro estado ou em outro país.</p>
-      <p>O Quadros Lucrativos mostra como estruturar a fotografia como produto para que você possa começar a enxergar um mercado muito maior do que apenas os clientes que contratam seus serviços.</p>
     </div>
   </div>
 </section>
@@ -1401,7 +1386,7 @@ body::before{
 <section class="section" id="professor" aria-labelledby="teacher-title">
   <div class="wrap teacher">
     <div class="teacher__photo rv">
-      <div class="ph ph--arch" data-img="professor" data-label="Fotografia do professor"></div>
+      <div class="ph ph--arch" data-img="professor" data-fit="auto" data-label="Fotografia do professor"></div>
     </div>
     <div class="rv rv-d1">
       <span class="eyebrow eyebrow--sun" style="margin-bottom:1rem">O professor</span>
@@ -1600,21 +1585,27 @@ const SIM_IMGS = {
 };
 
 const CONFIG = {
+  // ---- VÍDEO DE APRESENTAÇÃO ----
+  // Preencha UM dos dois. Vazio nos dois = a seção de vídeo não aparece.
+  videoYoutubeId: "",   // só o código do vídeo, ex.: "F5TyemRbqDs"
+  videoArquivo:   "",   // ou um arquivo, ex.: "/quadros-lucrativos/media/apresentacao.mp4"
+  videoPoster:    "",   // opcional; vazio usa a capa do YouTube
+
   checkoutUrl: "#checkout",          // ex.: "https://pay.hotmart.com/..."
-  precoAVista: "R$ [VALOR]",         // ex.: "R$ 1.497"
-  precoParcelado: "ou 12x de R$ [VALOR]", // deixe "" para ocultar
+  precoAVista: "R$ 237",
+  precoParcelado: "ou 12x de R$ 24,32",
 
   // ---- FOTOS ----
   // Basta colocar o caminho do arquivo. Deixe "" para manter o placeholder.
   // Enquadramento opcional: "url|posição"  →  "img/obra.jpg|center top"
   imagens: {
     hero:      HERO_IMG,   // topo da página — a moldura assume a proporção do arquivo
-    passagem:  "",   // A FOTO PRINCIPAL: atravessa arquivo → impressão → moldura → parede
-    professor: "/quadros-lucrativos/images/professor.jpg|center 22%",   // sua foto (vertical 4:5)
-    obra1:     "",   // "Uma fotografia pode ser vendida mais de uma vez" — grande formato
-    obra2:     "",   // idem — edição limitada (quadrada)
-    obra3:     "",   // idem — coleção / série
-    parede:    "",   // "Imagine ver uma fotografia sua na parede de alguém"
+    passagem:  "/quadros-lucrativos/images/passagem.jpg",   // A FOTO PRINCIPAL: atravessa arquivo → impressão → moldura → parede
+    professor: "/quadros-lucrativos/images/professor.jpg",   // sua foto (vertical 4:5)
+    obra1:     "/quadros-lucrativos/images/obra1.webp",   // "Uma fotografia pode ser vendida mais de uma vez" — grande formato
+    obra2:     "/quadros-lucrativos/images/obra2.webp",   // idem — edição limitada (quadrada)
+    obra3:     "/quadros-lucrativos/images/obra3.webp",   // idem — coleção / série
+    parede:    "/quadros-lucrativos/images/parede.webp",   // "Imagine ver uma fotografia sua na parede de alguém"
 
     // Seção "Simulação" — mockups de obras em ambientes
     sim01: SIM_IMGS.s0965,   // hall residencial (vertical 4:5)
@@ -1633,6 +1624,24 @@ const CONFIG = {
 (function(){
   "use strict";
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- player de vídeo ---------- */
+  (function(){
+    const sec = document.getElementById("video");
+    if (!sec) return;
+    const id  = (CONFIG.videoYoutubeId || "").trim();
+    const mp4 = (CONFIG.videoArquivo   || "").trim();
+    if (!id && !mp4) return;
+    sec.hidden = false;
+    const frame  = document.getElementById("vslFrame");
+    const poster = document.getElementById("vslPoster");
+    poster.src = CONFIG.videoPoster || (id ? "https://i.ytimg.com/vi/"+id+"/maxresdefault.jpg" : "");
+    frame.addEventListener("click", () => {
+      frame.innerHTML = id
+        ? '<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0" title="Apresentação do curso" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>'
+        : '<video src="'+mp4+'" controls autoplay playsinline></video>';
+    }, { once:true });
+  })();
 
   /* ---------- CONFIG → DOM ---------- */
   document.getElementById("year").textContent = new Date().getFullYear();
