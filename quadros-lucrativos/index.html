@@ -712,7 +712,9 @@ body::before{
 /* ============================================================
    Professor
    ============================================================ */
-.teacher{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+/* texto centralizado em relação à foto — sem os blocos "a inserir", alinhar no topo deixava um vazio grande */
+.teacher{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+@media (max-width:900px){.teacher{align-items:start}}
 .teacher__photo .ph{aspect-ratio:4/5;border-radius:var(--r-lg)}
 .teacher__name{font-family:var(--serif);font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:1;margin-bottom:.9rem}
 .teacher__role{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);margin-bottom:2rem;display:block}
@@ -720,13 +722,6 @@ body::before{
   margin:0 0 2rem;padding-left:1.6rem;border-left:2px solid var(--sun);
   font-family:var(--serif);font-size:clamp(1.2rem,2.1vw,1.55rem);line-height:1.42;
 }
-.slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin-top:2rem}
-.slot{
-  border:1px dashed var(--warm);border-radius:var(--r);padding:1rem;
-  font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);text-align:center;
-}
-.slot b{display:block;font-weight:500;color:var(--ink);margin-bottom:.3rem}
-
 /* ============================================================
    Oferta
    ============================================================ */
@@ -1619,14 +1614,6 @@ html.forcar-animacao .rv{opacity:1}
         <br><br>
         Fine Art me mostrou outra perspectiva: aquilo que você já criou também pode se transformar em produto.”
       </blockquote>
-      <div class="slots" aria-label="Áreas editáveis para conteúdo do professor">
-        <div class="slot"><b>Bio</b>a inserir</div>
-        <div class="slot"><b>Experiência</b>a inserir</div>
-        <div class="slot"><b>Clientes</b>a inserir</div>
-        <div class="slot"><b>Exposições</b>a inserir</div>
-        <div class="slot"><b>Trabalhos</b>a inserir</div>
-        <div class="slot"><b>Logos de marcas</b>a inserir</div>
-      </div>
     </div>
   </div>
 </section>
