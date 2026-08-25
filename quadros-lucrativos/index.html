@@ -1591,7 +1591,7 @@ const CONFIG = {
   videoArquivo:   "",   // ou um arquivo, ex.: "/quadros-lucrativos/media/apresentacao.mp4"
   videoPoster:    "",   // opcional; vazio usa a capa do YouTube
 
-  checkoutUrl: "#checkout",          // ex.: "https://pay.hotmart.com/..."
+  checkoutUrl: "https://pay.hotmart.com/C100883235C",   // botão de compra da caixa de oferta
   precoAVista: "R$ 237",
   precoParcelado: "ou 12x de R$ 24,32",
 
@@ -1654,7 +1654,14 @@ const CONFIG = {
     else priceAlt.style.display = "none";
   }
   const checkoutBtn = document.getElementById("checkoutBtn");
-  if (checkoutBtn && CONFIG.checkoutUrl) checkoutBtn.setAttribute("href", CONFIG.checkoutUrl);
+  if (checkoutBtn && CONFIG.checkoutUrl){
+    checkoutBtn.setAttribute("href", CONFIG.checkoutUrl);
+    // link externo (Hotmart, Kirvano) abre em aba nova, sem perder a página de vendas
+    if (/^https?:/i.test(CONFIG.checkoutUrl)){
+      checkoutBtn.setAttribute("target", "_blank");
+      checkoutBtn.setAttribute("rel", "noopener");
+    }
+  }
 
   document.querySelectorAll("[data-img]").forEach(el => {
     const value = CONFIG.imagens[el.dataset.img];
