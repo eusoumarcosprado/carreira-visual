@@ -465,12 +465,46 @@ body::before{
   display:block;font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,3.4vw,2.6rem);
   line-height:1.05;margin-top:.7rem;
 }
-/* fallback estático (reduced motion / no-js) */
-.passage__static{display:none;grid-template-columns:repeat(4,1fr);gap:1.2rem;padding-block:var(--sec-y)}
-.passage__static figure{margin:0}
-.passage__static .ph{aspect-ratio:4/5}
+/* ── fallback estático (aparelho com "reduzir movimento") ──
+   Mostra os QUATRO estados de verdade, um diferente do outro,
+   em vez de quatro miniaturas iguais. */
+.passage__static{
+  display:none;grid-template-columns:repeat(2,1fr);
+  gap:clamp(1.4rem,5vw,2rem);padding-block:var(--sec-y);align-items:end;
+}
+@media (min-width:820px){.passage__static{grid-template-columns:repeat(4,1fr)}}
+.passage__static > figure{margin:0;min-width:0}
+.pstate__box{
+  display:flex;align-items:center;justify-content:center;
+  padding:clamp(.5rem,2.5vw,1rem);
+  border-radius:var(--r);transition:none;
+}
+.pstate__frame{width:100%;background:transparent;border:1px solid transparent;border-radius:3px}
+.pstate__mat{background:transparent;padding:0}
+.pstate__img{width:100%;background-size:contain;background-repeat:no-repeat;background-position:center}
+.pstate__img::after,.pstate__img::before{display:none}
+
+/* 02 · impressão — ganha o passe-partout branco */
+.pstate--2 .pstate__mat{background:#fff;padding:clamp(6px,2.2vw,11px)}
+/* 03 · moldura — passe-partout + moldura + sombra */
+.pstate--3 .pstate__mat{background:#fff;padding:clamp(6px,2.2vw,11px)}
+.pstate--3 .pstate__frame{
+  background:var(--paper);border-color:var(--line);padding:clamp(5px,1.8vw,9px);
+  box-shadow:0 1px 2px rgba(53,42,37,.06),0 14px 30px -18px rgba(53,42,37,.45);
+}
+/* 04 · parede — o quadro pousado no ambiente */
+.pstate--4 .pstate__mat{background:#fff;padding:clamp(5px,1.8vw,9px)}
+.pstate--4 .pstate__frame{
+  background:var(--paper);border-color:var(--line);padding:clamp(4px,1.5vw,8px);
+  box-shadow:0 1px 2px rgba(53,42,37,.06),0 18px 36px -18px rgba(53,42,37,.55);
+}
+.pstate--4 .pstate__box{
+  background:linear-gradient(180deg,#F4EDE2 0%,#EDE3D4 58%,#E2D5C2 58.1%,#D9C9B3 100%);
+}
+.pstate--4 .pstate__frame{width:76%}
+
 .passage__static figcaption{
-  margin-top:.85rem;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);
+  margin-top:.85rem;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);
 }
 
 /* ============================================================
@@ -851,6 +885,12 @@ body::before{
   .passage__sticky{display:none}
   .passage__static{display:grid}
 }
+/* CONFIG.animarSempre = true: o efeito roda mesmo com "reduzir movimento" ligado */
+html.forcar-animacao .passage__track{height:420vh}
+@media (max-width:900px){ html.forcar-animacao .passage__track{height:360vh} }
+html.forcar-animacao .passage__sticky{display:flex}
+html.forcar-animacao .passage__static{display:none}
+html.forcar-animacao .rv{opacity:1}
 @media print{.header,.sticky-cta{display:none}}
 
 /* ---------- player de vídeo ---------- */
@@ -1074,12 +1114,32 @@ body::before{
     </div>
   </div>
 
-  <!-- fallback estático -->
+  <!-- fallback estático: os quatro estados, cada um diferente do outro -->
   <div class="wrap passage__static" id="pStatic">
-    <figure><div class="ph ph--sky" data-img="passagem" data-label="Arquivo"></div><figcaption>01 · Arquivo</figcaption></figure>
-    <figure><div class="ph ph--sky" data-img="passagem" data-label="Impressão"></div><figcaption>02 · Impressão</figcaption></figure>
-    <figure><div class="ph ph--sky" data-img="passagem" data-label="Moldura"></div><figcaption>03 · Moldura</figcaption></figure>
-    <figure><div class="ph ph--sky" data-img="passagem" data-label="Parede"></div><figcaption>04 · Parede</figcaption></figure>
+    <figure class="pstate pstate--1">
+      <div class="pstate__box"><div class="pstate__frame"><div class="pstate__mat">
+        <div class="ph ph--sky pstate__img" data-img="passagem" data-fit="auto"></div>
+      </div></div></div>
+      <figcaption>01 · Arquivo</figcaption>
+    </figure>
+    <figure class="pstate pstate--2">
+      <div class="pstate__box"><div class="pstate__frame"><div class="pstate__mat">
+        <div class="ph ph--sky pstate__img" data-img="passagem" data-fit="auto"></div>
+      </div></div></div>
+      <figcaption>02 · Impressão</figcaption>
+    </figure>
+    <figure class="pstate pstate--3">
+      <div class="pstate__box"><div class="pstate__frame"><div class="pstate__mat">
+        <div class="ph ph--sky pstate__img" data-img="passagem" data-fit="auto"></div>
+      </div></div></div>
+      <figcaption>03 · Moldura</figcaption>
+    </figure>
+    <figure class="pstate pstate--4">
+      <div class="pstate__box"><div class="pstate__frame"><div class="pstate__mat">
+        <div class="ph ph--sky pstate__img" data-img="passagem" data-fit="auto"></div>
+      </div></div></div>
+      <figcaption>04 · Parede</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -1592,6 +1652,11 @@ const CONFIG = {
   videoPoster:    "",   // opcional; vazio usa a capa do YouTube
 
   checkoutUrl: "https://pay.hotmart.com/C100883235C",   // botão de compra da caixa de oferta
+
+  /* Aparelhos com "Reduzir movimento" ligado não veem a animação da passagem
+     (arquivo → impressão → moldura → parede) e recebem a versão estática.
+     Deixe true para o efeito rodar em TODO MUNDO, inclusive nesses aparelhos. */
+  animarSempre: false,
   precoAVista: "R$ 237",
   precoParcelado: "ou 12x de R$ 24,32",
 
@@ -1623,7 +1688,12 @@ const CONFIG = {
 
 (function(){
   "use strict";
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* "Reduzir movimento" ligado no aparelho normalmente desliga a animação da passagem.
+     CONFIG.animarSempre = true força o efeito a rodar mesmo assim. */
+  const reduce = CONFIG.animarSempre
+    ? false
+    : window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (CONFIG.animarSempre) document.documentElement.classList.add("forcar-animacao");
 
   /* ---------- player de vídeo ---------- */
   (function(){
