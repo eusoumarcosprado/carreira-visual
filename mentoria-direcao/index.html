@@ -822,7 +822,7 @@ const CONFIG = {
      Se quiser que ela suma nesse caso, troque
      esconderSeVazio para true.                     */
   vsl: {
-    youtubeId      : '',     // só o código do vídeo, ex.: 'F5TyemRbqDs'
+    youtubeId      : 'qPDkBVzwKfA',     // só o código do vídeo, ex.: 'F5TyemRbqDs'
     arquivo        : '',     // ou um arquivo, ex.: '/mentoria-direcao/media/vsl.mp4'
     capa           : '',     // opcional. Vazio + YouTube = usa a capa do próprio YouTube
     duracao        : '',     // opcional, aparece no canto. Ex.: '6 min'
@@ -862,12 +862,30 @@ document.querySelectorAll('[data-cta]').forEach(el=>{
   sec.hidden = false;
   if(lab && (V.duracao||'').trim()) lab.textContent = V.duracao.trim();
 
+  /* capa: tenta a de maior resolução e cai para a padrão se o vídeo não tiver.
+     Ao entrar, esconde o degradê reservado — senão ele fica por cima e some com a capa. */
+  const ph = box.querySelector('.vsl-ph');
   const capa = (V.capa||'').trim() || (yt ? 'https://i.ytimg.com/vi/'+yt+'/maxresdefault.jpg' : '');
   if(capa){
     const img = new Image();
     img.alt = 'Capa do vídeo da mentoria';
     img.decoding = 'async';
-    img.onload  = () => box.insertBefore(img, box.firstChild);
+    img.onload = () => {
+      /* a capa padrão do YouTube vem 120x90 quando o vídeo não tem a grande */
+      if(img.naturalWidth < 200 && !img.dataset.tentou && yt){
+        img.dataset.tentou = '1';
+        img.src = 'https://i.ytimg.com/vi/'+yt+'/hqdefault.jpg';
+        return;
+      }
+      box.insertBefore(img, box.firstChild);
+      if(ph) ph.style.display = 'none';
+    };
+    img.onerror = () => {
+      if(!img.dataset.tentou && yt){
+        img.dataset.tentou = '1';
+        img.src = 'https://i.ytimg.com/vi/'+yt+'/hqdefault.jpg';
+      }
+    };
     img.src = capa;
   }
 
