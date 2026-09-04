@@ -628,7 +628,8 @@ const CONFIG = {
     masterclass: '/masterclass-documentario-esportivo',
     direcao:     '/mentoria-direcao',
     vintagefilm: '/vintagefilm',
-    presets:     '/presets-fuji'
+    presets:     '/presets-fuji',
+    iniciantes:  '/fotografia-para-iniciantes'
   },
 
   /* IDs dos vídeos do YouTube — trocar pelos reais (ex.: 'dQw4w9WgXcQ') */
@@ -710,6 +711,16 @@ const PRODUCTS = [
     rows:['destaque']
   },
   {
+    id:'iniciantes', title:'Fotografia para Iniciantes', sub:'Do automático ao controle da câmera',
+    cat:'Fotografia • Fundamentos', level:'Iniciante', format:'Curso online',
+    tags:['iniciante','fotografia','câmera','manual','exposição','iso','abertura','velocidade','luz','composição','primeiros passos'],
+    cover:'images/iniciantes.webp', wide:'images/iniciantes_h.webp', url:CONFIG.links.iniciantes, badge:'Novo',
+    tagline:'Pare de depender do automático. Comece a fotografar de verdade.',
+    desc:'Para quem tem uma câmera mas ainda não consegue o resultado que imaginou. Dez módulos e 36 aulas diretas sobre abertura, velocidade, ISO, foco, luz e composição — com a câmera que você já tem, sem precisar comprar equipamento novo.',
+    points:['Sair do automático e assumir o modo manual','Entender abertura, velocidade e ISO na prática','Aprender a enxergar e usar a luz','Projeto fotográfico final com orientação'],
+    rows:['destaque']
+  },
+  {
     id:'vintagefilm', title:'VintageFilm', sub:'Pack de LUTs para vídeos',
     cat:'Ferramentas • Cor', level:'Todos os níveis', format:'Pack digital',
     tags:['lut','cor','color grading','vídeo','vintage','film look','edição'],
@@ -748,6 +759,7 @@ const VIDEOS = [
 
 const HERO = [
   { kind:'product', pid:'oquefica',     tag:'Curso autoral',   hot:true  },
+  { kind:'product', pid:'iniciantes',   tag:'Curso online',    hot:true,  light:true },
   { kind:'product', pid:'masterclass',  tag:'Original',        hot:true  },
   { kind:'product', pid:'correycria',   tag:'Curso',           hot:false },
   { kind:'product', pid:'lap',          tag:'Curso',           hot:false },
@@ -760,9 +772,9 @@ const HERO = [
 
 const ROWS = [
   { title:'Mais vendidos',        kind:'wide', more:'#/cursos',
-    ids:['direcao','oquefica','fuji','quadros'] },
+    ids:['iniciantes','direcao','oquefica','fuji','quadros'] },
   { title:'Todos os treinamentos', more:'#/explorar',
-    ids:['masterclass','lap','correycria','fuji','quadros','oquefica','direcao'] },
+    ids:['iniciantes','masterclass','lap','correycria','fuji','quadros','oquefica','direcao'] },
   { title:'Ferramentas & Presets', more:'#/explorar',
     ids:['vintagefilm','presets'] }
 ];
@@ -772,11 +784,11 @@ const FILTERS = [
   ['esporte','Esporte'],['equipamento','Equipamentos'],['fineart','Fine Art'],['mentorias','Mentorias'],['gratuitos','Gratuitos']
 ];
 const FILTER_MAP = {
-  fotografia:['oquefica','lap','correycria','fuji','presets'],
+  fotografia:['iniciantes','oquefica','lap','correycria','fuji','presets'],
   filmmaking:['masterclass','correycria','vintagefilm','lap'],
   carreira:['quadros','correycria','direcao'],
   esporte:['correycria','masterclass'],
-  equipamento:['fuji','presets','vintagefilm'],
+  equipamento:['iniciantes','fuji','presets','vintagefilm'],
   fineart:['quadros','oquefica'],
   mentorias:['direcao']
 };
