@@ -1,0 +1,4 @@
+Coloque aqui o vídeo de vendas em MP4 (ex.: apresentacao.mp4).
+Depois, no topo do index.html desta pasta, preencha:
+  vslVideo: "media/apresentacao.mp4",
+Pode apagar este arquivo depois.

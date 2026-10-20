@@ -629,7 +629,8 @@ const CONFIG = {
     direcao:     '/mentoria-direcao',
     vintagefilm: '/vintagefilm',
     presets:     '/presets-fuji',
-    iniciantes:  '/fotografia-para-iniciantes'
+    iniciantes:  '/fotografia-para-iniciantes',
+    janela:      '/janela-de-oportunidade'
   },
 
   /* IDs dos vídeos do YouTube — trocar pelos reais (ex.: 'dQw4w9WgXcQ') */
@@ -721,6 +722,17 @@ const PRODUCTS = [
     rows:['destaque']
   },
   {
+    id:'janela', title:'Janela de Oportunidade', sub:'Estratégia de negócios para profissionais criativos',
+    cat:'Negócios • Carreira', level:'Para quem já produz', format:'Curso online',
+    tags:['negócios','carreira','proposta','orçamento','negociação','preço','cliente','indicação','parceria','estratégia','método janela'],
+    cover:'images/janela.webp', wide:'images/janela_h.webp', url:CONFIG.links.janela, badge:'Em breve',
+    hero:'images/janela_hero.webp', heroMobile:'images/janela_hero_m.webp',   // opcional: arte sem texto só para o topo da home
+    tagline:'Aprenda a enxergar a oportunidade antes de enviar o orçamento.',
+    desc:'Eu abro os bastidores de trabalhos que consegui fechar e mostro o que observei, como construí cada proposta e quais decisões você pode levar para o seu negócio. Três histórias reais, seis módulos e o método JANELA.',
+    points:['Reconhecer oportunidades em conversas e reuniões','Transformar o interesse do cliente em uma proposta relevante','Conversar sobre escopo, preço e investimento','Avaliar parcerias e construir indicações e continuidade'],
+    rows:['destaque']
+  },
+  {
     id:'vintagefilm', title:'VintageFilm', sub:'Pack de LUTs para vídeos',
     cat:'Ferramentas • Cor', level:'Todos os níveis', format:'Pack digital',
     tags:['lut','cor','color grading','vídeo','vintage','film look','edição'],
@@ -758,6 +770,7 @@ const VIDEOS = [
 ];
 
 const HERO = [
+  { kind:'product', pid:'janela',       tag:'Novo curso',      hot:true  },
   { kind:'product', pid:'oquefica',     tag:'Curso autoral',   hot:true  },
   { kind:'product', pid:'iniciantes',   tag:'Curso online',    hot:true,  light:true },
   { kind:'product', pid:'masterclass',  tag:'Original',        hot:true  },
@@ -774,7 +787,7 @@ const ROWS = [
   { title:'Mais vendidos',        kind:'wide', more:'#/cursos',
     ids:['iniciantes','direcao','oquefica','fuji','quadros'] },
   { title:'Todos os treinamentos', more:'#/explorar',
-    ids:['iniciantes','masterclass','lap','correycria','fuji','quadros','oquefica','direcao'] },
+    ids:['janela','iniciantes','masterclass','lap','correycria','fuji','quadros','oquefica','direcao'] },
   { title:'Ferramentas & Presets', more:'#/explorar',
     ids:['vintagefilm','presets'] }
 ];
@@ -786,7 +799,7 @@ const FILTERS = [
 const FILTER_MAP = {
   fotografia:['iniciantes','oquefica','lap','correycria','fuji','presets'],
   filmmaking:['masterclass','correycria','vintagefilm','lap'],
-  carreira:['quadros','correycria','direcao'],
+  carreira:['janela','quadros','correycria','direcao'],
   esporte:['correycria','masterclass'],
   equipamento:['iniciantes','fuji','presets','vintagefilm'],
   fineart:['quadros','oquefica'],
@@ -880,7 +893,7 @@ function rowBlock(r){
 /* ---------- HERO ---------- */
 function heroSlideData(h){
   if(h.kind==='product'){ const p=P(h.pid); return {
-    img: p.wide||p.cover, tag:h.tag, hot:h.hot, title:esc(p.title), sub:p.tagline,
+    img: p.hero||p.wide||p.cover, mobile:p.heroMobile, tag:h.tag, hot:h.hot, title:esc(p.title), sub:p.tagline,
     meta:[p.cat,p.level], poster:p.cover, posterCap:'Capa oficial', light:h.light,
     ctas:[{label:'Conhecer treinamento',href:p.url,cls:'btn-orange',icon:'play',ext:/^https?:/.test(p.url)},
           {label:'Mais informações',href:'#',cls:'btn-glass',icon:'info',open:p.id}] };
@@ -899,7 +912,7 @@ function heroHTML(){
     <div class="hero-media">
       ${slides.map((s,i)=>`<div class="hero-slide${i===0?' on':''}" data-i="${i}">
         <picture>
-          ${s.poster?`<source media="(max-width:900px)" srcset="${s.poster}">`:''}
+          ${(s.mobile||s.poster)?`<source media="(max-width:900px)" srcset="${s.mobile||s.poster}">`:''}
           <img src="${s.img}" alt="Capa de ${esc(s.title.replace(/<br>/g,' '))}" ${i===0?'fetchpriority="high"':'loading="lazy"'} decoding="async">
         </picture>
       </div>`).join('')}
