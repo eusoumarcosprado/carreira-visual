@@ -343,6 +343,33 @@ main{position:relative;z-index:2}
 .feature p{color:rgba(255,255,255,.72);font-size:clamp(15px,1.5vw,17px);max-width:42ch;line-height:1.55}
 .feature-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px;align-items:center}
 
+/* ---------- faixa Ateliê Prado (loja de quadros) ---------- */
+.atelie{display:block;position:relative;margin-inline:var(--gutter);border-radius:20px;overflow:hidden;
+  background:var(--surface);border:1px solid var(--line);
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease)}
+.atelie img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.atelie-cta{position:absolute;right:clamp(14px,2.2vw,26px);bottom:clamp(14px,2.2vw,26px);z-index:2;
+  display:inline-flex;align-items:center;gap:9px;height:44px;padding:0 22px;border-radius:999px;
+  background:var(--orange);color:#0b0708;font-size:14px;font-weight:600;letter-spacing:-.01em;white-space:nowrap;
+  box-shadow:0 10px 30px rgba(255,109,41,.34);
+  transition:transform .35s var(--ease),background .35s var(--ease)}
+.atelie-cta svg{width:16px;height:16px;flex:0 0 auto;transition:transform .35s var(--ease)}
+.atelie:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.22);
+  box-shadow:0 26px 60px -24px rgba(0,0,0,.85)}
+.atelie:hover .atelie-cta{background:#ff8347}
+.atelie:hover .atelie-cta svg{transform:translateX(4px)}
+.atelie:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+@media(max-width:700px){
+  /* o banner vertical já traz o texto dele, então o botão sai de cima da arte */
+  .atelie img{aspect-ratio:2/3}
+  .atelie-cta{position:static;justify-content:center;width:auto;height:46px;
+    margin:14px clamp(14px,4vw,20px) clamp(14px,4vw,20px);font-size:14.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  .atelie,.atelie-cta,.atelie-cta svg{transition:none}
+  .atelie:hover{transform:none}
+}
+
 /* botão Instagram — exclusivo desta seção */
 .btn-ig{position:relative;display:inline-flex;align-items:center;gap:11px;height:52px;padding:0 26px;
   border-radius:999px;font-size:15px;font-weight:600;letter-spacing:-.01em;color:#fff;white-space:nowrap;
@@ -630,7 +657,8 @@ const CONFIG = {
     vintagefilm: '/vintagefilm',
     presets:     '/presets-fuji',
     iniciantes:  '/fotografia-para-iniciantes',
-    janela:      '/janela-de-oportunidade'
+    janela:      '/janela-de-oportunidade',
+    atelie:      '/atelie-prado'
   },
 
   /* IDs dos vídeos do YouTube — trocar pelos reais (ex.: 'dQw4w9WgXcQ') */
@@ -1004,6 +1032,16 @@ function startHero(){
 function viewHome(){
   return heroHTML()
   + `<div class="section">${ROWS.map(rowBlock).join('')}
+      <section class="row reveal">
+        <div class="row-head"><h2>Quadros Fine Art</h2><a class="more" href="${CONFIG.links.atelie}">Ver tudo ${ICONS.arrow}</a></div>
+        <a class="atelie" href="${CONFIG.links.atelie}" aria-label="Ateliê Prado — acervo de impressões fine art">
+          <picture>
+            <source media="(max-width:700px)" srcset="images/atelieprado.webp">
+            <img src="images/atelieprado_h.webp" alt="Ateliê Prado: fotografias autorais do Rio, impressas em papel fine art ou canvas e montadas sob encomenda." loading="lazy" decoding="async">
+          </picture>
+          <span class="atelie-cta">Ver o acervo ${ICONS.arrow}</span>
+        </a>
+      </section>
       <section class="row reveal">
         <div class="row-head"><h2>Assista gratuitamente</h2><a class="more" href="#/assistir">Ver tudo ${ICONS.arrow}</a></div>
         ${rail(VIDEOS, cardVid)}
